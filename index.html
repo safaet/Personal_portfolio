@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/form.css">
 </head>
 
 <body>
@@ -22,18 +23,53 @@
                 href="https://docs.google.com/document/d/1aM0sWMFor3ikh2re4IGAD2pBLhWtCcTt/edit?usp=sharing&ouid=116401156739026781743&rtpof=true&sd=true">CV</a>
         </li>
         <li><a href="blog.html">Blog</a></li>
-        <li><a href="#home">Home</a></li>
+        <li><a href="index.html">Home</a></li>
     </ul>
     <section>
         <div class="half-width">
             <h1>Welcome To</h1>
             <h1><span class="blue-color">Safaet's</span> Planets</h1>
             <h3>Build Climber and Train Stopper</h3>
-            <p>My about</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia sed
+                dolorem fugit sapiente porro veniam pariatur dolore nostrum delectus
+                inventore tempore minus nemo, iste ullam illo laboriosam maiores
+                repudiandae quos!</p>
             <a class="link-button" target="_blank" href="https://www.linkedin.com/in/safaet-jaman/">Hire Me</a>
         </div>
         <div class="half width">
             <img src="images/profile_photo.png">
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+
+        <h2>Get In Touch With Me</h2>
+        <div class="contact-form-container">
+            <div class="contact-form">
+                <script type="text/javascript">var submitted = false;</script>
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display: none" onload="if(submitted){
+                                    window.location='https://www.google.com/';}"></iframe>
+                <form
+                    action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfontkS7zWU5-L9K0YCeSmrt5eXTwXX-G9PtXW_HB_25u5EWw/formResponse"
+                    method="POST">
+                    <div class="form-control">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="entry.808355440" placeholder="Enter Your Name"
+                            class="input-field" required />
+                    </div>
+                    <div class="form-control">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="entry.1891566930" placeholder="Enter Your Email"
+                            class="input-field" required />
+                    </div>
+                    <div class="form-control">
+                        <label for="message">Message</label>
+                        <textarea id="message" cols="60" rows="10" placeholder="Enter Your Message"
+                            name="entry.1052412309" class="input-field" required></textarea>
+                    </div>
+                    <input type="submit" value="Submit" id="submit-btn" class="submit-btn" />
+                </form>
+            </div>
         </div>
     </section>
 </body>
