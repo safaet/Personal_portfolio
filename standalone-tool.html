@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Development Analyzer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const PersonalDevelopmentAnalyzer = () => {
+            const [activeTab, setActiveTab] = useState('personal');
+            const [saveStatus, setSaveStatus] = useState('saved');
+            const [isLoading, setIsLoading] = useState(true);
+            
+            const [analysisData, setAnalysisData] = useState({
+                personal: {
+                    physicalHealth: '', mentalHealth: '', financialHealth: '', 
+                    careerSkills: '', personalGoals: '', score: 5,
+                    strengths: '', growthAreas: '', actions30: '', actions90: ''
+                },
+                family: {
+                    timeInvestment: '', emotionalSupport: '', financialContribution: '',
+                    communicationQuality: '', futurePlanning: '', score: 5,
+                    strengths: '', growthAreas: '', actions30: '', actions90: ''
+                },
+                friends: {
+                    connectionFrequency: '', supportGiven: '', supportReceived: '',
+                    qualityFriendships: '', socialEnergy: '', score: 5,
+                    strengths: '', growthAreas: '', actions30: '', actions90: ''
+                },
+                social: {
+                    communityInvolvement: '', professionalNetwork: '', civicEngagement: '',
+                    environmentalAwareness: '', knowledgeSharing: '', score: 5,
+                    strengths: '', growthAreas: '', actions30: '', actions90: ''
+                },
+                relatives: {
+                    extendedFamilyBonds: '', obligationManagement: '', celebrationParticipation: '',
+                    elderCare: '', conflictResolution: '', score: 5,
+                    strengths: '', growthAreas: '', actions30: '', actions90: ''
+                },
+                overview: {
+                    topPriority1: '', topPriority2: '', topPriority3: '',
+                    reflectionBalance: '', reflectionImpact: '', reflectionConflict: '', reflectionPatterns: ''
+                }
+            });
+
+            useEffect(() => {
+                loadData();
+            }, []);
+
+            useEffect(() => {
+                if (!isLoading) {
+                    saveData();
+                }
+            }, [analysisData, isLoading]);
+
+            const loadData = () => {
+                try {
+                    const saved = localStorage.getItem('personal-dev-analysis');
+                    if (saved) {
+                        setAnalysisData(JSON.parse(saved));
+                    }
+                } catch (error) {
+                    console.log('No saved data found');
+                } finally {
+                    setIsLoading(false);
+                }
+            };
+
+            const saveData = () => {
+                setSaveStatus('saving');
+                try {
+                    localStorage.setItem('personal-dev-analysis', JSON.stringify(analysisData));
+                    setSaveStatus('saved');
+                    setTimeout(() => setSaveStatus(''), 2000);
+                } catch (error) {
+                    console.error('Error saving:', error);
+                    setSaveStatus('error');
+                }
+            };
+
+            const resetData = () => {
+                if (window.confirm('Reset all data? This cannot be undone.')) {
+                    localStorage.removeItem('personal-dev-analysis');
+                    setAnalysisData({
+                        personal: { physicalHealth: '', mentalHealth: '', financialHealth: '', careerSkills: '', personalGoals: '', score: 5, strengths: '', growthAreas: '', actions30: '', actions90: '' },
+                        family: { timeInvestment: '', emotionalSupport: '', financialContribution: '', communicationQuality: '', futurePlanning: '', score: 5, strengths: '', growthAreas: '', actions30: '', actions90: '' },
+                        friends: { connectionFrequency: '', supportGiven: '', supportReceived: '', qualityFriendships: '', socialEnergy: '', score: 5, strengths: '', growthAreas: '', actions30: '', actions90: '' },
+                        social: { communityInvolvement: '', professionalNetwork: '', civicEngagement: '', environmentalAwareness: '', knowledgeSharing: '', score: 5, strengths: '', growthAreas: '', actions30: '', actions90: '' },
+                        relatives: { extendedFamilyBonds: '', obligationManagement: '', celebrationParticipation: '', elderCare: '', conflictResolution: '', score: 5, strengths: '', growthAreas: '', actions30: '', actions90: '' },
+                        overview: { topPriority1: '', topPriority2: '', topPriority3: '', reflectionBalance: '', reflectionImpact: '', reflectionConflict: '', reflectionPatterns: '' }
+                    });
+                    alert('All data reset!');
+                }
+            };
+
+            const tabs = [
+                { id: 'personal', label: 'Personal', icon: '👤' },
+                { id: 'family', label: 'Family', icon: '👨‍👩‍👧‍👦' },
+                { id: 'friends', label: 'Friends', icon: '🤝' },
+                { id: 'social', label: 'Social', icon: '🌍' },
+                { id: 'relatives', label: 'Relatives', icon: '👪' },
+                { id: 'overview', label: 'Overview', icon: '📊' }
+            ];
+
+            const questions = {
+                personal: [
+                    { key: 'physicalHealth', label: 'Physical Health', placeholder: 'How well are you maintaining your body? (exercise, nutrition, sleep)' },
+                    { key: 'mentalHealth', label: 'Mental Health', placeholder: 'What\'s your emotional wellbeing and stress management like?' },
+                    { key: 'financialHealth', label: 'Financial Health', placeholder: 'Are you managing money wisely? (savings, investments, debt)' },
+                    { key: 'careerSkills', label: 'Career/Skills', placeholder: 'Are you growing professionally and learning new skills?' },
+                    { key: 'personalGoals', label: 'Personal Goals', placeholder: 'What progress have you made on your individual aspirations?' }
+                ],
+                family: [
+                    { key: 'timeInvestment', label: 'Time Investment', placeholder: 'How much quality time do you spend with immediate family?' },
+                    { key: 'emotionalSupport', label: 'Emotional Support', placeholder: 'Are you present for their emotional needs?' },
+                    { key: 'financialContribution', label: 'Financial Contribution', placeholder: 'Are you meeting your family\'s financial responsibilities?' },
+                    { key: 'communicationQuality', label: 'Communication Quality', placeholder: 'How open and healthy are your family conversations?' },
+                    { key: 'futurePlanning', label: 'Future Planning', placeholder: 'Are you planning for family security and growth?' }
+                ],
+                friends: [
+                    { key: 'connectionFrequency', label: 'Connection Frequency', placeholder: 'How often do you genuinely connect with friends?' },
+                    { key: 'supportGiven', label: 'Support Given', placeholder: 'Are you there when friends need you?' },
+                    { key: 'supportReceived', label: 'Support Received', placeholder: 'Do you allow friends to support you?' },
+                    { key: 'qualityFriendships', label: 'Quality of Friendships', placeholder: 'Are your friendships meaningful and reciprocal?' },
+                    { key: 'socialEnergy', label: 'Social Energy', placeholder: 'Are you maintaining friendships without burnout?' }
+                ],
+                social: [
+                    { key: 'communityInvolvement', label: 'Community Involvement', placeholder: 'How do you contribute to your community?' },
+                    { key: 'professionalNetwork', label: 'Professional Network', placeholder: 'Are you building meaningful professional relationships?' },
+                    { key: 'civicEngagement', label: 'Civic Engagement', placeholder: 'Do you participate in social causes or volunteering?' },
+                    { key: 'environmentalAwareness', label: 'Environmental Awareness', placeholder: 'What\'s your impact on the environment?' },
+                    { key: 'knowledgeSharing', label: 'Knowledge Sharing', placeholder: 'Are you contributing your skills to help others?' }
+                ],
+                relatives: [
+                    { key: 'extendedFamilyBonds', label: 'Extended Family Bonds', placeholder: 'How connected are you with extended relatives?' },
+                    { key: 'obligationManagement', label: 'Obligation Management', placeholder: 'Are you fulfilling cultural/familial expectations appropriately?' },
+                    { key: 'celebrationParticipation', label: 'Celebration Participation', placeholder: 'Do you show up for important family events?' },
+                    { key: 'elderCare', label: 'Elder Care', placeholder: 'Are you supporting older relatives who may need help?' },
+                    { key: 'conflictResolution', label: 'Conflict Resolution', placeholder: 'How well do you handle family tensions or disagreements?' }
+                ]
+            };
+
+            const updateField = (category, field, value) => {
+                setAnalysisData(prev => ({
+                    ...prev,
+                    [category]: { ...prev[category], [field]: value }
+                }));
+            };
+
+            const downloadReport = () => {
+                const date = new Date().toLocaleDateString();
+                let report = `PERSONAL DEVELOPMENT ANALYSIS REPORT\nGenerated: ${date}\n${'='.repeat(60)}\n\n`;
+                
+                ['personal', 'family', 'friends', 'social', 'relatives'].forEach(category => {
+                    const data = analysisData[category];
+                    report += `${category.toUpperCase()} RESPONSIBILITY\n${'-'.repeat(60)}\n`;
+                    report += `Satisfaction Score: ${data.score}/10\n\n`;
+                    report += `Strengths: ${data.strengths || 'Not specified'}\n`;
+                    report += `Growth Areas: ${data.growthAreas || 'Not specified'}\n`;
+                    report += `30-Day Actions: ${data.actions30 || 'Not specified'}\n`;
+                    report += `90-Day Actions: ${data.actions90 || 'Not specified'}\n\n`;
+                });
+                
+                const blob = new Blob([report], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `personal-dev-${new Date().toISOString().split('T')[0]}.txt`;
+                a.click();
+            };
+
+            const renderCategoryTab = (category) => {
+                const data = analysisData[category];
+                const categoryQuestions = questions[category];
+
+                return (
+                    <div className="space-y-6">
+                        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg">
+                            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                                {category.charAt(0).toUpperCase() + category.slice(1)} Responsibility
+                            </h2>
+                            <div className="mb-6">
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                    Satisfaction Score: {data.score}/10
+                                </label>
+                                <input type="range" min="0" max="10" value={data.score}
+                                    onChange={(e) => updateField(category, 'score', parseInt(e.target.value))}
+                                    className="w-full h-2 bg-gray-200 rounded-lg cursor-pointer" />
+                            </div>
+                        </div>
+
+                        <div className="space-y-4">
+                            <h3 className="text-lg font-semibold text-gray-800">Current State Assessment</h3>
+                            {categoryQuestions.map(q => (
+                                <div key={q.key}>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">{q.label}</label>
+                                    <textarea value={data[q.key]}
+                                        onChange={(e) => updateField(category, q.key, e.target.value)}
+                                        placeholder={q.placeholder}
+                                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 resize-none"
+                                        rows="2" />
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="space-y-4 bg-yellow-50 p-6 rounded-lg">
+                            <h3 className="text-lg font-semibold text-gray-800">Analysis & Planning</h3>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Key Strengths</label>
+                                <textarea value={data.strengths} onChange={(e) => updateField(category, 'strengths', e.target.value)}
+                                    placeholder="What's working well?" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 resize-none" rows="2" />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Growth Areas</label>
+                                <textarea value={data.growthAreas} onChange={(e) => updateField(category, 'growthAreas', e.target.value)}
+                                    placeholder="Where do you need improvement?" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 resize-none" rows="2" />
+                            </div>
+                            <div className="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">30-Day Actions</label>
+                                    <textarea value={data.actions30} onChange={(e) => updateField(category, 'actions30', e.target.value)}
+                                        placeholder="Next 30 days?" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 resize-none" rows="3" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">90-Day Actions</label>
+                                    <textarea value={data.actions90} onChange={(e) => updateField(category, 'actions90', e.target.value)}
+                                        placeholder="Next 90 days?" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 resize-none" rows="3" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
+            const renderOverview = () => {
+                const scores = {
+                    Personal: analysisData.personal.score,
+                    Family: analysisData.family.score,
+                    Friends: analysisData.friends.score,
+                    Social: analysisData.social.score,
+                    Relatives: analysisData.relatives.score
+                };
+                const avgScore = Object.values(scores).reduce((a, b) => a + b, 0) / 5;
+
+                return (
+                    <div className="space-y-6">
+                        <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg">
+                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Holistic Overview</h2>
+                            <div className="text-3xl font-bold text-purple-600">Overall Balance: {avgScore.toFixed(1)}/10</div>
+                        </div>
+
+                        <div className="bg-white p-6 rounded-lg shadow-md">
+                            <h3 className="text-lg font-semibold text-gray-800 mb-4">Life Balance Wheel</h3>
+                            <div className="space-y-3">
+                                {Object.entries(scores).map(([area, score]) => (
+                                    <div key={area}>
+                                        <div className="flex justify-between mb-1">
+                                            <span className="text-sm font-medium text-gray-700">{area}</span>
+                                            <span className="text-sm font-bold text-gray-900">{score}/10</span>
+                                        </div>
+                                        <div className="w-full bg-gray-200 rounded-full h-4">
+                                            <div className="bg-gradient-to-r from-blue-500 to-purple-500 h-4 rounded-full transition-all"
+                                                style={{ width: `${(score / 10) * 100}%` }} />
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="bg-green-50 p-6 rounded-lg">
+                            <h3 className="text-lg font-semibold text-gray-800 mb-4">Reflection Questions</h3>
+                            <div className="space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Which area is most out of balance?</label>
+                                    <textarea value={analysisData.overview.reflectionBalance}
+                                        onChange={(e) => updateField('overview', 'reflectionBalance', e.target.value)}
+                                        className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 resize-none" rows="2" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Which area would have biggest impact if improved?</label>
+                                    <textarea value={analysisData.overview.reflectionImpact}
+                                        onChange={(e) => updateField('overview', 'reflectionImpact', e.target.value)}
+                                        className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 resize-none" rows="2" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Are any areas in conflict?</label>
+                                    <textarea value={analysisData.overview.reflectionConflict}
+                                        onChange={(e) => updateField('overview', 'reflectionConflict', e.target.value)}
+                                        className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 resize-none" rows="2" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="bg-blue-50 p-6 rounded-lg">
+                            <h3 className="text-lg font-semibold text-gray-800 mb-4">Top 3 Priority Goals</h3>
+                            <div className="space-y-3">
+                                {[1, 2, 3].map(num => (
+                                    <div key={num}>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">Priority {num}</label>
+                                        <input type="text" value={analysisData.overview[`topPriority${num}`]}
+                                            onChange={(e) => updateField('overview', `topPriority${num}`, e.target.value)}
+                                            placeholder={`Goal ${num}`} className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500" />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="flex gap-4">
+                            <button onClick={downloadReport}
+                                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 font-semibold">
+                                📥 Download Report
+                            </button>
+                            <button onClick={resetData}
+                                className="flex items-center gap-2 px-6 py-3 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 font-semibold border border-red-300">
+                                🔄 Reset Data
+                            </button>
+                        </div>
+                    </div>
+                );
+            };
+
+            if (isLoading) {
+                return (
+                    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center">
+                        <div className="text-center">
+                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                            <p className="text-gray-600">Loading...</p>
+                        </div>
+                    </div>
+                );
+            }
+
+            return (
+                <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 p-4">
+                    <div className="max-w-6xl mx-auto">
+                        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                            <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <h1 className="text-3xl font-bold mb-2">📈 Personal Development Analyzer</h1>
+                                        <p className="text-blue-100">Track and improve across 5 key life areas</p>
+                                    </div>
+                                    {saveStatus === 'saved' && (
+                                        <div className="flex items-center gap-2 bg-green-500 px-3 py-1.5 rounded-full">
+                                            <span className="text-sm">✓ Saved!</span>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+
+                            <div className="border-b border-gray-200 bg-gray-50">
+                                <div className="flex overflow-x-auto">
+                                    {tabs.map(tab => (
+                                        <button key={tab.id} onClick={() => setActiveTab(tab.id)}
+                                            className={`flex items-center gap-2 px-6 py-4 font-medium transition-all whitespace-nowrap ${
+                                                activeTab === tab.id ? 'bg-white text-blue-600 border-b-2 border-blue-600' : 'text-gray-600 hover:bg-gray-100'
+                                            }`}>
+                                            <span className="text-xl">{tab.icon}</span>
+                                            {tab.label}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="p-6">
+                                {activeTab === 'overview' ? renderOverview() : renderCategoryTab(activeTab)}
+                            </div>
+                        </div>
+
+                        <div className="mt-6 text-center text-sm text-gray-600">
+                            <p>📅 Review regularly for best results • 💾 Auto-saves in your browser</p>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<PersonalDevelopmentAnalyzer />, document.getElementById('root'));
+    </script>
+</body>
+</html>
