@@ -1,0 +1,13 @@
+{
+  "name": "personal-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": ["portfolio"],
+  "author": "",
+  "license": "ISC"
+}
