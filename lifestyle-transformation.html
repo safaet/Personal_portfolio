@@ -1,0 +1,630 @@
+
+<h2 class="sr-only">Complete Islamic Lifestyle Transformation Plan for a Bangladeshi Muslim Student and Job Seeker</h2>
+<style>
+:root{
+  /* Primary Colors */
+  --color-primary: #2563eb;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #1d4ed8;
+  
+  /* Neutrals */
+  --color-white: #ffffff;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-900: #111827;
+  
+  /* Semantic Colors */
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f9fafb;
+  --color-background-info: #dbeafe;
+  --color-background-success: #dcfce7;
+  --color-background-warning: #fef3c7;
+  --color-background-danger: #fee2e2;
+  
+  --color-border-secondary: #d1d5db;
+  --color-border-tertiary: #e5e7eb;
+  
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+  --color-text-info: #1d4ed8;
+  --color-text-success: #16a34a;
+  --color-text-warning: #b45309;
+  --color-text-danger: #dc2626;
+  
+  /* Border Radius */
+  --border-radius-md: 0.375rem;
+  --border-radius-lg: 0.5rem;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans)}
+.container{padding:1.5rem 1rem;max-width:680px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem}
+.tab{padding:6px 12px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);font-size:12px;cursor:pointer;background:var(--color-background-secondary);color:var(--color-text-secondary);transition:all .15s}
+.tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent}
+.section{display:none}
+.section.active{display:block}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem}
+.card-title{font-size:15px;font-weight:500;margin-bottom:.75rem;color:var(--color-text-primary)}
+.badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:var(--border-radius-md);font-weight:500;margin-right:4px}
+.badge-green{background:var(--color-background-success);color:var(--color-text-success)}
+.badge-blue{background:var(--color-background-info);color:var(--color-text-info)}
+.badge-amber{background:var(--color-background-warning);color:var(--color-text-warning)}
+.badge-red{background:var(--color-background-danger);color:var(--color-text-danger)}
+.badge-gray{background:var(--color-background-secondary);color:var(--color-text-secondary)}
+.row{display:flex;gap:8px;margin-bottom:6px;align-items:flex-start}
+.time-label{font-size:12px;color:var(--color-text-secondary);min-width:72px;padding-top:2px}
+.row-content{font-size:13px;color:var(--color-text-primary);line-height:1.5}
+.divider{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:.75rem 0}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:1rem}
+.stat{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.75rem 1rem}
+.stat-label{font-size:11px;color:var(--color-text-secondary);margin-bottom:4px}
+.stat-val{font-size:18px;font-weight:500;color:var(--color-text-primary)}
+.week-bar{display:flex;gap:4px;margin-bottom:1rem}
+.day-box{flex:1;text-align:center;font-size:10px;padding:6px 2px;border-radius:6px;cursor:pointer;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);background:var(--color-background-secondary);transition:all .15s}
+.day-box.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent}
+.day-detail{display:none}
+.day-detail.active{display:block}
+.check-item{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:0.5px solid var(--color-border-tertiary);cursor:pointer}
+.check-item:last-child{border:none}
+.check-box{width:18px;height:18px;border:0.5px solid var(--color-border-secondary);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.check-box.checked{background:var(--color-background-success);border-color:transparent}
+.check-label{font-size:13px;color:var(--color-text-primary)}
+.check-label.checked{color:var(--color-text-secondary);text-decoration:line-through}
+.progress-bar{height:6px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden;margin-top:4px}
+.progress-fill{height:100%;border-radius:3px;background:var(--color-text-success);transition:width .3s}
+.habit-item{padding:.6rem 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.habit-item:last-child{border:none}
+.habit-name{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px}
+.habit-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+.rule-item{display:flex;gap:10px;padding:.5rem 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.rule-item:last-child{border:none}
+.rule-num{font-size:12px;font-weight:500;color:var(--color-text-info);min-width:20px}
+.rule-text{font-size:13px;color:var(--color-text-primary);line-height:1.5}
+.sleep-row{display:grid;grid-template-columns:80px 1fr;gap:8px;align-items:center;margin-bottom:8px}
+.sleep-week{font-size:12px;font-weight:500;color:var(--color-text-primary)}
+.sleep-track{height:18px;background:var(--color-background-secondary);border-radius:4px;position:relative;overflow:hidden}
+.sleep-block{height:100%;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;color:#fff}
+.review-field{width:100%;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);padding:8px;font-size:13px;color:var(--color-text-primary);background:var(--color-background-primary);resize:vertical;margin-bottom:8px;font-family:var(--font-sans)}
+.review-label{font-size:12px;color:var(--color-text-secondary);margin-bottom:4px}
+.score-btn{padding:5px 12px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);font-size:12px;cursor:pointer;background:var(--color-background-secondary);color:var(--color-text-secondary);transition:all .15s;margin-right:4px;margin-bottom:4px}
+.score-btn.sel{background:var(--color-background-success);color:var(--color-text-success);border-color:transparent}
+</style>
+
+<div class="container">
+<div class="tabs" id="tabs">
+  <button class="tab active" onclick="show('overview')">Overview</button>
+  <button class="tab" onclick="show('sleep')">Sleep Plan</button>
+  <button class="tab" onclick="show('routines')">Routines</button>
+  <button class="tab" onclick="show('weekly')">Weekly Plan</button>
+  <button class="tab" onclick="show('checklist')">Checklist</button>
+  <button class="tab" onclick="show('habits')">Habits</button>
+  <button class="tab" onclick="show('review')">Review</button>
+  <button class="tab" onclick="show('rules')">Rules</button>
+</div>
+
+<!-- OVERVIEW -->
+<div id="overview" class="section active">
+  <div class="card">
+    <div class="card-title">Current stage analysis</div>
+    <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin-bottom:.75rem">
+      You sleep at 5:00 AM and wake at 12:00 PM — a reversed sleep cycle that misses all morning prayer times, destroys morning productivity, and disconnects you from a natural rhythm. You miss Fajr, Tahajjud, and the most focused study hours of the day.
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-label">Sleep time</div><div class="stat-val" style="color:var(--color-text-danger)">5:00 AM</div></div>
+      <div class="stat"><div class="stat-label">Wake time</div><div class="stat-val" style="color:var(--color-text-danger)">12:00 PM</div></div>
+      <div class="stat"><div class="stat-label">Prayers missed</div><div class="stat-val" style="color:var(--color-text-danger)">2–3 / day</div></div>
+      <div class="stat"><div class="stat-label">Study quality</div><div class="stat-val" style="color:var(--color-text-danger)">Low</div></div>
+    </div>
+    <div class="divider"></div>
+    <div class="card-title">Problems caused by current habits</div>
+    <div class="habit-item"><div class="habit-name"><span class="badge badge-red">Critical</span> Missing Fajr & Tahajjud</div><div class="habit-desc">Spiritual disconnect; losing barakah (blessings) in your day. The morning is the most blessed time.</div></div>
+    <div class="habit-item"><div class="habit-name"><span class="badge badge-red">Critical</span> Reversed sleep cycle</div><div class="habit-desc">Your brain is in its worst state at night. The most productive, focused hours (6–10 AM) are completely wasted.</div></div>
+    <div class="habit-item"><div class="habit-name"><span class="badge badge-amber">High</span> Late-night phone scrolling</div><div class="habit-desc">This is the #1 reason you sleep at 5 AM. It stimulates the brain and destroys sleep signals.</div></div>
+    <div class="habit-item"><div class="habit-name"><span class="badge badge-amber">High</span> No daily planning</div><div class="habit-desc">Without a plan, every day feels random. Tasks pile up and anxiety grows.</div></div>
+    <div class="habit-item"><div class="habit-name"><span class="badge badge-gray">Medium</span> Irregular meals & exercise</div><div class="habit-desc">Low energy, poor focus, and weak immunity follow from unstructured eating and no movement.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Goal stage vision</div>
+    <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin-bottom:.75rem">
+      Your target self is a disciplined, practicing Muslim who uses time as an asset — not a resource to survive. You wake before Fajr, fill the morning with worship and deep study, and spend the day building a professional career.
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-label">Sleep time</div><div class="stat-val" style="color:var(--color-text-success)">10:30 PM</div></div>
+      <div class="stat"><div class="stat-label">Wake time</div><div class="stat-val" style="color:var(--color-text-success)">Before Fajr</div></div>
+      <div class="stat"><div class="stat-label">Prayers on time</div><div class="stat-val" style="color:var(--color-text-success)">5 / day</div></div>
+      <div class="stat"><div class="stat-label">Study quality</div><div class="stat-val" style="color:var(--color-text-success)">High</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLEEP PLAN -->
+<div id="sleep" class="section">
+  <div class="card">
+    <div class="card-title">5-week sleep correction plan</div>
+    <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:1rem">Shift your sleep 1–1.5 hours earlier each week. Never jump more than 90 minutes at once.</div>
+
+    <div class="sleep-row"><div class="sleep-week">Now</div><div><div class="sleep-track"><div class="sleep-block" style="width:55%;background:#A32D2D">Sleep 5 AM → Wake 12 PM</div></div></div></div>
+    <div class="sleep-row"><div class="sleep-week">Week 1</div><div><div class="sleep-track"><div class="sleep-block" style="width:50%;background:#B85F1E">Sleep 3:30 AM → Wake 10:30 AM</div></div></div></div>
+    <div class="sleep-row"><div class="sleep-week">Week 2</div><div><div class="sleep-track"><div class="sleep-block" style="width:44%;background:#B07A10">Sleep 2 AM → Wake 9 AM</div></div></div></div>
+    <div class="sleep-row"><div class="sleep-week">Week 3</div><div><div class="sleep-track"><div class="sleep-block" style="width:38%;background:#0F6E56">Sleep 12:30 AM → Wake 7:30 AM</div></div></div></div>
+    <div class="sleep-row"><div class="sleep-week">Week 4</div><div><div class="sleep-track"><div class="sleep-block" style="width:31%;background:#185FA5">Sleep 11 PM → Wake 5 AM</div></div></div></div>
+    <div class="sleep-row"><div class="sleep-week">Week 5+</div><div><div class="sleep-track"><div class="sleep-block" style="width:26%;background:#3C3489">Sleep 10:30 PM → Wake 4 AM</div></div></div></div>
+  </div>
+
+  <div id="week-tabs" class="week-bar">
+    <div class="day-box active" onclick="showWeek(1)">Wk 1</div>
+    <div class="day-box" onclick="showWeek(2)">Wk 2</div>
+    <div class="day-box" onclick="showWeek(3)">Wk 3</div>
+    <div class="day-box" onclick="showWeek(4)">Wk 4</div>
+    <div class="day-box" onclick="showWeek(5)">Wk 5+</div>
+  </div>
+
+  <div id="wk1" class="day-detail active card">
+    <div class="card-title">Week 1 — First shift</div>
+    <div class="row"><div class="time-label">Sleep by</div><div class="row-content"><strong>3:30 AM</strong></div></div>
+    <div class="row"><div class="time-label">Wake by</div><div class="row-content"><strong>10:30 AM</strong></div></div>
+    <div class="row"><div class="time-label">Main focus</div><div class="row-content">Stop phone at 2:30 AM. Pray Dhuhr, Asr, Maghrib, Isha on time.</div></div>
+    <div class="row"><div class="time-label">Avoid</div><div class="row-content">Social media after 2 AM. Caffeine after midnight.</div></div>
+    <div class="row"><div class="time-label">If I fail</div><div class="row-content">Don't give up. Just wake at 10:30 AM anyway — even if you slept late. Sleep pressure builds and makes next night easier.</div></div>
+  </div>
+  <div id="wk2" class="day-detail card" style="display:none">
+    <div class="card-title">Week 2 — Building momentum</div>
+    <div class="row"><div class="time-label">Sleep by</div><div class="row-content"><strong>2:00 AM</strong></div></div>
+    <div class="row"><div class="time-label">Wake by</div><div class="row-content"><strong>9:00 AM</strong></div></div>
+    <div class="row"><div class="time-label">Main focus</div><div class="row-content">Pray Fajr at its time. Begin a 10-minute morning Quran habit after Fajr.</div></div>
+    <div class="row"><div class="time-label">Avoid</div><div class="row-content">Scrolling after 1 AM. Keep phone in another room at night.</div></div>
+    <div class="row"><div class="time-label">If I fail</div><div class="row-content">Force the wake time regardless. One bad night does not erase a week of progress.</div></div>
+  </div>
+  <div id="wk3" class="day-detail card" style="display:none">
+    <div class="card-title">Week 3 — Crossing midnight</div>
+    <div class="row"><div class="time-label">Sleep by</div><div class="row-content"><strong>12:30 AM</strong></div></div>
+    <div class="row"><div class="time-label">Wake by</div><div class="row-content"><strong>7:30 AM</strong></div></div>
+    <div class="row"><div class="time-label">Main focus</div><div class="row-content">Begin a 15-minute walk after Fajr. Add a daily to-do list before 8 AM.</div></div>
+    <div class="row"><div class="time-label">Avoid</div><div class="row-content">Napping after Dhuhr for more than 20 minutes (Qaylulah is sunnah — keep it short).</div></div>
+    <div class="row"><div class="time-label">If I fail</div><div class="row-content">Text a friend your target wake time the night before. Accountability accelerates habit.</div></div>
+  </div>
+  <div id="wk4" class="day-detail card" style="display:none">
+    <div class="card-title">Week 4 — Pre-midnight sleep</div>
+    <div class="row"><div class="time-label">Sleep by</div><div class="row-content"><strong>11:00 PM</strong></div></div>
+    <div class="row"><div class="time-label">Wake by</div><div class="row-content"><strong>5:00 AM</strong></div></div>
+    <div class="row"><div class="time-label">Main focus</div><div class="row-content">Attempt Tahajjud 2 rakat. Pray Fajr in masjid if possible. Add morning journaling.</div></div>
+    <div class="row"><div class="time-label">Avoid</div><div class="row-content">Screen time after 9:30 PM. Heavy meals after 8 PM.</div></div>
+    <div class="row"><div class="time-label">If I fail</div><div class="row-content">Review what caused it — was it phone? Anxiety? Fix the root cause, not the symptom.</div></div>
+  </div>
+  <div id="wk5" class="day-detail card" style="display:none">
+    <div class="card-title">Week 5+ — Goal routine</div>
+    <div class="row"><div class="time-label">Sleep by</div><div class="row-content"><strong>10:30 PM</strong></div></div>
+    <div class="row"><div class="time-label">Wake by</div><div class="row-content"><strong>4:00 AM (before Fajr)</strong></div></div>
+    <div class="row"><div class="time-label">Main focus</div><div class="row-content">Protect this routine as your identity. You are a Fajr person now.</div></div>
+    <div class="row"><div class="time-label">Protect it</div><div class="row-content">Even on weekends, sleep max 1 hour later. Consistency is the goal.</div></div>
+    <div class="row"><div class="time-label">If I fail</div><div class="row-content">One missed day is a pause, not a failure. Resume the next day without guilt.</div></div>
+  </div>
+</div>
+
+<!-- ROUTINES -->
+<div id="routines" class="section">
+  <div class="week-bar">
+    <div class="day-box active" onclick="showRoutine('beginner')">Beginner</div>
+    <div class="day-box" onclick="showRoutine('transition')">Transition</div>
+    <div class="day-box" onclick="showRoutine('goal')">Goal</div>
+  </div>
+
+  <div id="routine-beginner" class="day-detail active card">
+    <div class="card-title">Beginner routine <span class="badge badge-amber">Current stage</span></div>
+    <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:.75rem">For when you're still waking around 10:30–11 AM. Focus: don't miss prayers, study 1–2 hours, sleep 30 min earlier.</div>
+    <div class="row"><div class="time-label">10:30 AM</div><div class="row-content"><span class="badge badge-blue">Spiritual</span> Wake up. Drink water. Make wudu. Pray Dhuhr (if Fajr was missed, make it up quietly).</div></div>
+    <div class="row"><div class="time-label">11:00 AM</div><div class="row-content"><span class="badge badge-gray">Health</span> Light breakfast. 10-min walk or stretching.</div></div>
+    <div class="row"><div class="time-label">11:30 AM</div><div class="row-content"><span class="badge badge-green">Planning</span> Write 3 tasks for today. Check messages briefly (15 min only).</div></div>
+    <div class="row"><div class="time-label">12:00 PM</div><div class="row-content"><span class="badge badge-blue">Spiritual</span> Dhuhr prayer on time.</div></div>
+    <div class="row"><div class="time-label">12:15 PM</div><div class="row-content"><span class="badge badge-amber">Study</span> Academic study — 1 focused hour (Pomodoro: 25 min on, 5 min off).</div></div>
+    <div class="row"><div class="time-label">1:15 PM</div><div class="row-content"><span class="badge badge-gray">Break</span> Lunch. Short rest (20 min max).</div></div>
+    <div class="row"><div class="time-label">2:00 PM</div><div class="row-content"><span class="badge badge-amber">Study</span> AI/ML or job prep — 45 minutes.</div></div>
+    <div class="row"><div class="time-label">3:00 PM</div><div class="row-content"><span class="badge badge-blue">Spiritual</span> Asr prayer on time.</div></div>
+    <div class="row"><div class="time-label">3:15 PM</div><div class="row-content"><span class="badge badge-amber">Career</span> Job search — 30 min. Check 2 job boards. Save 1–2 positions.</div></div>
+    <div class="row"><div class="time-label">4:00 PM</div><div class="row-content"><span class="badge badge-gray">Tuition</span> Tuition prep or teaching.</div></div>
+    <div class="row"><div class="time-label">6:00 PM</div><div class="row-content"><span class="badge badge-blue">Spiritual</span> Maghrib prayer on time. 5-min dhikr.</div></div>
+    <div class="row"><div class="time-label">6:30 PM</div><div class="row-content"><span class="badge badge-amber">Study</span> Light study or reading (45 min).</div></div>
+    <div class="row"><div class="time-label">7:30 PM</div><div class="row-content"><span class="badge badge-gray">Family</span> Dinner. Family time.</div></div>
+    <div class="row"><div class="time-label">8:30 PM</div><div class="row-content"><span class="badge badge-blue">Spiritual</span> Isha prayer on time.</div></div>
+    <div class="row"><div class="time-label">9:00 PM</div><div class="row-content"><span class="badge badge-green">Review</span> Daily review — 10 min. Check tasks done. Plan tomorrow.</div></div>
+    <div class="row"><div class="time-label">9:30 PM</div><div class="row-content"><span class="badge badge-blue">Quran</span> Read 1 page Quran. Light reading or Islamic content only.</div></div>
+    <div class="row"><div class="time-label">10:30 PM</div><div class="row-content"><span class="badge badge-gray">Wind down</span> Phone off/away. Read or make dua. Target sleep: 11:30 PM (reducing each week).</div></div>
+  </div>
+
+  <div id="routine-transition" class="day-detail card" style="display:none">
+    <div class="card-title">Transition routine <span class="badge badge-blue">Weeks 2–4</span></div>
+    <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:.75rem">For when you're waking 7–9 AM. Fajr is now possible. Add Quran and deeper study blocks.</div>
+    <div class="row"><div class="time-label">5:30 AM</div><div class="row-content"><span class="badge badge-blue">Spiritual</span> Wake up. Wudu. Fajr prayer. 5 min dua.</div></div>
+    <div class="row"><div class="time-label">6:00 AM</div><div class="row-content"><span class="badge badge-blue">Quran</span> Quran recitation — 15 min. 1 hadith reading.</div></div>
+    <div class="row"><div class="time-label">6:30 AM</div><div class="row-content"><span class="badge badge-gray">Health</span> Walk 20–30 min. Breakfast.</div></div>
+    <div class="row"><div class="time-label">7:30 AM</div><div class="row-content"><span class="badge badge-green">Planning</span> Write today's plan. Set 3 priorities.</div></div>
+    <div class="row"><div class="time-label">8:00 AM</div><div class="row-content"><span class="badge badge-amber">Deep study</span> Honours academic study — 90 min deep focus.</div></div>
+    <div class="row"><div class="time-label">9:30 AM</div><div class="row-content"><span class="badge badge-amber">Career</span> AI/ML or coding — 60 min.</div></div>
+    <div class="row"><div class="time-label">11:00 AM</div><div class="row-content"><span class="badge badge-gray">Break</span> Short break. Snack. Stretch.</div></div>
+    <div class="row"><div class="time-label">11:30 AM</div><div class="row-content"><span class="badge badge-amber">Career</span> Job search — 45 min. Apply to 1 position or improve resume.</div></div>
+    <div class="row"><div class="time-label">12:30 PM</div><div class="row-content"><span class="badge badge-blue">Spiritual</span> Dhuhr prayer. Lunch. 20-min rest (Qaylulah sunnah).</div></div>
+    <div class="row"><div class="time-label">2:00 PM</div><div class="row-content"><span class="badge badge-amber">Study</span> Academic study — 60 min.</div></div>
+    <div class="row"><div class="time-label">3:30 PM</div><div class="row-content"><span class="badge badge-blue">Spiritual</span> Asr prayer.</div></div>
+    <div class="row"><div class="time-label">3:45 PM</div><div class="row-content"><span class="badge badge-gray">Tuition</span> Tuition work.</div></div>
+    <div class="row"><div class="time-label">6:00 PM</div><div class="row-content"><span class="badge badge-blue">Spiritual</span> Maghrib prayer. Dhikr.</div></div>
+    <div class="row"><div class="time-label">6:30 PM</div><div class="row-content"><span class="badge badge-amber">Study</span> PhD/scholarship research — 45 min.</div></div>
+    <div class="row"><div class="time-label">7:30 PM</div><div class="row-content"><span class="badge badge-gray">Family</span> Dinner and family time.</div></div>
+    <div class="row"><div class="time-label">8:30 PM</div><div class="row-content"><span class="badge badge-blue">Spiritual</span> Isha prayer.</div></div>
+    <div class="row"><div class="time-label">9:00 PM</div><div class="row-content"><span class="badge badge-green">Review</span> Daily review. Tomorrow plan. Journal 3 lines.</div></div>
+    <div class="row"><div class="time-label">9:30 PM</div><div class="row-content"><span class="badge badge-blue">Wind down</span> Quran 1 page. Dua. No screens.</div></div>
+    <div class="row"><div class="time-label">10:30 PM</div><div class="row-content"><span class="badge badge-gray">Sleep</span> Sleep. Target: 11:00 PM this week.</div></div>
+  </div>
+
+  <div id="routine-goal" class="day-detail card" style="display:none">
+    <div class="card-title">Goal routine <span class="badge badge-green">Week 5+</span></div>
+    <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:.75rem">The complete Islamic professional routine. Sleep 10:30 PM, wake 4:00 AM before Fajr.</div>
+    <div class="row"><div class="time-label">4:00 AM</div><div class="row-content"><span class="badge badge-blue">Tahajjud</span> Wake. Wudu. Tahajjud — 2–4 rakat. Personal dua time.</div></div>
+    <div class="row"><div class="time-label">4:45 AM</div><div class="row-content"><span class="badge badge-blue">Fajr</span> Fajr prayer. Adhkar. Quran recitation — 20 min.</div></div>
+    <div class="row"><div class="time-label">5:30 AM</div><div class="row-content"><span class="badge badge-blue">Islamic study</span> 1 hadith study + 15 min Islamic reading.</div></div>
+    <div class="row"><div class="time-label">6:00 AM</div><div class="row-content"><span class="badge badge-gray">Health</span> Morning walk 30 min. Light exercise. Fresh air.</div></div>
+    <div class="row"><div class="time-label">6:45 AM</div><div class="row-content"><span class="badge badge-gray">Morning</span> Breakfast. Shower. Today's plan (5 min).</div></div>
+    <div class="row"><div class="time-label">7:30 AM</div><div class="row-content"><span class="badge badge-amber">Deep work</span> Honours academic study — 2 hours (peak focus window).</div></div>
+    <div class="row"><div class="time-label">9:30 AM</div><div class="row-content"><span class="badge badge-amber">Career</span> AI/ML learning — 90 min. Project work.</div></div>
+    <div class="row"><div class="time-label">11:00 AM</div><div class="row-content"><span class="badge badge-gray">Break</span> Short walk. Snack. Check messages (15 min).</div></div>
+    <div class="row"><div class="time-label">11:30 AM</div><div class="row-content"><span class="badge badge-amber">Career</span> Job applications, LinkedIn, or scholarship research — 60 min.</div></div>
+    <div class="row"><div class="time-label">12:30 PM</div><div class="row-content"><span class="badge badge-blue">Spiritual</span> Dhuhr prayer. Lunch. 20-min Qaylulah rest.</div></div>
+    <div class="row"><div class="time-label">2:00 PM</div><div class="row-content"><span class="badge badge-amber">Study</span> Academic study or tuition prep — 90 min.</div></div>
+    <div class="row"><div class="time-label">3:30 PM</div><div class="row-content"><span class="badge badge-blue">Spiritual</span> Asr prayer. Dhikr.</div></div>
+    <div class="row"><div class="time-label">4:00 PM</div><div class="row-content"><span class="badge badge-gray">Tuition</span> Tuition work.</div></div>
+    <div class="row"><div class="time-label">5:30 PM</div><div class="row-content"><span class="badge badge-amber">Career</span> PhD prep or professional reading — 45 min.</div></div>
+    <div class="row"><div class="time-label">6:15 PM</div><div class="row-content"><span class="badge badge-blue">Spiritual</span> Maghrib prayer. Extended dhikr.</div></div>
+    <div class="row"><div class="time-label">6:45 PM</div><div class="row-content"><span class="badge badge-gray">Family</span> Dinner. Family time. No screens.</div></div>
+    <div class="row"><div class="time-label">8:00 PM</div><div class="row-content"><span class="badge badge-blue">Spiritual</span> Isha prayer.</div></div>
+    <div class="row"><div class="time-label">8:30 PM</div><div class="row-content"><span class="badge badge-green">Review</span> Daily review — checklist, wins, tomorrow plan. 3-line journal.</div></div>
+    <div class="row"><div class="time-label">9:00 PM</div><div class="row-content"><span class="badge badge-blue">Wind down</span> Quran 2 pages. Dua. Gratitude. No screens.</div></div>
+    <div class="row"><div class="time-label">10:30 PM</div><div class="row-content"><span class="badge badge-gray">Sleep</span> Sleep with intention (niyyah for Tahajjud tomorrow).</div></div>
+  </div>
+</div>
+
+<!-- WEEKLY PLAN -->
+<div id="weekly" class="section">
+  <div class="week-bar" id="day-tabs">
+    <div class="day-box active" onclick="showDay('sat')">Sat</div>
+    <div class="day-box" onclick="showDay('sun')">Sun</div>
+    <div class="day-box" onclick="showDay('mon')">Mon</div>
+    <div class="day-box" onclick="showDay('tue')">Tue</div>
+    <div class="day-box" onclick="showDay('wed')">Wed</div>
+    <div class="day-box" onclick="showDay('thu')">Thu</div>
+    <div class="day-box" onclick="showDay('fri')">Fri</div>
+  </div>
+
+  <div id="day-sat" class="day-detail active card">
+    <div class="card-title">Saturday <span class="badge badge-amber">Academic + AI/ML</span></div>
+    <div class="habit-item"><div class="habit-name">Morning deep study block</div><div class="habit-desc">Honours academic — 2–3 hours. Focus on current module chapters, assignments, or exam prep.</div></div>
+    <div class="habit-item"><div class="habit-name">AI/ML learning</div><div class="habit-desc">90 min — course content (Coursera, fast.ai, or book study). Take notes. Practice 1 concept.</div></div>
+    <div class="habit-item"><div class="habit-name">Tuition</div><div class="habit-desc">Teach/prepare. This is your income — give it quality time.</div></div>
+    <div class="habit-item"><div class="habit-name">Evening</div><div class="habit-desc">Weekly review if Saturday is your week-end. Or light reading. Quran before sleep.</div></div>
+  </div>
+  <div id="day-sun" class="day-detail card" style="display:none">
+    <div class="card-title">Sunday <span class="badge badge-blue">Job prep + Coding</span></div>
+    <div class="habit-item"><div class="habit-name">Job preparation</div><div class="habit-desc">2 hours — resume editing, cover letter, LinkedIn profile improvement, or interview prep (behavioral questions).</div></div>
+    <div class="habit-item"><div class="habit-name">Coding practice</div><div class="habit-desc">90 min — LeetCode (easy/medium), Python projects, or software engineering fundamentals.</div></div>
+    <div class="habit-item"><div class="habit-name">Job application</div><div class="habit-desc">Apply to 1–2 positions. Track in a spreadsheet: Company, Role, Date, Status.</div></div>
+  </div>
+  <div id="day-mon" class="day-detail card" style="display:none">
+    <div class="card-title">Monday <span class="badge badge-amber">Academic + Scholarship</span></div>
+    <div class="habit-item"><div class="habit-name">Academic study</div><div class="habit-desc">2 hours — honours degree work. Prioritise anything due this week first.</div></div>
+    <div class="habit-item"><div class="habit-name">Scholarship research</div><div class="habit-desc">60 min — research PhD programs or scholarships (Erasmus, Commonwealth, DAAD, Japanese MEXT, etc.).</div></div>
+    <div class="habit-item"><div class="habit-name">Tuition</div><div class="habit-desc">Standard tuition schedule.</div></div>
+  </div>
+  <div id="day-tue" class="day-detail card" style="display:none">
+    <div class="card-title">Tuesday <span class="badge badge-blue">AI/ML + Projects</span></div>
+    <div class="habit-item"><div class="habit-name">AI/ML deep session</div><div class="habit-desc">2 hours — build a small project, train a model, or work on Kaggle. Hands-on beats theory alone.</div></div>
+    <div class="habit-item"><div class="habit-name">GitHub & portfolio</div><div class="habit-desc">60 min — push code to GitHub, write a README, or document a project for employers to see.</div></div>
+    <div class="habit-item"><div class="habit-name">Academic reading</div><div class="habit-desc">45 min — light academic reading to stay consistent.</div></div>
+  </div>
+  <div id="day-wed" class="day-detail card" style="display:none">
+    <div class="card-title">Wednesday <span class="badge badge-green">Career day</span></div>
+    <div class="habit-item"><div class="habit-name">Job applications</div><div class="habit-desc">60–90 min — apply to 2–3 positions. Keep a job tracker spreadsheet.</div></div>
+    <div class="habit-item"><div class="habit-name">LinkedIn improvement</div><div class="habit-desc">30 min — update profile, connect with 3 people in your field, post 1 insight or project update.</div></div>
+    <div class="habit-item"><div class="habit-name">Resume & cover letter</div><div class="habit-desc">30 min — improve one section of your resume or write a tailored cover letter.</div></div>
+    <div class="habit-item"><div class="habit-name">Networking</div><div class="habit-desc">Email 1 person (professor, alumni, or professional) for advice or mentorship.</div></div>
+  </div>
+  <div id="day-thu" class="day-detail card" style="display:none">
+    <div class="card-title">Thursday <span class="badge badge-amber">Academic + Revision</span></div>
+    <div class="habit-item"><div class="habit-name">Academic study</div><div class="habit-desc">2 hours — new material or problem sets.</div></div>
+    <div class="habit-item"><div class="habit-name">Weekly revision</div><div class="habit-desc">60 min — revise what you studied this week. Spaced repetition: look at Monday–Tuesday notes.</div></div>
+    <div class="habit-item"><div class="habit-name">Tuition + soft skills</div><div class="habit-desc">Teach confidently. Practice one professional skill (communication, writing, presentation).</div></div>
+  </div>
+  <div id="day-fri" class="day-detail card" style="display:none">
+    <div class="card-title">Friday <span class="badge badge-blue">Islamic day + Review</span></div>
+    <div class="habit-item"><div class="habit-name">Islamic study</div><div class="habit-desc">Morning — read Surah Al-Kahf. Study 1 hadith in depth. Listen to a lecture or khutbah.</div></div>
+    <div class="habit-item"><div class="habit-name">Jumu'ah prayer</div><div class="habit-desc">Attend Jumu'ah. Make dua for your goals (job, PhD, health, family).</div></div>
+    <div class="habit-item"><div class="habit-name">Weekly review</div><div class="habit-desc">30 min — use the Weekly Review template (see Review tab). Celebrate wins. Plan next week.</div></div>
+    <div class="habit-item"><div class="habit-name">Light study</div><div class="habit-desc">Optional 1 hour of easy academic reading or AI/ML videos. Rest is also productive.</div></div>
+  </div>
+</div>
+
+<!-- CHECKLIST -->
+<div id="checklist" class="section">
+  <div class="card">
+    <div class="card-title">Daily checklist <span id="check-progress-label" style="font-size:12px;color:var(--color-text-secondary);font-weight:400">0 / 18 complete</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="check-bar" style="width:0%"></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--color-text-info)">Spiritual</div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">Fajr prayer on time</div></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">Dhuhr prayer on time</div></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">Asr prayer on time</div></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">Maghrib prayer on time</div></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">Isha prayer on time</div></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">Quran recitation (at least 1 page)</div></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">1 hadith read or studied</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--color-text-warning)">Study</div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">Academic study — at least 1 hour</div></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">AI/ML or coding — at least 30 min</div></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">Today's 3 tasks completed</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--color-text-success)">Career</div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">Checked 1 job board or scholarship</div></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">Did something professional (LinkedIn, resume, network)</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--color-text-danger)">Health</div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">Walked or exercised (even 15 min)</div></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">Drank enough water</div></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">Ate a proper meal</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="color:var(--color-text-secondary)">Discipline & Reflection</div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">Slept on time (target time for this week)</div></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">No mindless scrolling after 10 PM</div></div>
+    <div class="check-item" onclick="toggle(this)"><div class="check-box"><i class="ti ti-check" style="font-size:12px;color:#fff;display:none"></i></div><div class="check-label">Wrote tomorrow's plan or 3-line journal</div></div>
+  </div>
+
+  <button onclick="resetChecklist()" style="width:100%;margin-top:.5rem;padding:10px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);font-size:13px;cursor:pointer;background:var(--color-background-secondary);color:var(--color-text-secondary)">Reset checklist for new day</button>
+</div>
+
+<!-- HABITS -->
+<div id="habits" class="section">
+  <div class="card">
+    <div class="card-title">Bad habits — removal plan</div>
+    <div class="habit-item">
+      <div class="habit-name"><span class="badge badge-red">Remove</span> Late-night phone scrolling</div>
+      <div class="habit-desc"><strong>Why harmful:</strong> Delays sleep, overstimulates the brain, destroys your sleep schedule.<br><strong>Replace with:</strong> Quran recitation, dua, or a physical book at night.<br><strong>Daily action:</strong> Put phone in another room at 9:30 PM.<br><strong>Emergency rule:</strong> If you feel the urge, open Quran app instead — 1 page only.</div>
+    </div>
+    <div class="habit-item">
+      <div class="habit-name"><span class="badge badge-red">Remove</span> Irregular sleep</div>
+      <div class="habit-desc"><strong>Why harmful:</strong> Disrupts hormones, lowers IQ temporarily, ruins mood and productivity.<br><strong>Replace with:</strong> Fixed wake time — non-negotiable, even if slept late.<br><strong>Daily action:</strong> Set 2 alarms. Put them across the room.<br><strong>Emergency rule:</strong> Wake on time anyway. Sleep less tonight, better tomorrow.</div>
+    </div>
+    <div class="habit-item">
+      <div class="habit-name"><span class="badge badge-amber">Reduce</span> Wasting time online</div>
+      <div class="habit-desc"><strong>Why harmful:</strong> Time blindness — 10 minutes becomes 3 hours without noticing.<br><strong>Replace with:</strong> Structured internet time: 15 min blocks with a timer.<br><strong>Daily action:</strong> Use app timers (YouTube limit: 30 min/day).<br><strong>Emergency rule:</strong> Close the app. Open your task list. Do 5 minutes of study first.</div>
+    </div>
+    <div class="habit-item">
+      <div class="habit-name"><span class="badge badge-amber">Reduce</span> Delaying study</div>
+      <div class="habit-desc"><strong>Why harmful:</strong> Procrastination compounds — tomorrow becomes never.<br><strong>Replace with:</strong> 2-minute rule: start the task for just 2 minutes. You'll continue.<br><strong>Daily action:</strong> Open your textbook or laptop immediately after breakfast.<br><strong>Emergency rule:</strong> Study just 1 page, 1 problem, or 1 paragraph. That counts.</div>
+    </div>
+    <div class="habit-item">
+      <div class="habit-name"><span class="badge badge-amber">Reduce</span> Starting many things, finishing nothing</div>
+      <div class="habit-desc"><strong>Why harmful:</strong> Creates anxiety, no real progress, low self-confidence.<br><strong>Replace with:</strong> Choose 1 big task per day. Finish before starting another.<br><strong>Daily action:</strong> Write only 3 tasks. Mark them in order of priority.<br><strong>Emergency rule:</strong> If overwhelmed, pick the smallest task and do only that.</div>
+    </div>
+    <div class="habit-item">
+      <div class="habit-name"><span class="badge badge-gray">Manage</span> Overthinking</div>
+      <div class="habit-desc"><strong>Why harmful:</strong> Paralyses action. 90% of worries never happen.<br><strong>Replace with:</strong> Write the worry down, then write 1 action you can take.<br><strong>Daily action:</strong> After Fajr, recite "Hasbunallah wa ni'mal wakeel" 10 times with intention.<br><strong>Emergency rule:</strong> Talk to Allah in dua about the specific worry. Then act.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Good habits — building system</div>
+    <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:.75rem">Use the "tiny start" rule: make each habit so small it feels embarrassing NOT to do it.</div>
+    <div class="habit-item"><div class="habit-name"><span class="badge badge-green">Build</span> Sleeping early</div><div class="habit-desc">Tiny start: Sleep 30 min earlier than last night. Put phone away first. Start with 11:30 PM this week.</div></div>
+    <div class="habit-item"><div class="habit-name"><span class="badge badge-green">Build</span> Fajr prayer</div><div class="habit-desc">Tiny start: Set alarm 5 min before Fajr adhan. Wudu is already prepared (do it before sleeping). Sunnah: sleep with wudu.</div></div>
+    <div class="habit-item"><div class="habit-name"><span class="badge badge-green">Build</span> Quran daily</div><div class="habit-desc">Tiny start: 1 ayah after Fajr. Increase to 1 page, then half juz when ready. Consistency beats quantity.</div></div>
+    <div class="habit-item"><div class="habit-name"><span class="badge badge-green">Build</span> Daily academic study</div><div class="habit-desc">Tiny start: 1 Pomodoro (25 min) at the same time daily. Same chair, same time = automatic habit.</div></div>
+    <div class="habit-item"><div class="habit-name"><span class="badge badge-green">Build</span> AI/ML learning</div><div class="habit-desc">Tiny start: Watch 1 short video or read 5 pages of a textbook daily. Build a Kaggle or GitHub habit.</div></div>
+    <div class="habit-item"><div class="habit-name"><span class="badge badge-green">Build</span> Daily planning</div><div class="habit-desc">Tiny start: Write 3 tasks on paper every morning. Takes 2 minutes. Changes your entire day.</div></div>
+    <div class="habit-item"><div class="habit-name"><span class="badge badge-green">Build</span> Weekly review</div><div class="habit-desc">Every Friday after Jumu'ah: 20 min review. Celebrate what worked. Adjust what didn't.</div></div>
+  </div>
+</div>
+
+<!-- REVIEW -->
+<div id="review" class="section">
+  <div class="card">
+    <div class="card-title">Weekly review tracker</div>
+    <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:1rem">Complete this every Friday. Be honest — this is for you, not anyone else.</div>
+
+    <div class="review-label">Days slept before 11:00 PM</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px" id="sleep-score">
+      <button class="score-btn" onclick="selectScore(this,'sleep-score')">0</button>
+      <button class="score-btn" onclick="selectScore(this,'sleep-score')">1</button>
+      <button class="score-btn" onclick="selectScore(this,'sleep-score')">2</button>
+      <button class="score-btn" onclick="selectScore(this,'sleep-score')">3</button>
+      <button class="score-btn" onclick="selectScore(this,'sleep-score')">4</button>
+      <button class="score-btn" onclick="selectScore(this,'sleep-score')">5</button>
+      <button class="score-btn" onclick="selectScore(this,'sleep-score')">6</button>
+      <button class="score-btn" onclick="selectScore(this,'sleep-score')">7</button>
+    </div>
+
+    <div class="review-label">Days woke before Fajr</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px" id="fajr-score">
+      <button class="score-btn" onclick="selectScore(this,'fajr-score')">0</button>
+      <button class="score-btn" onclick="selectScore(this,'fajr-score')">1</button>
+      <button class="score-btn" onclick="selectScore(this,'fajr-score')">2</button>
+      <button class="score-btn" onclick="selectScore(this,'fajr-score')">3</button>
+      <button class="score-btn" onclick="selectScore(this,'fajr-score')">4</button>
+      <button class="score-btn" onclick="selectScore(this,'fajr-score')">5</button>
+      <button class="score-btn" onclick="selectScore(this,'fajr-score')">6</button>
+      <button class="score-btn" onclick="selectScore(this,'fajr-score')">7</button>
+    </div>
+
+    <div class="review-label">5 prayers on time — how many days?</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px" id="prayer-score">
+      <button class="score-btn" onclick="selectScore(this,'prayer-score')">0</button>
+      <button class="score-btn" onclick="selectScore(this,'prayer-score')">1</button>
+      <button class="score-btn" onclick="selectScore(this,'prayer-score')">2</button>
+      <button class="score-btn" onclick="selectScore(this,'prayer-score')">3</button>
+      <button class="score-btn" onclick="selectScore(this,'prayer-score')">4</button>
+      <button class="score-btn" onclick="selectScore(this,'prayer-score')">5</button>
+      <button class="score-btn" onclick="selectScore(this,'prayer-score')">6</button>
+      <button class="score-btn" onclick="selectScore(this,'prayer-score')">7</button>
+    </div>
+
+    <div class="review-label">Hours studied (academic) this week</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px" id="study-score">
+      <button class="score-btn" onclick="selectScore(this,'study-score')">0</button>
+      <button class="score-btn" onclick="selectScore(this,'study-score')">2</button>
+      <button class="score-btn" onclick="selectScore(this,'study-score')">4</button>
+      <button class="score-btn" onclick="selectScore(this,'study-score')">6</button>
+      <button class="score-btn" onclick="selectScore(this,'study-score')">8</button>
+      <button class="score-btn" onclick="selectScore(this,'study-score')">10</button>
+      <button class="score-btn" onclick="selectScore(this,'study-score')">12+</button>
+    </div>
+
+    <div class="review-label">Job applications submitted this week</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px" id="job-score">
+      <button class="score-btn" onclick="selectScore(this,'job-score')">0</button>
+      <button class="score-btn" onclick="selectScore(this,'job-score')">1</button>
+      <button class="score-btn" onclick="selectScore(this,'job-score')">2</button>
+      <button class="score-btn" onclick="selectScore(this,'job-score')">3</button>
+      <button class="score-btn" onclick="selectScore(this,'job-score')">4</button>
+      <button class="score-btn" onclick="selectScore(this,'job-score')">5+</button>
+    </div>
+
+    <div class="divider"></div>
+    <div class="review-label">This week's biggest win</div>
+    <textarea class="review-field" rows="2" placeholder="e.g. Prayed Fajr 4 days in a row..."></textarea>
+    <div class="review-label">Habit I improved most</div>
+    <textarea class="review-field" rows="2" placeholder="e.g. Sleeping earlier by 1 hour..."></textarea>
+    <div class="review-label">My main mistake this week</div>
+    <textarea class="review-field" rows="2" placeholder="e.g. Missed 2 days of study because of phone..."></textarea>
+    <div class="review-label">One thing I will do differently next week</div>
+    <textarea class="review-field" rows="2" placeholder="e.g. Put phone in another room before 10 PM..."></textarea>
+  </div>
+</div>
+
+<!-- RULES -->
+<div id="rules" class="section">
+  <div class="card">
+    <div class="card-title">15 professional lifestyle rules</div>
+    <div class="rule-item"><div class="rule-num">01</div><div class="rule-text"><strong>Prayer before productivity.</strong> Your 5 daily prayers are non-negotiable. Everything else adjusts around them — not the other way.</div></div>
+    <div class="rule-item"><div class="rule-num">02</div><div class="rule-text"><strong>Wake time is fixed.</strong> You may go to sleep late on some days. You may never wake up late. The fixed wake time is your anchor.</div></div>
+    <div class="rule-item"><div class="rule-num">03</div><div class="rule-text"><strong>Plan before acting.</strong> Spend 5 minutes every morning writing 3 tasks. A planned hour beats 3 unplanned hours.</div></div>
+    <div class="rule-item"><div class="rule-num">04</div><div class="rule-text"><strong>One task at a time.</strong> Close every tab not related to your current task. Multitasking is a myth — it just does everything badly.</div></div>
+    <div class="rule-item"><div class="rule-num">05</div><div class="rule-text"><strong>The phone serves you.</strong> Use it as a tool for 15-min blocks. It is not entertainment between prayer times.</div></div>
+    <div class="rule-item"><div class="rule-num">06</div><div class="rule-text"><strong>Never miss twice.</strong> Miss a prayer? Make it up immediately. Miss a study session? Do it the same evening. One miss is an accident. Two is the beginning of a habit.</div></div>
+    <div class="rule-item"><div class="rule-num">07</div><div class="rule-text"><strong>Done is better than perfect.</strong> Apply to the job even if your resume isn't perfect. Submit the assignment even if imperfect. Action beats paralysis.</div></div>
+    <div class="rule-item"><div class="rule-num">08</div><div class="rule-text"><strong>Learn something every single day.</strong> Even on rest days — 10 minutes of reading, 1 hadith, or 1 YouTube lecture counts. Knowledge compounds.</div></div>
+    <div class="rule-item"><div class="rule-num">09</div><div class="rule-text"><strong>Track your career like a project.</strong> Use a spreadsheet: jobs applied, status, follow-up date. Treat your career search like a professional, not a prayer.</div></div>
+    <div class="rule-item"><div class="rule-num">10</div><div class="rule-text"><strong>Rest is part of the plan.</strong> Friday afternoon, 20-min Qaylulah, family time — these are not failures. They are fuel for the next sprint.</div></div>
+    <div class="rule-item"><div class="rule-num">11</div><div class="rule-text"><strong>Your environment is your productivity.</strong> Clean desk = clear mind. Phone in another room = focused study. Supportive friends = motivated you.</div></div>
+    <div class="rule-item"><div class="rule-num">12</div><div class="rule-text"><strong>Speak with intention.</strong> Every conversation, every message, every application — choose your words carefully. A professional communicates clearly and kindly.</div></div>
+    <div class="rule-item"><div class="rule-num">13</div><div class="rule-text"><strong>Review weekly, adjust monthly.</strong> The routine is not a prison. It's a living system. Review every Friday. Adjust every month based on what's working.</div></div>
+    <div class="rule-item"><div class="rule-num">14</div><div class="rule-text"><strong>Failure is data, not identity.</strong> A bad week is information: something in the system needs adjusting. It does not mean you are a failure.</div></div>
+    <div class="rule-item"><div class="rule-num">15</div><div class="rule-text"><strong>Tawakkul + action.</strong> Make dua. Then work as if the result depends entirely on your effort. That is the Islamic formula for success.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Consistency system</div>
+    <div class="habit-item"><div class="habit-name">How to restart after failure</div><div class="habit-desc">Take a breath. Say Bismillah. Start the very next small task — don't try to "catch up" all at once. One prayer, one page, one task. That's the restart.</div></div>
+    <div class="habit-item"><div class="habit-name">Avoid all-or-nothing thinking</div><div class="habit-desc">"I missed Fajr so my whole day is ruined" is a lie your brain tells you. Pray Fajr late (qada). Start studying at 2 PM. Do something. 50% of the plan done is infinitely better than 0%.</div></div>
+    <div class="habit-item"><div class="habit-name">Track progress simply</div><div class="habit-desc">Use this checklist daily. Use the weekly review every Friday. After 4 weeks, compare Week 1 vs Week 4. The growth will motivate you.</div></div>
+    <div class="habit-item"><div class="habit-name">Halal rewards</div><div class="habit-desc">After a good week: buy a book you wanted. Take a walk somewhere new. Make a special meal. Call a friend. These are the halal pleasures that sustain discipline without haram escapes.</div></div>
+    <div class="habit-item"><div class="habit-name">Your 1% daily improvement</div><div class="habit-desc">Each day, do 1 thing slightly better: sleep 15 min earlier, study 5 min longer, read 1 extra ayah, take the stairs. In 70 days, you'll be unrecognisable from where you started.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Final advice</div>
+    <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.8">
+      You already have everything you need to begin. The goal is not a perfect routine — it is a <em>better you than yesterday</em>.<br><br>
+      Start tonight: sleep 30 minutes earlier than usual. That is Week 1, Day 1.<br><br>
+      The Prophet ﷺ said: <em>"The most beloved deeds to Allah are those done consistently, even if they are small."</em> (Bukhari &amp; Muslim)<br><br>
+      You are not trying to become a different person. You are uncovering the best version of who you already are — a Muslim, a student, a professional, and a person of discipline and sincerity.<br><br>
+      May Allah grant you barakah in your time, ease in your studies, and success in this dunya and akhirah. آمين
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const tabs = document.querySelectorAll('.tab');
+  const ids = ['overview','sleep','routines','weekly','checklist','habits','review','rules'];
+  tabs[ids.indexOf(id)].classList.add('active');
+}
+
+function showWeek(n) {
+  const ids = {1:'wk1',2:'wk2',3:'wk3',4:'wk4',5:'wk5'};
+  document.querySelectorAll('.day-detail').forEach(d => {
+    if(['wk1','wk2','wk3','wk4','wk5'].includes(d.id)) { d.style.display='none'; d.classList.remove('active'); }
+  });
+  const el = document.getElementById(ids[n]);
+  if(el){ el.style.display='block'; el.classList.add('active'); }
+  document.querySelectorAll('#week-tabs .day-box').forEach((b,i) => b.classList.toggle('active', i===n-1));
+}
+
+function showRoutine(name) {
+  ['beginner','transition','goal'].forEach(r => {
+    const el = document.getElementById('routine-'+r);
+    el.style.display = r===name ? 'block' : 'none';
+    el.classList.toggle('active', r===name);
+  });
+  document.querySelectorAll('#routines .week-bar .day-box').forEach((b,i) => {
+    b.classList.toggle('active', ['beginner','transition','goal'][i]===name);
+  });
+}
+
+function showDay(day) {
+  const days = ['sat','sun','mon','tue','wed','thu','fri'];
+  days.forEach(d => {
+    const el = document.getElementById('day-'+d);
+    if(el){ el.style.display = d===day ? 'block' : 'none'; el.classList.toggle('active', d===day); }
+  });
+  document.querySelectorAll('#day-tabs .day-box').forEach((b,i) => b.classList.toggle('active', days[i]===day));
+}
+
+function toggle(item) {
+  const box = item.querySelector('.check-box');
+  const label = item.querySelector('.check-label');
+  const icon = box.querySelector('i');
+  const checked = box.classList.toggle('checked');
+  icon.style.display = checked ? 'block' : 'none';
+  label.classList.toggle('checked', checked);
+  updateProgress();
+}
+
+function updateProgress() {
+  const all = document.querySelectorAll('#checklist .check-item');
+  const done = document.querySelectorAll('#checklist .check-box.checked').length;
+  const total = all.length;
+  document.getElementById('check-progress-label').textContent = done + ' / ' + total + ' complete';
+  document.getElementById('check-bar').style.width = Math.round(done/total*100) + '%';
+}
+
+function resetChecklist() {
+  document.querySelectorAll('#checklist .check-box').forEach(b => {
+    b.classList.remove('checked');
+    b.querySelector('i').style.display = 'none';
+  });
+  document.querySelectorAll('#checklist .check-label').forEach(l => l.classList.remove('checked'));
+  updateProgress();
+}
+
+function selectScore(btn, groupId) {
+  document.querySelectorAll('#'+groupId+' .score-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+</script>

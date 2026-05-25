@@ -1,0 +1,23 @@
+{
+  "lastUpdated": "2025-06-01",
+  "currentFocus": "ML Engineering — scikit-learn, PyTorch, LLM APIs",
+  "weeklyGoal": "Complete FastAPI + ML model deployment tutorial",
+  "direction": [
+    "AI/ML Engineer",
+    "LLM Engineer",
+    "Agentic AI Developer"
+  ],
+  "skills": [
+    { "name": "Python for ML", "level": 65, "status": "in-progress" },
+    { "name": "scikit-learn",  "level": 55, "status": "in-progress" },
+    { "name": "PyTorch",       "level": 30, "status": "early"       },
+    { "name": "LangChain",     "level": 25, "status": "early"       },
+    { "name": "FastAPI",       "level": 50, "status": "in-progress" },
+    { "name": "Docker",        "level": 70, "status": "solid"       }
+  ],
+  "recentMilestones": [
+    "Completed AMR Prediction project (scikit-learn, 94% accuracy)",
+    "Deployed House Price model with Flask",
+    "Built Mask Detection CNN (TensorFlow/Keras)"
+  ]
+}

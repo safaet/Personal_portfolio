@@ -1,78 +1,1421 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safaet Jaman</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/form.css">
-</head>
+    <!-- ═══════════════════════════════════════════
+       SEO — update description & canonical URL
+       ═══════════════════════════════════════════ -->
+    <title>Safaet Jaman — Full Stack &amp; AI/ML Engineer</title>
+    <meta
+      name="description"
+      content="Full Stack Engineer building web applications, backend systems, and AI/ML projects with Java Spring Boot, React, Python, and machine learning. Open to AI/ML engineering roles and research collaboration."
+    />
+    <meta
+      name="keywords"
+      content="Safaet Jaman, Saddam Hossen, Full Stack Engineer, AI Engineer, ML Engineer, Java Spring Boot, React, Python, Machine Learning, Bangladesh"
+    />
+    <meta name="author" content="Safaet Jaman" />
+    <!-- TODO: update canonical to your real GitHub Pages URL -->
+    <link rel="canonical" href="https://safaet.github.io/" />
 
-<body>
-    <ul>
-        <li><a target="_blank"
-                href="https://docs.google.com/spreadsheets/d/1p5cj__FlIVkZiyaBHmYhRlEr5vAjIPww7Ppl1xDK-oc/edit?usp=sharing">Progress
-                Sheet</a></li>
-        <li><a target="_blank" href="https://github.com/safaet?tab=repositories">Projects</a></li>
-        <li><a target="_blank"
-                href="https://docs.google.com/document/d/1aM0sWMFor3ikh2re4IGAD2pBLhWtCcTt/edit?usp=sharing&ouid=116401156739026781743&rtpof=true&sd=true">CV</a>
-        </li>
-        <li><a href="blog/blog.html">Blog</a></li>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="standalone-tool.html">Standalone Tool</a></li>
-    </ul>
-    <section>
-        <div class="half-width">
-            <h1>Welcome To</h1>
-            <h1><span class="blue-color">Safaet's</span> Planets</h1>
-            <h3>Build Climber and Train Stopper</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia sed
-                dolorem fugit sapiente porro veniam pariatur dolore nostrum delectus
-                inventore tempore minus nemo, iste ullam illo laboriosam maiores
-                repudiandae quos!</p>
-            <a class="link-button" target="_blank" href="https://www.linkedin.com/in/safaet-jaman/">Hire Me</a>
+    <!-- Open Graph (social sharing) -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Safaet Jaman — Full Stack &amp; AI/ML Engineer"
+    />
+    <meta
+      property="og:description"
+      content="Building full-stack systems and AI/ML projects. Transitioning toward LLM and Agentic AI engineering."
+    />
+    <!-- TODO: replace with your real OG image at 1200×630 -->
+    <meta property="og:image" content="assets/images/og-image.jpg" />
+    <meta property="og:url" content="https://safaet.github.io/" />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Safaet Jaman — Full Stack &amp; AI/ML Engineer"
+    />
+    <meta
+      name="twitter:description"
+      content="Building full-stack systems and AI/ML projects."
+    />
+    <meta name="twitter:image" content="assets/images/og-image.jpg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Outfit:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Design system -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- TODO: add favicon -->
+    <!-- <link rel="icon" href="images/favicon.ico" /> -->
+  </head>
+
+  <body>
+    <!-- ══════════════════════════════════════════════════════════
+       NAVIGATION
+       ══════════════════════════════════════════════════════════ -->
+    <header>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav__inner">
+          <!-- Brand -->
+          <a
+            href="index.html"
+            class="nav__brand"
+            aria-label="Safaet Jaman — home"
+          >
+            SJ<span>.</span>
+          </a>
+
+          <!-- Desktop links -->
+          <ul class="nav__links" role="list">
+            <li><a href="index.html" class="nav__link active">Home</a></li>
+            <li><a href="projects.html" class="nav__link">Projects</a></li>
+            <li>
+              <a href="ai-portfolio.html" class="nav__link">AI Portfolio</a>
+            </li>
+            <li><a href="research.html" class="nav__link">Research</a></li>
+            <li><a href="blog.html" class="nav__link">Blog</a></li>
+            <li><a href="tools.html" class="nav__link">Tools</a></li>
+            <!-- TODO: replace with your actual resume PDF path -->
+            <li>
+              <a
+                href="resume/safaet-jaman-resume.pdf"
+                class="nav__link"
+                target="_blank"
+                rel="noopener"
+                >Resume</a
+              >
+            </li>
+            <li><a href="contact.html" class="nav__link">Contact</a></li>
+          </ul>
+
+          <!-- Actions: theme + mobile toggle -->
+          <div class="nav__actions">
+            <button class="theme-toggle" aria-label="Toggle light/dark theme">
+              <span class="icon-moon" aria-hidden="true">
+                <!-- Moon icon -->
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+              </span>
+              <span class="icon-sun" aria-hidden="true">
+                <!-- Sun icon -->
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="5" />
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </svg>
+              </span>
+            </button>
+
+            <button
+              class="nav__toggle"
+              aria-label="Open navigation menu"
+              aria-expanded="false"
+              aria-controls="mobile-nav"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
         </div>
-        <div class="half width">
-            <img src="images/profile_photo.png">
-        </div>
-    </section>
+      </nav>
 
-    <section class="contact" id="contact">
+      <!-- Mobile nav drawer -->
+      <nav id="mobile-nav" class="nav__mobile" aria-label="Mobile navigation">
+        <a href="index.html" class="nav__link active">Home</a>
+        <a href="projects.html" class="nav__link">Projects</a>
+        <a href="ai-portfolio.html" class="nav__link">AI Portfolio</a>
+        <a href="research.html" class="nav__link">Research</a>
+        <a href="blog.html" class="nav__link">Blog</a>
+        <a href="tools.html" class="nav__link">Tools</a>
+        <!-- TODO: replace with your actual resume PDF path -->
+        <a
+          href="resume/safaet-jaman-resume.pdf"
+          class="nav__link"
+          target="_blank"
+          rel="noopener"
+          >Resume ↗</a
+        >
+        <a href="contact.html" class="nav__link">Contact</a>
+      </nav>
+    </header>
 
-        <h2>Get In Touch With Me</h2>
-        <div class="contact-form-container">
-            <div class="contact-form">
-                <script type="text/javascript">var submitted = false;</script>
-                <iframe name="hidden_iframe" id="hidden_iframe" style="display: none" onload="if(submitted){
-                                    window.location='https://www.google.com/';}"></iframe>
-                <form
-                    action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfontkS7zWU5-L9K0YCeSmrt5eXTwXX-G9PtXW_HB_25u5EWw/formResponse"
-                    method="POST">
-                    <div class="form-control">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="entry.808355440" placeholder="Enter Your Name"
-                            class="input-field" required />
-                    </div>
-                    <div class="form-control">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="entry.1891566930" placeholder="Enter Your Email"
-                            class="input-field" required />
-                    </div>
-                    <div class="form-control">
-                        <label for="message">Message</label>
-                        <textarea id="message" cols="60" rows="10" placeholder="Enter Your Message"
-                            name="entry.1052412309" class="input-field" required></textarea>
-                    </div>
-                    <input type="submit" value="Submit" id="submit-btn" class="submit-btn" />
-                </form>
+    <main>
+      <!-- ══════════════════════════════════════════════════════════
+         1. HERO
+         ══════════════════════════════════════════════════════════ -->
+      <section class="hero section" aria-labelledby="hero-heading">
+        <div class="container">
+          <div class="hero__inner">
+            <div class="hero__content">
+              <p class="section-label">
+                Available for AI/ML &amp; Full Stack roles
+              </p>
+
+              <h1 id="hero-heading" class="hero__name">
+                Hi, I'm <span class="text-gradient">Safaet Jaman</span>
+              </h1>
+
+              <p class="hero__title">
+                Full Stack Engineer
+                <span class="hero__title-divider" aria-hidden="true"> → </span>
+                Future AI/ML Engineer
+              </p>
+
+              <p class="hero__tagline">
+                I build full-stack web applications, backend systems, and AI/ML
+                projects using Java Spring Boot, React, Python, and machine
+                learning — transitioning toward
+                <strong>LLM Engineering</strong> and
+                <strong>Agentic AI</strong>.
+              </p>
+
+              <div class="btn-group hero__cta">
+                <a href="projects.html" class="btn btn--primary btn--lg"
+                  >View Projects</a
+                >
+                <a href="ai-portfolio.html" class="btn btn--ai btn--lg"
+                  >AI/ML Work</a
+                >
+                <!-- TODO: replace with your actual resume PDF path -->
+                <a
+                  href="resume/safaet-jaman-resume.pdf"
+                  class="btn btn--secondary btn--lg"
+                  target="_blank"
+                  rel="noopener"
+                  >Download Resume</a
+                >
+              </div>
+
+              <div class="hero__social">
+                <!-- TODO: add LinkedIn URL -->
+                <a
+                  href="https://github.com/safaet"
+                  class="social-link"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="GitHub profile"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"
+                    />
+                  </svg>
+                </a>
+                <!-- TODO: add LinkedIn URL -->
+                <a
+                  href="#"
+                  class="social-link"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="LinkedIn profile"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </a>
+                <!-- TODO: add email address -->
+                <a
+                  href="mailto:your@email.com"
+                  class="social-link"
+                  aria-label="Send email"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </a>
+              </div>
             </div>
-        </div>
-    </section>
-</body>
 
+            <!-- Profile photo -->
+            <div class="hero__photo">
+              <!-- TODO: replace with your actual profile photo -->
+              <div class="hero__photo-frame">
+                <img
+                  src="assets/images/profile_photo.png"
+                  alt="Safaet Jaman — Full Stack and AI/ML Engineer"
+                  width="320"
+                  height="320"
+                  loading="eager"
+                />
+              </div>
+              <!-- Status badge -->
+              <div class="hero__status" aria-label="Current status">
+                <span class="hero__status-dot" aria-hidden="true"></span>
+                Open to opportunities
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+         2. ABOUT PREVIEW
+         ══════════════════════════════════════════════════════════ -->
+      <section
+        class="about-preview section section--sm"
+        aria-labelledby="about-heading"
+      >
+        <div class="container">
+          <div class="about-preview__inner">
+            <div class="about-preview__text reveal">
+              <p class="section-label">About me</p>
+              <h2 id="about-heading" class="section-title">
+                Engineer by training,<br />AI practitioner by direction
+              </h2>
+              <p>
+                I'm a Full Stack Engineer with hands-on experience building
+                production-grade web applications and backend systems using Java
+                Spring Boot, React, Node.js, REST APIs, and Microservices. I
+                work with PostgreSQL, MySQL, MongoDB, Docker, Jenkins, and
+                GitHub in real-world pipelines.
+              </p>
+              <p style="margin-top: 1rem">
+                My current focus is expanding into AI/ML engineering — building
+                machine learning models, working with LLM APIs, and studying
+                agentic AI systems. I'm actively building projects in Python,
+                scikit-learn, TensorFlow, and exploring LangChain and RAG
+                architectures.
+              </p>
+
+              <!-- AI direction callout -->
+              <div
+                class="highlight-box highlight-box--ai"
+                style="margin-top: 1.5rem"
+              >
+                <strong>Career direction:</strong> AI/ML Engineer · LLM Engineer
+                · Agentic AI Developer · AI Research Assistant
+              </div>
+
+              <a
+                href="research.html"
+                class="btn btn--secondary"
+                style="margin-top: 1.5rem"
+              >
+                Research interests →
+              </a>
+            </div>
+
+            <!-- Quick stats -->
+            <div class="about-preview__stats reveal">
+              <div class="card card--stat">
+                <div class="stat-value">3+</div>
+                <div class="stat-label">Years building</div>
+              </div>
+              <div class="card card--stat">
+                <div class="stat-value">6</div>
+                <div class="stat-label">Portfolio projects</div>
+              </div>
+              <div class="card card--stat">
+                <div class="stat-value">3</div>
+                <div class="stat-label">AI/ML models built</div>
+              </div>
+              <div class="card card--stat">
+                <div class="stat-value">10+</div>
+                <div class="stat-label">Technologies</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+         3. SKILLS PREVIEW
+         ══════════════════════════════════════════════════════════ -->
+      <section
+        class="skills-preview section section--sm"
+        aria-labelledby="skills-heading"
+      >
+        <div class="container">
+          <div class="text-center reveal">
+            <p class="section-label">Technical skills</p>
+            <h2 id="skills-heading" class="section-title">What I work with</h2>
+            <p class="section-subtitle" style="margin-inline: auto">
+              From backend systems to frontend interfaces to machine learning
+              pipelines.
+            </p>
+          </div>
+
+          <div class="skills-grid reveal" style="margin-top: 3rem">
+            <!-- Backend -->
+            <div class="skills-group">
+              <h3 class="skills-group__title">
+                <span class="tag tag--software" style="margin-bottom: 0.5rem"
+                  >Backend</span
+                >
+              </h3>
+              <ul class="skills-list" role="list">
+                <li class="skill-item">
+                  <span class="skill-name">Java</span
+                  ><span
+                    class="skill-bar"
+                    data-level="85"
+                    aria-label="85%"
+                  ></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-name">Spring Boot</span
+                  ><span
+                    class="skill-bar"
+                    data-level="80"
+                    aria-label="80%"
+                  ></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-name">Node.js</span
+                  ><span
+                    class="skill-bar"
+                    data-level="70"
+                    aria-label="70%"
+                  ></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-name">REST API</span
+                  ><span
+                    class="skill-bar"
+                    data-level="85"
+                    aria-label="85%"
+                  ></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-name">Microservices</span
+                  ><span
+                    class="skill-bar"
+                    data-level="70"
+                    aria-label="70%"
+                  ></span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Frontend -->
+            <div class="skills-group">
+              <h3 class="skills-group__title">
+                <span class="tag tag--blog" style="margin-bottom: 0.5rem"
+                  >Frontend</span
+                >
+              </h3>
+              <ul class="skills-list" role="list">
+                <li class="skill-item">
+                  <span class="skill-name">React</span
+                  ><span
+                    class="skill-bar"
+                    data-level="75"
+                    aria-label="75%"
+                  ></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-name">JavaScript</span
+                  ><span
+                    class="skill-bar"
+                    data-level="80"
+                    aria-label="80%"
+                  ></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-name">HTML &amp; CSS</span
+                  ><span
+                    class="skill-bar"
+                    data-level="90"
+                    aria-label="90%"
+                  ></span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Data & Databases -->
+            <div class="skills-group">
+              <h3 class="skills-group__title">
+                <span class="tag tag--tools" style="margin-bottom: 0.5rem"
+                  >Databases</span
+                >
+              </h3>
+              <ul class="skills-list" role="list">
+                <li class="skill-item">
+                  <span class="skill-name">PostgreSQL</span
+                  ><span
+                    class="skill-bar"
+                    data-level="75"
+                    aria-label="75%"
+                  ></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-name">MySQL</span
+                  ><span
+                    class="skill-bar"
+                    data-level="75"
+                    aria-label="75%"
+                  ></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-name">MongoDB</span
+                  ><span
+                    class="skill-bar"
+                    data-level="65"
+                    aria-label="65%"
+                  ></span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- DevOps -->
+            <div class="skills-group">
+              <h3 class="skills-group__title">
+                <span class="tag tag--default" style="margin-bottom: 0.5rem"
+                  >DevOps</span
+                >
+              </h3>
+              <ul class="skills-list" role="list">
+                <li class="skill-item">
+                  <span class="skill-name">Docker</span
+                  ><span
+                    class="skill-bar"
+                    data-level="70"
+                    aria-label="70%"
+                  ></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-name">Jenkins</span
+                  ><span
+                    class="skill-bar"
+                    data-level="60"
+                    aria-label="60%"
+                  ></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-name">GitHub</span
+                  ><span
+                    class="skill-bar"
+                    data-level="85"
+                    aria-label="85%"
+                  ></span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- AI/ML — highlighted -->
+            <div class="skills-group skills-group--ai">
+              <h3 class="skills-group__title">
+                <span class="tag tag--ai" style="margin-bottom: 0.5rem"
+                  >AI / ML — In Progress</span
+                >
+              </h3>
+              <ul class="skills-list" role="list">
+                <li class="skill-item">
+                  <span class="skill-name">Python</span
+                  ><span
+                    class="skill-bar skill-bar--ai"
+                    data-level="65"
+                    aria-label="65%"
+                  ></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-name">scikit-learn</span
+                  ><span
+                    class="skill-bar skill-bar--ai"
+                    data-level="55"
+                    aria-label="55%"
+                  ></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-name">TensorFlow / Keras</span
+                  ><span
+                    class="skill-bar skill-bar--ai"
+                    data-level="45"
+                    aria-label="45%"
+                  ></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-name">PyTorch</span
+                  ><span
+                    class="skill-bar skill-bar--ai"
+                    data-level="30"
+                    aria-label="30%"
+                  ></span>
+                </li>
+                <li class="skill-item">
+                  <span class="skill-name">LangChain / LLM APIs</span
+                  ><span
+                    class="skill-bar skill-bar--ai"
+                    data-level="25"
+                    aria-label="25%"
+                  ></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+         4. FEATURED SOFTWARE PROJECTS
+         ══════════════════════════════════════════════════════════ -->
+      <section
+        class="projects-preview section"
+        aria-labelledby="projects-heading"
+      >
+        <div class="container">
+          <div
+            class="flex-between reveal"
+            style="margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem"
+          >
+            <div>
+              <p class="section-label">Software projects</p>
+              <h2
+                id="projects-heading"
+                class="section-title"
+                style="margin-bottom: 0"
+              >
+                Featured work
+              </h2>
+            </div>
+            <a href="projects.html" class="btn btn--secondary"
+              >All projects →</a
+            >
+          </div>
+
+          <div class="grid grid--auto">
+            <!-- Project 1: DevSearch -->
+            <article
+              class="card card--project reveal"
+              data-tags="react,java,spring-boot"
+            >
+              <div class="card__header">
+                <h3 class="card__title">DevSearch</h3>
+                <span class="tag tag--software">Web App</span>
+              </div>
+              <!-- TODO: add actual project screenshot -->
+              <div class="card__body">
+                <p>
+                  A developer discovery platform where developers can create
+                  profiles, showcase their skills, and connect with other
+                  engineers. Built with full authentication, search, and
+                  messaging features.
+                </p>
+              </div>
+              <div class="tag-group">
+                <span class="tag tag--default">React</span>
+                <span class="tag tag--default">Java</span>
+                <span class="tag tag--default">Spring Boot</span>
+                <span class="tag tag--default">PostgreSQL</span>
+              </div>
+              <div class="card__footer">
+                <div class="flex gap-3">
+                  <!-- TODO: add actual GitHub repo link -->
+                  <a
+                    href="https://github.com/safaet"
+                    class="btn btn--ghost btn--sm"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    GitHub ↗
+                  </a>
+                  <!-- TODO: add live demo link if available -->
+                  <!-- <a href="#" class="btn btn--secondary btn--sm" target="_blank" rel="noopener">Live Demo ↗</a> -->
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 2: AI Lesson Planner -->
+            <article
+              class="card card--project reveal"
+              data-tags="react,node,ai"
+            >
+              <div class="card__header">
+                <h3 class="card__title">AI Lesson Planner</h3>
+                <span class="tag tag--ai">AI-Powered</span>
+              </div>
+              <div class="card__body">
+                <p>
+                  A web application that uses AI to auto-generate structured
+                  lesson plans for educators. Teachers input topic, grade level,
+                  and duration — the system produces a complete, editable plan.
+                </p>
+              </div>
+              <div class="tag-group">
+                <span class="tag tag--default">React</span>
+                <span class="tag tag--default">Node.js</span>
+                <span class="tag tag--default">OpenAI API</span>
+                <span class="tag tag--default">MongoDB</span>
+              </div>
+              <div class="card__footer">
+                <div class="flex gap-3">
+                  <!-- TODO: add actual GitHub repo link -->
+                  <a
+                    href="https://github.com/safaet"
+                    class="btn btn--ghost btn--sm"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    GitHub ↗
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 3: School Management -->
+            <article
+              class="card card--project reveal"
+              data-tags="java,spring-boot,mysql"
+            >
+              <div class="card__header">
+                <h3 class="card__title">School Management System</h3>
+                <span class="tag tag--software">Full Stack</span>
+              </div>
+              <div class="card__body">
+                <p>
+                  A comprehensive system for managing student enrollment,
+                  attendance, grades, and staff records. Features role-based
+                  access for admins, teachers, and students with a REST API
+                  backend.
+                </p>
+              </div>
+              <div class="tag-group">
+                <span class="tag tag--default">Java</span>
+                <span class="tag tag--default">Spring Boot</span>
+                <span class="tag tag--default">MySQL</span>
+                <span class="tag tag--default">Docker</span>
+              </div>
+              <div class="card__footer">
+                <div class="flex gap-3">
+                  <!-- TODO: add actual GitHub repo link -->
+                  <a
+                    href="https://github.com/safaet"
+                    class="btn btn--ghost btn--sm"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    GitHub ↗
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+         5. AI/ML PORTFOLIO PREVIEW
+         ══════════════════════════════════════════════════════════ -->
+      <section class="ai-preview section" aria-labelledby="ai-heading">
+        <div class="container">
+          <div
+            class="flex-between reveal"
+            style="margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem"
+          >
+            <div>
+              <p class="section-label" style="color: var(--accent-emerald)">
+                AI / ML portfolio
+              </p>
+              <h2
+                id="ai-heading"
+                class="section-title"
+                style="margin-bottom: 0"
+              >
+                Machine learning projects
+              </h2>
+            </div>
+            <a href="ai-portfolio.html" class="btn btn--ai">All AI/ML work →</a>
+          </div>
+
+          <div class="grid grid--auto">
+            <!-- AMR Prediction -->
+            <article
+              class="card card--project card--ai reveal"
+              data-tags="python,sklearn,classification"
+            >
+              <div class="card__header">
+                <h3 class="card__title">AMR Prediction</h3>
+                <span class="tag tag--ai">Healthcare AI</span>
+              </div>
+              <div class="card__body">
+                <p>
+                  Antimicrobial resistance prediction model using clinical and
+                  genomic features. Trained on bacterial resistance datasets
+                  with scikit-learn classifiers, achieving 94%+ accuracy.
+                </p>
+              </div>
+              <div class="tag-group">
+                <span class="tag tag--ai">Python</span>
+                <span class="tag tag--ai">scikit-learn</span>
+                <span class="tag tag--ai">Pandas</span>
+                <span class="tag tag--ai">Classification</span>
+              </div>
+              <div class="card__footer">
+                <span class="card__metric"
+                  >Accuracy: <strong>94%+</strong></span
+                >
+                <!-- TODO: add actual GitHub repo link -->
+                <a
+                  href="https://github.com/safaet"
+                  class="btn btn--ghost btn--sm"
+                  target="_blank"
+                  rel="noopener"
+                  >GitHub ↗</a
+                >
+              </div>
+            </article>
+
+            <!-- House Price Prediction -->
+            <article
+              class="card card--project card--ai reveal"
+              data-tags="python,regression,flask"
+            >
+              <div class="card__header">
+                <h3 class="card__title">House Price Prediction</h3>
+                <span class="tag tag--ai">Regression</span>
+              </div>
+              <div class="card__body">
+                <p>
+                  End-to-end regression model predicting real estate prices from
+                  structural, locational, and economic features. Deployed as a
+                  Flask web API with live prediction endpoint.
+                </p>
+              </div>
+              <div class="tag-group">
+                <span class="tag tag--ai">Python</span>
+                <span class="tag tag--ai">scikit-learn</span>
+                <span class="tag tag--ai">Flask</span>
+                <span class="tag tag--ai">Regression</span>
+              </div>
+              <div class="card__footer">
+                <span class="card__metric"
+                  >R² Score: <strong>0.91</strong></span
+                >
+                <!-- TODO: add actual GitHub repo link -->
+                <a
+                  href="https://github.com/safaet"
+                  class="btn btn--ghost btn--sm"
+                  target="_blank"
+                  rel="noopener"
+                  >GitHub ↗</a
+                >
+              </div>
+            </article>
+
+            <!-- Mask Detection -->
+            <article
+              class="card card--project card--ai reveal"
+              data-tags="python,tensorflow,cnn,cv"
+            >
+              <div class="card__header">
+                <h3 class="card__title">Mask Detection</h3>
+                <span class="tag tag--ai">Computer Vision</span>
+              </div>
+              <div class="card__body">
+                <p>
+                  Real-time face mask detection using a convolutional neural
+                  network. Trained with TensorFlow/Keras on annotated image
+                  datasets, deployable on live video streams.
+                </p>
+              </div>
+              <div class="tag-group">
+                <span class="tag tag--ai">Python</span>
+                <span class="tag tag--ai">TensorFlow</span>
+                <span class="tag tag--ai">Keras</span>
+                <span class="tag tag--ai">OpenCV</span>
+              </div>
+              <div class="card__footer">
+                <span class="card__metric">Accuracy: <strong>97%</strong></span>
+                <!-- TODO: add actual GitHub repo link -->
+                <a
+                  href="https://github.com/safaet"
+                  class="btn btn--ghost btn--sm"
+                  target="_blank"
+                  rel="noopener"
+                  >GitHub ↗</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+         6. RESEARCH HIGHLIGHT
+         ══════════════════════════════════════════════════════════ -->
+      <section
+        class="research-preview section section--sm"
+        aria-labelledby="research-heading"
+      >
+        <div class="container">
+          <div class="research-preview__inner reveal">
+            <div class="research-preview__content">
+              <p class="section-label" style="color: var(--accent-amber)">
+                Research interests
+              </p>
+              <h2 id="research-heading" class="section-title">
+                Exploring the frontier of AI
+              </h2>
+              <p>
+                My research focus sits at the intersection of practical AI
+                engineering and applied machine learning. I'm particularly
+                interested in:
+              </p>
+              <ul class="research-preview__list" role="list">
+                <li>Large Language Models and prompt engineering</li>
+                <li>Agentic AI systems and autonomous tool use</li>
+                <li>
+                  ML for healthcare — AMR prediction and clinical decision
+                  support
+                </li>
+                <li>Retrieval-Augmented Generation (RAG) architectures</li>
+              </ul>
+              <div class="btn-group" style="margin-top: 1.5rem">
+                <a href="research.html" class="btn btn--secondary"
+                  >Explore research →</a
+                >
+                <!-- TODO: add your Google Scholar or ResearchGate URL if applicable -->
+                <!-- <a href="#" class="btn btn--ghost" target="_blank" rel="noopener">Google Scholar ↗</a> -->
+              </div>
+            </div>
+
+            <div class="research-preview__tags">
+              <span class="tag tag--research">LLM Engineering</span>
+              <span class="tag tag--research">Agentic AI</span>
+              <span class="tag tag--research">RAG</span>
+              <span class="tag tag--research">Healthcare ML</span>
+              <span class="tag tag--research">NLP</span>
+              <span class="tag tag--research">Computer Vision</span>
+              <span class="tag tag--research">scikit-learn</span>
+              <span class="tag tag--research">PyTorch</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+         7. LEARNING JOURNEY SUMMARY  (public — no private data)
+         ══════════════════════════════════════════════════════════ -->
+      <section
+        class="learning-preview section section--sm"
+        aria-labelledby="learning-heading"
+      >
+        <div class="container">
+          <div class="text-center reveal" style="margin-bottom: 2.5rem">
+            <p class="section-label">Learning journey</p>
+            <h2 id="learning-heading" class="section-title">
+              Always building, always learning
+            </h2>
+            <p class="section-subtitle" style="margin-inline: auto">
+              A public summary of my current AI/ML learning direction. The full
+              tracker is private.
+            </p>
+          </div>
+
+          <div class="grid grid--3 reveal">
+            <div class="card">
+              <div class="card__header">
+                <h3 class="card__title" style="font-size: 1rem">
+                  Current focus
+                </h3>
+                <span class="tag tag--ai">Active</span>
+              </div>
+              <div class="card__body">
+                <p>
+                  ML Engineering — scikit-learn, PyTorch, LLM APIs, and FastAPI
+                  model deployment.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card__header">
+                <h3 class="card__title" style="font-size: 1rem">
+                  Recent milestone
+                </h3>
+                <span class="tag tag--research">Done</span>
+              </div>
+              <div class="card__body">
+                <p>
+                  Completed AMR Prediction project (scikit-learn, 94% accuracy)
+                  and deployed House Price model with Flask.
+                </p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card__header">
+                <h3 class="card__title" style="font-size: 1rem">Next target</h3>
+                <span class="tag tag--default">Upcoming</span>
+              </div>
+              <div class="card__body">
+                <p>
+                  Build a RAG-based application using LangChain and a vector
+                  database. Study transformer architecture deeply.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center" style="margin-top: 2rem">
+            <!-- TODO: create learning.html with public summary -->
+            <a href="research.html" class="btn btn--ghost"
+              >Full learning summary →</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+         8. BLOG PREVIEW
+         ══════════════════════════════════════════════════════════ -->
+      <section
+        class="blog-preview section section--sm"
+        aria-labelledby="blog-heading"
+      >
+        <div class="container">
+          <div
+            class="flex-between reveal"
+            style="margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem"
+          >
+            <div>
+              <p class="section-label">Blog</p>
+              <h2
+                id="blog-heading"
+                class="section-title"
+                style="margin-bottom: 0"
+              >
+                Notes &amp; writing
+              </h2>
+            </div>
+            <a href="blog.html" class="btn btn--secondary">All posts →</a>
+          </div>
+
+          <div class="grid grid--auto">
+            <!-- TODO: replace these with your actual blog posts -->
+
+            <!-- Post 1 -->
+            <article class="card reveal">
+              <div class="card__header">
+                <span class="tag tag--ai">AI/ML</span>
+                <time class="text-xs text-muted" datetime="2025-05-01"
+                  >May 2025</time
+                >
+              </div>
+              <h3
+                class="card__title"
+                style="font-size: 1.1rem; margin-top: 0.75rem"
+              >
+                <a href="blog.html" style="color: inherit">
+                  From Spring Boot to Python: How I started learning ML as a
+                  Java developer
+                </a>
+              </h3>
+              <div class="card__body">
+                <p>
+                  The mindset shift, the tools, and the projects that helped me
+                  cross over from backend engineering to machine learning.
+                </p>
+              </div>
+              <div class="card__footer">
+                <span class="text-xs text-muted">5 min read</span>
+                <a href="blog.html" class="btn btn--ghost btn--sm">Read →</a>
+              </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="card reveal">
+              <div class="card__header">
+                <span class="tag tag--software">Backend</span>
+                <time class="text-xs text-muted" datetime="2025-04-01"
+                  >Apr 2025</time
+                >
+              </div>
+              <h3
+                class="card__title"
+                style="font-size: 1.1rem; margin-top: 0.75rem"
+              >
+                <a href="blog.html" style="color: inherit">
+                  Microservices in practice: lessons from building with Spring
+                  Boot and Docker
+                </a>
+              </h3>
+              <div class="card__body">
+                <p>
+                  What I learned building and deploying a microservices
+                  architecture — what worked, what didn't, and what I'd do
+                  differently.
+                </p>
+              </div>
+              <div class="card__footer">
+                <span class="text-xs text-muted">7 min read</span>
+                <a href="blog.html" class="btn btn--ghost btn--sm">Read →</a>
+              </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="card reveal">
+              <div class="card__header">
+                <span class="tag tag--research">Research</span>
+                <time class="text-xs text-muted" datetime="2025-03-01"
+                  >Mar 2025</time
+                >
+              </div>
+              <h3
+                class="card__title"
+                style="font-size: 1.1rem; margin-top: 0.75rem"
+              >
+                <a href="blog.html" style="color: inherit">
+                  Understanding RAG: building retrieval-augmented generation
+                  from scratch
+                </a>
+              </h3>
+              <div class="card__body">
+                <p>
+                  A practical guide to RAG architecture — embedding documents,
+                  building a vector store, and querying with an LLM.
+                </p>
+              </div>
+              <div class="card__footer">
+                <span class="text-xs text-muted">8 min read</span>
+                <a href="blog.html" class="btn btn--ghost btn--sm">Read →</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+         9. TOOLS PREVIEW
+         ══════════════════════════════════════════════════════════ -->
+      <section
+        class="tools-preview section section--sm"
+        aria-labelledby="tools-heading"
+      >
+        <div class="container">
+          <div
+            class="flex-between reveal"
+            style="margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem"
+          >
+            <div>
+              <p class="section-label">Tools &amp; stack</p>
+              <h2
+                id="tools-heading"
+                class="section-title"
+                style="margin-bottom: 0"
+              >
+                My daily toolkit
+              </h2>
+            </div>
+            <a href="tools.html" class="btn btn--secondary">Full stack →</a>
+          </div>
+
+          <div class="tools-chips reveal">
+            <span class="tag tag--software">Java 17</span>
+            <span class="tag tag--software">Spring Boot</span>
+            <span class="tag tag--software">React 18</span>
+            <span class="tag tag--software">Node.js</span>
+            <span class="tag tag--ai">Python 3.11</span>
+            <span class="tag tag--ai">scikit-learn</span>
+            <span class="tag tag--ai">TensorFlow</span>
+            <span class="tag tag--ai">PyTorch</span>
+            <span class="tag tag--ai">LangChain</span>
+            <span class="tag tag--default">PostgreSQL</span>
+            <span class="tag tag--default">MongoDB</span>
+            <span class="tag tag--default">Docker</span>
+            <span class="tag tag--default">Jenkins</span>
+            <span class="tag tag--default">GitHub Actions</span>
+            <span class="tag tag--tools">VS Code</span>
+            <span class="tag tag--tools">IntelliJ IDEA</span>
+            <span class="tag tag--tools">Postman</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+         10. CONTACT CTA
+         ══════════════════════════════════════════════════════════ -->
+      <section class="contact-cta section" aria-labelledby="contact-heading">
+        <div class="container">
+          <div class="contact-cta__inner reveal text-center">
+            <p class="section-label">Get in touch</p>
+            <h2 id="contact-heading" class="section-title">
+              Open to roles, freelance work<br />and research collaboration
+            </h2>
+            <p
+              class="section-subtitle"
+              style="margin-inline: auto; margin-bottom: 2rem"
+            >
+              Looking for AI/ML engineering positions, full-stack contract work,
+              or research partnerships. I'm especially interested in teams
+              working on LLMs, healthcare AI, or agentic systems.
+            </p>
+
+            <div class="btn-group flex-center">
+              <a href="contact.html" class="btn btn--primary btn--lg"
+                >Send a message</a
+              >
+              <!-- TODO: add LinkedIn URL -->
+              <a
+                href="#"
+                class="btn btn--secondary btn--lg"
+                target="_blank"
+                rel="noopener"
+                >Connect on LinkedIn ↗</a
+              >
+              <a
+                href="https://github.com/safaet"
+                class="btn btn--ghost btn--lg"
+                target="_blank"
+                rel="noopener"
+                >GitHub ↗</a
+              >
+            </div>
+
+            <!-- TODO: add email address -->
+            <p class="text-muted text-sm" style="margin-top: 1.5rem">
+              Or reach out directly:
+              <a href="mailto:your@email.com">your@email.com</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════════════════ -->
+    <footer class="footer" role="contentinfo">
+      <div class="footer__inner">
+        <div class="footer__top">
+          <!-- Brand + tagline -->
+          <div class="footer__brand-col">
+            <a href="index.html" class="footer__brand"
+              >SJ<span style="color: var(--accent-indigo)">.</span></a
+            >
+            <p
+              class="text-sm"
+              style="margin-top: 0.5rem; color: var(--text-secondary)"
+            >
+              Full Stack Engineer → AI/ML Engineer.<br />
+              Building systems that matter.
+            </p>
+            <div class="social-links" style="margin-top: 1rem">
+              <a
+                href="https://github.com/safaet"
+                class="social-link"
+                target="_blank"
+                rel="noopener"
+                aria-label="GitHub"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"
+                  />
+                </svg>
+              </a>
+              <!-- TODO: add LinkedIn URL -->
+              <a
+                href="#"
+                class="social-link"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </a>
+              <!-- TODO: add email address -->
+              <a
+                href="mailto:your@email.com"
+                class="social-link"
+                aria-label="Email"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Navigation columns -->
+          <nav aria-label="Footer navigation">
+            <div class="footer__nav-cols">
+              <div>
+                <p class="footer__nav-title">Portfolio</p>
+                <ul role="list">
+                  <li>
+                    <a href="projects.html" class="footer__link"
+                      >Software projects</a
+                    >
+                  </li>
+                  <li>
+                    <a href="ai-portfolio.html" class="footer__link"
+                      >AI/ML portfolio</a
+                    >
+                  </li>
+                  <li>
+                    <a href="research.html" class="footer__link">Research</a>
+                  </li>
+                  <li><a href="tools.html" class="footer__link">Tools</a></li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="footer__nav-title">Writing</p>
+                <ul role="list">
+                  <li><a href="blog.html" class="footer__link">Blog</a></li>
+                  <!-- TODO: add actual blog post links -->
+                  <li><a href="blog.html" class="footer__link">ML notes</a></li>
+                  <li>
+                    <a href="blog.html" class="footer__link">Engineering</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="footer__nav-title">Connect</p>
+                <ul role="list">
+                  <li>
+                    <a href="contact.html" class="footer__link">Contact</a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/safaet"
+                      target="_blank"
+                      rel="noopener"
+                      class="footer__link"
+                      >GitHub ↗</a
+                    >
+                  </li>
+                  <!-- TODO: add LinkedIn URL -->
+                  <li>
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener"
+                      class="footer__link"
+                      >LinkedIn ↗</a
+                    >
+                  </li>
+                  <!-- TODO: add resume PDF path -->
+                  <li>
+                    <a
+                      href="resume/safaet-jaman-resume.pdf"
+                      target="_blank"
+                      rel="noopener"
+                      class="footer__link"
+                      >Resume ↗</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <div class="footer__bottom">
+          <p>
+            © <span id="footer-year">2025</span> Safaet Jaman. Built with HTML,
+            CSS &amp; JavaScript. Hosted on GitHub Pages.
+          </p>
+          <p class="text-muted">
+            Safaet Jaman · Saddam Hossen · Chittagong, Bangladesh
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS — defer so it doesn't block rendering -->
+    <script src="assets/js/main.js" defer></script>
+
+    <!-- Auto-update footer year -->
+    <script>
+      document.getElementById("footer-year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
 </html>

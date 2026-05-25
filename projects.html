@@ -1,0 +1,1248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ══════════════════════════════════════════════════════════
+       SEO META TAGS
+       TODO: update canonical URL to your real GitHub Pages domain
+       ══════════════════════════════════════════════════════════ -->
+    <title>Software Projects — Safaet Jaman</title>
+    <meta
+      name="description"
+      content="Full-stack software projects by Safaet Jaman — DevSearch, AI Lesson Planner, and School Management System. Built with Java, Spring Boot, React, Node.js, and Docker."
+    />
+    <meta
+      name="keywords"
+      content="Safaet Jaman projects, DevSearch, AI Lesson Planner, School Management, Java Spring Boot, React, full stack portfolio"
+    />
+    <meta name="author" content="Safaet Jaman" />
+    <!-- TODO: update canonical to your real GitHub Pages URL -->
+    <link rel="canonical" href="https://safaet.github.io/projects.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Software Projects — Safaet Jaman" />
+    <meta
+      property="og:description"
+      content="Full-stack projects built with Java, Spring Boot, React, Node.js, and Docker. Professional portfolio by Safaet Jaman."
+    />
+    <!-- TODO: replace with your real OG image -->
+    <meta property="og:image" content="images/og-image.jpg" />
+    <meta property="og:url" content="https://safaet.github.io/projects.html" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Software Projects — Safaet Jaman" />
+    <meta
+      name="twitter:description"
+      content="Full-stack projects built with Java, Spring Boot, React, Node.js, and Docker."
+    />
+    <meta name="twitter:image" content="images/og-image.jpg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Outfit:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Design system — shared across all pages -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- TODO: add favicon -->
+    <!-- <link rel="icon" href="images/favicon.ico" /> -->
+  </head>
+
+  <body>
+    <!-- ══════════════════════════════════════════════════════════
+       NAVIGATION
+       Identical across all pages — JS sets .active on projects.html link
+       ══════════════════════════════════════════════════════════ -->
+    <header>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav__inner">
+          <a
+            href="index.html"
+            class="nav__brand"
+            aria-label="Safaet Jaman — home"
+          >
+            SJ<span>.</span>
+          </a>
+
+          <ul class="nav__links" role="list">
+            <li><a href="index.html" class="nav__link">Home</a></li>
+            <li><a href="projects.html" class="nav__link">Projects</a></li>
+            <li>
+              <a href="ai-portfolio.html" class="nav__link">AI Portfolio</a>
+            </li>
+            <li><a href="research.html" class="nav__link">Research</a></li>
+            <li><a href="blog.html" class="nav__link">Blog</a></li>
+            <li><a href="tools.html" class="nav__link">Tools</a></li>
+            <!-- TODO: replace with your actual resume PDF path -->
+            <li>
+              <a
+                href="resume/safaet-jaman-resume.pdf"
+                class="nav__link"
+                target="_blank"
+                rel="noopener"
+                >Resume</a
+              >
+            </li>
+            <li><a href="contact.html" class="nav__link">Contact</a></li>
+          </ul>
+
+          <div class="nav__actions">
+            <button class="theme-toggle" aria-label="Toggle light/dark theme">
+              <span class="icon-moon" aria-hidden="true">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+              </span>
+              <span class="icon-sun" aria-hidden="true">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="5" />
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </svg>
+              </span>
+            </button>
+
+            <button
+              class="nav__toggle"
+              aria-label="Open navigation menu"
+              aria-expanded="false"
+              aria-controls="mobile-nav"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Mobile drawer -->
+      <nav id="mobile-nav" class="nav__mobile" aria-label="Mobile navigation">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="projects.html" class="nav__link">Projects</a>
+        <a href="ai-portfolio.html" class="nav__link">AI Portfolio</a>
+        <a href="research.html" class="nav__link">Research</a>
+        <a href="blog.html" class="nav__link">Blog</a>
+        <a href="tools.html" class="nav__link">Tools</a>
+        <!-- TODO: replace with your actual resume PDF path -->
+        <a
+          href="resume/safaet-jaman-resume.pdf"
+          class="nav__link"
+          target="_blank"
+          rel="noopener"
+          >Resume ↗</a
+        >
+        <a href="contact.html" class="nav__link">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ══════════════════════════════════════════════════════════
+         1. PAGE HERO
+         ══════════════════════════════════════════════════════════ -->
+      <section
+        class="page-hero section section--sm"
+        aria-labelledby="page-hero-heading"
+      >
+        <div class="container">
+          <div class="page-hero__inner reveal">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <ol class="breadcrumb__list" role="list">
+                <li><a href="index.html" class="breadcrumb__link">Home</a></li>
+                <li class="breadcrumb__sep" aria-hidden="true">/</li>
+                <li class="breadcrumb__current" aria-current="page">
+                  Projects
+                </li>
+              </ol>
+            </nav>
+
+            <p class="section-label">Software engineering</p>
+            <h1 id="page-hero-heading" class="page-hero__title">
+              Projects I've <span class="text-gradient">built and shipped</span>
+            </h1>
+            <p class="page-hero__desc">
+              Full-stack applications built for real problems — complete with
+              authentication, databases, APIs, containerization, and CI/CD
+              pipelines. Each project reflects production-thinking, not just
+              tutorial code.
+            </p>
+
+            <!-- Page-level stats -->
+            <div
+              class="page-hero__stats"
+              role="list"
+              aria-label="Portfolio statistics"
+            >
+              <div class="page-hero__stat" role="listitem">
+                <span class="page-hero__stat-value">3</span>
+                <span class="page-hero__stat-label">Software projects</span>
+              </div>
+              <div class="page-hero__stat" role="listitem">
+                <span class="page-hero__stat-value">8+</span>
+                <span class="page-hero__stat-label">Technologies used</span>
+              </div>
+              <div class="page-hero__stat" role="listitem">
+                <span class="page-hero__stat-value">3</span>
+                <span class="page-hero__stat-label">AI/ML models built</span>
+              </div>
+            </div>
+
+            <!-- Quick nav to AI portfolio -->
+            <p class="page-hero__also">
+              Also see:
+              <a href="ai-portfolio.html">AI/ML portfolio →</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+         2. FILTER BAR
+         JS in main.js reads data-filter and shows/hides cards
+         by matching their data-tags attribute.
+         ══════════════════════════════════════════════════════════ -->
+      <section
+        class="projects-filter section--sm"
+        aria-label="Filter projects by technology"
+      >
+        <div class="container">
+          <div
+            class="filter-bar reveal"
+            role="group"
+            aria-label="Technology filter"
+          >
+            <button class="filter-btn active" data-filter="all">
+              All projects
+            </button>
+            <button class="filter-btn" data-filter="react">React</button>
+            <button class="filter-btn" data-filter="java">Java</button>
+            <button class="filter-btn" data-filter="spring-boot">
+              Spring Boot
+            </button>
+            <button class="filter-btn" data-filter="node">Node.js</button>
+            <button class="filter-btn" data-filter="docker">Docker</button>
+            <button class="filter-btn" data-filter="ai">AI-Powered</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+         3. FEATURED SOFTWARE PROJECTS
+         Full detail cards — one per project
+         ══════════════════════════════════════════════════════════ -->
+      <section
+        class="projects-section section"
+        aria-labelledby="projects-section-heading"
+      >
+        <div class="container">
+          <div class="reveal" style="margin-bottom: 3rem">
+            <h2 id="projects-section-heading" class="section-title">
+              All software projects
+            </h2>
+            <p class="section-subtitle">
+              Click GitHub to see the source code. Case study pages coming soon.
+            </p>
+          </div>
+
+          <!-- ─────────────────────────────────────────────
+             PROJECT 1: DEVSEARCH
+             ───────────────────────────────────────────── -->
+          <article
+            class="project-card reveal"
+            id="devsearch"
+            data-tags="react,java,spring-boot,postgresql,docker"
+            aria-labelledby="devsearch-title"
+          >
+            <div class="project-card__layout">
+              <!-- Left: project image / preview -->
+              <div class="project-card__visual">
+                <!-- TODO: replace src with your actual project screenshot (800×500 recommended) -->
+                <!-- Recommended: images/projects/devsearch.webp -->
+                <div class="project-card__image-placeholder" aria-hidden="true">
+                  <div class="project-card__image-icon">🔍</div>
+                  <p class="project-card__image-label">DevSearch</p>
+                  <!-- TODO: once you have a screenshot, replace the placeholder div above with:
+                <img
+                  src="images/projects/devsearch.webp"
+                  alt="DevSearch application screenshot showing developer profile listings"
+                  width="800"
+                  height="500"
+                  loading="lazy"
+                />
+                --></div>
+
+                <!-- Project type badge -->
+                <div class="project-card__badge">
+                  <span class="tag tag--software">Full Stack Web App</span>
+                </div>
+              </div>
+
+              <!-- Right: project details -->
+              <div class="project-card__content">
+                <!-- Header -->
+                <header class="project-card__header">
+                  <div class="project-card__meta">
+                    <span class="project-card__number" aria-hidden="true"
+                      >01</span
+                    >
+                    <span class="tag tag--software">React + Spring Boot</span>
+                  </div>
+                  <h3 id="devsearch-title" class="project-card__title">
+                    DevSearch
+                  </h3>
+                  <p class="project-card__tagline">
+                    A developer discovery and networking platform — find
+                    engineers, explore their projects, and connect.
+                  </p>
+                </header>
+
+                <!-- Problem -->
+                <div class="project-card__section">
+                  <h4 class="project-card__section-title">
+                    <span class="project-card__section-icon" aria-hidden="true"
+                      >🎯</span
+                    >
+                    Problem solved
+                  </h4>
+                  <p>
+                    Developers building side projects or looking for
+                    collaborators have no dedicated space to discover each other
+                    by skill set. LinkedIn is too corporate; GitHub profiles
+                    lack structured search. DevSearch fills that gap with a
+                    clean, skill-indexed directory built specifically for the
+                    engineering community.
+                  </p>
+                </div>
+
+                <!-- Key features -->
+                <div class="project-card__section">
+                  <h4 class="project-card__section-title">
+                    <span class="project-card__section-icon" aria-hidden="true"
+                      >✨</span
+                    >
+                    Key features
+                  </h4>
+                  <ul class="project-card__features" role="list">
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      Developer profile creation with skills, bio, and project
+                      links
+                    </li>
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      Full-text search and filter by technology stack
+                    </li>
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      JWT-based authentication and authorization
+                    </li>
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      Project showcase with tags, descriptions, and GitHub links
+                    </li>
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      Messaging / connection request system between developers
+                    </li>
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      Paginated REST API with Spring Boot backend
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Tech stack -->
+                <div class="project-card__section">
+                  <h4 class="project-card__section-title">
+                    <span class="project-card__section-icon" aria-hidden="true"
+                      >⚙️</span
+                    >
+                    Tech stack
+                  </h4>
+                  <div class="project-card__stack">
+                    <div class="stack-group">
+                      <span class="stack-group__label">Frontend</span>
+                      <div class="tag-group">
+                        <span class="tag tag--software">React 18</span>
+                        <span class="tag tag--software">JavaScript</span>
+                        <span class="tag tag--software">CSS Modules</span>
+                        <span class="tag tag--software">Axios</span>
+                      </div>
+                    </div>
+                    <div class="stack-group">
+                      <span class="stack-group__label">Backend</span>
+                      <div class="tag-group">
+                        <span class="tag tag--software">Java 17</span>
+                        <span class="tag tag--software">Spring Boot 3</span>
+                        <span class="tag tag--software">Spring Security</span>
+                        <span class="tag tag--software">REST API</span>
+                      </div>
+                    </div>
+                    <div class="stack-group">
+                      <span class="stack-group__label"
+                        >Database &amp; Infra</span
+                      >
+                      <div class="tag-group">
+                        <span class="tag tag--default">PostgreSQL</span>
+                        <span class="tag tag--default">Docker</span>
+                        <span class="tag tag--default">GitHub Actions</span>
+                        <span class="tag tag--default">JWT</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- My role -->
+                <div class="project-card__section">
+                  <h4 class="project-card__section-title">
+                    <span class="project-card__section-icon" aria-hidden="true"
+                      >👤</span
+                    >
+                    My role
+                  </h4>
+                  <p>
+                    <strong>Sole developer.</strong> Designed the database
+                    schema, built the entire Spring Boot REST API, implemented
+                    JWT authentication flow, developed the React frontend, and
+                    containerized the application with Docker. Configured GitHub
+                    Actions for automated testing on pull requests.
+                  </p>
+                </div>
+
+                <!-- Action buttons -->
+                <div class="project-card__actions">
+                  <!-- TODO: replace href with your actual DevSearch GitHub repo URL -->
+                  <a
+                    href="https://github.com/safaet"
+                    class="btn btn--primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View DevSearch source code on GitHub (opens in new tab)"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"
+                      />
+                    </svg>
+                    GitHub repo
+                  </a>
+                  <!-- TODO: replace href with live demo URL when deployed -->
+                  <!-- <a href="https://devsearch-demo.example.com" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Live demo ↗</a> -->
+                  <!-- TODO: create a case study blog post and link here -->
+                  <!-- <a href="blog/posts/devsearch-case-study.html" class="btn btn--ghost">Read case study →</a> -->
+                </div>
+              </div>
+              <!-- end .project-card__content -->
+            </div>
+            <!-- end .project-card__layout -->
+          </article>
+
+          <!-- Divider between projects -->
+          <hr class="projects-divider" aria-hidden="true" />
+
+          <!-- ─────────────────────────────────────────────
+             PROJECT 2: AI LESSON PLANNER
+             ───────────────────────────────────────────── -->
+          <article
+            class="project-card reveal"
+            id="ai-lesson-planner"
+            data-tags="react,node,mongodb,ai,docker"
+            aria-labelledby="lesson-planner-title"
+          >
+            <div class="project-card__layout project-card__layout--reversed">
+              <!-- Left: project details (layout reversed on desktop) -->
+              <div class="project-card__content">
+                <header class="project-card__header">
+                  <div class="project-card__meta">
+                    <span class="project-card__number" aria-hidden="true"
+                      >02</span
+                    >
+                    <span class="tag tag--ai">AI-Powered</span>
+                  </div>
+                  <h3 id="lesson-planner-title" class="project-card__title">
+                    AI Lesson Planner
+                  </h3>
+                  <p class="project-card__tagline">
+                    Helping teachers spend less time planning and more time
+                    teaching — AI generates structured, editable lesson plans on
+                    demand.
+                  </p>
+                </header>
+
+                <!-- Problem -->
+                <div class="project-card__section">
+                  <h4 class="project-card__section-title">
+                    <span class="project-card__section-icon" aria-hidden="true"
+                      >🎯</span
+                    >
+                    Problem solved
+                  </h4>
+                  <p>
+                    Teachers spend hours every week writing lesson plans from
+                    scratch — adapting the same structure for different grade
+                    levels, subjects, and learning objectives. This tool removes
+                    the blank-page problem: enter topic, grade, and duration,
+                    and receive a complete, pedagogically-structured plan within
+                    seconds. Teachers then edit, save, and reuse plans from
+                    their dashboard.
+                  </p>
+                </div>
+
+                <!-- Key features -->
+                <div class="project-card__section">
+                  <h4 class="project-card__section-title">
+                    <span class="project-card__section-icon" aria-hidden="true"
+                      >✨</span
+                    >
+                    Key features
+                  </h4>
+                  <ul class="project-card__features" role="list">
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      AI-generated lesson plans using OpenAI API integration
+                    </li>
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      Structured output: objectives, activities, assessment,
+                      materials
+                    </li>
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      Teacher dashboard to save, edit, and organise saved plans
+                    </li>
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      Grade level and subject customisation inputs
+                    </li>
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      PDF export of completed lesson plans
+                    </li>
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      Role-based accounts: teacher and admin roles
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Tech stack -->
+                <div class="project-card__section">
+                  <h4 class="project-card__section-title">
+                    <span class="project-card__section-icon" aria-hidden="true"
+                      >⚙️</span
+                    >
+                    Tech stack
+                  </h4>
+                  <div class="project-card__stack">
+                    <div class="stack-group">
+                      <span class="stack-group__label">Frontend</span>
+                      <div class="tag-group">
+                        <span class="tag tag--software">React 18</span>
+                        <span class="tag tag--software">JavaScript</span>
+                        <span class="tag tag--software">Tailwind CSS</span>
+                      </div>
+                    </div>
+                    <div class="stack-group">
+                      <span class="stack-group__label">Backend</span>
+                      <div class="tag-group">
+                        <span class="tag tag--software">Node.js</span>
+                        <span class="tag tag--software">Express.js</span>
+                        <span class="tag tag--ai">OpenAI API</span>
+                        <span class="tag tag--software">REST API</span>
+                      </div>
+                    </div>
+                    <div class="stack-group">
+                      <span class="stack-group__label"
+                        >Database &amp; Infra</span
+                      >
+                      <div class="tag-group">
+                        <span class="tag tag--default">MongoDB</span>
+                        <span class="tag tag--default">Docker</span>
+                        <span class="tag tag--default">JWT Auth</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- My role -->
+                <div class="project-card__section">
+                  <h4 class="project-card__section-title">
+                    <span class="project-card__section-icon" aria-hidden="true"
+                      >👤</span
+                    >
+                    My role
+                  </h4>
+                  <p>
+                    <strong>Sole developer.</strong> Designed the product
+                    concept, wrote the prompt engineering logic to produce
+                    consistently structured output from the LLM, built the
+                    Node.js/Express backend, and developed the React dashboard
+                    frontend. Set up MongoDB data models for plan storage and
+                    implemented PDF generation on the server side.
+                  </p>
+                </div>
+
+                <!-- Action buttons -->
+                <div class="project-card__actions">
+                  <!-- TODO: replace href with your actual AI Lesson Planner GitHub repo URL -->
+                  <a
+                    href="https://github.com/safaet"
+                    class="btn btn--primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View AI Lesson Planner source code on GitHub (opens in new tab)"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"
+                      />
+                    </svg>
+                    GitHub repo
+                  </a>
+                  <!-- TODO: add live demo link when deployed -->
+                  <!-- <a href="https://ai-lesson-planner-demo.example.com" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Live demo ↗</a> -->
+                  <!-- TODO: write a case study post and link here -->
+                  <!-- <a href="blog/posts/ai-lesson-planner-case-study.html" class="btn btn--ghost">Read case study →</a> -->
+                </div>
+              </div>
+              <!-- end .project-card__content -->
+
+              <!-- Right: project image -->
+              <div class="project-card__visual">
+                <!-- TODO: replace with actual screenshot: images/projects/ai-lesson-planner.webp -->
+                <div
+                  class="project-card__image-placeholder project-card__image-placeholder--ai"
+                  aria-hidden="true"
+                >
+                  <div class="project-card__image-icon">📚</div>
+                  <p class="project-card__image-label">AI Lesson Planner</p>
+                </div>
+                <div class="project-card__badge">
+                  <span class="tag tag--ai">AI-Powered</span>
+                </div>
+              </div>
+            </div>
+            <!-- end .project-card__layout -->
+          </article>
+
+          <!-- Divider between projects -->
+          <hr class="projects-divider" aria-hidden="true" />
+
+          <!-- ─────────────────────────────────────────────
+             PROJECT 3: SCHOOL MANAGEMENT SYSTEM
+             ───────────────────────────────────────────── -->
+          <article
+            class="project-card reveal"
+            id="school-management"
+            data-tags="java,spring-boot,mysql,docker"
+            aria-labelledby="school-mgmt-title"
+          >
+            <div class="project-card__layout">
+              <!-- Left: project image -->
+              <div class="project-card__visual">
+                <!-- TODO: replace with actual screenshot: images/projects/school-management.webp -->
+                <div class="project-card__image-placeholder" aria-hidden="true">
+                  <div class="project-card__image-icon">🏫</div>
+                  <p class="project-card__image-label">School Management</p>
+                </div>
+                <div class="project-card__badge">
+                  <span class="tag tag--software">Enterprise System</span>
+                </div>
+              </div>
+
+              <!-- Right: project details -->
+              <div class="project-card__content">
+                <header class="project-card__header">
+                  <div class="project-card__meta">
+                    <span class="project-card__number" aria-hidden="true"
+                      >03</span
+                    >
+                    <span class="tag tag--software">Java + Spring Boot</span>
+                  </div>
+                  <h3 id="school-mgmt-title" class="project-card__title">
+                    School Management System
+                  </h3>
+                  <p class="project-card__tagline">
+                    A complete administrative platform for schools — student
+                    records, attendance, grades, and staff management in one
+                    system.
+                  </p>
+                </header>
+
+                <!-- Problem -->
+                <div class="project-card__section">
+                  <h4 class="project-card__section-title">
+                    <span class="project-card__section-icon" aria-hidden="true"
+                      >🎯</span
+                    >
+                    Problem solved
+                  </h4>
+                  <p>
+                    Schools managing student enrollment, attendance, and
+                    academic records across paper files and spreadsheets lose
+                    data integrity and waste administrative time. This system
+                    centralises all school operations into a single platform —
+                    with separate dashboards for admins, teachers, and students,
+                    each seeing only what they need, secured by role-based
+                    access control.
+                  </p>
+                </div>
+
+                <!-- Key features -->
+                <div class="project-card__section">
+                  <h4 class="project-card__section-title">
+                    <span class="project-card__section-icon" aria-hidden="true"
+                      >✨</span
+                    >
+                    Key features
+                  </h4>
+                  <ul class="project-card__features" role="list">
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      Student enrollment, transfer, and graduation record
+                      management
+                    </li>
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      Daily attendance tracking per class with teacher interface
+                    </li>
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      Grade entry, report card generation, and GPA calculation
+                    </li>
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      Staff and teacher profile management with subject
+                      assignments
+                    </li>
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      Role-based access control: Admin / Teacher / Student /
+                      Parent
+                    </li>
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      REST API backend with full Swagger/OpenAPI documentation
+                    </li>
+                    <li class="project-card__feature">
+                      <span class="feature-check" aria-hidden="true">✓</span>
+                      Dockerised deployment with environment variable
+                      configuration
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Tech stack -->
+                <div class="project-card__section">
+                  <h4 class="project-card__section-title">
+                    <span class="project-card__section-icon" aria-hidden="true"
+                      >⚙️</span
+                    >
+                    Tech stack
+                  </h4>
+                  <div class="project-card__stack">
+                    <div class="stack-group">
+                      <span class="stack-group__label">Backend</span>
+                      <div class="tag-group">
+                        <span class="tag tag--software">Java 17</span>
+                        <span class="tag tag--software">Spring Boot 3</span>
+                        <span class="tag tag--software">Spring Security</span>
+                        <span class="tag tag--software">Spring Data JPA</span>
+                      </div>
+                    </div>
+                    <div class="stack-group">
+                      <span class="stack-group__label"
+                        >Database &amp; Infra</span
+                      >
+                      <div class="tag-group">
+                        <span class="tag tag--default">MySQL 8</span>
+                        <span class="tag tag--default">Docker</span>
+                        <span class="tag tag--default">Jenkins</span>
+                        <span class="tag tag--default">Swagger / OpenAPI</span>
+                      </div>
+                    </div>
+                    <div class="stack-group">
+                      <span class="stack-group__label"
+                        >Auth &amp; Security</span
+                      >
+                      <div class="tag-group">
+                        <span class="tag tag--default">JWT</span>
+                        <span class="tag tag--default">BCrypt</span>
+                        <span class="tag tag--default">RBAC</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- My role -->
+                <div class="project-card__section">
+                  <h4 class="project-card__section-title">
+                    <span class="project-card__section-icon" aria-hidden="true"
+                      >👤</span
+                    >
+                    My role
+                  </h4>
+                  <p>
+                    <strong>Sole developer.</strong> Designed the full
+                    relational database schema including entity relationships
+                    for students, classes, subjects, and staff. Implemented the
+                    complete Spring Boot backend with layered architecture
+                    (Controller → Service → Repository). Built role-based
+                    security using Spring Security with JWT. Containerized the
+                    application with Docker and set up a Jenkins pipeline for
+                    automated builds.
+                  </p>
+                </div>
+
+                <!-- Action buttons -->
+                <div class="project-card__actions">
+                  <!-- TODO: replace href with your actual School Management GitHub repo URL -->
+                  <a
+                    href="https://github.com/safaet"
+                    class="btn btn--primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View School Management System source code on GitHub (opens in new tab)"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"
+                      />
+                    </svg>
+                    GitHub repo
+                  </a>
+                  <!-- TODO: add live demo link when deployed -->
+                  <!-- <a href="https://school-mgmt-demo.example.com" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Live demo ↗</a> -->
+                  <!-- TODO: write a case study post and link here -->
+                  <!-- <a href="blog/posts/school-management-case-study.html" class="btn btn--ghost">Read case study →</a> -->
+                </div>
+              </div>
+              <!-- end .project-card__content -->
+            </div>
+            <!-- end .project-card__layout -->
+          </article>
+        </div>
+        <!-- end .container -->
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+         4. HOW I APPROACH PROJECTS (case study format explanation)
+         Gives recruiters and clients confidence in process thinking
+         ══════════════════════════════════════════════════════════ -->
+      <section
+        class="approach-section section section--sm"
+        aria-labelledby="approach-heading"
+      >
+        <div class="container">
+          <div class="text-center reveal" style="margin-bottom: 3rem">
+            <p class="section-label">How I work</p>
+            <h2 id="approach-heading" class="section-title">
+              My engineering approach
+            </h2>
+            <p class="section-subtitle" style="margin-inline: auto">
+              Every project follows the same structured process — from problem
+              definition to deployment.
+            </p>
+          </div>
+
+          <div class="approach-grid reveal" role="list">
+            <div class="approach-step" role="listitem">
+              <div class="approach-step__icon" aria-hidden="true">📋</div>
+              <div class="approach-step__num" aria-hidden="true">01</div>
+              <h3 class="approach-step__title">Define the problem</h3>
+              <p class="approach-step__desc">
+                I start with the user problem, not the technology. What pain
+                point does this solve? Who uses it? What does success look like?
+              </p>
+            </div>
+
+            <div class="approach-step" role="listitem">
+              <div class="approach-step__icon" aria-hidden="true">🗄️</div>
+              <div class="approach-step__num" aria-hidden="true">02</div>
+              <h3 class="approach-step__title">Design the data model</h3>
+              <p class="approach-step__desc">
+                Schema design before writing a single line of application code.
+                Clean entity relationships prevent technical debt later.
+              </p>
+            </div>
+
+            <div class="approach-step" role="listitem">
+              <div class="approach-step__icon" aria-hidden="true">⚙️</div>
+              <div class="approach-step__num" aria-hidden="true">03</div>
+              <h3 class="approach-step__title">Build the API first</h3>
+              <p class="approach-step__desc">
+                Backend REST API with full validation, error handling, and
+                documentation before touching the frontend. API-first thinking
+                keeps concerns cleanly separated.
+              </p>
+            </div>
+
+            <div class="approach-step" role="listitem">
+              <div class="approach-step__icon" aria-hidden="true">🖥️</div>
+              <div class="approach-step__num" aria-hidden="true">04</div>
+              <h3 class="approach-step__title">Build the UI</h3>
+              <p class="approach-step__desc">
+                Frontend consumes the documented API. Component-based structure,
+                state managed cleanly, accessibility considered from the start.
+              </p>
+            </div>
+
+            <div class="approach-step" role="listitem">
+              <div class="approach-step__icon" aria-hidden="true">🐳</div>
+              <div class="approach-step__num" aria-hidden="true">05</div>
+              <h3 class="approach-step__title">Containerise &amp; deploy</h3>
+              <p class="approach-step__desc">
+                Docker for consistent environments. CI/CD pipelines with GitHub
+                Actions or Jenkins to automate testing and deployment. No "works
+                on my machine" problems.
+              </p>
+            </div>
+
+            <div class="approach-step" role="listitem">
+              <div class="approach-step__icon" aria-hidden="true">📝</div>
+              <div class="approach-step__num" aria-hidden="true">06</div>
+              <h3 class="approach-step__title">Document &amp; reflect</h3>
+              <p class="approach-step__desc">
+                README, API docs, and a case study write-up. What went well,
+                what I'd change, and what I learned — shared publicly on the
+                blog.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+         5. CROSS-LINK TO AI PORTFOLIO
+         ══════════════════════════════════════════════════════════ -->
+      <section
+        class="projects-crosslink section section--sm"
+        aria-labelledby="crosslink-heading"
+      >
+        <div class="container">
+          <div class="crosslink-card reveal">
+            <div class="crosslink-card__content">
+              <p class="section-label" style="color: var(--accent-emerald)">
+                Also in the portfolio
+              </p>
+              <h2 id="crosslink-heading" class="crosslink-card__title">
+                Looking for AI/ML work?
+              </h2>
+              <p class="crosslink-card__desc">
+                Beyond full-stack engineering, I build machine learning models
+                in Python — antimicrobial resistance prediction, house price
+                forecasting, and real-time mask detection. All with real
+                datasets and documented results.
+              </p>
+              <div class="btn-group">
+                <a href="ai-portfolio.html" class="btn btn--ai btn--lg">
+                  View AI/ML portfolio →
+                </a>
+                <a href="research.html" class="btn btn--secondary">
+                  Research interests
+                </a>
+              </div>
+            </div>
+            <div class="crosslink-card__visual" aria-hidden="true">
+              <div class="crosslink-card__icons">
+                <span>🤖</span>
+                <span>🧬</span>
+                <span>🏠</span>
+                <span>👁️</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+         6. CALL TO ACTION
+         ══════════════════════════════════════════════════════════ -->
+      <section
+        class="contact-cta section"
+        aria-labelledby="projects-cta-heading"
+      >
+        <div class="container">
+          <div class="contact-cta__inner reveal text-center">
+            <p class="section-label">Hire or collaborate</p>
+            <h2 id="projects-cta-heading" class="section-title">
+              Want to build something together?
+            </h2>
+            <p
+              class="section-subtitle"
+              style="margin-inline: auto; margin-bottom: 2rem"
+            >
+              I'm open to full-stack contract work, AI/ML engineering roles, and
+              research collaborations. If you have a problem worth solving,
+              let's talk.
+            </p>
+
+            <div class="btn-group flex-center">
+              <a href="contact.html" class="btn btn--primary btn--lg">
+                Get in touch
+              </a>
+              <!-- TODO: add LinkedIn URL -->
+              <a
+                href="#"
+                class="btn btn--secondary btn--lg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn ↗
+              </a>
+              <a
+                href="https://github.com/safaet"
+                class="btn btn--ghost btn--lg"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View all repositories on GitHub (opens in new tab)"
+              >
+                All GitHub repos ↗
+              </a>
+            </div>
+
+            <!-- TODO: add email address -->
+            <p class="text-muted text-sm" style="margin-top: 1.5rem">
+              Or email directly:
+              <a href="mailto:your@email.com">your@email.com</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+       Identical across all pages
+       ══════════════════════════════════════════════════════════ -->
+    <footer class="footer" role="contentinfo">
+      <div class="footer__inner">
+        <div class="footer__top">
+          <!-- Brand + tagline -->
+          <div class="footer__brand-col">
+            <a href="index.html" class="footer__brand"
+              >SJ<span style="color: var(--accent-primary)">.</span></a
+            >
+            <p
+              class="text-sm"
+              style="margin-top: 0.5rem; color: var(--text-secondary)"
+            >
+              Full Stack Engineer → AI/ML Engineer.<br />
+              Building systems that matter.
+            </p>
+            <div class="social-links" style="margin-top: 1rem">
+              <a
+                href="https://github.com/safaet"
+                class="social-link"
+                target="_blank"
+                rel="noopener"
+                aria-label="GitHub profile"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"
+                  />
+                </svg>
+              </a>
+              <!-- TODO: add LinkedIn URL -->
+              <a
+                href="#"
+                class="social-link"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn profile"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </a>
+              <!-- TODO: add your email address -->
+              <a
+                href="mailto:your@email.com"
+                class="social-link"
+                aria-label="Send email"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Navigation columns -->
+          <nav aria-label="Footer navigation">
+            <div class="footer__nav-cols">
+              <div>
+                <p class="footer__nav-title">Portfolio</p>
+                <ul role="list">
+                  <li>
+                    <a href="projects.html" class="footer__link"
+                      >Software projects</a
+                    >
+                  </li>
+                  <li>
+                    <a href="ai-portfolio.html" class="footer__link"
+                      >AI/ML portfolio</a
+                    >
+                  </li>
+                  <li>
+                    <a href="research.html" class="footer__link">Research</a>
+                  </li>
+                  <li><a href="tools.html" class="footer__link">Tools</a></li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="footer__nav-title">Writing</p>
+                <ul role="list">
+                  <li><a href="blog.html" class="footer__link">Blog</a></li>
+                  <!-- TODO: add real blog post links -->
+                  <li><a href="blog.html" class="footer__link">ML notes</a></li>
+                  <li>
+                    <a href="blog.html" class="footer__link">Engineering</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="footer__nav-title">Connect</p>
+                <ul role="list">
+                  <li>
+                    <a href="contact.html" class="footer__link">Contact</a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/safaet"
+                      target="_blank"
+                      rel="noopener"
+                      class="footer__link"
+                      >GitHub ↗</a
+                    >
+                  </li>
+                  <!-- TODO: add LinkedIn URL -->
+                  <li>
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener"
+                      class="footer__link"
+                      >LinkedIn ↗</a
+                    >
+                  </li>
+                  <!-- TODO: add resume PDF path -->
+                  <li>
+                    <a
+                      href="resume/safaet-jaman-resume.pdf"
+                      target="_blank"
+                      rel="noopener"
+                      class="footer__link"
+                      >Resume ↗</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <!-- end .footer__top -->
+
+        <div class="footer__bottom">
+          <p>
+            © <span id="footer-year">2025</span> Safaet Jaman. Built with HTML,
+            CSS &amp; JavaScript. Hosted on GitHub Pages.
+          </p>
+          <p class="text-muted">
+            Safaet Jaman · Saddam Hossen · Chittagong, Bangladesh
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS — defer so it doesn't block rendering -->
+    <script src="js/main.js" defer></script>
+
+    <!-- Auto-update footer year -->
+    <script>
+      document.getElementById("footer-year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
