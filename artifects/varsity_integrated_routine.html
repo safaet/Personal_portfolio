@@ -1,0 +1,412 @@
+
+<h2 class="sr-only">Personalised daily routine integrating IIUC Section 5CM class schedule, bus timings, and lifestyle transformation plan.</h2>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.wrap{padding:1.25rem 1rem;font-family:var(--font-sans)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem}
+.tab{padding:6px 12px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);font-size:12px;cursor:pointer;background:var(--color-background-secondary);color:var(--color-text-secondary);transition:all .15s}
+.tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent}
+.sec{display:none}.sec.active{display:block}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem}
+.card-title{font-size:15px;font-weight:500;color:var(--color-text-primary);margin-bottom:.75rem}
+.row{display:grid;grid-template-columns:90px 1fr;gap:8px;padding:6px 0;border-bottom:0.5px solid var(--color-border-tertiary);align-items:start}
+.row:last-child{border:none}
+.time{font-size:12px;color:var(--color-text-secondary);padding-top:2px}
+.act{font-size:13px;color:var(--color-text-primary);line-height:1.5}
+.badge{display:inline-block;font-size:11px;padding:2px 7px;border-radius:4px;font-weight:500;margin-right:4px;margin-bottom:2px}
+.b-blue{background:var(--color-background-info);color:var(--color-text-info)}
+.b-green{background:var(--color-background-success);color:var(--color-text-success)}
+.b-amber{background:var(--color-background-warning);color:var(--color-text-warning)}
+.b-red{background:var(--color-background-danger);color:var(--color-text-danger)}
+.b-gray{background:var(--color-background-secondary);color:var(--color-text-secondary)}
+.b-purple{background:#EEEDFE;color:#3C3489}
+.alert{border-left:3px solid var(--color-border-info);border-radius:0;padding:.75rem 1rem;background:var(--color-background-info);margin-bottom:1rem;font-size:13px;color:var(--color-text-info);line-height:1.6}
+.class-table{width:100%;border-collapse:collapse;font-size:12px}
+.class-table th{background:var(--color-background-secondary);padding:6px 8px;text-align:left;font-weight:500;font-size:11px;color:var(--color-text-secondary);border-bottom:0.5px solid var(--color-border-secondary)}
+.class-table td{padding:7px 8px;border-bottom:0.5px solid var(--color-border-tertiary);color:var(--color-text-primary);vertical-align:top}
+.class-table tr:last-child td{border:none}
+.day-nav{display:flex;gap:4px;margin-bottom:1rem;flex-wrap:wrap}
+.dn{padding:5px 11px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);font-size:12px;cursor:pointer;background:var(--color-background-secondary);color:var(--color-text-secondary)}
+.dn.active{background:var(--color-background-info);color:var(--color-text-info);border-color:transparent}
+.day-plan{display:none}.day-plan.active{display:block}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin-bottom:1rem}
+.stat{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.7rem .9rem}
+.stat-label{font-size:11px;color:var(--color-text-secondary);margin-bottom:3px}
+.stat-val{font-size:17px;font-weight:500;color:var(--color-text-primary)}
+</style>
+
+<div class="wrap">
+<div class="tabs">
+  <button class="tab active" onclick="show('classes')">My Classes</button>
+  <button class="tab" onclick="show('daily')">Daily Routine</button>
+  <button class="tab" onclick="show('varsity')">Varsity Days</button>
+  <button class="tab" onclick="show('offdays')">Off Days</button>
+  <button class="tab" onclick="show('calendar')">Key Dates</button>
+</div>
+
+<!-- CLASSES TAB -->
+<div id="classes" class="sec active">
+  <div class="alert">
+    Bus: City → Varsity departs <strong>9:05 AM</strong>, arrives ~9:45 AM. Varsity → City departs <strong>4:35 PM</strong>, arrives city ~5:35 PM. University classes run 10:40 AM – 4:20 PM with Salat + Lunch break 1:10–1:50 PM.
+  </div>
+
+  <div class="card">
+    <div class="card-title">Your courses — Section 5CM, Spring 2026</div>
+    <table class="class-table">
+      <thead><tr><th>Course code</th><th>Subject</th><th>Type</th></tr></thead>
+      <tbody>
+        <tr><td>CSE-3523</td><td>Microprocessor & Assembly Language</td><td><span class="badge b-amber">Theory</span></td></tr>
+        <tr><td>CSE-3524 (MMPLAB)</td><td>Microprocessor Lab</td><td><span class="badge b-red">Lab</span></td></tr>
+        <tr><td>CSE-3527</td><td>Compiler Design</td><td><span class="badge b-amber">Theory</span></td></tr>
+        <tr><td>CSE-3529</td><td>System Analysis & Design</td><td><span class="badge b-amber">Theory</span></td></tr>
+        <tr><td>CSE-3525</td><td>Computer Graphics Lab</td><td><span class="badge b-red">Lab</span></td></tr>
+        <tr><td>URED-3503</td><td>Bangladesh Study</td><td><span class="badge b-green">GED</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Section 5CM weekly class schedule</div>
+    <table class="class-table">
+      <thead><tr><th>Day</th><th>Time</th><th>Course</th><th>Room</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="2"><strong>Saturday</strong></td><td>10:40–11:30</td><td><span class="badge b-amber">CSE-3523</span> Microprocessor</td><td>C505</td></tr>
+        <tr><td>1:50–2:40</td><td><span class="badge b-amber">URED-3503</span> Bangladesh Study</td><td>C505</td></tr>
+
+        <tr><td rowspan="3"><strong>Sunday</strong></td><td>10:40–11:30</td><td><span class="badge b-amber">CSE-3527</span> Compiler</td><td>C505</td></tr>
+        <tr><td>11:30–12:20</td><td><span class="badge b-amber">CSE-3527</span> Compiler (cont.)</td><td>C505</td></tr>
+        <tr><td>1:50–2:40</td><td><span class="badge b-amber">CSE-3529</span> System Analysis & Design</td><td>C505</td></tr>
+
+        <tr><td rowspan="3"><strong>Monday</strong></td><td>10:40–11:30</td><td><span class="badge b-amber">CSE-3523</span> Microprocessor</td><td>C505</td></tr>
+        <tr><td>1:50–2:40</td><td><span class="badge b-red">CSE-3524</span> Microprocessor Lab (MMPLAB)</td><td>MP_LAB CX401</td></tr>
+        <tr><td>2:40–3:30</td><td><span class="badge b-amber">CSE-3527</span> Compiler</td><td>C505</td></tr>
+
+        <tr><td rowspan="3"><strong>Tuesday</strong></td><td>10:40–11:30</td><td><span class="badge b-amber">CSE-3529</span> System Analysis & Design</td><td>C505</td></tr>
+        <tr><td>1:50–2:40</td><td><span class="badge b-amber">CSE-3523</span> Microprocessor</td><td>C505</td></tr>
+        <tr><td>2:40–3:30</td><td><span class="badge b-red">CSE-3524</span> Microprocessor Lab (MMPLAB)</td><td>MP_LAB CX401</td></tr>
+
+        <tr><td rowspan="3"><strong>Wednesday</strong></td><td>10:40–11:30</td><td><span class="badge b-amber">CSE-3529</span> System Analysis & Design</td><td>C505</td></tr>
+        <tr><td>1:50–2:40</td><td><span class="badge b-amber">CSE-3529</span> System Analysis & Design (cont.)</td><td>C505</td></tr>
+        <tr><td>2:40–3:30</td><td><span class="badge b-red">CSE-3525</span> Computer Graphics Lab</td><td>C505</td></tr>
+
+        <tr><td><strong>Thursday</strong></td><td colspan="3" style="color:var(--color-text-secondary);font-style:italic">Off day — no classes</td></tr>
+        <tr><td><strong>Friday</strong></td><td colspan="3" style="color:var(--color-text-secondary);font-style:italic">Off day — no classes (Jumu'ah day)</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:.75rem;font-size:12px;color:var(--color-text-secondary)">Note: Computer Graphics Lab (CSE-3525) appears on Wednesday in the 5CM row. Bangladesh Study (URED-3503) confirmed Saturday afternoon. MMPLAB confirmed Monday + Tuesday. Compiler appears Saturday row — cross-check with your first class day if unsure.</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat"><div class="stat-label">Varsity days/week</div><div class="stat-val">5 days</div></div>
+    <div class="stat"><div class="stat-label">Classes/week</div><div class="stat-val">~11 hrs</div></div>
+    <div class="stat"><div class="stat-label">Lab sessions</div><div class="stat-val">3/week</div></div>
+    <div class="stat"><div class="stat-label">Free at city</div><div class="stat-val">5:35 PM</div></div>
+  </div>
+</div>
+
+<!-- DAILY ROUTINE TAB -->
+<div id="daily" class="sec">
+  <div class="day-nav">
+    <button class="dn active" onclick="showDay('sat2')">Sat</button>
+    <button class="dn" onclick="showDay('sun2')">Sun</button>
+    <button class="dn" onclick="showDay('mon2')">Mon</button>
+    <button class="dn" onclick="showDay('tue2')">Tue</button>
+    <button class="dn" onclick="showDay('wed2')">Wed</button>
+    <button class="dn" onclick="showDay('thu2')">Thu</button>
+    <button class="dn" onclick="showDay('fri2')">Fri</button>
+  </div>
+
+  <!-- SATURDAY -->
+  <div id="sat2" class="day-plan active card">
+    <div class="card-title">Saturday <span class="badge b-amber">Varsity day</span><span class="badge b-blue">Microprocessor + BD Study</span></div>
+    <div class="row"><div class="time">4:00 AM</div><div class="act"><span class="badge b-blue">Tahajjud</span> Wake. Wudu. 2–4 rakat Tahajjud. Personal dua.</div></div>
+    <div class="row"><div class="time">4:45 AM</div><div class="act"><span class="badge b-blue">Fajr</span> Fajr prayer. Adhkar. Quran — 1 page minimum.</div></div>
+    <div class="row"><div class="time">5:15 AM</div><div class="act"><span class="badge b-amber">Prep</span> Review today's classes: Microprocessor notes + Bangladesh Study notes. 30 min focused revision before leaving home.</div></div>
+    <div class="row"><div class="time">6:00 AM</div><div class="act"><span class="badge b-gray">Health</span> Light walk 20 min. Breakfast. Get ready.</div></div>
+    <div class="row"><div class="time">8:30 AM</div><div class="act"><span class="badge b-gray">Travel</span> Leave home. Reach bus stop. Bus departs city 9:05 AM. <em>Use commute: read Microprocessor notes on phone PDF or recap yesterday's study.</em></div></div>
+    <div class="row"><div class="time">10:40 AM</div><div class="act"><span class="badge b-amber">Class</span> CSE-3523 Microprocessor — Room C505. Be 5 min early. Sit front. Take complete notes.</div></div>
+    <div class="row"><div class="time">11:30 AM</div><div class="act"><span class="badge b-gray">Break</span> Free period. Review Microprocessor class notes while fresh. 5-min walk on campus.</div></div>
+    <div class="row"><div class="time">1:10 PM</div><div class="act"><span class="badge b-blue">Dhuhr</span> Dhuhr prayer at masjid. Lunch. Rest 10 min.</div></div>
+    <div class="row"><div class="time">1:50 PM</div><div class="act"><span class="badge b-green">Class</span> URED-3503 Bangladesh Study — Room C505. Active participation — this is an easy subject, use it to rest mentally.</div></div>
+    <div class="row"><div class="time">2:40 PM</div><div class="act"><span class="badge b-blue">Asr</span> Asr prayer (pray on time — do not delay). Then use free time: study AI/ML, job prep, or read.</div></div>
+    <div class="row"><div class="time">4:35 PM</div><div class="act"><span class="badge b-gray">Bus</span> Board return bus. Departs 4:35 PM. <em>Commute use: 1 hadith study or light reading. Rest your eyes.</em></div></div>
+    <div class="row"><div class="time">5:35 PM</div><div class="act"><span class="badge b-gray">City</span> Arrive city. Light snack if needed.</div></div>
+    <div class="row"><div class="time">6:00 PM</div><div class="act"><span class="badge b-blue">Maghrib</span> Maghrib prayer. Dhikr 5 min.</div></div>
+    <div class="row"><div class="time">6:30 PM</div><div class="act"><span class="badge b-amber">Study</span> AI/ML learning — 60 min. (Sat = AI/ML focus day)</div></div>
+    <div class="row"><div class="time">7:30 PM</div><div class="act"><span class="badge b-gray">Family</span> Dinner. Family time. Rest.</div></div>
+    <div class="row"><div class="time">8:30 PM</div><div class="act"><span class="badge b-blue">Isha</span> Isha prayer.</div></div>
+    <div class="row"><div class="time">9:00 PM</div><div class="act"><span class="badge b-green">Review</span> Daily review: tick checklist, plan tomorrow. 3-line journal. Quran 1 page.</div></div>
+    <div class="row"><div class="time">10:00 PM</div><div class="act"><span class="badge b-gray">Sleep</span> Phone away. Sleep. (Goal: 10:30 PM)</div></div>
+  </div>
+
+  <!-- SUNDAY -->
+  <div id="sun2" class="day-plan card" style="display:none">
+    <div class="card-title">Sunday <span class="badge b-amber">Varsity day</span><span class="badge b-blue">Compiler (2 slots) + SAD</span></div>
+    <div class="row"><div class="time">4:00 AM</div><div class="act"><span class="badge b-blue">Tahajjud</span> Wake. Wudu. Tahajjud. Dua for studies.</div></div>
+    <div class="row"><div class="time">4:45 AM</div><div class="act"><span class="badge b-blue">Fajr</span> Fajr prayer. Quran 1 page. 1 Hadith.</div></div>
+    <div class="row"><div class="time">5:15 AM</div><div class="act"><span class="badge b-amber">Prep</span> Compiler pre-reading — 30 min. Review last session's concepts. Today has 2 Compiler slots.</div></div>
+    <div class="row"><div class="time">6:00 AM</div><div class="act"><span class="badge b-gray">Health</span> Walk 20 min. Breakfast. Get ready.</div></div>
+    <div class="row"><div class="time">8:30 AM</div><div class="act"><span class="badge b-gray">Bus</span> Leave for bus. Departs 9:05 AM. Commute: recap Compiler theory (parsing, lexical analysis).</div></div>
+    <div class="row"><div class="time">10:40 AM</div><div class="act"><span class="badge b-amber">Class</span> CSE-3527 Compiler — Room C505 (Slot 1). Full attention — complex theory.</div></div>
+    <div class="row"><div class="time">11:30 AM</div><div class="act"><span class="badge b-amber">Class</span> CSE-3527 Compiler — Room C505 (Slot 2). 2 back-to-back — stay sharp, write everything.</div></div>
+    <div class="row"><div class="time">12:20 PM</div><div class="act"><span class="badge b-gray">Break</span> Free period. Review Compiler double notes. Simplify into your own words immediately while fresh.</div></div>
+    <div class="row"><div class="time">1:10 PM</div><div class="act"><span class="badge b-blue">Dhuhr</span> Dhuhr prayer. Lunch. Short rest.</div></div>
+    <div class="row"><div class="time">1:50 PM</div><div class="act"><span class="badge b-amber">Class</span> CSE-3529 System Analysis & Design — Room C505.</div></div>
+    <div class="row"><div class="time">2:40 PM</div><div class="act"><span class="badge b-blue">Asr</span> Asr prayer. Free period: job search on phone — check LinkedIn, BDjobs, Prothomalo jobs.</div></div>
+    <div class="row"><div class="time">4:35 PM</div><div class="act"><span class="badge b-gray">Bus</span> Return bus. Commute: summarise Compiler + SAD notes in bullet points.</div></div>
+    <div class="row"><div class="time">5:35 PM</div><div class="act"><span class="badge b-gray">City</span> Arrive city.</div></div>
+    <div class="row"><div class="time">6:00 PM</div><div class="act"><span class="badge b-blue">Maghrib</span> Maghrib prayer.</div></div>
+    <div class="row"><div class="time">6:30 PM</div><div class="act"><span class="badge b-amber">Study</span> Job preparation — 60 min. Resume, cover letters, LinkedIn. (Sun = career day)</div></div>
+    <div class="row"><div class="time">7:30 PM</div><div class="act"><span class="badge b-gray">Family</span> Dinner. Rest.</div></div>
+    <div class="row"><div class="time">8:30 PM</div><div class="act"><span class="badge b-blue">Isha</span> Isha prayer.</div></div>
+    <div class="row"><div class="time">9:00 PM</div><div class="act"><span class="badge b-green">Review</span> Daily review. Plan Monday (Lab day — prepare lab codes tonight).</div></div>
+    <div class="row"><div class="time">10:00 PM</div><div class="act"><span class="badge b-gray">Sleep</span> Sleep. Goal: 10:30 PM.</div></div>
+  </div>
+
+  <!-- MONDAY -->
+  <div id="mon2" class="day-plan card" style="display:none">
+    <div class="card-title">Monday <span class="badge b-amber">Varsity day</span><span class="badge b-red">Microprocessor + MicroLab + Compiler</span></div>
+    <div class="alert" style="margin-bottom:.75rem">Heavy day — 3 classes including lab. Prepare lab codes the night before (Sunday evening).</div>
+    <div class="row"><div class="time">4:00 AM</div><div class="act"><span class="badge b-blue">Tahajjud</span> Wake. Wudu. Tahajjud. Make dua for focus today — it's a heavy class day.</div></div>
+    <div class="row"><div class="time">4:45 AM</div><div class="act"><span class="badge b-blue">Fajr</span> Fajr prayer. Quran 1 page.</div></div>
+    <div class="row"><div class="time">5:00 AM</div><div class="act"><span class="badge b-red">Lab Prep</span> Final review of Microprocessor Lab code/experiment — 45 min. Mentally walk through the lab steps.</div></div>
+    <div class="row"><div class="time">6:00 AM</div><div class="act"><span class="badge b-gray">Health</span> Light breakfast. Get ready quickly.</div></div>
+    <div class="row"><div class="time">8:30 AM</div><div class="act"><span class="badge b-gray">Bus</span> Bus 9:05 AM. Commute: review Compiler theory for afternoon class.</div></div>
+    <div class="row"><div class="time">10:40 AM</div><div class="act"><span class="badge b-amber">Class</span> CSE-3523 Microprocessor — Room C505.</div></div>
+    <div class="row"><div class="time">11:30 AM</div><div class="act"><span class="badge b-gray">Break</span> Free. Write 3 quick Microprocessor summary points. Prepare mentally for lab.</div></div>
+    <div class="row"><div class="time">1:10 PM</div><div class="act"><span class="badge b-blue">Dhuhr</span> Dhuhr prayer. Eat well — long afternoon ahead.</div></div>
+    <div class="row"><div class="time">1:50 PM</div><div class="act"><span class="badge b-red">Lab</span> CSE-3524 Microprocessor Lab — MP_LAB CX401. Arrive on time. Implement confidently.</div></div>
+    <div class="row"><div class="time">2:40 PM</div><div class="act"><span class="badge b-amber">Class</span> CSE-3527 Compiler — Room C505. Back-to-back after lab — take deep breath, stay focused.</div></div>
+    <div class="row"><div class="time">3:30 PM</div><div class="act"><span class="badge b-blue">Asr</span> Asr prayer on campus.</div></div>
+    <div class="row"><div class="time">4:00 PM</div><div class="act"><span class="badge b-gray">Rest</span> Sit quietly. Mental decompression. Do NOT scroll phone — rest your brain before bus.</div></div>
+    <div class="row"><div class="time">4:35 PM</div><div class="act"><span class="badge b-gray">Bus</span> Return bus. Eyes closed or 1 hadith reading. No heavy study tonight.</div></div>
+    <div class="row"><div class="time">5:35 PM</div><div class="act"><span class="badge b-gray">City</span> Arrive city. Light snack.</div></div>
+    <div class="row"><div class="time">6:00 PM</div><div class="act"><span class="badge b-blue">Maghrib</span> Maghrib prayer.</div></div>
+    <div class="row"><div class="time">6:30 PM</div><div class="act"><span class="badge b-amber">Study</span> Academic revision — 45 min only. Lightly review today's Microprocessor + Compiler notes. No new content.</div></div>
+    <div class="row"><div class="time">7:30 PM</div><div class="act"><span class="badge b-gray">Family</span> Dinner. Rest. Recover from heavy day.</div></div>
+    <div class="row"><div class="time">8:30 PM</div><div class="act"><span class="badge b-blue">Isha</span> Isha prayer.</div></div>
+    <div class="row"><div class="time">9:00 PM</div><div class="act"><span class="badge b-green">Review</span> Checklist + plan Tuesday. <em>Prepare Tuesday's lab codes now — 20 min max.</em></div></div>
+    <div class="row"><div class="time">10:00 PM</div><div class="act"><span class="badge b-gray">Sleep</span> Sleep early — Monday is draining.</div></div>
+  </div>
+
+  <!-- TUESDAY -->
+  <div id="tue2" class="day-plan card" style="display:none">
+    <div class="card-title">Tuesday <span class="badge b-amber">Varsity day</span><span class="badge b-red">SAD + Microprocessor + Lab</span></div>
+    <div class="row"><div class="time">4:00 AM</div><div class="act"><span class="badge b-blue">Tahajjud</span> Wake. Wudu. Tahajjud.</div></div>
+    <div class="row"><div class="time">4:45 AM</div><div class="act"><span class="badge b-blue">Fajr</span> Fajr prayer. Quran 1 page.</div></div>
+    <div class="row"><div class="time">5:00 AM</div><div class="act"><span class="badge b-red">Lab Prep</span> Final review of today's Microprocessor Lab experiment — 30 min.</div></div>
+    <div class="row"><div class="time">5:30 AM</div><div class="act"><span class="badge b-amber">Prep</span> Quick review of SAD (CSE-3529) concepts — 20 min. Check last class notes.</div></div>
+    <div class="row"><div class="time">6:15 AM</div><div class="act"><span class="badge b-gray">Health</span> Breakfast. Get ready.</div></div>
+    <div class="row"><div class="time">8:30 AM</div><div class="act"><span class="badge b-gray">Bus</span> Bus 9:05 AM. Commute: relax or light Quran.</div></div>
+    <div class="row"><div class="time">10:40 AM</div><div class="act"><span class="badge b-amber">Class</span> CSE-3529 System Analysis & Design — Room C505.</div></div>
+    <div class="row"><div class="time">11:30 AM</div><div class="act"><span class="badge b-gray">Break</span> Review SAD notes. Free period — rest or read.</div></div>
+    <div class="row"><div class="time">1:10 PM</div><div class="act"><span class="badge b-blue">Dhuhr</span> Dhuhr prayer. Lunch. Rest 10 min.</div></div>
+    <div class="row"><div class="time">1:50 PM</div><div class="act"><span class="badge b-amber">Class</span> CSE-3523 Microprocessor — Room C505.</div></div>
+    <div class="row"><div class="time">2:40 PM</div><div class="act"><span class="badge b-red">Lab</span> CSE-3524 Microprocessor Lab — MP_LAB CX401.</div></div>
+    <div class="row"><div class="time">3:30 PM</div><div class="act"><span class="badge b-blue">Asr</span> Asr prayer on campus.</div></div>
+    <div class="row"><div class="time">4:00 PM</div><div class="act"><span class="badge b-gray">Rest</span> Short campus rest. Prepare for bus.</div></div>
+    <div class="row"><div class="time">4:35 PM</div><div class="act"><span class="badge b-gray">Bus</span> Return bus. Commute: light note review or rest.</div></div>
+    <div class="row"><div class="time">5:35 PM</div><div class="act"><span class="badge b-gray">City</span> Arrive city.</div></div>
+    <div class="row"><div class="time">6:00 PM</div><div class="act"><span class="badge b-blue">Maghrib</span> Maghrib prayer.</div></div>
+    <div class="row"><div class="time">6:30 PM</div><div class="act"><span class="badge b-amber">Study</span> AI/ML or coding project — 60 min. (Tue = project/AI day)</div></div>
+    <div class="row"><div class="time">7:30 PM</div><div class="act"><span class="badge b-gray">Family</span> Dinner. Rest.</div></div>
+    <div class="row"><div class="time">8:30 PM</div><div class="act"><span class="badge b-blue">Isha</span> Isha prayer.</div></div>
+    <div class="row"><div class="time">9:00 PM</div><div class="act"><span class="badge b-green">Review</span> Daily checklist. Plan Wednesday — prepare Graphics Lab.</div></div>
+    <div class="row"><div class="time">10:00 PM</div><div class="act"><span class="badge b-gray">Sleep</span> Sleep 10:30 PM.</div></div>
+  </div>
+
+  <!-- WEDNESDAY -->
+  <div id="wed2" class="day-plan card" style="display:none">
+    <div class="card-title">Wednesday <span class="badge b-amber">Varsity day</span><span class="badge b-red">SAD (x2) + Graphics Lab</span></div>
+    <div class="row"><div class="time">4:00 AM</div><div class="act"><span class="badge b-blue">Tahajjud</span> Wake. Wudu. Tahajjud.</div></div>
+    <div class="row"><div class="time">4:45 AM</div><div class="act"><span class="badge b-blue">Fajr</span> Fajr prayer. Quran 1 page.</div></div>
+    <div class="row"><div class="time">5:00 AM</div><div class="act"><span class="badge b-red">Lab Prep</span> Computer Graphics Lab preparation — 40 min. Review OpenGL/graphics algorithms to be implemented.</div></div>
+    <div class="row"><div class="time">5:45 AM</div><div class="act"><span class="badge b-gray">Health</span> Walk 15 min. Breakfast. Get ready.</div></div>
+    <div class="row"><div class="time">8:30 AM</div><div class="act"><span class="badge b-gray">Bus</span> Bus 9:05 AM. Commute: review SAD notes for back-to-back double period.</div></div>
+    <div class="row"><div class="time">10:40 AM</div><div class="act"><span class="badge b-amber">Class</span> CSE-3529 SAD — Room C505 (Slot 1).</div></div>
+    <div class="row"><div class="time">11:30 AM</div><div class="act"><span class="badge b-gray">Break</span> Free period. Rest.</div></div>
+    <div class="row"><div class="time">1:10 PM</div><div class="act"><span class="badge b-blue">Dhuhr</span> Dhuhr prayer. Lunch.</div></div>
+    <div class="row"><div class="time">1:50 PM</div><div class="act"><span class="badge b-amber">Class</span> CSE-3529 SAD — Room C505 (Slot 2).</div></div>
+    <div class="row"><div class="time">2:40 PM</div><div class="act"><span class="badge b-red">Lab</span> CSE-3525 Computer Graphics Lab — Room C505. Implement graphics algorithms confidently.</div></div>
+    <div class="row"><div class="time">3:30 PM</div><div class="act"><span class="badge b-blue">Asr</span> Asr prayer on campus.</div></div>
+    <div class="row"><div class="time">4:00 PM</div><div class="act"><span class="badge b-gray">Rest</span> Decompress. Sit quietly on campus before bus.</div></div>
+    <div class="row"><div class="time">4:35 PM</div><div class="act"><span class="badge b-gray">Bus</span> Return bus. Rest — Wednesday is mentally heavy.</div></div>
+    <div class="row"><div class="time">5:35 PM</div><div class="act"><span class="badge b-gray">City</span> Arrive city.</div></div>
+    <div class="row"><div class="time">6:00 PM</div><div class="act"><span class="badge b-blue">Maghrib</span> Maghrib prayer.</div></div>
+    <div class="row"><div class="time">6:30 PM</div><div class="act"><span class="badge b-amber">Career</span> Job applications — 45 min. Apply to 1–2 positions. Update tracker. (Wed = career day)</div></div>
+    <div class="row"><div class="time">7:30 PM</div><div class="act"><span class="badge b-gray">Family</span> Dinner. Rest.</div></div>
+    <div class="row"><div class="time">8:30 PM</div><div class="act"><span class="badge b-blue">Isha</span> Isha prayer.</div></div>
+    <div class="row"><div class="time">9:00 PM</div><div class="act"><span class="badge b-green">Review</span> Daily review. Plan Thursday (off day — deep study day).</div></div>
+    <div class="row"><div class="time">10:00 PM</div><div class="act"><span class="badge b-gray">Sleep</span> Sleep 10:30 PM.</div></div>
+  </div>
+
+  <!-- THURSDAY -->
+  <div id="thu2" class="day-plan card" style="display:none">
+    <div class="card-title">Thursday <span class="badge b-green">Off day</span><span class="badge b-purple">Deep Study + Academic</span></div>
+    <div class="alert" style="margin-bottom:.75rem">No varsity. This is your most powerful study day. Use it fully — no wasted hours.</div>
+    <div class="row"><div class="time">4:00 AM</div><div class="act"><span class="badge b-blue">Tahajjud</span> Wake. Wudu. Extended Tahajjud — 4 rakat. Long personal dua for studies and career.</div></div>
+    <div class="row"><div class="time">4:45 AM</div><div class="act"><span class="badge b-blue">Fajr</span> Fajr prayer. Extended Quran — 2 pages. 1 Hadith study.</div></div>
+    <div class="row"><div class="time">5:30 AM</div><div class="act"><span class="badge b-gray">Morning</span> Walk 30 min. Fresh air. Breakfast. Set up study desk.</div></div>
+    <div class="row"><div class="time">7:00 AM</div><div class="act"><span class="badge b-purple">Deep study</span> Academic — 2 hours. Focus: Microprocessor or Compiler (whichest exam/assignment is nearer).</div></div>
+    <div class="row"><div class="time">9:00 AM</div><div class="act"><span class="badge b-gray">Break</span> 15 min walk. Snack. Reset.</div></div>
+    <div class="row"><div class="time">9:15 AM</div><div class="act"><span class="badge b-purple">Deep study</span> AI/ML — 90 min. Course content + 1 hands-on exercise or Kaggle notebook.</div></div>
+    <div class="row"><div class="time">10:45 AM</div><div class="act"><span class="badge b-amber">Career</span> Job search + PhD/scholarship research — 60 min.</div></div>
+    <div class="row"><div class="time">12:00 PM</div><div class="act"><span class="badge b-blue">Dhuhr</span> Dhuhr prayer. Lunch. 20-min Qaylulah rest (sunnah nap).</div></div>
+    <div class="row"><div class="time">1:30 PM</div><div class="act"><span class="badge b-purple">Deep study</span> Academic — 90 min. Second subject: SAD or Bangladesh Study revision.</div></div>
+    <div class="row"><div class="time">3:00 PM</div><div class="act"><span class="badge b-blue">Asr</span> Asr prayer.</div></div>
+    <div class="row"><div class="time">3:15 PM</div><div class="act"><span class="badge b-amber">Study</span> Weekly revision — 60 min. Review all this week's class notes. Spaced repetition.</div></div>
+    <div class="row"><div class="time">4:30 PM</div><div class="act"><span class="badge b-gray">Health</span> Walk or exercise — 30 min. Longest exercise slot of the week.</div></div>
+    <div class="row"><div class="time">5:30 PM</div><div class="act"><span class="badge b-amber">Career</span> GitHub push, portfolio update, or LinkedIn post — 45 min.</div></div>
+    <div class="row"><div class="time">6:15 PM</div><div class="act"><span class="badge b-blue">Maghrib</span> Maghrib prayer.</div></div>
+    <div class="row"><div class="time">6:45 PM</div><div class="act"><span class="badge b-gray">Family</span> Dinner. Family time. Rest.</div></div>
+    <div class="row"><div class="time">8:00 PM</div><div class="act"><span class="badge b-blue">Isha</span> Isha prayer.</div></div>
+    <div class="row"><div class="time">8:30 PM</div><div class="act"><span class="badge b-green">Review</span> Weekly review (Thu night counts as end of academic week). Fill review template. Plan Friday.</div></div>
+    <div class="row"><div class="time">9:00 PM</div><div class="act"><span class="badge b-blue">Wind down</span> Quran 2 pages. Dua. No phone.</div></div>
+    <div class="row"><div class="time">10:30 PM</div><div class="act"><span class="badge b-gray">Sleep</span> Earliest sleep target — you studied hard today, sleep is the reward.</div></div>
+  </div>
+
+  <!-- FRIDAY -->
+  <div id="fri2" class="day-plan card" style="display:none">
+    <div class="card-title">Friday <span class="badge b-green">Off day</span><span class="badge b-blue">Islamic day + Light study + Rest</span></div>
+    <div class="row"><div class="time">4:00 AM</div><div class="act"><span class="badge b-blue">Tahajjud</span> Wake. Extended Tahajjud. Friday night (Thu night) is the most blessed for dua.</div></div>
+    <div class="row"><div class="time">4:45 AM</div><div class="act"><span class="badge b-blue">Fajr</span> Fajr prayer. Surah Al-Kahf — read after Fajr (sunnah of Friday).</div></div>
+    <div class="row"><div class="time">5:30 AM</div><div class="act"><span class="badge b-blue">Islamic</span> Islamic study — 45 min. Deep hadith study, listen to a lecture, or read an Islamic book.</div></div>
+    <div class="row"><div class="time">6:30 AM</div><div class="act"><span class="badge b-gray">Health</span> Longer walk — 40 min. Friday is your rest + recharge day.</div></div>
+    <div class="row"><div class="time">7:30 AM</div><div class="act"><span class="badge b-gray">Morning</span> Breakfast. Shower. Good grooming (Friday sunnah).</div></div>
+    <div class="row"><div class="time">9:00 AM</div><div class="act"><span class="badge b-amber">Light study</span> Academic review — 60 min max. Easy review only — no new difficult material on Friday.</div></div>
+    <div class="row"><div class="time">10:30 AM</div><div class="act"><span class="badge b-gray">Prepare</span> Prepare for Jumu'ah. Make dua. Recite Durood.</div></div>
+    <div class="row"><div class="time">12:00 PM</div><div class="act"><span class="badge b-blue">Jumu'ah</span> Jumu'ah prayer at masjid. Listen to khutbah actively. Make dua for your goals at blessed Friday time.</div></div>
+    <div class="row"><div class="time">1:30 PM</div><div class="act"><span class="badge b-gray">Rest</span> Lunch. 20-min Qaylulah. This is your genuine weekly rest period — no guilt.</div></div>
+    <div class="row"><div class="time">3:00 PM</div><div class="act"><span class="badge b-amber">Career</span> AI/ML light study or job research — 60 min. Keep momentum without overloading.</div></div>
+    <div class="row"><div class="time">4:00 PM</div><div class="act"><span class="badge b-blue">Asr</span> Asr prayer. Extended dhikr on Friday.</div></div>
+    <div class="row"><div class="time">4:30 PM</div><div class="act"><span class="badge b-gray">Free</span> Personal time. Social visit, walk, or reading for pleasure.</div></div>
+    <div class="row"><div class="time">6:00 PM</div><div class="act"><span class="badge b-blue">Maghrib</span> Maghrib prayer. Extended dua — Friday after Asr is the blessed hour.</div></div>
+    <div class="row"><div class="time">6:30 PM</div><div class="act"><span class="badge b-green">Review</span> Weekly review — 20 min. Fill the review tracker. Celebrate wins. Plan Saturday.</div></div>
+    <div class="row"><div class="time">7:30 PM</div><div class="act"><span class="badge b-gray">Family</span> Dinner. Quality family time.</div></div>
+    <div class="row"><div class="time">8:30 PM</div><div class="act"><span class="badge b-blue">Isha</span> Isha prayer.</div></div>
+    <div class="row"><div class="time">9:00 PM</div><div class="act"><span class="badge b-blue">Wind down</span> Quran. Dua. Gratitude journaling — 3 lines of what you're thankful for.</div></div>
+    <div class="row"><div class="time">10:00 PM</div><div class="act"><span class="badge b-gray">Sleep</span> Earliest sleep of the week — you rest on Friday to power Saturday.</div></div>
+  </div>
+</div>
+
+<!-- VARSITY DAYS -->
+<div id="varsity" class="sec">
+  <div class="card">
+    <div class="card-title">Commute strategy — maximise every minute</div>
+    <table class="class-table">
+      <thead><tr><th>Leg</th><th>Time</th><th>Duration</th><th>What to do</th></tr></thead>
+      <tbody>
+        <tr><td>City → Varsity</td><td>9:05–~9:45 AM</td><td>~40 min</td><td>Review today's class notes / pre-read topic. Never scrolling social media.</td></tr>
+        <tr><td>Varsity → City</td><td>4:35–5:35 PM</td><td>~60 min</td><td>Mon/Wed: Rest eyes (heavy days). Sat/Sun/Tue: Summarise class notes in 5 bullet points.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <div class="card-title">On-campus free period strategy</div>
+    <div class="row"><div class="time">11:30–1:10</div><div class="act">Review notes from just-finished class while fresh (10 min). Then: free time — walk campus, connect with classmates, or read quietly. Do NOT waste this on phone scrolling.</div></div>
+    <div class="row"><div class="time">Break periods</div><div class="act">If a free slot exists between classes, use it for the next class's pre-reading — even 15 minutes matters.</div></div>
+    <div class="row"><div class="time">After Asr</div><div class="act">On days with no class after Asr (Sat, Tue, Thu free): use for job search or AI/ML reading on phone.</div></div>
+    <div class="row"><div class="time">Lunch break</div><div class="act">Dhuhr prayer FIRST — always. Eat. 10-min walk on campus. Do not use lunch to scroll; it wastes your physical rest window.</div></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Evening after varsity (5:35 PM arrival)</div>
+    <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.7">
+      You arrive city at 5:35 PM, Maghrib is around 6:00–6:15 PM. That gives you ~25 min — enough to freshen up, have a small snack, and prepare for Maghrib. After Maghrib (6:30 PM) you have about 2 hours of usable evening time before Isha. This is your evening study window.<br><br>
+      Rule: on heavy days (Monday, Wednesday), limit evening study to <strong>45 min only</strong>. On lighter days (Saturday, Tuesday), you can push to 75 min. Protect your sleep time — you must be in bed by 10:30 PM to wake for Tahajjud at 4:00 AM.
+    </div>
+  </div>
+</div>
+
+<!-- OFF DAYS -->
+<div id="offdays" class="sec">
+  <div class="card">
+    <div class="card-title">Thursday — primary deep study day</div>
+    <div style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin-bottom:.75rem">This is your most valuable day of the week. No commute, no classes — 10+ hours of potential study time. Guard it fiercely.</div>
+    <table class="class-table">
+      <thead><tr><th>Block</th><th>Duration</th><th>Activity</th></tr></thead>
+      <tbody>
+        <tr><td>Morning (7–9 AM)</td><td>2 hrs</td><td>Academic deep study (Microprocessor or Compiler — hardest subject first)</td></tr>
+        <tr><td>Mid-morning (9:15–10:45)</td><td>90 min</td><td>AI/ML learning — course + hands-on</td></tr>
+        <tr><td>Pre-Dhuhr (10:45–12)</td><td>75 min</td><td>Job prep + PhD/scholarship research</td></tr>
+        <tr><td>After Qaylulah (1:30–3)</td><td>90 min</td><td>Second academic subject</td></tr>
+        <tr><td>After Asr (3:15–4:30)</td><td>75 min</td><td>Weekly revision — all 5 class subjects</td></tr>
+        <tr><td>Evening (5:30–6:15)</td><td>45 min</td><td>GitHub, portfolio, or LinkedIn</td></tr>
+        <tr style="background:var(--color-background-secondary)"><td><strong>Total study</strong></td><td><strong>~8.5 hrs</strong></td><td>The equivalent of a full work day of productive output</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <div class="card-title">Friday — Islamic day + rest + light study</div>
+    <table class="class-table">
+      <thead><tr><th>Block</th><th>Duration</th><th>Activity</th></tr></thead>
+      <tbody>
+        <tr><td>After Fajr</td><td>45 min</td><td>Surah Al-Kahf + Islamic study</td></tr>
+        <tr><td>Morning</td><td>60 min</td><td>Light academic review (no new material)</td></tr>
+        <tr><td>Jumu'ah</td><td>90 min</td><td>Prayer + khutbah + dua</td></tr>
+        <tr><td>Afternoon</td><td>60 min</td><td>AI/ML light or job search</td></tr>
+        <tr><td>Evening</td><td>20 min</td><td>Weekly review + plan Saturday</td></tr>
+        <tr style="background:var(--color-background-secondary)"><td><strong>Total study</strong></td><td><strong>~3 hrs</strong></td><td>Intentionally light — Friday is for renewal, not grinding</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- CALENDAR TAB -->
+<div id="calendar" class="sec">
+  <div class="card">
+    <div class="card-title">Spring 2026 — key academic dates</div>
+    <table class="class-table">
+      <thead><tr><th>Event</th><th>Date</th><th>Action needed</th></tr></thead>
+      <tbody>
+        <tr><td>Lecture Period I ends</td><td>04 April 2026</td><td>All theory content covered by here</td></tr>
+        <tr><td><strong>Mid-Term Exam</strong></td><td><strong>06–20 April 2026</strong></td><td><span class="badge b-red">Critical</span> Begin revision from 24 March. 2 weeks of intensive prep.</td></tr>
+        <tr><td>Mid-Term Results</td><td>27 April 2026</td><td>Review weak subjects. Adjust study plan.</td></tr>
+        <tr><td>Eid-ul-Azha Holiday</td><td>23–31 May 2026</td><td><span class="badge b-green">Opportunity</span> Use to catch up AI/ML and job apps.</td></tr>
+        <tr><td>Lecture Period II ends</td><td>30 June 2026</td><td>All coursework complete</td></tr>
+        <tr><td>Preparation Period</td><td>01–03 July 2026</td><td><span class="badge b-amber">3 days</span> Intensive final revision</td></tr>
+        <tr><td><strong>Semester End Exam</strong></td><td><strong>04–27 July 2026</strong></td><td><span class="badge b-red">Critical</span> Begin revision from 15 June.</td></tr>
+        <tr><td>Results Published</td><td>08 August 2026</td><td>Autumn-2026 registration begins</td></tr>
+        <tr><td>Autumn-2026 starts</td><td>15 August 2026</td><td>New semester — new routine update</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <div class="card-title">Mid-term exam prep plan (start: 24 March 2026)</div>
+    <table class="class-table">
+      <thead><tr><th>Week</th><th>Focus</th><th>Target</th></tr></thead>
+      <tbody>
+        <tr><td>24–28 March</td><td>Microprocessor + Lab revision</td><td>All register instructions, addressing modes, programs</td></tr>
+        <tr><td>29 Mar – 2 Apr</td><td>Compiler + SAD revision</td><td>Lexical analysis, parsing, DFD, ER diagrams</td></tr>
+        <tr><td>3–5 April</td><td>Computer Graphics + BD Study</td><td>All algorithms + BD Study important topics</td></tr>
+        <tr><td>6–20 April</td><td>Exam period</td><td>Review 1 subject per exam day. Sleep on time before each exam.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <div class="card-title">Important rules for exam days</div>
+    <div class="row"><div class="time">Night before</div><div class="act">Sleep by 10:30 PM. Do NOT study past midnight before an exam — it damages recall more than it helps.</div></div>
+    <div class="row"><div class="time">Tahajjud</div><div class="act">Wake for Tahajjud before every exam. Make dua. This is your spiritual exam strategy.</div></div>
+    <div class="row"><div class="time">Morning</div><div class="act">Light review only (1 hour max). Eat a proper breakfast. Arrive campus early by bus.</div></div>
+    <div class="row"><div class="time">After exam</div><div class="act">Do NOT discuss answers with classmates immediately. It only creates anxiety. Review the next subject instead.</div></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+function show(id){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const ids=['classes','daily','varsity','offdays','calendar'];
+  document.querySelectorAll('.tab')[ids.indexOf(id)].classList.add('active');
+}
+function showDay(id){
+  document.querySelectorAll('.day-plan').forEach(d=>{d.style.display='none';d.classList.remove('active')});
+  document.querySelectorAll('.dn').forEach(b=>b.classList.remove('active'));
+  const el=document.getElementById(id);
+  if(el){el.style.display='block';el.classList.add('active');}
+  const ids=['sat2','sun2','mon2','tue2','wed2','thu2','fri2'];
+  document.querySelectorAll('.dn')[ids.indexOf(id)].classList.add('active');
+}
+</script>
