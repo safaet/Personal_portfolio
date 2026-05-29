@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ══════════════════════════════════════════════════════════
+       SEO META TAGS
+       TODO: update canonical URL to your real GitHub Pages domain
+       ══════════════════════════════════════════════════════════ -->
+  <title>AI/ML Portfolio — Safaet Jaman</title>
+  <meta name="description" content="AI and machine learning projects by Safaet Jaman — AMR Prediction, House Price Prediction, and Mask Detection. Built with Python, scikit-learn, TensorFlow, and Keras." />
+  <meta name="keywords" content="Safaet Jaman, AI portfolio, machine learning, AMR prediction, house price prediction, mask detection, scikit-learn, TensorFlow, Python, ML engineer" />
+  <meta name="author" content="Safaet Jaman" />
+  <link rel="canonical" href="https://safaet.github.io/ai-portfolio.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="AI/ML Portfolio — Safaet Jaman" />
+  <meta property="og:description" content="Machine learning projects in healthcare prediction, regression, and computer vision. Built by a Full Stack Engineer transitioning into AI/ML engineering." />
+  <meta property="og:url"         content="https://safaet.github.io/ai-portfolio.html" />
+  <meta property="og:image"       content="images/og-image.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Outfit:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Design system — shared across all pages -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Page-scoped styles for AI portfolio layout -->
+  <style>
+
+    /* ── Career direction banner ── */
+    .ai-banner {
+      background: linear-gradient(135deg, #ecfdf5 0%, #eff6ff 50%, #f5f3ff 100%);
+      border-top: 1px solid #a7f3d0;
+      border-bottom: 1px solid #a7f3d0;
+      padding: 1.25rem 0;
+    }
+    [data-theme="dark"] .ai-banner {
+      background: linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(59,130,246,0.08) 50%, rgba(139,92,246,0.08) 100%);
+      border-color: rgba(16,185,129,0.2);
+    }
+    .ai-banner__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      text-align: center;
+    }
+    .ai-banner__text {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .ai-banner__text span { color: var(--accent-emerald); }
+
+    /* ── Page hero ── */
+    .ai-hero {
+      padding: var(--space-16) 0 var(--space-12);
+      background: linear-gradient(180deg, #f0fdf4 0%, var(--bg-base) 100%);
+    }
+    [data-theme="dark"] .ai-hero {
+      background: linear-gradient(180deg, rgba(16,185,129,0.05) 0%, var(--bg-base) 100%);
+    }
+    .ai-hero__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: center;
+    }
+    .ai-hero__title {
+      font-size: var(--text-5xl);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-5);
+    }
+    .ai-hero__desc {
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: var(--space-8);
+      max-width: 520px;
+    }
+    .ai-hero__direction {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .ai-hero__direction-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+    .ai-hero__direction-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      flex-shrink: 0;
+    }
+    .ai-hero__direction-dot--future { background: var(--border-default); }
+
+    /* Stats row inside hero */
+    .ai-hero__stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-10);
+      padding-top: var(--space-10);
+      border-top: 1px solid var(--border-subtle);
+    }
+    .ai-hero__stat {
+      text-align: center;
+      padding: var(--space-4);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+    }
+    .ai-hero__stat-value {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      background: var(--gradient-ai);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .ai-hero__stat-label {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    /* ── AI project cards ── */
+    .ai-project {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: box-shadow var(--t-base) var(--ease),
+                  border-color var(--t-base) var(--ease);
+      margin-bottom: var(--space-10);
+    }
+    .ai-project:hover {
+      border-color: var(--accent-emerald);
+      box-shadow: 0 8px 40px rgba(16,185,129,0.1);
+    }
+    .ai-project__accent {
+      height: 4px;
+      background: var(--gradient-ai);
+    }
+    .ai-project__accent--vision {
+      background: linear-gradient(90deg, var(--accent-coral), var(--accent-purple));
+    }
+    .ai-project__accent--regression {
+      background: linear-gradient(90deg, var(--accent-primary), var(--accent-amber));
+    }
+    .ai-project__body {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 0;
+    }
+    .ai-project__main {
+      padding: var(--space-8) var(--space-8) var(--space-8) var(--space-8);
+      border-right: 1px solid var(--border-subtle);
+    }
+    .ai-project__sidebar {
+      padding: var(--space-8) var(--space-6);
+      background: var(--bg-base);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    /* Project header */
+    .ai-project__header {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-6);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .ai-project__number {
+      font-family: var(--font-code);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      color: var(--text-muted);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 3px 8px;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+    .ai-project__icon {
+      font-size: 2.5rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .ai-project__title-block { flex: 1; }
+    .ai-project__type {
+      font-family: var(--font-code);
+      font-size: var(--text-xs);
+      color: var(--accent-emerald);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+    }
+    .ai-project__name {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+      margin-bottom: var(--space-1);
+    }
+    .ai-project__subtitle {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+
+    /* Project sections */
+    .ai-project__section {
+      margin-bottom: var(--space-6);
+    }
+    .ai-project__section:last-child { margin-bottom: 0; }
+    .ai-project__section-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--space-3);
+    }
+    .ai-project__section-icon { font-size: 0.9rem; }
+    .ai-project__section p {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    /* Feature / learning bullet lists */
+    .ai-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      padding: 0;
+    }
+    .ai-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .ai-list li::before {
+      content: '▸';
+      color: var(--accent-emerald);
+      font-size: 0.7rem;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Metric cards inside sidebar */
+    .metric-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      text-align: center;
+    }
+    .metric-card__value {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--accent-emerald);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .metric-card__label {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .metric-card--placeholder .metric-card__value {
+      color: var(--text-muted);
+      font-size: var(--text-base);
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+    }
+
+    /* Placeholder note for missing data */
+    .placeholder-note {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3) var(--space-4);
+      line-height: 1.5;
+      font-style: italic;
+    }
+    .placeholder-note::before {
+      content: '📌';
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    /* Sidebar section titles */
+    .sidebar-title {
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--space-3);
+    }
+
+    /* Project links */
+    .ai-project__links {
+      padding: var(--space-5) var(--space-8);
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      background: var(--bg-base);
+    }
+
+    /* ── Roadmap section ── */
+    .roadmap-section {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: var(--space-5);
+      margin-top: var(--space-8);
+    }
+    .roadmap-card {
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      position: relative;
+      transition: border-color var(--t-base) var(--ease),
+                  box-shadow var(--t-base) var(--ease);
+    }
+    .roadmap-card:hover {
+      border-color: var(--accent-emerald);
+      box-shadow: 0 4px 16px rgba(16,185,129,0.08);
+    }
+    .roadmap-card__status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-code);
+      font-size: 0.65rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-3);
+    }
+    .roadmap-card__status--done {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+    .roadmap-card__status--active {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+    .roadmap-card__status--next {
+      background: #fffbeb;
+      color: #92400e;
+      border: 1px solid #fde68a;
+    }
+    .roadmap-card__status--future {
+      background: var(--bg-elevated);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+    }
+    [data-theme="dark"] .roadmap-card__status--done   { background: rgba(16,185,129,0.12); color: #6ee7b7; border-color: rgba(16,185,129,0.3); }
+    [data-theme="dark"] .roadmap-card__status--active { background: rgba(59,130,246,0.12); color: #93c5fd; border-color: rgba(59,130,246,0.3); }
+    [data-theme="dark"] .roadmap-card__status--next   { background: rgba(245,158,11,0.12); color: #fcd34d; border-color: rgba(245,158,11,0.3); }
+    .roadmap-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--space-2);
+    }
+    .roadmap-card__desc {
+      font-size: var(--text-xs);
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ── Learning focus bar ── */
+    .learning-focus {
+      background: linear-gradient(135deg, #ecfdf5, #eff6ff);
+      border: 1px solid #a7f3d0;
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      margin-top: var(--space-12);
+    }
+    [data-theme="dark"] .learning-focus {
+      background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(59,130,246,0.08));
+      border-color: rgba(16,185,129,0.2);
+    }
+    .learning-focus__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+    .learning-focus__week {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-4);
+    }
+    .learning-focus__tools {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .learning-focus__tool {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+    }
+    .learning-focus__tool-name {
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--text-primary);
+      min-width: 140px;
+      flex-shrink: 0;
+    }
+    .skill-bar-wrap {
+      flex: 1;
+      height: 6px;
+      background: rgba(0,0,0,0.07);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    [data-theme="dark"] .skill-bar-wrap { background: rgba(255,255,255,0.1); }
+    .skill-bar-fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-blue));
+      transition: width 0.8s ease;
+    }
+    .learning-focus__tool-pct {
+      font-family: var(--font-code);
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      min-width: 32px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* ── Future projects section ── */
+    .future-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-5);
+      margin-top: var(--space-8);
+    }
+    .future-card {
+      background: var(--bg-surface);
+      border: 1px dashed var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      transition: border-color var(--t-base) var(--ease),
+                  background var(--t-base) var(--ease);
+    }
+    .future-card:hover {
+      border-color: var(--accent-emerald);
+      background: #f0fdf4;
+    }
+    [data-theme="dark"] .future-card:hover {
+      background: rgba(16,185,129,0.05);
+    }
+    .future-card__emoji {
+      font-size: 2rem;
+      margin-bottom: var(--space-3);
+    }
+    .future-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--space-2);
+    }
+    .future-card__desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: var(--space-4);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .ai-hero__inner     { grid-template-columns: 1fr; gap: var(--space-10); }
+      .ai-hero__stats     { grid-template-columns: repeat(3, 1fr); }
+      .ai-hero__title     { font-size: var(--text-4xl); }
+      .ai-project__body   { grid-template-columns: 1fr; }
+      .ai-project__main   { border-right: none; border-bottom: 1px solid var(--border-subtle); }
+      .ai-project__sidebar { background: var(--bg-surface); }
+      .learning-focus__inner { grid-template-columns: 1fr; gap: var(--space-6); }
+    }
+    @media (max-width: 600px) {
+      .ai-hero__stats       { grid-template-columns: repeat(3, 1fr); gap: var(--space-2); }
+      .ai-hero__stat        { padding: var(--space-3) var(--space-2); }
+      .ai-hero__stat-value  { font-size: var(--text-xl); }
+      .ai-project__main     { padding: var(--space-5); }
+      .ai-project__sidebar  { padding: var(--space-5); }
+      .ai-project__links    { padding: var(--space-4) var(--space-5); flex-direction: column; }
+      .metrics-grid         { grid-template-columns: 1fr 1fr; }
+      .future-projects-grid { grid-template-columns: 1fr; }
+      .ai-project__header   { flex-wrap: wrap; }
+      .ai-project__icon     { font-size: 2rem; }
+      .ai-project__name     { font-size: var(--text-xl); }
+    }
+
+  </style>
+
+  <!-- TODO: add favicon -->
+  <!-- <link rel="icon" href="images/favicon.ico" /> -->
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════
+       NAVIGATION — identical across all pages
+       JS (main.js) will set .active on "AI Portfolio" automatically
+       ══════════════════════════════════════════════════════════ -->
+  <header>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav__inner">
+
+        <a href="index.html" class="nav__brand" aria-label="Safaet Jaman — home">
+          SJ<span>.</span>
+        </a>
+
+        <ul class="nav__links" role="list">
+          <li><a href="index.html"        class="nav__link">Home</a></li>
+          <li><a href="projects.html"     class="nav__link">Projects</a></li>
+          <li><a href="ai-portfolio.html" class="nav__link">AI Portfolio</a></li>
+          <li><a href="research.html"     class="nav__link">Research</a></li>
+          <li><a href="blog.html"         class="nav__link">Blog</a></li>
+          <li><a href="tools.html"        class="nav__link">Tools</a></li>
+          <!-- TODO: update resume PDF path -->
+          <li><a href="resume/safaet-jaman-resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume</a></li>
+          <li><a href="contact.html"      class="nav__link">Contact</a></li>
+        </ul>
+
+        <div class="nav__actions">
+          <button class="theme-toggle" aria-label="Toggle light/dark theme">
+            <span class="icon-moon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </span>
+            <span class="icon-sun" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </span>
+          </button>
+          <button class="nav__toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+
+    <nav id="mobile-nav" class="nav__mobile" aria-label="Mobile navigation">
+      <a href="index.html"        class="nav__link">Home</a>
+      <a href="projects.html"     class="nav__link">Projects</a>
+      <a href="ai-portfolio.html" class="nav__link">AI Portfolio</a>
+      <a href="research.html"     class="nav__link">Research</a>
+      <a href="blog.html"         class="nav__link">Blog</a>
+      <a href="tools.html"        class="nav__link">Tools</a>
+      <!-- TODO: update resume PDF path -->
+      <a href="resume/safaet-jaman-resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume ↗</a>
+      <a href="contact.html"      class="nav__link">Contact</a>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════════════════
+         CAREER DIRECTION BANNER
+         Appears at top of page to immediately frame this as
+         a fresher AI/ML profile, not a senior research page.
+         ══════════════════════════════════════════════════════════ -->
+    <div class="ai-banner" role="note" aria-label="Career direction note">
+      <div class="container">
+        <div class="ai-banner__inner">
+          <span class="tag tag--ai">🤖 AI/ML Engineering</span>
+          <p class="ai-banner__text">
+            Full Stack Engineer actively transitioning into
+            <span>AI/ML Engineering</span> — building real projects to develop
+            practical machine learning skills. All results are honest and reproducible.
+          </p>
+          <a href="research.html" class="btn btn--ghost btn--sm">Research interests →</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         1. PAGE HERO
+         ══════════════════════════════════════════════════════════ -->
+    <section class="ai-hero" aria-labelledby="ai-page-heading">
+      <div class="container">
+        <div class="ai-hero__inner">
+
+          <!-- Left: headline -->
+          <div class="reveal">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom: var(--space-4);">
+              <ol role="list" style="display:flex;align-items:center;gap:0.35rem;list-style:none;font-size:var(--text-sm);color:var(--text-muted);">
+                <li><a href="index.html" style="color:var(--text-muted);">Home</a></li>
+                <li aria-hidden="true">/</li>
+                <li aria-current="page" style="color:var(--text-secondary);">AI/ML Portfolio</li>
+              </ol>
+            </nav>
+
+            <p class="section-label" style="color: var(--accent-emerald);">Machine learning</p>
+            <h1 id="ai-page-heading" class="ai-hero__title">
+              AI &amp; ML<br /><span class="text-gradient">Portfolio</span>
+            </h1>
+            <p class="ai-hero__desc">
+              Three end-to-end machine learning projects built with real datasets —
+              covering classification, regression, and computer vision. Each project
+              reflects my growth as I work toward becoming an AI/ML Engineer.
+            </p>
+            <div class="btn-group">
+              <a href="https://github.com/safaet"
+                 class="btn btn--ai"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="View all AI/ML notebooks on GitHub (opens in new tab)">
+                <!-- TODO: replace with your actual GitHub profile or notebooks org URL -->
+                View GitHub →
+              </a>
+              <a href="research.html" class="btn btn--secondary">
+                Research interests →
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: direction items -->
+          <div class="reveal" aria-label="Career direction">
+            <p class="section-label" style="color: var(--accent-emerald); margin-bottom: var(--space-5);">
+              Target roles
+            </p>
+            <div class="ai-hero__direction">
+              <div class="ai-hero__direction-item">
+                <span class="ai-hero__direction-dot"></span>
+                ML Engineer — building and deploying predictive models
+              </div>
+              <div class="ai-hero__direction-item">
+                <span class="ai-hero__direction-dot"></span>
+                AI Engineer — integrating LLMs into production systems
+              </div>
+              <div class="ai-hero__direction-item">
+                <span class="ai-hero__direction-dot"></span>
+                LLM Engineer — fine-tuning and prompt engineering
+              </div>
+              <div class="ai-hero__direction-item">
+                <span class="ai-hero__direction-dot ai-hero__direction-dot--future"></span>
+                Agentic AI Developer — multi-agent workflows (upcoming)
+              </div>
+              <div class="ai-hero__direction-item">
+                <span class="ai-hero__direction-dot ai-hero__direction-dot--future"></span>
+                AI Research Assistant — applied ML research (upcoming)
+              </div>
+            </div>
+
+            <!-- Tools tag cloud -->
+            <div class="tag-group" style="margin-top: var(--space-6);">
+              <span class="tag tag--ai">Python</span>
+              <span class="tag tag--ai">scikit-learn</span>
+              <span class="tag tag--ai">TensorFlow</span>
+              <span class="tag tag--ai">Keras</span>
+              <span class="tag tag--ai">Pandas</span>
+              <span class="tag tag--ai">NumPy</span>
+              <span class="tag tag--ai">Flask</span>
+              <span class="tag tag--ai">OpenCV</span>
+              <span class="tag tag--ai">Matplotlib</span>
+              <span class="tag tag--ai">Jupyter</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Stats row -->
+        <div class="ai-hero__stats" role="list" aria-label="AI/ML portfolio statistics">
+          <div class="ai-hero__stat reveal" role="listitem">
+            <div class="ai-hero__stat-value">3</div>
+            <div class="ai-hero__stat-label">ML projects</div>
+          </div>
+          <div class="ai-hero__stat reveal" role="listitem">
+            <div class="ai-hero__stat-value">3</div>
+            <div class="ai-hero__stat-label">ML domains</div>
+          </div>
+          <div class="ai-hero__stat reveal" role="listitem">
+            <div class="ai-hero__stat-value">100%</div>
+            <div class="ai-hero__stat-label">Reproducible</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         2. AI/ML PROJECTS
+         ══════════════════════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="projects-heading">
+      <div class="container">
+        <h2 id="projects-heading" class="sr-only">AI/ML projects</h2>
+
+
+        <!-- ────────────────────────────────────────────────────
+             PROJECT 1 — AMR PREDICTION
+             Domain: Healthcare / Classification
+             ──────────────────────────────────────────────────── -->
+        <article
+          class="ai-project reveal"
+          id="amr-prediction"
+          aria-labelledby="amr-title"
+        >
+          <div class="ai-project__accent"></div>
+
+          <div class="ai-project__body">
+
+            <!-- Main content column -->
+            <div class="ai-project__main">
+
+              <header class="ai-project__header">
+                <span class="ai-project__number">01</span>
+                <span class="ai-project__icon" aria-hidden="true">🧬</span>
+                <div class="ai-project__title-block">
+                  <p class="ai-project__type">Classification · Healthcare AI</p>
+                  <h3 id="amr-title" class="ai-project__name">AMR Prediction</h3>
+                  <p class="ai-project__subtitle">Antimicrobial Resistance Detection using Machine Learning</p>
+                </div>
+                <div class="tag-group" style="flex-shrink:0;">
+                  <span class="tag tag--research">Healthcare</span>
+                  <span class="tag tag--ai">Classification</span>
+                </div>
+              </header>
+
+              <!-- Problem statement -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">🎯</span>
+                  Problem statement
+                </h4>
+                <p>
+                  Antimicrobial resistance (AMR) is one of the most urgent global health threats —
+                  bacteria evolving to survive antibiotics cause millions of deaths each year.
+                  Traditional lab tests to detect resistance can take 24–72 hours. This project
+                  explores whether machine learning models can predict antibiotic resistance
+                  from clinical and microbiological features, enabling faster clinical decisions.
+                </p>
+              </div>
+
+              <!-- Dataset -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">📊</span>
+                  Dataset
+                </h4>
+                <!-- TODO: replace with your actual dataset source and description -->
+                <div class="placeholder-note">
+                  Dataset details to be updated — replace with actual source (e.g. PATRIC, UCI ML Repository,
+                  hospital clinical data), sample size, feature count, and class distribution.
+                </div>
+                <ul class="ai-list" style="margin-top: var(--space-3);">
+                  <li>Tabular clinical / microbiological data with bacterial isolate features</li>
+                  <li>Binary target: resistant vs. susceptible to a specific antibiotic</li>
+                  <!-- TODO: update with actual sample size -->
+                  <li>Sample size: [update with actual number — e.g. ~2,000 records]</li>
+                  <!-- TODO: update with actual feature count -->
+                  <li>Features: [update — e.g. MIC values, species, isolation site, year]</li>
+                </ul>
+              </div>
+
+              <!-- Methods -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">⚙️</span>
+                  Methods &amp; approach
+                </h4>
+                <ul class="ai-list">
+                  <li>Exploratory data analysis (EDA): class imbalance check, missing value treatment, feature distributions</li>
+                  <li>Preprocessing: label encoding, standard scaling, train/test split (80/20)</li>
+                  <li>Models compared: Logistic Regression, Decision Tree, Random Forest, Gradient Boosting</li>
+                  <li>Hyperparameter tuning with GridSearchCV / RandomizedSearchCV</li>
+                  <li>Handling class imbalance with SMOTE or class weights</li>
+                  <!-- TODO: note which model you selected as best and why -->
+                  <li>Final model selected: [update with best-performing model and reason]</li>
+                </ul>
+              </div>
+
+              <!-- What I learned -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">💡</span>
+                  What I learned
+                </h4>
+                <ul class="ai-list">
+                  <li>How to handle imbalanced medical datasets without inflating accuracy scores</li>
+                  <li>Why precision and recall matter more than accuracy in healthcare classification</li>
+                  <li>Feature importance analysis and its role in clinical model explainability</li>
+                  <li>The full ML pipeline: data → preprocessing → model → evaluation → interpretation</li>
+                  <li>How to structure a Jupyter notebook for reproducibility and peer review</li>
+                </ul>
+              </div>
+
+            </div><!-- end .ai-project__main -->
+
+            <!-- Sidebar -->
+            <aside class="ai-project__sidebar" aria-label="AMR project metrics and tools">
+
+              <!-- Metrics -->
+              <div>
+                <p class="sidebar-title">Evaluation metrics</p>
+                <!-- TODO: replace placeholders with your actual results -->
+                <div class="metrics-grid">
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—%</div>
+                    <div class="metric-card__label">Accuracy</div>
+                  </div>
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—%</div>
+                    <div class="metric-card__label">Precision</div>
+                  </div>
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—%</div>
+                    <div class="metric-card__label">Recall</div>
+                  </div>
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—%</div>
+                    <div class="metric-card__label">F1 Score</div>
+                  </div>
+                </div>
+                <p class="placeholder-note" style="margin-top: var(--space-3);">
+                  TODO: run your notebook and fill in the actual metrics above.
+                </p>
+              </div>
+
+              <!-- Tools -->
+              <div>
+                <p class="sidebar-title">Tools &amp; libraries</p>
+                <div class="tag-group">
+                  <span class="tag tag--ai">Python 3</span>
+                  <span class="tag tag--ai">scikit-learn</span>
+                  <span class="tag tag--ai">Pandas</span>
+                  <span class="tag tag--ai">NumPy</span>
+                  <span class="tag tag--ai">Matplotlib</span>
+                  <span class="tag tag--ai">Seaborn</span>
+                  <span class="tag tag--ai">imbalanced-learn</span>
+                  <span class="tag tag--default">Jupyter Notebook</span>
+                </div>
+              </div>
+
+              <!-- Result summary -->
+              <div>
+                <p class="sidebar-title">Result summary</p>
+                <!-- TODO: replace with your actual 1–2 sentence summary of results -->
+                <div class="placeholder-note">
+                  TODO: describe your key result here — e.g. "Random Forest achieved the
+                  best F1 score of X%, outperforming Logistic Regression by Y%."
+                </div>
+              </div>
+
+            </aside>
+          </div><!-- end .ai-project__body -->
+
+          <!-- Links bar -->
+          <footer class="ai-project__links">
+            <div class="tag-group">
+              <span class="tag tag--ai">scikit-learn</span>
+              <span class="tag tag--research">Healthcare</span>
+              <span class="tag tag--default">Classification</span>
+            </div>
+            <div class="btn-group">
+              <!-- TODO: replace # with your actual GitHub notebook URL -->
+              <a href="https://github.com/safaet"
+                 class="btn btn--primary btn--sm"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="View AMR Prediction notebook on GitHub (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub / Notebook
+              </a>
+              <!-- TODO: add Kaggle link if published there -->
+              <!-- <a href="#" class="btn btn--secondary btn--sm" target="_blank" rel="noopener noreferrer">Kaggle ↗</a> -->
+              <!-- TODO: add blog post link once written -->
+              <!-- <a href="blog/posts/amr-prediction.html" class="btn btn--ghost btn--sm">Read write-up →</a> -->
+            </div>
+          </footer>
+        </article>
+
+
+        <!-- ────────────────────────────────────────────────────
+             PROJECT 2 — HOUSE PRICE PREDICTION
+             Domain: Regression / Deployment
+             ──────────────────────────────────────────────────── -->
+        <article
+          class="ai-project reveal"
+          id="house-price"
+          aria-labelledby="houseprice-title"
+        >
+          <div class="ai-project__accent ai-project__accent--regression"></div>
+
+          <div class="ai-project__body">
+
+            <div class="ai-project__main">
+
+              <header class="ai-project__header">
+                <span class="ai-project__number">02</span>
+                <span class="ai-project__icon" aria-hidden="true">🏠</span>
+                <div class="ai-project__title-block">
+                  <p class="ai-project__type">Regression · Model Deployment</p>
+                  <h3 id="houseprice-title" class="ai-project__name">House Price Prediction</h3>
+                  <p class="ai-project__subtitle">End-to-end regression pipeline with Flask API deployment</p>
+                </div>
+                <div class="tag-group" style="flex-shrink:0;">
+                  <span class="tag tag--default">Regression</span>
+                  <span class="tag tag--software">Deployed</span>
+                </div>
+              </header>
+
+              <!-- Problem statement -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">🎯</span>
+                  Problem statement
+                </h4>
+                <p>
+                  Property buyers, sellers, and real estate agents often rely on subjective
+                  estimates when pricing homes, leading to significant mispricing. This project
+                  builds a regression model that predicts house prices from property attributes —
+                  area, location, number of rooms, age, and amenities — and deploys it as a
+                  REST API that any client can query.
+                </p>
+              </div>
+
+              <!-- Dataset -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">📊</span>
+                  Dataset
+                </h4>
+                <!-- TODO: replace with your actual dataset source -->
+                <div class="placeholder-note">
+                  Dataset details to be updated — replace with source (e.g. Kaggle House Prices,
+                  Ames Housing Dataset, or a local dataset), sample size, and key features.
+                </div>
+                <ul class="ai-list" style="margin-top: var(--space-3);">
+                  <li>Structured tabular data with numerical and categorical features</li>
+                  <li>Target variable: sale price of a residential property (continuous)</li>
+                  <!-- TODO: update with actual sample size and feature count -->
+                  <li>Sample size: [update — e.g. 1,460 training records]</li>
+                  <li>Key features: square footage, location, bedrooms, bathrooms, year built, garage</li>
+                </ul>
+              </div>
+
+              <!-- Methods -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">⚙️</span>
+                  Methods &amp; approach
+                </h4>
+                <ul class="ai-list">
+                  <li>EDA: outlier detection, skewness analysis, correlation heatmap</li>
+                  <li>Feature engineering: log transformation of skewed features, one-hot encoding of categoricals</li>
+                  <li>Models evaluated: Linear Regression, Ridge, Lasso, Random Forest Regressor, XGBoost</li>
+                  <li>Cross-validation (K-Fold, K=5) to prevent overfitting on training data</li>
+                  <!-- TODO: note which model was selected as best -->
+                  <li>Final model: [update with selected model — e.g. XGBoost Regressor after tuning]</li>
+                  <li>Model serialized with <code>joblib</code> and served via Flask REST API</li>
+                </ul>
+              </div>
+
+              <!-- What I learned -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">💡</span>
+                  What I learned
+                </h4>
+                <ul class="ai-list">
+                  <li>How to engineer features and handle skewed distributions in regression problems</li>
+                  <li>The difference between overfitting, underfitting, and how cross-validation catches it</li>
+                  <li>How to serialize a trained model and wrap it in a production-ready Flask API</li>
+                  <li>How to send POST requests to an ML API and return structured JSON predictions</li>
+                  <li>Why RMSE and R² are better regression metrics than raw error alone</li>
+                </ul>
+              </div>
+
+            </div><!-- end .ai-project__main -->
+
+            <aside class="ai-project__sidebar" aria-label="House price project metrics and tools">
+
+              <!-- Metrics -->
+              <div>
+                <p class="sidebar-title">Evaluation metrics</p>
+                <!-- TODO: replace placeholders with your actual results -->
+                <div class="metrics-grid">
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—</div>
+                    <div class="metric-card__label">R² Score</div>
+                  </div>
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—</div>
+                    <div class="metric-card__label">RMSE</div>
+                  </div>
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—</div>
+                    <div class="metric-card__label">MAE</div>
+                  </div>
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—</div>
+                    <div class="metric-card__label">CV Score</div>
+                  </div>
+                </div>
+                <p class="placeholder-note" style="margin-top: var(--space-3);">
+                  TODO: fill in actual results after running your model evaluation.
+                </p>
+              </div>
+
+              <!-- Tools -->
+              <div>
+                <p class="sidebar-title">Tools &amp; libraries</p>
+                <div class="tag-group">
+                  <span class="tag tag--ai">Python 3</span>
+                  <span class="tag tag--ai">scikit-learn</span>
+                  <span class="tag tag--ai">XGBoost</span>
+                  <span class="tag tag--ai">Pandas</span>
+                  <span class="tag tag--ai">NumPy</span>
+                  <span class="tag tag--ai">Matplotlib</span>
+                  <span class="tag tag--ai">Flask</span>
+                  <span class="tag tag--default">joblib</span>
+                  <span class="tag tag--default">Jupyter Notebook</span>
+                </div>
+              </div>
+
+              <!-- Deployment note -->
+              <div>
+                <p class="sidebar-title">Deployment</p>
+                <div class="highlight-box highlight-box--ai">
+                  <p style="font-size: var(--text-sm); margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 600;">
+                    Deployed as Flask REST API
+                  </p>
+                  <p style="font-size: var(--text-xs); color: var(--text-secondary);">
+                    <!-- TODO: update with actual deployment URL if live, or remove this note -->
+                    Accepts POST requests with property features, returns predicted price as JSON.
+                    Hosted locally / [update with deploy URL if live].
+                  </p>
+                </div>
+              </div>
+
+            </aside>
+          </div><!-- end .ai-project__body -->
+
+          <footer class="ai-project__links">
+            <div class="tag-group">
+              <span class="tag tag--ai">scikit-learn</span>
+              <span class="tag tag--ai">XGBoost</span>
+              <span class="tag tag--software">Flask API</span>
+              <span class="tag tag--default">Regression</span>
+            </div>
+            <div class="btn-group">
+              <!-- TODO: replace # with actual GitHub repository URL -->
+              <a href="https://github.com/safaet"
+                 class="btn btn--primary btn--sm"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="View House Price Prediction notebook on GitHub (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub / Notebook
+              </a>
+              <!-- TODO: add Kaggle link if published there -->
+              <!-- <a href="#" class="btn btn--secondary btn--sm" target="_blank" rel="noopener noreferrer">Kaggle ↗</a> -->
+              <!-- TODO: add live API demo link once deployed -->
+              <!-- <a href="#" class="btn btn--ghost btn--sm" target="_blank" rel="noopener noreferrer">Live API ↗</a> -->
+            </div>
+          </footer>
+        </article>
+
+
+        <!-- ────────────────────────────────────────────────────
+             PROJECT 3 — MASK DETECTION
+             Domain: Computer Vision / Deep Learning
+             ──────────────────────────────────────────────────── -->
+        <article
+          class="ai-project reveal"
+          id="mask-detection"
+          aria-labelledby="mask-title"
+        >
+          <div class="ai-project__accent ai-project__accent--vision"></div>
+
+          <div class="ai-project__body">
+
+            <div class="ai-project__main">
+
+              <header class="ai-project__header">
+                <span class="ai-project__number">03</span>
+                <span class="ai-project__icon" aria-hidden="true">👁️</span>
+                <div class="ai-project__title-block">
+                  <p class="ai-project__type" style="color: var(--accent-coral);">Computer Vision · Deep Learning</p>
+                  <h3 id="mask-title" class="ai-project__name">Mask Detection</h3>
+                  <p class="ai-project__subtitle">Real-time face mask detection using CNN (TensorFlow / Keras)</p>
+                </div>
+                <div class="tag-group" style="flex-shrink:0;">
+                  <span class="tag tag--blog">Deep Learning</span>
+                  <span class="tag tag--ai">Real-time</span>
+                </div>
+              </header>
+
+              <!-- Problem statement -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">🎯</span>
+                  Problem statement
+                </h4>
+                <p>
+                  During the COVID-19 pandemic, enforcing mask-wearing in public spaces
+                  required constant manual monitoring — a labor-intensive and error-prone
+                  process. This project builds a convolutional neural network (CNN) that
+                  detects in real time whether a person in a camera frame is wearing a
+                  mask correctly, incorrectly, or not at all.
+                </p>
+              </div>
+
+              <!-- Dataset -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">📊</span>
+                  Dataset
+                </h4>
+                <!-- TODO: replace with your actual dataset source -->
+                <div class="placeholder-note">
+                  Dataset details to be updated — replace with source (e.g. Kaggle Face Mask Dataset,
+                  RMFD, or your own collected images), total image count, and class breakdown.
+                </div>
+                <ul class="ai-list" style="margin-top: var(--space-3);">
+                  <li>Image dataset with labeled face crops in two or three classes</li>
+                  <!-- TODO: update with actual class names and image counts -->
+                  <li>Classes: With Mask / Without Mask [/ Mask Worn Incorrectly if applicable]</li>
+                  <li>Sample size: [update — e.g. ~7,500 images per class]</li>
+                  <li>Augmented during training: horizontal flip, brightness shift, zoom</li>
+                </ul>
+              </div>
+
+              <!-- Methods -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">⚙️</span>
+                  Methods &amp; architecture
+                </h4>
+                <ul class="ai-list">
+                  <li>Face detection: OpenCV Haar Cascades or MTCNN to extract face regions</li>
+                  <li>CNN architecture: Conv2D → MaxPooling → Dropout → Dense layers built with Keras Sequential API</li>
+                  <!-- TODO: note if you used transfer learning, e.g. MobileNetV2 -->
+                  <li>Transfer learning: [update — e.g. MobileNetV2 base model with custom classification head]</li>
+                  <li>Training: ImageDataGenerator for augmentation, early stopping, ReduceLROnPlateau</li>
+                  <li>Real-time inference: OpenCV VideoCapture reads webcam frames, model classifies each face ROI</li>
+                  <li>Output: bounding box drawn on frame with prediction label and confidence score</li>
+                </ul>
+              </div>
+
+              <!-- What I learned -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">💡</span>
+                  What I learned
+                </h4>
+                <ul class="ai-list">
+                  <li>How CNNs learn spatial features from images through convolution and pooling</li>
+                  <li>The role of dropout and batch normalization in preventing overfitting on image data</li>
+                  <li>How transfer learning accelerates training and improves performance with limited data</li>
+                  <li>Connecting a trained Keras model to an OpenCV real-time video pipeline</li>
+                  <li>How to evaluate a vision model: confusion matrix, classification report, ROC curve</li>
+                  <li>Practical difference between training accuracy and real-world inference quality</li>
+                </ul>
+              </div>
+
+            </div><!-- end .ai-project__main -->
+
+            <aside class="ai-project__sidebar" aria-label="Mask detection project metrics and tools">
+
+              <!-- Metrics -->
+              <div>
+                <p class="sidebar-title">Evaluation metrics</p>
+                <!-- TODO: replace placeholders with your actual test set results -->
+                <div class="metrics-grid">
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—%</div>
+                    <div class="metric-card__label">Accuracy</div>
+                  </div>
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—%</div>
+                    <div class="metric-card__label">Precision</div>
+                  </div>
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—%</div>
+                    <div class="metric-card__label">Recall</div>
+                  </div>
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—ms</div>
+                    <div class="metric-card__label">Inference time</div>
+                  </div>
+                </div>
+                <p class="placeholder-note" style="margin-top: var(--space-3);">
+                  TODO: fill in accuracy and per-class metrics from your test set evaluation.
+                </p>
+              </div>
+
+              <!-- Tools -->
+              <div>
+                <p class="sidebar-title">Tools &amp; libraries</p>
+                <div class="tag-group">
+                  <span class="tag tag--ai">Python 3</span>
+                  <span class="tag tag--ai">TensorFlow 2</span>
+                  <span class="tag tag--ai">Keras</span>
+                  <span class="tag tag--ai">OpenCV</span>
+                  <span class="tag tag--ai">NumPy</span>
+                  <span class="tag tag--ai">Matplotlib</span>
+                  <span class="tag tag--default">MobileNetV2</span>
+                  <span class="tag tag--default">Jupyter Notebook</span>
+                </div>
+              </div>
+
+              <!-- Key challenge -->
+              <div>
+                <p class="sidebar-title">Key challenge solved</p>
+                <div class="highlight-box highlight-box--ai">
+                  <p style="font-size: var(--text-sm); color: var(--text-secondary);">
+                    Connecting a static Keras model to a live OpenCV video stream —
+                    normalizing each face ROI in real time to match training input dimensions
+                    and returning predictions fast enough for smooth video playback.
+                  </p>
+                </div>
+              </div>
+
+            </aside>
+          </div><!-- end .ai-project__body -->
+
+          <footer class="ai-project__links">
+            <div class="tag-group">
+              <span class="tag tag--ai">TensorFlow</span>
+              <span class="tag tag--ai">Keras</span>
+              <span class="tag tag--blog">Computer Vision</span>
+              <span class="tag tag--default">Real-time</span>
+            </div>
+            <div class="btn-group">
+              <!-- TODO: replace # with actual GitHub repository URL -->
+              <a href="https://github.com/safaet"
+                 class="btn btn--primary btn--sm"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="View Mask Detection source code on GitHub (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub / Notebook
+              </a>
+              <!-- TODO: add Kaggle link if model/notebook published there -->
+              <!-- <a href="#" class="btn btn--secondary btn--sm" target="_blank" rel="noopener noreferrer">Kaggle ↗</a> -->
+            </div>
+          </footer>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         3. AI/ML SKILL ROADMAP (public summary only)
+         NOTE: Full private tracker is in learning-lab/ (not linked here).
+         This is a curated, professional summary for recruiters.
+         ══════════════════════════════════════════════════════════ -->
+    <section class="roadmap-section section" aria-labelledby="roadmap-heading">
+      <div class="container">
+        <div class="reveal">
+          <p class="section-label" style="color: var(--accent-emerald);">Skill progress</p>
+          <h2 id="roadmap-heading" class="section-title">AI/ML learning roadmap</h2>
+          <p class="section-subtitle">
+            A public summary of where I am and where I'm heading.
+            The detailed tracker is private — this shows the honest big picture.
+          </p>
+        </div>
+
+        <div class="roadmap-grid reveal">
+
+          <!-- ── Done ── -->
+          <div class="roadmap-card">
+            <span class="roadmap-card__status roadmap-card__status--done">✓ Complete</span>
+            <h3 class="roadmap-card__title">Python for Data Science</h3>
+            <p class="roadmap-card__desc">
+              Pandas, NumPy, Matplotlib, Seaborn — data manipulation,
+              visualization, and EDA on real datasets.
+            </p>
+            <div class="tag-group" style="margin-top: var(--space-3);">
+              <span class="tag tag--ai">Pandas</span>
+              <span class="tag tag--ai">NumPy</span>
+            </div>
+          </div>
+
+          <div class="roadmap-card">
+            <span class="roadmap-card__status roadmap-card__status--done">✓ Complete</span>
+            <h3 class="roadmap-card__title">Classical ML (scikit-learn)</h3>
+            <p class="roadmap-card__desc">
+              Supervised learning — classification and regression pipelines,
+              model selection, cross-validation, and hyperparameter tuning.
+            </p>
+            <div class="tag-group" style="margin-top: var(--space-3);">
+              <span class="tag tag--ai">scikit-learn</span>
+              <span class="tag tag--ai">XGBoost</span>
+            </div>
+          </div>
+
+          <div class="roadmap-card">
+            <span class="roadmap-card__status roadmap-card__status--done">✓ Complete</span>
+            <h3 class="roadmap-card__title">Deep Learning Basics</h3>
+            <p class="roadmap-card__desc">
+              Built and trained CNNs using TensorFlow and Keras — applied to
+              computer vision (mask detection project).
+            </p>
+            <div class="tag-group" style="margin-top: var(--space-3);">
+              <span class="tag tag--ai">TensorFlow</span>
+              <span class="tag tag--ai">Keras</span>
+            </div>
+          </div>
+
+          <div class="roadmap-card">
+            <span class="roadmap-card__status roadmap-card__status--done">✓ Complete</span>
+            <h3 class="roadmap-card__title">ML Model Deployment</h3>
+            <p class="roadmap-card__desc">
+              Serializing models with joblib, wrapping in Flask REST API,
+              structuring requests and JSON responses.
+            </p>
+            <div class="tag-group" style="margin-top: var(--space-3);">
+              <span class="tag tag--ai">Flask</span>
+              <span class="tag tag--default">joblib</span>
+            </div>
+          </div>
+
+          <!-- ── Active ── -->
+          <div class="roadmap-card">
+            <span class="roadmap-card__status roadmap-card__status--active">⟳ In progress</span>
+            <h3 class="roadmap-card__title">PyTorch Fundamentals</h3>
+            <p class="roadmap-card__desc">
+              Tensors, autograd, custom datasets, DataLoader, and building
+              neural nets with <code>nn.Module</code>. Comparing to Keras workflow.
+            </p>
+            <div class="tag-group" style="margin-top: var(--space-3);">
+              <span class="tag tag--ai">PyTorch</span>
+            </div>
+          </div>
+
+          <div class="roadmap-card">
+            <span class="roadmap-card__status roadmap-card__status--active">⟳ In progress</span>
+            <h3 class="roadmap-card__title">FastAPI for ML APIs</h3>
+            <p class="roadmap-card__desc">
+              Building async REST APIs with FastAPI — faster and more
+              production-ready than Flask for serving ML models.
+            </p>
+            <div class="tag-group" style="margin-top: var(--space-3);">
+              <span class="tag tag--ai">FastAPI</span>
+              <span class="tag tag--default">Pydantic</span>
+            </div>
+          </div>
+
+          <!-- ── Next ── -->
+          <div class="roadmap-card">
+            <span class="roadmap-card__status roadmap-card__status--next">→ Next</span>
+            <h3 class="roadmap-card__title">LLM APIs &amp; Prompt Engineering</h3>
+            <p class="roadmap-card__desc">
+              OpenAI / Anthropic APIs, system prompts, few-shot prompting,
+              structured outputs, and function calling.
+            </p>
+            <div class="tag-group" style="margin-top: var(--space-3);">
+              <span class="tag tag--ai">LLM APIs</span>
+              <span class="tag tag--ai">LangChain</span>
+            </div>
+          </div>
+
+          <div class="roadmap-card">
+            <span class="roadmap-card__status roadmap-card__status--next">→ Next</span>
+            <h3 class="roadmap-card__title">RAG Systems</h3>
+            <p class="roadmap-card__desc">
+              Retrieval-Augmented Generation — vector databases (Pinecone / ChromaDB),
+              embeddings, and building context-aware LLM applications.
+            </p>
+            <div class="tag-group" style="margin-top: var(--space-3);">
+              <span class="tag tag--ai">RAG</span>
+              <span class="tag tag--ai">Embeddings</span>
+            </div>
+          </div>
+
+          <!-- ── Future ── -->
+          <div class="roadmap-card">
+            <span class="roadmap-card__status roadmap-card__status--future">◌ Future</span>
+            <h3 class="roadmap-card__title">Agentic AI Systems</h3>
+            <p class="roadmap-card__desc">
+              Multi-agent orchestration, tool use, memory, and building autonomous
+              AI workflows with LangGraph or AutoGen.
+            </p>
+            <div class="tag-group" style="margin-top: var(--space-3);">
+              <span class="tag tag--default">LangGraph</span>
+              <span class="tag tag--default">Agents</span>
+            </div>
+          </div>
+
+          <div class="roadmap-card">
+            <span class="roadmap-card__status roadmap-card__status--future">◌ Future</span>
+            <h3 class="roadmap-card__title">Fine-tuning LLMs</h3>
+            <p class="roadmap-card__desc">
+              LoRA, QLoRA, instruction tuning on domain-specific data —
+              adapting open-source models for specialized tasks.
+            </p>
+            <div class="tag-group" style="margin-top: var(--space-3);">
+              <span class="tag tag--default">LoRA</span>
+              <span class="tag tag--default">HuggingFace</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Current learning focus with skill bars — PUBLIC SUMMARY ONLY -->
+        <div class="learning-focus reveal" aria-label="Current learning focus details">
+          <div class="learning-focus__inner">
+
+            <div>
+              <p class="section-label" style="color: var(--accent-emerald);">This week's focus</p>
+              <h3 style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight:700; margin-bottom: var(--space-4); color: var(--text-primary);">
+                FastAPI + ML model integration
+              </h3>
+              <p class="learning-focus__week">
+                <!-- TODO: update this weekly to keep it current for recruiters visiting the page -->
+                Currently working through building a complete FastAPI service that loads a
+                trained scikit-learn model on startup and exposes a <code>/predict</code> endpoint.
+                Next: containerize with Docker and document the API with Swagger UI.
+              </p>
+              <div class="btn-group">
+                <!-- NOTE: Learning Lab (private full tracker) is intentionally NOT linked here -->
+                <a href="research.html" class="btn btn--ai btn--sm">Research interests →</a>
+                <a href="contact.html"  class="btn btn--secondary btn--sm">Open to collaboration</a>
+              </div>
+            </div>
+
+            <div>
+              <p class="section-label" style="color: var(--accent-emerald); margin-bottom: var(--space-4);">Skill progress (self-assessed)</p>
+              <div class="learning-focus__tools">
+
+                <!-- NOTE: levels are self-assessed for honesty, not inflated -->
+                <div class="learning-focus__tool">
+                  <span class="learning-focus__tool-name">Python (ML)</span>
+                  <div class="skill-bar-wrap">
+                    <div class="skill-bar-fill" style="width: 65%;"></div>
+                  </div>
+                  <span class="learning-focus__tool-pct">65%</span>
+                </div>
+
+                <div class="learning-focus__tool">
+                  <span class="learning-focus__tool-name">scikit-learn</span>
+                  <div class="skill-bar-wrap">
+                    <div class="skill-bar-fill" style="width: 60%;"></div>
+                  </div>
+                  <span class="learning-focus__tool-pct">60%</span>
+                </div>
+
+                <div class="learning-focus__tool">
+                  <span class="learning-focus__tool-name">TensorFlow / Keras</span>
+                  <div class="skill-bar-wrap">
+                    <div class="skill-bar-fill" style="width: 45%;"></div>
+                  </div>
+                  <span class="learning-focus__tool-pct">45%</span>
+                </div>
+
+                <div class="learning-focus__tool">
+                  <span class="learning-focus__tool-name">PyTorch</span>
+                  <div class="skill-bar-wrap">
+                    <div class="skill-bar-fill" style="width: 30%;"></div>
+                  </div>
+                  <span class="learning-focus__tool-pct">30%</span>
+                </div>
+
+                <div class="learning-focus__tool">
+                  <span class="learning-focus__tool-name">FastAPI</span>
+                  <div class="skill-bar-wrap">
+                    <div class="skill-bar-fill" style="width: 50%;"></div>
+                  </div>
+                  <span class="learning-focus__tool-pct">50%</span>
+                </div>
+
+                <div class="learning-focus__tool">
+                  <span class="learning-focus__tool-name">LLM APIs</span>
+                  <div class="skill-bar-wrap">
+                    <div class="skill-bar-fill" style="width: 25%;"></div>
+                  </div>
+                  <span class="learning-focus__tool-pct">25%</span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         4. FUTURE AI PROJECT IDEAS
+         Shows ambition and direction without overclaiming.
+         Update as you start and complete new projects.
+         ══════════════════════════════════════════════════════════ -->
+    <section class="section section--sm" aria-labelledby="future-heading" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="reveal">
+          <p class="section-label" style="color: var(--accent-amber);">Coming next</p>
+          <h2 id="future-heading" class="section-title">Future AI project ideas</h2>
+          <p class="section-subtitle">
+            Projects I plan to build as my skills in LLMs, agentic AI, and
+            applied ML deepen. Each is tied to a real problem I want to solve.
+          </p>
+        </div>
+
+        <div class="future-projects-grid reveal">
+
+          <div class="future-card">
+            <div class="future-card__emoji" aria-hidden="true">🔍</div>
+            <h3 class="future-card__title">RAG-based Document Q&amp;A System</h3>
+            <p class="future-card__desc">
+              Upload a PDF or text document and ask questions about it in natural language.
+              Uses embeddings, a vector database, and an LLM to retrieve and synthesize answers.
+              Goal: learn RAG pipelines end to end.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag--ai">LangChain</span>
+              <span class="tag tag--ai">RAG</span>
+              <span class="tag tag--default">ChromaDB</span>
+            </div>
+          </div>
+
+          <div class="future-card">
+            <div class="future-card__emoji" aria-hidden="true">🩺</div>
+            <h3 class="future-card__title">Disease Prediction from Clinical Features</h3>
+            <p class="future-card__desc">
+              Expand the AMR work into a broader healthcare prediction model —
+              diabetes, heart disease, or sepsis risk from tabular clinical data.
+              Focus: model interpretability with SHAP values.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag--ai">scikit-learn</span>
+              <span class="tag tag--research">Healthcare</span>
+              <span class="tag tag--default">SHAP</span>
+            </div>
+          </div>
+
+          <div class="future-card">
+            <div class="future-card__emoji" aria-hidden="true">🤖</div>
+            <h3 class="future-card__title">AI Customer Support Agent</h3>
+            <p class="future-card__desc">
+              A tool-using LLM agent that can look up order status, answer product questions,
+              and escalate to a human — built with LangGraph. Goal: learn multi-step
+              agent orchestration.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag--ai">LangGraph</span>
+              <span class="tag tag--ai">Agents</span>
+              <span class="tag tag--default">FastAPI</span>
+            </div>
+          </div>
+
+          <div class="future-card">
+            <div class="future-card__emoji" aria-hidden="true">📝</div>
+            <h3 class="future-card__title">Fine-tuned Summarization Model</h3>
+            <p class="future-card__desc">
+              Fine-tune an open-source LLM (e.g. Mistral or LLaMA) using LoRA on a
+              domain-specific summarization task — medical or legal text.
+              Goal: understand parameter-efficient fine-tuning.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag--ai">HuggingFace</span>
+              <span class="tag tag--default">LoRA</span>
+              <span class="tag tag--default">QLoRA</span>
+            </div>
+          </div>
+
+          <div class="future-card">
+            <div class="future-card__emoji" aria-hidden="true">🌐</div>
+            <h3 class="future-card__title">Multilingual NLP for Bangla</h3>
+            <p class="future-card__desc">
+              Sentiment analysis or text classification for Bengali-language social media
+              or news — addressing the underrepresentation of South Asian languages in
+              NLP research.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag--ai">NLP</span>
+              <span class="tag tag--research">Research</span>
+              <span class="tag tag--default">HuggingFace</span>
+            </div>
+          </div>
+
+          <div class="future-card">
+            <div class="future-card__emoji" aria-hidden="true">📈</div>
+            <h3 class="future-card__title">ML-Powered Stock Screener API</h3>
+            <p class="future-card__desc">
+              Classify stocks by risk/return profile using fundamental data —
+              served as a FastAPI microservice. Goal: combine finance domain knowledge
+              with production ML deployment skills.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag--ai">FastAPI</span>
+              <span class="tag tag--ai">scikit-learn</span>
+              <span class="tag tag--default">Docker</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         5. CONTACT CTA
+         ══════════════════════════════════════════════════════════ -->
+    <section class="contact-cta section" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-cta__inner reveal text-center">
+
+          <p class="section-label" style="color: var(--accent-emerald);">Let's connect</p>
+          <h2 id="contact-heading" class="section-title">
+            Open to AI/ML roles,<br />research, and collaboration.
+          </h2>
+          <p class="section-subtitle" style="margin-inline: auto; margin-bottom: 2rem;">
+            I'm actively looking for junior AI/ML engineering positions, research
+            assistant roles, and open-source collaboration in LLMs, healthcare AI,
+            or agentic systems. If my work interests you, reach out.
+          </p>
+
+          <div class="btn-group flex-center">
+            <a href="contact.html"             class="btn btn--primary btn--lg">Send a message</a>
+            <!-- TODO: add LinkedIn URL -->
+            <a href="#"                         class="btn btn--secondary btn--lg" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://github.com/safaet" class="btn btn--ghost btn--lg"    target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+
+          <!-- TODO: add email address -->
+          <p class="text-muted text-sm" style="margin-top: 1.5rem;">
+            Or email directly: <a href="mailto:your@email.com">your@email.com</a>
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER — identical to all other pages
+       ══════════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+
+      <div class="footer__top">
+
+        <div class="footer__brand-col">
+          <a href="index.html" class="footer__brand">SJ<span style="color: var(--accent-primary);">.</span></a>
+          <p class="text-sm" style="margin-top: 0.5rem; color: var(--text-secondary);">
+            Full Stack Engineer → AI/ML Engineer.<br />
+            Building systems that matter.
+          </p>
+          <div class="social-links" style="margin-top: 1rem;">
+            <a href="https://github.com/safaet" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </a>
+            <!-- TODO: add LinkedIn URL -->
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <!-- TODO: add email address -->
+            <a href="mailto:your@email.com" class="social-link" aria-label="Send email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <nav aria-label="Footer navigation">
+          <div class="footer__nav-cols">
+            <div>
+              <p class="footer__nav-title">Portfolio</p>
+              <ul role="list">
+                <li><a href="projects.html"     class="footer__link">Software projects</a></li>
+                <li><a href="ai-portfolio.html" class="footer__link">AI/ML portfolio</a></li>
+                <li><a href="research.html"     class="footer__link">Research</a></li>
+                <li><a href="tools.html"        class="footer__link">Tools</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__nav-title">Writing</p>
+              <ul role="list">
+                <li><a href="blog.html" class="footer__link">Blog</a></li>
+                <li><a href="blog.html" class="footer__link">ML notes</a></li>
+                <li><a href="blog.html" class="footer__link">Engineering</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__nav-title">Connect</p>
+              <ul role="list">
+                <li><a href="contact.html"                                             class="footer__link">Contact</a></li>
+                <li><a href="https://github.com/safaet" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub ↗</a></li>
+                <!-- TODO: add LinkedIn URL -->
+                <li><a href="#"                          target="_blank" rel="noopener noreferrer" class="footer__link">LinkedIn ↗</a></li>
+                <!-- TODO: add resume PDF path -->
+                <li><a href="resume/safaet-jaman-resume.pdf" target="_blank" rel="noopener noreferrer" class="footer__link">Resume ↗</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p>© <span id="footer-year">2025</span> Safaet Jaman. Built with HTML, CSS &amp; JavaScript. Hosted on GitHub Pages.</p>
+        <p class="text-muted">Safaet Jaman · Saddam Hossen · Chittagong, Bangladesh</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JS — same file used across all pages -->
+  <script src="js/main.js" defer></script>
+
+  <script>
+    // Auto-update copyright year
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
