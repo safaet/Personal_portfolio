@@ -211,16 +211,13 @@ function initSkillBars() {
 
     bar.style.setProperty('--skill-level', '0%');
 
-    const item = bar.closest('.skill-item');
-    if (item) {
-      let pct = item.querySelector('.skill-pct');
-      if (!pct) {
-        pct = document.createElement('span');
-        pct.className = 'skill-pct';
-        item.appendChild(pct);
-      }
-      pct.textContent = `${level}%`;
+    let pct = bar.nextElementSibling;
+    if (!pct?.classList.contains('skill-pct')) {
+      pct = document.createElement('span');
+      pct.className = 'skill-pct';
+      bar.after(pct);
     }
+    pct.textContent = `${level}%`;
   });
 
   const observer = new IntersectionObserver(
