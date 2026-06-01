@@ -197,7 +197,50 @@ function initContactForm() {
 
 
 /* ──────────────────────────────────────────────
-   7. COPY CODE BLOCKS (blog posts)
+   7. SKILL BARS (index.html)
+   Maps data-level → --skill-level for .skill-bar::after width
+   ────────────────────────────────────────────── */
+
+function initSkillBars() {
+  const bars = document.querySelectorAll('.skill-bar[data-level]');
+  if (!bars.length) return;
+
+  bars.forEach(bar => {
+    const level = bar.getAttribute('data-level');
+    if (!level) return;
+
+    bar.style.setProperty('--skill-level', '0%');
+
+    const item = bar.closest('.skill-item');
+    if (item) {
+      let pct = item.querySelector('.skill-pct');
+      if (!pct) {
+        pct = document.createElement('span');
+        pct.className = 'skill-pct';
+        item.appendChild(pct);
+      }
+      pct.textContent = `${level}%`;
+    }
+  });
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const level = entry.target.getAttribute('data-level');
+        if (level) entry.target.style.setProperty('--skill-level', `${level}%`);
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -20px 0px' }
+  );
+
+  bars.forEach(bar => observer.observe(bar));
+}
+
+
+/* ──────────────────────────────────────────────
+   8. COPY CODE BLOCKS (blog posts)
    ────────────────────────────────────────────── */
 
 function initCopyCode() {
@@ -229,6 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initActiveNav();
   initScrollReveal();
+  initSkillBars();
   initProjectFilter();
   initContactForm();
   initCopyCode();
