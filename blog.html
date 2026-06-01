@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog — Safaet Jaman</title>
+    <meta name="description"
+        content="Writing by Safaet Jaman on machine learning, mathematics, software engineering, AI research, and career growth. Honest notes from a Full Stack Engineer learning ML." />
+    <meta name="keywords"
+        content="Safaet Jaman blog, machine learning notes, linear algebra ML, Spring Boot tutorial, AI engineer roadmap, AMR prediction notes" />
+    <meta name="author" content="Safaet Jaman" />
+    <link rel="canonical" href="https://safaet.github.io/blog.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Blog — Safaet Jaman" />
+    <meta property="og:description"
+        content="Notes on ML, math, software engineering, and building an AI career from scratch." />
+    <meta property="og:url" content="https://safaet.github.io/blog.html" />
+    <meta property="og:image" content="images/og-image.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Outfit:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+        /* ── Blog hero ── */
+        .blog-hero {
+            padding: var(--space-16) 0 var(--space-12);
+            background: linear-gradient(160deg, #eff6ff 0%, #f5f3ff 60%, var(--bg-base) 100%);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        [data-theme="dark"] .blog-hero {
+            background: linear-gradient(160deg,
+                    rgba(59, 130, 246, 0.06) 0%,
+                    rgba(139, 92, 246, 0.04) 60%,
+                    var(--bg-base) 100%);
+        }
+
+        .blog-hero__inner {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: end;
+            gap: var(--space-10);
+        }
+
+        .blog-hero__title {
+            font-size: var(--text-5xl);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-4);
+        }
+
+        .blog-hero__desc {
+            font-size: var(--text-lg);
+            color: var(--text-secondary);
+            line-height: 1.75;
+            max-width: 540px;
+            margin-bottom: 0;
+        }
+
+        .blog-hero__counts {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .blog-count-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .blog-count-value {
+            font-family: var(--font-display);
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .blog-count-label {
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+        }
+
+        /* ── Filter bar (sticky) ── */
+        .blog-filter-bar {
+            position: sticky;
+            top: var(--nav-height);
+            z-index: var(--z-raised);
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: var(--space-4) 0;
+        }
+
+        .blog-filter-bar__inner {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+        }
+
+        .blog-filter-label {
+            font-family: var(--font-code);
+            font-size: var(--text-xs);
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-right: var(--space-2);
+            white-space: nowrap;
+        }
+
+        .filter-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-1);
+            padding: var(--space-2) var(--space-4);
+            font-family: var(--font-body);
+            font-size: var(--text-xs);
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: var(--bg-elevated);
+            border: 1.5px solid var(--border-subtle);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all var(--t-fast) var(--ease);
+        }
+
+        .filter-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--border-default);
+            background: var(--bg-overlay);
+        }
+
+        .filter-btn.active {
+            color: #fff;
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        .filter-btn__count {
+            font-family: var(--font-code);
+            font-size: 0.65rem;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: var(--radius-full);
+            padding: 1px 6px;
+        }
+
+        .filter-btn:not(.active) .filter-btn__count {
+            background: var(--bg-overlay);
+            color: var(--text-muted);
+        }
+
+        /* ── Featured posts ── */
+        .featured-section {
+            background: var(--bg-base);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: var(--space-6);
+            margin-top: var(--space-8);
+        }
+
+        /* Large featured card */
+        .featured-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: border-color var(--t-base) var(--ease),
+                box-shadow var(--t-base) var(--ease),
+                transform var(--t-base) var(--ease);
+        }
+
+        .featured-card:hover {
+            border-color: var(--border-default);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+
+        .featured-card__cover {
+            width: 100%;
+            aspect-ratio: 16/7;
+            background: linear-gradient(135deg, #dbeafe, #ede9fe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border-bottom: 1px solid var(--border-subtle);
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .featured-card__cover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.12));
+        }
+
+        /* TODO: replace .featured-card__cover with an <img> when cover images are ready */
+        .featured-card__cover-label {
+            position: absolute;
+            bottom: var(--space-4);
+            left: var(--space-5);
+            font-family: var(--font-code);
+            font-size: var(--text-xs);
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.4);
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+            backdrop-filter: blur(4px);
+        }
+
+        .featured-card__body {
+            padding: var(--space-6);
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: var(--space-3);
+        }
+
+        .featured-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-1);
+            font-family: var(--font-code);
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #fff;
+            background: var(--accent-primary);
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            align-self: flex-start;
+        }
+
+        .featured-card__title {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.3;
+            text-decoration: none;
+            transition: color var(--t-fast) var(--ease);
+        }
+
+        .featured-card__title:hover {
+            color: var(--accent-blue);
+        }
+
+        .featured-card__excerpt {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            line-height: 1.75;
+            flex: 1;
+        }
+
+        .featured-card__footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--space-3);
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+        }
+
+        .post-meta__dot {
+            color: var(--border-default);
+        }
+
+        /* Secondary featured cards (right column) */
+        .featured-secondary {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-5);
+        }
+
+        .featured-card--sm {
+            padding: var(--space-5);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+
+        .featured-card--sm .featured-card__title {
+            font-size: var(--text-base);
+        }
+
+        .featured-card--sm .featured-card__excerpt {
+            font-size: var(--text-xs);
+        }
+
+        /* ── Blog card grid ── */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-5);
+            margin-top: var(--space-8);
+        }
+
+        /* Standard blog card */
+        .blog-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: border-color var(--t-base) var(--ease),
+                box-shadow var(--t-base) var(--ease),
+                transform var(--t-base) var(--ease);
+        }
+
+        .blog-card:hover {
+            border-color: var(--border-default);
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-2px);
+        }
+
+        /* Category colour strip at top of card */
+        .blog-card__strip {
+            height: 3px;
+            width: 100%;
+        }
+
+        .blog-card__strip--math {
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+        }
+
+        .blog-card__strip--ml {
+            background: linear-gradient(90deg, #10b981, #3b82f6);
+        }
+
+        .blog-card__strip--ai {
+            background: linear-gradient(90deg, #f97316, #fb7185);
+        }
+
+        .blog-card__strip--se {
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+        }
+
+        .blog-card__strip--research {
+            background: linear-gradient(90deg, #f59e0b, #10b981);
+        }
+
+        .blog-card__strip--career {
+            background: linear-gradient(90deg, #8b5cf6, #f97316);
+        }
+
+        .blog-card__body {
+            padding: var(--space-5);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+            flex: 1;
+        }
+
+        .blog-card__title {
+            font-family: var(--font-display);
+            font-size: var(--text-base);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.35;
+            text-decoration: none;
+            transition: color var(--t-fast) var(--ease);
+        }
+
+        .blog-card__title:hover {
+            color: var(--accent-blue);
+        }
+
+        .blog-card__excerpt {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        .blog-card__footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+            gap: var(--space-2);
+        }
+
+        .read-time {
+            font-family: var(--font-code);
+            font-size: 0.68rem;
+            color: var(--text-muted);
+        }
+
+        /* Draft / Coming soon badge */
+        .draft-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-family: var(--font-code);
+            font-size: 0.65rem;
+            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            background: var(--bg-elevated);
+            color: var(--text-muted);
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* Category tag colour helpers */
+        .tag--math {
+            background: rgba(99, 102, 241, 0.1);
+            color: #6366f1;
+            border-color: rgba(99, 102, 241, 0.25);
+        }
+
+        .tag--ml {
+            background: rgba(16, 185, 129, 0.1);
+            color: #059669;
+            border-color: rgba(16, 185, 129, 0.25);
+        }
+
+        .tag--ai-case {
+            background: rgba(249, 115, 22, 0.1);
+            color: #ea580c;
+            border-color: rgba(249, 115, 22, 0.25);
+        }
+
+        .tag--se {
+            background: rgba(59, 130, 246, 0.1);
+            color: #2563eb;
+            border-color: rgba(59, 130, 246, 0.25);
+        }
+
+        .tag--research-note {
+            background: rgba(245, 158, 11, 0.1);
+            color: #b45309;
+            border-color: rgba(245, 158, 11, 0.25);
+        }
+
+        .tag--career {
+            background: rgba(139, 92, 246, 0.1);
+            color: #7c3aed;
+            border-color: rgba(139, 92, 246, 0.25);
+        }
+
+        [data-theme="dark"] .tag--math {
+            color: #a5b4fc;
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        [data-theme="dark"] .tag--ml {
+            color: #6ee7b7;
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        [data-theme="dark"] .tag--ai-case {
+            color: #fdba74;
+            border-color: rgba(249, 115, 22, 0.3);
+        }
+
+        [data-theme="dark"] .tag--se {
+            color: #93c5fd;
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        [data-theme="dark"] .tag--research-note {
+            color: #fcd34d;
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        [data-theme="dark"] .tag--career {
+            color: #c4b5fd;
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        /* ── Newsletter CTA ── */
+        .newsletter-cta {
+            background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        [data-theme="dark"] .newsletter-cta {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.06), rgba(139, 92, 246, 0.05));
+        }
+
+        .newsletter-cta__inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-12);
+            align-items: center;
+        }
+
+        .newsletter-cta__title {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+        }
+
+        .newsletter-cta__desc {
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: var(--space-6);
+        }
+
+        .newsletter-note {
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+            margin-top: var(--space-3);
+        }
+
+        .topic-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+
+        .topic-list-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+
+        .topic-list-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .blog-hero__inner {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-hero__counts {
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+            }
+
+            .blog-hero__title {
+                font-size: var(--text-4xl);
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .newsletter-cta__inner {
+                grid-template-columns: 1fr;
+                gap: var(--space-8);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .blog-hero__title {
+                font-size: var(--text-3xl);
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-filter-bar {
+                position: static;
+            }
+
+            .blog-count-value {
+                font-size: var(--text-2xl);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ══════════════════════════════════════════════════════════
+       NAVIGATION
+       JS (main.js) sets .active on "Blog" automatically
+       ══════════════════════════════════════════════════════════ -->
+    <header>
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <div class="nav__inner">
+                <a href="index.html" class="nav__brand" aria-label="Safaet Jaman — home">SJ<span>.</span></a>
+                <ul class="nav__links" role="list">
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="projects.html" class="nav__link">Projects</a></li>
+                    <li><a href="ai-portfolio.html" class="nav__link">AI Portfolio</a></li>
+                    <li><a href="research.html" class="nav__link">Research</a></li>
+                    <li><a href="blog.html" class="nav__link">Blog</a></li>
+                    <li><a href="tools.html" class="nav__link">Tools</a></li>
+                    <!-- TODO: update resume path -->
+                    <li><a href="resume/safaet-jaman-resume.pdf" class="nav__link" target="_blank"
+                            rel="noopener">Resume</a></li>
+                    <li><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
+                <div class="nav__actions">
+                    <button class="theme-toggle" aria-label="Toggle light/dark theme">
+                        <span class="icon-moon" aria-hidden="true">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                            </svg>
+                        </span>
+                        <span class="icon-sun" aria-hidden="true">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5" />
+                                <line x1="12" y1="1" x2="12" y2="3" />
+                                <line x1="12" y1="21" x2="12" y2="23" />
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                                <line x1="1" y1="12" x2="3" y2="12" />
+                                <line x1="21" y1="12" x2="23" y2="12" />
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                            </svg>
+                        </span>
+                    </button>
+                    <button class="nav__toggle" aria-label="Open navigation menu" aria-expanded="false"
+                        aria-controls="mobile-nav">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <nav id="mobile-nav" class="nav__mobile" aria-label="Mobile navigation">
+            <a href="index.html" class="nav__link">Home</a>
+            <a href="projects.html" class="nav__link">Projects</a>
+            <a href="ai-portfolio.html" class="nav__link">AI Portfolio</a>
+            <a href="research.html" class="nav__link">Research</a>
+            <a href="blog.html" class="nav__link">Blog</a>
+            <a href="tools.html" class="nav__link">Tools</a>
+            <a href="resume/safaet-jaman-resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume ↗</a>
+            <a href="contact.html" class="nav__link">Contact</a>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- ══════════════════════════════════════════════════════════
+         1. PAGE HERO
+         ══════════════════════════════════════════════════════════ -->
+        <section class="blog-hero" aria-labelledby="blog-page-heading">
+            <div class="container">
+
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <ol role="list">
+                        <li><a href="index.html">Home</a></li>
+                        <li aria-hidden="true">/</li>
+                        <li aria-current="page">Blog</li>
+                    </ol>
+                </nav>
+
+                <div class="blog-hero__inner">
+
+                    <div class="reveal">
+                        <p class="section-label" style="color: var(--accent-blue);">Writing</p>
+                        <h1 id="blog-page-heading" class="blog-hero__title">
+                            Notes, write-ups,<br /><span class="text-gradient">and learning logs</span>
+                        </h1>
+                        <p class="blog-hero__desc">
+                            I write about what I am learning — machine learning mathematics,
+                            project case studies, software engineering patterns, research notes,
+                            and the honest experience of transitioning into AI engineering.
+                            No polished tutorials, just real notes from the process.
+                        </p>
+                    </div>
+
+                    <div class="blog-hero__counts reveal" aria-label="Blog statistics">
+                        <div class="blog-count-item">
+                            <span class="blog-count-value">5</span>
+                            <span class="blog-count-label">Posts planned</span>
+                        </div>
+                        <div class="blog-count-item">
+                            <span class="blog-count-value">6</span>
+                            <span class="blog-count-label">Categories</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ══════════════════════════════════════════════════════════
+         2. STICKY CATEGORY FILTER BAR
+         JS (main.js initProjectFilter) handles show/hide
+         via data-tags on each .blog-card
+         ══════════════════════════════════════════════════════════ -->
+        <div class="blog-filter-bar" role="navigation" aria-label="Filter blog posts by category">
+            <div class="container">
+                <div class="blog-filter-bar__inner">
+                    <span class="blog-filter-label" aria-hidden="true">Category:</span>
+                    <button class="filter-btn active" data-filter="all">
+                        All
+                        <span class="filter-btn__count">5</span>
+                    </button>
+                    <button class="filter-btn" data-filter="math">
+                        Math for ML
+                        <span class="filter-btn__count">1</span>
+                    </button>
+                    <button class="filter-btn" data-filter="ml-notes">
+                        ML Notes
+                        <span class="filter-btn__count">1</span>
+                    </button>
+                    <button class="filter-btn" data-filter="ai-case">
+                        AI Case Studies
+                        <span class="filter-btn__count">1</span>
+                    </button>
+                    <button class="filter-btn" data-filter="se">
+                        Software Engineering
+                        <span class="filter-btn__count">1</span>
+                    </button>
+                    <button class="filter-btn" data-filter="research-note">
+                        Research Notes
+                        <span class="filter-btn__count">1</span>
+                    </button>
+                    <button class="filter-btn" data-filter="career">
+                        Career Journey
+                        <span class="filter-btn__count">1</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ══════════════════════════════════════════════════════════
+         3. FEATURED POSTS
+         ══════════════════════════════════════════════════════════ -->
+        <section class="featured-section section section--sm" aria-labelledby="featured-heading">
+            <div class="container">
+
+                <div class="reveal">
+                    <p class="section-label" style="color: var(--accent-blue);">Start here</p>
+                    <h2 id="featured-heading" class="section-title">Featured posts</h2>
+                </div>
+
+                <div class="featured-grid reveal">
+
+                    <!-- ── Large featured card ── -->
+                    <article class="featured-card" aria-labelledby="featured-main-title">
+
+                        <div class="featured-card__cover" aria-hidden="true">
+                            <span>📐</span>
+                            <span class="featured-card__cover-label">Math for Machine Learning</span>
+                        </div>
+                        <!-- TODO: replace cover div with:
+                 <img src="images/blog/linear-algebra-ml.webp"
+                      alt="Vectors and matrix diagram for machine learning"
+                      width="800" height="350" loading="lazy" /> -->
+
+                        <div class="featured-card__body">
+                            <span class="featured-badge">✦ Featured</span>
+
+                            <div class="tag-group">
+                                <span class="tag tag--math">Math for ML</span>
+                                <span class="tag tag--default">Linear Algebra</span>
+                                <span class="tag tag--default">Beginner</span>
+                            </div>
+
+                            <!-- TODO: replace # with actual post URL: blog/posts/linear-algebra-ml.html -->
+                            <a href="#" class="featured-card__title" id="featured-main-title"
+                                aria-label="Read: How I Am Learning Linear Algebra for Machine Learning">
+                                How I Am Learning Linear Algebra for Machine Learning
+                            </a>
+
+                            <p class="featured-card__excerpt">
+                                I used to skip the math and jump straight to the code. That worked until
+                                it didn't — until I couldn't understand why my model was behaving strangely
+                                or what "dot product similarity" actually meant geometrically.
+                                This is my honest account of going back to linear algebra fundamentals:
+                                vectors, matrices, eigenvalues, and how they actually show up in ML.
+                            </p>
+
+                            <footer class="featured-card__footer">
+                                <div class="post-meta">
+                                    <!-- TODO: update with actual publish date -->
+                                    <time datetime="2025-07-01">July 2025</time>
+                                    <span class="post-meta__dot" aria-hidden="true">·</span>
+                                    <span>12 min read</span>
+                                    <span class="post-meta__dot" aria-hidden="true">·</span>
+                                    <span>Draft</span>
+                                </div>
+                                <!-- TODO: replace # with actual post URL -->
+                                <a href="#" class="btn btn--secondary btn--sm"
+                                    aria-label="Read full post: How I Am Learning Linear Algebra for Machine Learning">
+                                    Read post →
+                                </a>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <!-- ── Two secondary featured cards ── -->
+                    <div class="featured-secondary">
+
+                        <article class="featured-card featured-card--sm" aria-labelledby="featured-secondary-1">
+                            <div class="tag-group">
+                                <span class="tag tag--ml">ML Notes</span>
+                                <span class="tag tag--default">Regression</span>
+                            </div>
+                            <!-- TODO: replace # with actual post URL: blog/posts/house-price-prediction.html -->
+                            <a href="#" class="featured-card__title" id="featured-secondary-1"
+                                aria-label="Read: House Price Prediction — My First Regression Project">
+                                House Price Prediction: My First Regression Project
+                            </a>
+                            <p class="featured-card__excerpt">
+                                A walkthrough of my first end-to-end regression project — from messy data
+                                to a deployed Flask API. What I got wrong, what I'd do differently.
+                            </p>
+                            <footer class="featured-card__footer">
+                                <div class="post-meta">
+                                    <time datetime="2025-07-15">July 2025</time>
+                                    <span class="post-meta__dot" aria-hidden="true">·</span>
+                                    <span>10 min read</span>
+                                </div>
+                                <a href="#" class="btn btn--ghost btn--sm">Read →</a>
+                            </footer>
+                        </article>
+
+                        <article class="featured-card featured-card--sm" aria-labelledby="featured-secondary-2">
+                            <div class="tag-group">
+                                <span class="tag tag--career">Career Journey</span>
+                            </div>
+                            <!-- TODO: replace # with actual post URL: blog/posts/ai-engineer-roadmap.html -->
+                            <a href="#" class="featured-card__title" id="featured-secondary-2"
+                                aria-label="Read: My AI Engineer Roadmap — From Java to LLMs">
+                                My AI Engineer Roadmap: From Java to LLMs
+                            </a>
+                            <p class="featured-card__excerpt">
+                                The honest plan I am following to transition from full-stack engineering
+                                into AI/ML — what I am learning, in what order, and why.
+                            </p>
+                            <footer class="featured-card__footer">
+                                <div class="post-meta">
+                                    <time datetime="2025-08-01">August 2025</time>
+                                    <span class="post-meta__dot" aria-hidden="true">·</span>
+                                    <span>8 min read</span>
+                                </div>
+                                <a href="#" class="btn btn--ghost btn--sm">Read →</a>
+                            </footer>
+                        </article>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ══════════════════════════════════════════════════════════
+         4. ALL POSTS GRID
+         Each card has data-tags matching filter buttons above.
+         Add new cards here as new posts are published.
+         ══════════════════════════════════════════════════════════ -->
+        <section class="section section--sm" aria-labelledby="all-posts-heading"
+            style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle);">
+            <div class="container">
+
+                <div class="flex-between reveal" style="flex-wrap: wrap; gap: var(--space-4); margin-bottom: 0;">
+                    <div>
+                        <p class="section-label" style="color: var(--accent-blue);">All writing</p>
+                        <h2 id="all-posts-heading" class="section-title">All posts</h2>
+                    </div>
+                    <p class="text-sm text-muted" style="margin-bottom: 0; align-self: flex-end;">
+                        Showing <strong style="color: var(--text-primary);">5</strong> posts
+                        <!-- TODO: update count as posts are added -->
+                    </p>
+                </div>
+
+                <!-- ─────────────────────────────────────────────────────
+             BLOG CARD GRID
+             data-tags must match data-filter values on filter buttons.
+             Add data-tags="all" to every card so "All" filter works.
+             ───────────────────────────────────────────────────── -->
+                <div class="blog-grid" id="blog-grid" role="list">
+
+                    <!-- ── Post 1: Linear Algebra for ML ── -->
+                    <article class="blog-card reveal" data-tags="all,math" role="listitem"
+                        aria-labelledby="post-1-title">
+                        <div class="blog-card__strip blog-card__strip--math" aria-hidden="true"></div>
+                        <div class="blog-card__body">
+                            <div class="tag-group">
+                                <span class="tag tag--math">Math for ML</span>
+                                <span class="tag tag--default">Linear Algebra</span>
+                            </div>
+                            <!-- TODO: replace # with: blog/posts/linear-algebra-ml.html -->
+                            <a href="#" class="blog-card__title" id="post-1-title">
+                                How I Am Learning Linear Algebra for Machine Learning
+                            </a>
+                            <p class="blog-card__excerpt">
+                                Vectors, matrices, dot products, eigenvalues — and why they actually
+                                matter for understanding ML models, not just passing a course.
+                            </p>
+                            <footer class="blog-card__footer">
+                                <div class="post-meta">
+                                    <time datetime="2025-07-01">Jul 2025</time>
+                                    <span class="post-meta__dot" aria-hidden="true">·</span>
+                                    <span class="read-time">12 min</span>
+                                </div>
+                                <span class="draft-badge" aria-label="Draft — not yet published">Draft</span>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <!-- ── Post 2: House Price Prediction ── -->
+                    <article class="blog-card reveal" data-tags="all,ml-notes" role="listitem"
+                        aria-labelledby="post-2-title">
+                        <div class="blog-card__strip blog-card__strip--ml" aria-hidden="true"></div>
+                        <div class="blog-card__body">
+                            <div class="tag-group">
+                                <span class="tag tag--ml">ML Notes</span>
+                                <span class="tag tag--default">Regression</span>
+                                <span class="tag tag--default">scikit-learn</span>
+                            </div>
+                            <!-- TODO: replace # with: blog/posts/house-price-prediction.html -->
+                            <a href="#" class="blog-card__title" id="post-2-title">
+                                House Price Prediction: My First Regression Project
+                            </a>
+                            <p class="blog-card__excerpt">
+                                End-to-end walkthrough: data cleaning, feature engineering, model selection,
+                                cross-validation, and wrapping the final model in a Flask API.
+                            </p>
+                            <footer class="blog-card__footer">
+                                <div class="post-meta">
+                                    <time datetime="2025-07-15">Jul 2025</time>
+                                    <span class="post-meta__dot" aria-hidden="true">·</span>
+                                    <span class="read-time">10 min</span>
+                                </div>
+                                <span class="draft-badge">Draft</span>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <!-- ── Post 3: AMR Prediction Research Notes ── -->
+                    <article class="blog-card reveal" data-tags="all,research-note,ai-case" role="listitem"
+                        aria-labelledby="post-3-title">
+                        <div class="blog-card__strip blog-card__strip--research" aria-hidden="true"></div>
+                        <div class="blog-card__body">
+                            <div class="tag-group">
+                                <span class="tag tag--research-note">Research Notes</span>
+                                <span class="tag tag--default">AMR</span>
+                                <span class="tag tag--default">Healthcare AI</span>
+                            </div>
+                            <!-- TODO: replace # with: blog/posts/amr-prediction-research-notes.html -->
+                            <a href="#" class="blog-card__title" id="post-3-title">
+                                AMR Prediction: Research Notes and Early Findings
+                            </a>
+                            <p class="blog-card__excerpt">
+                                Notes from my ongoing research on predicting antimicrobial resistance
+                                using ensemble ML — dataset challenges, feature choices, and what
+                                the literature says about the problem.
+                            </p>
+                            <footer class="blog-card__footer">
+                                <div class="post-meta">
+                                    <time datetime="2025-08-01">Aug 2025</time>
+                                    <span class="post-meta__dot" aria-hidden="true">·</span>
+                                    <span class="read-time">9 min</span>
+                                </div>
+                                <span class="draft-badge">Draft</span>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <!-- ── Post 4: Building Backend APIs with Spring Boot ── -->
+                    <article class="blog-card reveal" data-tags="all,se" role="listitem" aria-labelledby="post-4-title">
+                        <div class="blog-card__strip blog-card__strip--se" aria-hidden="true"></div>
+                        <div class="blog-card__body">
+                            <div class="tag-group">
+                                <span class="tag tag--se">Software Engineering</span>
+                                <span class="tag tag--default">Spring Boot</span>
+                                <span class="tag tag--default">Java</span>
+                            </div>
+                            <!-- TODO: replace # with: blog/posts/spring-boot-rest-api.html -->
+                            <a href="#" class="blog-card__title" id="post-4-title">
+                                Building Production-Ready REST APIs with Spring Boot
+                            </a>
+                            <p class="blog-card__excerpt">
+                                How I structure Spring Boot projects for real applications — layered
+                                architecture, JWT auth, exception handling, validation, and Docker packaging.
+                            </p>
+                            <footer class="blog-card__footer">
+                                <div class="post-meta">
+                                    <time datetime="2025-08-15">Aug 2025</time>
+                                    <span class="post-meta__dot" aria-hidden="true">·</span>
+                                    <span class="read-time">14 min</span>
+                                </div>
+                                <span class="draft-badge">Draft</span>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <!-- ── Post 5: My AI Engineer Roadmap ── -->
+                    <article class="blog-card reveal" data-tags="all,career" role="listitem"
+                        aria-labelledby="post-5-title">
+                        <div class="blog-card__strip blog-card__strip--career" aria-hidden="true"></div>
+                        <div class="blog-card__body">
+                            <div class="tag-group">
+                                <span class="tag tag--career">Career Journey</span>
+                                <span class="tag tag--default">AI Engineering</span>
+                            </div>
+                            <!-- TODO: replace # with: blog/posts/ai-engineer-roadmap.html -->
+                            <a href="#" class="blog-card__title" id="post-5-title">
+                                My AI Engineer Roadmap: From Java to LLMs
+                            </a>
+                            <p class="blog-card__excerpt">
+                                The plan I built for transitioning from full-stack Java/Spring Boot
+                                development into AI/ML engineering — tools, courses, projects,
+                                and the honest reasoning behind each decision.
+                            </p>
+                            <footer class="blog-card__footer">
+                                <div class="post-meta">
+                                    <time datetime="2025-09-01">Sep 2025</time>
+                                    <span class="post-meta__dot" aria-hidden="true">·</span>
+                                    <span class="read-time">8 min</span>
+                                </div>
+                                <span class="draft-badge">Draft</span>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <!-- ── Placeholder card: coming soon ── -->
+                    <article class="blog-card reveal" data-tags="all,ai-case" role="listitem"
+                        aria-labelledby="post-6-title" style="opacity: 0.65;">
+                        <div class="blog-card__strip blog-card__strip--ai" aria-hidden="true"></div>
+                        <div class="blog-card__body">
+                            <div class="tag-group">
+                                <span class="tag tag--ai-case">AI Case Studies</span>
+                                <span class="tag tag--default">Computer Vision</span>
+                            </div>
+                            <span class="blog-card__title" id="post-6-title"
+                                style="color: var(--text-muted); font-style: italic;">
+                                <!-- TODO: write and link this post -->
+                                Mask Detection: Building a Real-Time CNN with OpenCV
+                            </span>
+                            <p class="blog-card__excerpt">
+                                A full write-up of the mask detection project — CNN architecture,
+                                training on imbalanced image data, and connecting the model
+                                to a live OpenCV video stream.
+                            </p>
+                            <footer class="blog-card__footer">
+                                <div class="post-meta">
+                                    <span class="text-muted">Coming soon</span>
+                                </div>
+                                <span class="draft-badge">Planned</span>
+                            </footer>
+                        </div>
+                    </article>
+
+                </div><!-- end #blog-grid -->
+
+                <!-- Empty state — shown by JS when no cards match the filter -->
+                <div id="blog-empty" style="display:none; text-align:center; padding: var(--space-16) 0;">
+                    <p style="font-size: var(--text-2xl); margin-bottom: var(--space-4);" aria-hidden="true">📭</p>
+                    <p class="text-muted">No posts in this category yet — check back soon.</p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ══════════════════════════════════════════════════════════
+         5. CATEGORY REFERENCE
+         Visual guide to what each colour-coded category covers
+         ══════════════════════════════════════════════════════════ -->
+        <section class="section section--sm" aria-labelledby="categories-heading">
+            <div class="container">
+
+                <div class="reveal">
+                    <p class="section-label" style="color: var(--accent-blue);">What I write about</p>
+                    <h2 id="categories-heading" class="section-title">Blog categories</h2>
+                </div>
+
+                <div class="grid grid--auto reveal" style="margin-top: var(--space-8);">
+
+                    <div class="card reveal" style="gap: var(--space-3); display: flex; flex-direction: column;">
+                        <div style="display:flex; align-items:center; gap: var(--space-3);">
+                            <div class="blog-card__strip blog-card__strip--math"
+                                style="width:28px; height:28px; border-radius:6px; flex-shrink:0;"></div>
+                            <h3
+                                style="font-size: var(--text-base); font-weight:700; color:var(--text-primary); font-family: var(--font-display);">
+                                Math for Machine Learning</h3>
+                        </div>
+                        <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height:1.7;">
+                            Linear algebra, calculus, probability, and statistics — explained in the
+                            context of ML algorithms rather than pure theory. Written for software
+                            engineers who skipped the math degree.
+                        </p>
+                        <span class="tag tag--math" style="align-self: flex-start;">1 post planned</span>
+                    </div>
+
+                    <div class="card reveal" style="gap: var(--space-3); display: flex; flex-direction: column;">
+                        <div style="display:flex; align-items:center; gap: var(--space-3);">
+                            <div class="blog-card__strip blog-card__strip--ml"
+                                style="width:28px; height:28px; border-radius:6px; flex-shrink:0;"></div>
+                            <h3
+                                style="font-size: var(--text-base); font-weight:700; color:var(--text-primary); font-family: var(--font-display);">
+                                Machine Learning Notes</h3>
+                        </div>
+                        <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height:1.7;">
+                            Notes from projects and experiments — what worked, what didn't, and why.
+                            Coverage: regression, classification, ensemble methods, deployment,
+                            and practical ML engineering.
+                        </p>
+                        <span class="tag tag--ml" style="align-self: flex-start;">1 post planned</span>
+                    </div>
+
+                    <div class="card reveal" style="gap: var(--space-3); display: flex; flex-direction: column;">
+                        <div style="display:flex; align-items:center; gap: var(--space-3);">
+                            <div class="blog-card__strip blog-card__strip--ai"
+                                style="width:28px; height:28px; border-radius:6px; flex-shrink:0;"></div>
+                            <h3
+                                style="font-size: var(--text-base); font-weight:700; color:var(--text-primary); font-family: var(--font-display);">
+                                AI Project Case Studies</h3>
+                        </div>
+                        <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height:1.7;">
+                            Deep-dives into completed AI/ML projects — problem framing, data decisions,
+                            model choices, results, and what I would do differently next time.
+                        </p>
+                        <span class="tag tag--ai-case" style="align-self: flex-start;">1 post planned</span>
+                    </div>
+
+                    <div class="card reveal" style="gap: var(--space-3); display: flex; flex-direction: column;">
+                        <div style="display:flex; align-items:center; gap: var(--space-3);">
+                            <div class="blog-card__strip blog-card__strip--se"
+                                style="width:28px; height:28px; border-radius:6px; flex-shrink:0;"></div>
+                            <h3
+                                style="font-size: var(--text-base); font-weight:700; color:var(--text-primary); font-family: var(--font-display);">
+                                Software Engineering</h3>
+                        </div>
+                        <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height:1.7;">
+                            Backend architecture, REST API design, Spring Boot patterns, Docker,
+                            CI/CD, and the engineering practices I use to build reliable systems.
+                        </p>
+                        <span class="tag tag--se" style="align-self: flex-start;">1 post planned</span>
+                    </div>
+
+                    <div class="card reveal" style="gap: var(--space-3); display: flex; flex-direction: column;">
+                        <div style="display:flex; align-items:center; gap: var(--space-3);">
+                            <div class="blog-card__strip blog-card__strip--research"
+                                style="width:28px; height:28px; border-radius:6px; flex-shrink:0;"></div>
+                            <h3
+                                style="font-size: var(--text-base); font-weight:700; color:var(--text-primary); font-family: var(--font-display);">
+                                Research Notes</h3>
+                        </div>
+                        <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height:1.7;">
+                            Notes from reading papers, running experiments, and navigating academic
+                            ML. Focused on AMR, healthcare AI, and the research skills I'm building
+                            toward postgraduate study.
+                        </p>
+                        <span class="tag tag--research-note" style="align-self: flex-start;">1 post planned</span>
+                    </div>
+
+                    <div class="card reveal" style="gap: var(--space-3); display: flex; flex-direction: column;">
+                        <div style="display:flex; align-items:center; gap: var(--space-3);">
+                            <div class="blog-card__strip blog-card__strip--career"
+                                style="width:28px; height:28px; border-radius:6px; flex-shrink:0;"></div>
+                            <h3
+                                style="font-size: var(--text-base); font-weight:700; color:var(--text-primary); font-family: var(--font-display);">
+                                Career Journey</h3>
+                        </div>
+                        <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height:1.7;">
+                            The honest experience of transitioning from full-stack software engineering
+                            into AI/ML — roadmap decisions, setbacks, resources that helped, and
+                            progress updates.
+                        </p>
+                        <span class="tag tag--career" style="align-self: flex-start;">1 post planned</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ══════════════════════════════════════════════════════════
+         6. NEWSLETTER / CONTACT CTA
+         Using contact page rather than a separate email list
+         — simpler to maintain on GitHub Pages.
+         TODO: if you add an email list later (e.g. ConvertKit,
+               Buttondown), replace this section's form with
+               their embed code.
+         ══════════════════════════════════════════════════════════ -->
+        <section class="newsletter-cta section" aria-labelledby="newsletter-heading">
+            <div class="container">
+                <div class="newsletter-cta__inner reveal">
+
+                    <div>
+                        <p class="section-label" style="color: var(--accent-blue);">Stay updated</p>
+                        <h2 id="newsletter-heading" class="newsletter-cta__title">
+                            Get notified<br />when I publish
+                        </h2>
+                        <p class="newsletter-cta__desc">
+                            I publish infrequently and intentionally — only when I have something
+                            genuinely useful to share. No filler content, no recycled tutorials.
+                        </p>
+
+                        <!-- TODO: replace these buttons with an email list embed when ready.
+                 For now, direct visitors to GitHub and LinkedIn to follow updates. -->
+                        <div class="btn-group">
+                            <a href="contact.html" class="btn btn--primary">
+                                Contact me directly →
+                            </a>
+                            <!-- TODO: add GitHub profile URL -->
+                            <a href="https://github.com/safaet" class="btn btn--secondary" target="_blank"
+                                rel="noopener noreferrer">
+                                Follow on GitHub ↗
+                            </a>
+                        </div>
+                        <p class="newsletter-note">
+                            Or connect on
+                            <!-- TODO: add LinkedIn URL -->
+                            <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                            for post announcements.
+                        </p>
+                    </div>
+
+                    <!-- What I write about — visual topic list -->
+                    <div>
+                        <p class="text-sm"
+                            style="font-weight:600; color:var(--text-secondary); margin-bottom: var(--space-5);">
+                            Topics I cover
+                        </p>
+                        <div class="topic-list" role="list">
+                            <div class="topic-list-item" role="listitem">
+                                <div class="topic-list-dot" style="background:#6366f1;"></div>
+                                Math for machine learning — from first principles
+                            </div>
+                            <div class="topic-list-item" role="listitem">
+                                <div class="topic-list-dot" style="background:#10b981;"></div>
+                                End-to-end ML project write-ups with real code
+                            </div>
+                            <div class="topic-list-item" role="listitem">
+                                <div class="topic-list-dot" style="background:#f97316;"></div>
+                                AI/ML case studies — what worked, what didn't
+                            </div>
+                            <div class="topic-list-item" role="listitem">
+                                <div class="topic-list-dot" style="background:#3b82f6;"></div>
+                                Software engineering: Spring Boot, REST APIs, Docker
+                            </div>
+                            <div class="topic-list-item" role="listitem">
+                                <div class="topic-list-dot" style="background:#f59e0b;"></div>
+                                Research notes: AMR prediction, healthcare AI, papers
+                            </div>
+                            <div class="topic-list-item" role="listitem">
+                                <div class="topic-list-dot" style="background:#8b5cf6;"></div>
+                                Career: honest notes on transitioning into AI engineering
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════════════════ -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner">
+            <div class="footer__top">
+
+                <div class="footer__brand-col">
+                    <a href="index.html" class="footer__brand">SJ<span
+                            style="color: var(--accent-primary);">.</span></a>
+                    <p class="text-sm" style="margin-top: 0.5rem; color: var(--text-secondary);">
+                        Full Stack Engineer → AI/ML Engineer.<br />Building systems that matter.
+                    </p>
+                    <div class="social-links" style="margin-top: 1rem;">
+                        <a href="https://github.com/safaet" class="social-link" target="_blank"
+                            rel="noopener noreferrer" aria-label="GitHub profile">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
+                            </svg>
+                        </a>
+                        <!-- TODO: add LinkedIn URL -->
+                        <a href="#" class="social-link" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn profile">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <!-- TODO: add email address -->
+                        <a href="mailto:your@email.com" class="social-link" aria-label="Send email">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <nav aria-label="Footer navigation">
+                    <div class="footer__nav-cols">
+                        <div>
+                            <p class="footer__nav-title">Portfolio</p>
+                            <ul role="list">
+                                <li><a href="projects.html" class="footer__link">Software projects</a></li>
+                                <li><a href="ai-portfolio.html" class="footer__link">AI/ML portfolio</a></li>
+                                <li><a href="research.html" class="footer__link">Research</a></li>
+                                <li><a href="tools.html" class="footer__link">Tools</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="footer__nav-title">Blog</p>
+                            <ul role="list">
+                                <li><a href="blog.html" class="footer__link">All posts</a></li>
+                                <li><a href="blog.html" class="footer__link">Math for ML</a></li>
+                                <li><a href="blog.html" class="footer__link">ML Notes</a></li>
+                                <li><a href="blog.html" class="footer__link">Career journey</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="footer__nav-title">Connect</p>
+                            <ul role="list">
+                                <li><a href="contact.html" class="footer__link">Contact</a></li>
+                                <li><a href="https://github.com/safaet" target="_blank" rel="noopener noreferrer"
+                                        class="footer__link">GitHub ↗</a></li>
+                                <li><a href="#" target="_blank" rel="noopener noreferrer" class="footer__link">LinkedIn
+                                        ↗</a></li>
+                                <li><a href="resume/safaet-jaman-resume.pdf" target="_blank" rel="noopener noreferrer"
+                                        class="footer__link">Resume ↗</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+            </div>
+
+            <div class="footer__bottom">
+                <p>© <span id="footer-year">2025</span> Safaet Jaman. Built with HTML, CSS &amp; JavaScript. Hosted on
+                    GitHub Pages.</p>
+                <p class="text-muted">Safaet Jaman · Saddam Hossen · Chittagong, Bangladesh</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+
+</body>
+
+</html>
