@@ -1,0 +1,206 @@
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  .about-wrap {
+    font-family: 'DM Sans', sans-serif;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+  }
+  .about-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.25rem;
+  }
+  .about-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--color-text-secondary);
+  }
+  .about-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--color-text-primary);
+    margin: 0 0 0.25rem;
+  }
+  .about-name em {
+    font-style: italic;
+    color: var(--color-text-secondary);
+  }
+  .about-tagline {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--color-text-secondary);
+    margin: 0 0 2rem;
+    letter-spacing: 0.01em;
+  }
+  .about-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--color-text-primary);
+    margin: 0 0 2rem;
+    opacity: 0.15;
+  }
+  .about-body {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    margin: 0 0 1.5rem;
+  }
+  .about-body strong {
+    font-weight: 500;
+    color: var(--color-text-primary);
+  }
+  .about-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 2rem 0;
+  }
+  .pill {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 100px;
+    border: 0.5px solid var(--color-border-secondary);
+    color: var(--color-text-secondary);
+    background: var(--color-background-secondary);
+    letter-spacing: 0.01em;
+  }
+  .about-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 2rem 0;
+  }
+  .stat-card {
+    padding: 1.25rem;
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    background: var(--color-background-secondary);
+  }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+  .about-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 2rem;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-border-secondary);
+    padding-bottom: 2px;
+    cursor: pointer;
+  }
+  .about-cta i {
+    font-size: 14px;
+  }
+  .research-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: var(--border-radius-md);
+    background: var(--color-background-info);
+    color: var(--color-text-info);
+    margin-bottom: 2rem;
+    border: 0.5px solid var(--color-border-tertiary);
+  }
+  .research-badge i { font-size: 14px; }
+  @media (max-width: 480px) {
+    .about-row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="about-wrap">
+
+  <div class="about-eyebrow">About me</div>
+
+  <h1 class="about-name">Safaet Jaman<br><em>Arman</em></h1>
+  <p class="about-tagline">ML Researcher · AI Developer · Chittagong, Bangladesh</p>
+
+  <div class="research-badge">
+    <i class="ti ti-file-certificate" aria-hidden="true"></i>
+    IEEE Conference — Accepted · Publishing Dec 2026
+  </div>
+
+  <p class="about-body">
+    I am a <strong>Machine Learning researcher and Python developer</strong> focused on applying AI to healthcare problems in South Asian clinical settings — a domain where global models consistently fail because local patient data is absent from their training.
+  </p>
+
+  <p class="about-body">
+    My IEEE-accepted research on <strong>Antimicrobial Resistance (AMR) prediction</strong> addresses this gap directly. Alongside research, I build and deploy practical AI tools: CV screening systems, biomedical data pipelines, and LLM-powered automation — using <strong>PyTorch, HuggingFace, scikit-learn, Django,</strong> and the major LLM APIs.
+  </p>
+
+  <p class="about-body">
+    Currently completing my BSc in Computer Science and Engineering at IIUC, I am actively pursuing <strong>postgraduate study in Medical AI</strong> while remaining available for freelance projects and research collaborations.
+  </p>
+
+  <div class="about-divider"></div>
+
+  <div class="about-row">
+    <div class="stat-card">
+      <div class="stat-num">1</div>
+      <div class="stat-label">IEEE conference paper<br>accepted · Dec 2026</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4+</div>
+      <div class="stat-label">AI-powered tools<br>built and deployed</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Years studying and<br>building in CSE</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Commitment to<br>Medical AI in Bangladesh</div>
+    </div>
+  </div>
+
+  <div class="about-pills">
+    <span class="pill">Python</span>
+    <span class="pill">PyTorch</span>
+    <span class="pill">HuggingFace</span>
+    <span class="pill">Medical AI</span>
+    <span class="pill">scikit-learn</span>
+    <span class="pill">Django</span>
+    <span class="pill">LLM APIs</span>
+    <span class="pill">NLP</span>
+    <span class="pill">Research</span>
+    <span class="pill">Data Analysis</span>
+  </div>
+
+  <span class="about-cta" onclick="sendPrompt('Write the Skills and Projects sections for Safaet portfolio website in HTML')">
+    View my work
+    <i class="ti ti-arrow-right" aria-hidden="true"></i>
+  </span>
+
+</div>

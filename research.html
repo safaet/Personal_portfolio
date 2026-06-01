@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ══════════════════════════════════════════════════════════
+       SEO META TAGS
+       TODO: update canonical URL to your real GitHub Pages domain
+       ══════════════════════════════════════════════════════════ -->
+  <title>Research — Safaet Jaman</title>
+  <meta name="description" content="Research work by Safaet Jaman on antimicrobial resistance prediction using ensemble machine learning methods. Interests include LLM engineering, agentic AI, and applied ML for healthcare." />
+  <meta name="keywords" content="Safaet Jaman, antimicrobial resistance prediction, AMR machine learning, resistome, ensemble learning, AI research, LLM engineering, healthcare AI, Bangladesh" />
+  <meta name="author" content="Safaet Jaman" />
+  <link rel="canonical" href="https://safaet.github.io/research.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Research — Safaet Jaman" />
+  <meta property="og:description" content="Research on resistome-driven ensemble learning for antimicrobial resistance phenotype prediction, plus interests in LLM engineering and agentic AI systems." />
+  <meta property="og:url"         content="https://safaet.github.io/research.html" />
+  <meta property="og:image"       content="images/og-image.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Outfit:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Shared design system -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Page-scoped styles -->
+  <style>
+
+    /* ── Research hero ── */
+    .research-hero {
+      padding: var(--space-16) 0 var(--space-12);
+      background: linear-gradient(160deg, #ecfdf5 0%, #eff6ff 60%, var(--bg-base) 100%);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    [data-theme="dark"] .research-hero {
+      background: linear-gradient(
+        160deg,
+        rgba(16,185,129,0.06) 0%,
+        rgba(59,130,246,0.04) 60%,
+        var(--bg-base) 100%
+      );
+    }
+    .research-hero__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: start;
+    }
+    .research-hero__title {
+      font-size: var(--text-5xl);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-5);
+    }
+    .research-hero__desc {
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 520px;
+      margin-bottom: var(--space-8);
+    }
+    .research-hero__status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      align-items: center;
+    }
+    .research-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+    }
+    .research-status-pill--open {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+    .research-status-pill--fresher {
+      background: #eff6ff;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+    }
+    [data-theme="dark"] .research-status-pill--open {
+      background: rgba(16,185,129,0.12);
+      color: #6ee7b7;
+      border-color: rgba(16,185,129,0.3);
+    }
+    [data-theme="dark"] .research-status-pill--fresher {
+      background: rgba(59,130,246,0.12);
+      color: #93c5fd;
+      border-color: rgba(59,130,246,0.3);
+    }
+
+    /* Stats column in hero */
+    .research-hero__stats {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+    .research-hero__stat-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5) var(--space-6);
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      transition: border-color var(--t-base) var(--ease),
+                  box-shadow var(--t-base) var(--ease);
+    }
+    .research-hero__stat-card:hover {
+      border-color: var(--accent-emerald);
+      box-shadow: 0 4px 20px rgba(16,185,129,0.08);
+    }
+    .stat-card__icon {
+      font-size: 1.75rem;
+      flex-shrink: 0;
+    }
+    .stat-card__text {}
+    .stat-card__value {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+    .stat-card__label {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* ── Research interest summary ── */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--space-5);
+      margin-top: var(--space-8);
+    }
+    .interest-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5) var(--space-5) var(--space-5) var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      transition: border-color var(--t-base) var(--ease),
+                  box-shadow var(--t-base) var(--ease),
+                  transform var(--t-base) var(--ease);
+    }
+    .interest-card:hover {
+      border-color: var(--border-default);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .interest-card--primary {
+      border-color: #a7f3d0;
+      background: linear-gradient(135deg, #f0fdf4, var(--bg-surface));
+    }
+    [data-theme="dark"] .interest-card--primary {
+      border-color: rgba(16,185,129,0.25);
+      background: linear-gradient(135deg, rgba(16,185,129,0.06), var(--bg-surface));
+    }
+    .interest-card__emoji { font-size: 1.75rem; }
+    .interest-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .interest-card__desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    /* ── Current research highlight (the paper) ── */
+    .research-paper {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+    .research-paper__accent {
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-blue));
+    }
+    .research-paper__body {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+    }
+    .research-paper__main {
+      padding: var(--space-8);
+      border-right: 1px solid var(--border-subtle);
+    }
+    .research-paper__sidebar {
+      padding: var(--space-8) var(--space-6);
+      background: var(--bg-base);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+    .paper-type {
+      font-family: var(--font-code);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      color: var(--accent-emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-3);
+    }
+    .paper-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin-bottom: var(--space-2);
+    }
+    .paper-authors {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      margin-bottom: var(--space-6);
+    }
+    .paper-authors strong { color: var(--text-primary); }
+
+    /* Section headers within paper card */
+    .paper-section {
+      margin-bottom: var(--space-6);
+    }
+    .paper-section:last-child { margin-bottom: 0; }
+    .paper-section__title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--space-3);
+    }
+    .paper-section p {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* Bullet list inside paper */
+    .paper-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .paper-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .paper-list li::before {
+      content: '▸';
+      color: var(--accent-emerald);
+      font-size: 0.7rem;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Placeholder note — honest marker for missing data */
+    .placeholder-note {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3) var(--space-4);
+      line-height: 1.6;
+      font-style: italic;
+    }
+    .placeholder-note::before {
+      content: '📌';
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Sidebar meta cards */
+    .paper-meta-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+    }
+    .paper-meta-label {
+      font-family: var(--font-code);
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-2);
+    }
+    .paper-meta-value {
+      font-size: var(--text-sm);
+      color: var(--text-primary);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .paper-meta-value.pending {
+      color: var(--text-muted);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    /* Status badge */
+    .paper-status {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-code);
+      font-size: 0.68rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+    .paper-status--in-progress {
+      background: #fffbeb;
+      color: #92400e;
+      border: 1px solid #fde68a;
+    }
+    .paper-status--dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.4; }
+    }
+    [data-theme="dark"] .paper-status--in-progress {
+      background: rgba(245,158,11,0.1);
+      color: #fcd34d;
+      border-color: rgba(245,158,11,0.3);
+    }
+
+    /* Results grid inside sidebar */
+    .result-metric {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3);
+      text-align: center;
+    }
+    .result-metric__value {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--accent-emerald);
+      line-height: 1;
+    }
+    .result-metric__value.placeholder { color: var(--text-muted); font-size: var(--text-sm); }
+    .result-metric__label {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 3px;
+    }
+    .metrics-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2);
+    }
+
+    /* Footer of paper card */
+    .research-paper__footer {
+      padding: var(--space-5) var(--space-8);
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      background: var(--bg-base);
+    }
+
+    /* ── Methodology pipeline ── */
+    .pipeline {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      overflow-x: auto;
+      padding-bottom: var(--space-2);
+    }
+    .pipeline-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      min-width: 120px;
+      position: relative;
+    }
+    /* Arrow connector between steps */
+    .pipeline-step:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -12px;
+      top: 20px;
+      font-size: 1.2rem;
+      color: var(--accent-emerald);
+      z-index: 1;
+    }
+    .pipeline-step__num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-emerald), var(--accent-blue));
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-3);
+      flex-shrink: 0;
+    }
+    .pipeline-step__title {
+      font-family: var(--font-display);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--text-primary);
+      text-align: center;
+      margin-bottom: var(--space-2);
+    }
+    .pipeline-step__desc {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.5;
+      padding: 0 var(--space-2);
+    }
+
+    /* ── Research skills ── */
+    .skills-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      margin-top: var(--space-8);
+    }
+    .skill-category__title {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--space-5);
+      padding-bottom: var(--space-3);
+      border-bottom: 2px solid var(--border-subtle);
+    }
+    .skill-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    .skill-row__name {
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--text-primary);
+      min-width: 150px;
+      flex-shrink: 0;
+    }
+    .skill-bar-track {
+      flex: 1;
+      height: 6px;
+      background: var(--bg-elevated);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-blue));
+    }
+    .skill-row__pct {
+      font-family: var(--font-code);
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      min-width: 32px;
+      text-align: right;
+    }
+
+    /* ── Future research interests ── */
+    .future-research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-5);
+      margin-top: var(--space-8);
+    }
+    .future-research-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      transition: border-color var(--t-base) var(--ease),
+                  box-shadow var(--t-base) var(--ease);
+    }
+    .future-research-card:hover {
+      border-color: var(--accent-amber);
+      box-shadow: 0 4px 20px rgba(245,158,11,0.08);
+    }
+    .future-research-card__icon { font-size: 1.75rem; }
+    .future-research-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .future-research-card__desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .future-research-card__why {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      font-style: italic;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: var(--space-3);
+      line-height: 1.5;
+    }
+
+    /* ── Collaboration CTA ── */
+    .collab-cta {
+      background: linear-gradient(135deg, #ecfdf5 0%, #eff6ff 50%, #f5f3ff 100%);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    [data-theme="dark"] .collab-cta {
+      background: linear-gradient(
+        135deg,
+        rgba(16,185,129,0.07) 0%,
+        rgba(59,130,246,0.06) 50%,
+        rgba(139,92,246,0.05) 100%
+      );
+    }
+    .collab-cta__inner {
+      max-width: 700px;
+      margin-inline: auto;
+      text-align: center;
+    }
+    .collab-cta__title {
+      font-size: var(--text-4xl);
+      font-weight: 700;
+      margin-bottom: var(--space-5);
+    }
+    .collab-cta__desc {
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--space-8);
+    }
+
+    /* What I can offer / what I am looking for — two column list */
+    .collab-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      text-align: left;
+      margin-bottom: var(--space-10);
+    }
+    .collab-list-title {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--space-4);
+    }
+    .collab-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .collab-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .collab-list li::before {
+      content: '✓';
+      color: var(--accent-emerald);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .research-hero__inner  { grid-template-columns: 1fr; gap: var(--space-10); }
+      .research-hero__title  { font-size: var(--text-4xl); }
+      .research-paper__body  { grid-template-columns: 1fr; }
+      .research-paper__main  { border-right: none; border-bottom: 1px solid var(--border-subtle); }
+      .research-paper__sidebar { background: var(--bg-surface); }
+      .skills-two-col        { grid-template-columns: 1fr; }
+      .collab-split          { grid-template-columns: 1fr; gap: var(--space-6); }
+    }
+    @media (max-width: 640px) {
+      .research-hero__title  { font-size: var(--text-3xl); }
+      .research-paper__main  { padding: var(--space-5); }
+      .research-paper__sidebar { padding: var(--space-5); }
+      .research-paper__footer { padding: var(--space-4) var(--space-5); flex-direction: column; align-items: flex-start; }
+      .pipeline              { flex-direction: column; align-items: stretch; gap: var(--space-4); }
+      .pipeline-step::after  { display: none; }
+      .interests-grid        { grid-template-columns: 1fr; }
+      .future-research-grid  { grid-template-columns: 1fr; }
+      .collab-cta__title     { font-size: var(--text-3xl); }
+    }
+
+  </style>
+
+  <!-- TODO: add favicon -->
+  <!-- <link rel="icon" href="images/favicon.ico" /> -->
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════
+       NAVIGATION — identical across all pages
+       JS (main.js) sets .active on "Research" automatically
+       ══════════════════════════════════════════════════════════ -->
+  <header>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav__inner">
+
+        <a href="index.html" class="nav__brand" aria-label="Safaet Jaman — home">
+          SJ<span>.</span>
+        </a>
+
+        <ul class="nav__links" role="list">
+          <li><a href="index.html"        class="nav__link">Home</a></li>
+          <li><a href="projects.html"     class="nav__link">Projects</a></li>
+          <li><a href="ai-portfolio.html" class="nav__link">AI Portfolio</a></li>
+          <li><a href="research.html"     class="nav__link">Research</a></li>
+          <li><a href="blog.html"         class="nav__link">Blog</a></li>
+          <li><a href="tools.html"        class="nav__link">Tools</a></li>
+          <!-- TODO: update resume PDF path -->
+          <li><a href="resume/safaet-jaman-resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume</a></li>
+          <li><a href="contact.html"      class="nav__link">Contact</a></li>
+        </ul>
+
+        <div class="nav__actions">
+          <button class="theme-toggle" aria-label="Toggle light/dark theme">
+            <span class="icon-moon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </span>
+            <span class="icon-sun" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </span>
+          </button>
+          <button class="nav__toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+
+    <nav id="mobile-nav" class="nav__mobile" aria-label="Mobile navigation">
+      <a href="index.html"        class="nav__link">Home</a>
+      <a href="projects.html"     class="nav__link">Projects</a>
+      <a href="ai-portfolio.html" class="nav__link">AI Portfolio</a>
+      <a href="research.html"     class="nav__link">Research</a>
+      <a href="blog.html"         class="nav__link">Blog</a>
+      <a href="tools.html"        class="nav__link">Tools</a>
+      <!-- TODO: update resume PDF path -->
+      <a href="resume/safaet-jaman-resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume ↗</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════════════════
+         1. RESEARCH HERO
+         ══════════════════════════════════════════════════════════ -->
+    <section class="research-hero" aria-labelledby="research-page-heading">
+      <div class="container">
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol role="list">
+            <li><a href="index.html">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">Research</li>
+          </ol>
+        </nav>
+
+        <div class="research-hero__inner">
+
+          <!-- Left: headline and description -->
+          <div class="reveal">
+            <p class="section-label" style="color: var(--accent-amber);">Research</p>
+            <h1 id="research-page-heading" class="research-hero__title">
+              Applied ML for<br /><span class="text-gradient">real-world problems</span>
+            </h1>
+            <p class="research-hero__desc">
+              I am a Full Stack Engineer actively building research skills in machine
+              learning and AI — currently focused on antimicrobial resistance prediction
+              using ensemble methods, with broader interests in LLM engineering,
+              agentic AI, and healthcare AI.
+            </p>
+
+            <div class="research-hero__status-row">
+              <span class="research-status-pill research-status-pill--open">
+                <span style="width:7px;height:7px;border-radius:50%;background:currentColor;flex-shrink:0;"></span>
+                Open to research collaboration
+              </span>
+              <span class="research-status-pill research-status-pill--fresher">
+                🎓 Seeking MSc/PhD opportunities
+              </span>
+            </div>
+          </div>
+
+          <!-- Right: quick-glance stat cards -->
+          <div class="research-hero__stats reveal" aria-label="Research highlights">
+
+            <div class="research-hero__stat-card">
+              <span class="stat-card__icon" aria-hidden="true">🧬</span>
+              <div class="stat-card__text">
+                <div class="stat-card__value">AMR Prediction</div>
+                <div class="stat-card__label">Current research project</div>
+              </div>
+            </div>
+
+            <div class="research-hero__stat-card">
+              <span class="stat-card__icon" aria-hidden="true">🤖</span>
+              <div class="stat-card__text">
+                <div class="stat-card__value">LLMs &amp; Agentic AI</div>
+                <div class="stat-card__label">Next research direction</div>
+              </div>
+            </div>
+
+            <div class="research-hero__stat-card">
+              <span class="stat-card__icon" aria-hidden="true">🌏</span>
+              <div class="stat-card__text">
+                <div class="stat-card__value">Bangla NLP</div>
+                <div class="stat-card__label">Long-term interest area</div>
+              </div>
+            </div>
+
+            <div class="research-hero__stat-card">
+              <span class="stat-card__icon" aria-hidden="true">🔗</span>
+              <div class="stat-card__text">
+                <div class="stat-card__value">Open to collaborate</div>
+                <div class="stat-card__label">Remote &amp; cross-border welcome</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         2. RESEARCH INTEREST SUMMARY
+         ══════════════════════════════════════════════════════════ -->
+    <section class="section section--sm" aria-labelledby="interests-heading" style="background: var(--bg-surface); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="reveal">
+          <p class="section-label" style="color: var(--accent-amber);">What I study</p>
+          <h2 id="interests-heading" class="section-title">Research interest areas</h2>
+          <p class="section-subtitle">
+            My research sits at the intersection of machine learning and applied
+            domains — particularly healthcare, language, and intelligent systems.
+          </p>
+        </div>
+
+        <div class="interests-grid">
+
+          <!-- Primary / current -->
+          <div class="interest-card interest-card--primary reveal">
+            <div class="interest-card__emoji" aria-hidden="true">🧬</div>
+            <h3 class="interest-card__title">Antimicrobial Resistance Prediction</h3>
+            <p class="interest-card__desc">
+              Using ensemble machine learning on genomic and clinical features to
+              predict antibiotic resistance phenotypes. Goal: faster, data-driven
+              resistance detection to support clinical decisions.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag--ai">Current</span>
+              <span class="tag tag--research">Healthcare AI</span>
+              <span class="tag tag--default">Ensemble ML</span>
+            </div>
+          </div>
+
+          <div class="interest-card reveal">
+            <div class="interest-card__emoji" aria-hidden="true">🧠</div>
+            <h3 class="interest-card__title">Large Language Models (LLMs)</h3>
+            <p class="interest-card__desc">
+              Prompt engineering, retrieval-augmented generation (RAG), and
+              fine-tuning open-source LLMs for domain-specific tasks. Interested
+              in low-resource language settings and structured output generation.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag--blog">Upcoming</span>
+              <span class="tag tag--default">RAG</span>
+              <span class="tag tag--default">Fine-tuning</span>
+            </div>
+          </div>
+
+          <div class="interest-card reveal">
+            <div class="interest-card__emoji" aria-hidden="true">🔗</div>
+            <h3 class="interest-card__title">Agentic AI Systems</h3>
+            <p class="interest-card__desc">
+              Multi-step LLM agents that reason, plan, and use tools to complete
+              real-world tasks. Interested in reliability, grounding, and the
+              intersection with autonomous software engineering.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag--blog">Upcoming</span>
+              <span class="tag tag--default">Agents</span>
+              <span class="tag tag--default">Tool use</span>
+            </div>
+          </div>
+
+          <div class="interest-card reveal">
+            <div class="interest-card__emoji" aria-hidden="true">🩺</div>
+            <h3 class="interest-card__title">ML for Healthcare</h3>
+            <p class="interest-card__desc">
+              Applying interpretable machine learning to clinical prediction problems —
+              sepsis risk, disease progression, and diagnostic support — with a focus
+              on fairness and model explainability for medical contexts.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag--research">Long-term</span>
+              <span class="tag tag--default">SHAP</span>
+              <span class="tag tag--default">Clinical ML</span>
+            </div>
+          </div>
+
+          <div class="interest-card reveal">
+            <div class="interest-card__emoji" aria-hidden="true">🌏</div>
+            <h3 class="interest-card__title">NLP for Low-Resource Languages</h3>
+            <p class="interest-card__desc">
+              Bengali (Bangla) is spoken by ~230 million people but underrepresented
+              in NLP benchmarks. Interested in sentiment analysis, text classification,
+              and applying multilingual LLMs to Bangla-language tasks.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag--research">Long-term</span>
+              <span class="tag tag--default">NLP</span>
+              <span class="tag tag--default">Bangla</span>
+            </div>
+          </div>
+
+          <div class="interest-card reveal">
+            <div class="interest-card__emoji" aria-hidden="true">🔍</div>
+            <h3 class="interest-card__title">Model Interpretability &amp; Fairness</h3>
+            <p class="interest-card__desc">
+              Understanding why models make predictions — particularly in high-stakes
+              domains. Interested in SHAP, LIME, and fairness-aware training for
+              healthcare and legal applications.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag--research">Long-term</span>
+              <span class="tag tag--default">SHAP / LIME</span>
+              <span class="tag tag--default">XAI</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         3 & 4. CURRENT RESEARCH HIGHLIGHT + PROBLEM BACKGROUND
+         The main research paper / project card
+         ══════════════════════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="paper-heading">
+      <div class="container">
+
+        <div class="reveal" style="margin-bottom: var(--space-8);">
+          <p class="section-label" style="color: var(--accent-emerald);">Current research</p>
+          <h2 id="paper-heading" class="section-title">Primary research project</h2>
+          <p class="section-subtitle">
+            My current focus — building and evaluating an ensemble ML framework
+            for predicting antibiotic resistance from resistome and clinical features.
+          </p>
+        </div>
+
+        <article class="research-paper reveal" aria-labelledby="paper-title">
+
+          <div class="research-paper__accent"></div>
+
+          <div class="research-paper__body">
+
+            <!-- ── Main column ── -->
+            <div class="research-paper__main">
+
+              <p class="paper-type">Research project · Machine Learning · Healthcare</p>
+
+              <h3 id="paper-title" class="paper-title">
+                A Resistome-Driven Ensemble Framework for Antimicrobial
+                Resistance Phenotype Prediction
+              </h3>
+
+              <!-- TODO: add co-authors / supervisors if applicable -->
+              <p class="paper-authors">
+                <strong>Safaet Jaman (Saddam Hossen)</strong>
+                <!-- TODO: add supervisor name and affiliation, e.g.:
+                     · Supervised by [Supervisor Name], [Institution]
+                -->
+              </p>
+
+
+              <!-- 3. Problem background -->
+              <div class="paper-section">
+                <h4 class="paper-section__title">
+                  <span aria-hidden="true">🎯</span> Problem background
+                </h4>
+                <p>
+                  Antimicrobial resistance (AMR) is a critical global health crisis —
+                  the WHO estimates it will cause 10 million deaths annually by 2050 if
+                  unchecked. Bacteria acquire resistance genes (the <em>resistome</em>)
+                  through mutation and horizontal gene transfer, making resistance traits
+                  complex and difficult to predict from clinical observation alone.
+                </p>
+                <p style="margin-top: var(--space-3);">
+                  Current standard-of-care diagnostic tests (e.g., disk diffusion,
+                  broth microdilution) can take 24–72 hours, delaying appropriate
+                  treatment and contributing to worse patient outcomes. Rapid,
+                  accurate in-silico prediction of resistance phenotypes from genomic
+                  or clinical features would allow clinicians to act sooner —
+                  and reduce the misuse of broad-spectrum antibiotics that accelerates
+                  resistance spread.
+                </p>
+              </div>
+
+              <!-- 4. Research question -->
+              <div class="paper-section">
+                <h4 class="paper-section__title">
+                  <span aria-hidden="true">❓</span> Research question
+                </h4>
+                <p>
+                  Can a resistome-informed ensemble machine learning framework
+                  predict the antibiotic resistance phenotype (susceptible vs.
+                  resistant) of bacterial isolates more accurately than individual
+                  classifiers — using features derived from genomic resistance gene
+                  profiles alongside clinical and microbiological metadata?
+                </p>
+              </div>
+
+              <!-- 5. Methodology placeholder -->
+              <div class="paper-section">
+                <h4 class="paper-section__title">
+                  <span aria-hidden="true">⚙️</span> Methodology
+                </h4>
+
+                <!-- Pipeline diagram -->
+                <div class="pipeline" role="list" aria-label="Research methodology pipeline">
+
+                  <div class="pipeline-step" role="listitem">
+                    <div class="pipeline-step__num" aria-hidden="true">1</div>
+                    <div class="pipeline-step__title">Data collection</div>
+                    <div class="pipeline-step__desc">Resistome profiles + clinical metadata</div>
+                  </div>
+
+                  <div class="pipeline-step" role="listitem">
+                    <div class="pipeline-step__num" aria-hidden="true">2</div>
+                    <div class="pipeline-step__title">Preprocessing</div>
+                    <div class="pipeline-step__desc">Feature extraction, encoding, imbalance handling</div>
+                  </div>
+
+                  <div class="pipeline-step" role="listitem">
+                    <div class="pipeline-step__num" aria-hidden="true">3</div>
+                    <div class="pipeline-step__title">Feature engineering</div>
+                    <div class="pipeline-step__desc">Resistance gene presence/absence matrix + clinical features</div>
+                  </div>
+
+                  <div class="pipeline-step" role="listitem">
+                    <div class="pipeline-step__num" aria-hidden="true">4</div>
+                    <div class="pipeline-step__title">Ensemble modelling</div>
+                    <div class="pipeline-step__desc">Random Forest, XGBoost, stacking, voting classifiers</div>
+                  </div>
+
+                  <div class="pipeline-step" role="listitem">
+                    <div class="pipeline-step__num" aria-hidden="true">5</div>
+                    <div class="pipeline-step__title">Evaluation</div>
+                    <div class="pipeline-step__desc">Cross-validation, precision, recall, F1, AUC-ROC</div>
+                  </div>
+
+                </div>
+
+                <div style="margin-top: var(--space-5);">
+                  <ul class="paper-list">
+                    <li>Binary classification target: antibiotic-susceptible vs. antibiotic-resistant phenotype</li>
+                    <li>Resistome feature representation: presence/absence binary matrix of known resistance genes (ARGs) identified via tools such as ResFinder or CARD</li>
+                    <li>Clinical covariates: species, isolation site, sample year, patient demographics (where available)</li>
+                    <li>Class imbalance handling: SMOTE oversampling and class-weight adjustment</li>
+                    <li>Base classifiers: Logistic Regression, Decision Tree, Random Forest, Gradient Boosting, XGBoost</li>
+                    <li>Ensemble strategy: stacking with meta-learner + soft-vote combination</li>
+                    <li>Interpretability: SHAP feature importance analysis on top ensemble model</li>
+                    <li>Cross-validation: stratified K-fold (K=5 or 10) to prevent data leakage</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 6. Dataset placeholder -->
+              <div class="paper-section">
+                <h4 class="paper-section__title">
+                  <span aria-hidden="true">📊</span> Dataset
+                </h4>
+                <!-- TODO: replace with actual dataset source once confirmed -->
+                <div class="placeholder-note">
+                  Dataset details to be confirmed — replace with the actual source
+                  (e.g., PATRIC/BV-BRC, NCBI pathogen portal, EUCAST/ECOFF surveillance
+                  data, or a collaborating institution's clinical dataset), isolate count,
+                  antibiotic(s) tested, and organism(s) studied.
+                </div>
+                <ul class="paper-list" style="margin-top: var(--space-4);">
+                  <li>
+                    Source: [TODO — e.g. PATRIC database / BV-BRC / hospital clinical isolate collection]
+                  </li>
+                  <li>
+                    Organisms: [TODO — e.g. <em>Escherichia coli</em>, <em>Klebsiella pneumoniae</em>,
+                    or another species of clinical relevance]
+                  </li>
+                  <li>
+                    Target antibiotic(s): [TODO — e.g. Ciprofloxacin, Meropenem, Ampicillin]
+                  </li>
+                  <li>
+                    Sample size: [TODO — total isolates with both genomic sequence and MIC/phenotype data]
+                  </li>
+                  <li>
+                    Resistance gene annotation: [TODO — tool used, e.g. ResFinder 4.0 against NCBI Reference Gene Catalog]
+                  </li>
+                </ul>
+              </div>
+
+            </div><!-- end .research-paper__main -->
+
+
+            <!-- ── Sidebar ── -->
+            <aside class="research-paper__sidebar" aria-label="Paper status and results">
+
+              <!-- Status -->
+              <div>
+                <p class="paper-meta-label">Status</p>
+                <span class="paper-status paper-status--in-progress">
+                  <span class="paper-status--dot"></span>
+                  In progress
+                </span>
+                <!-- TODO: update status to "Submitted", "Under review", or "Published" when applicable -->
+              </div>
+
+              <!-- Meta info -->
+              <div class="paper-meta-item">
+                <p class="paper-meta-label">Type</p>
+                <p class="paper-meta-value">Research project / undergraduate / MSc preparatory</p>
+              </div>
+
+              <div class="paper-meta-item">
+                <p class="paper-meta-label">Domain</p>
+                <p class="paper-meta-value">Computational Biology · Clinical Bioinformatics · Applied ML</p>
+              </div>
+
+              <div class="paper-meta-item">
+                <p class="paper-meta-label">Target venue</p>
+                <!-- TODO: update with actual conference / journal target if decided -->
+                <p class="paper-meta-value pending">[TODO — target journal or conference not yet decided]</p>
+              </div>
+
+              <div class="paper-meta-item">
+                <p class="paper-meta-label">Expected completion</p>
+                <!-- TODO: update with actual target date -->
+                <p class="paper-meta-value pending">[TODO — e.g. Q3 2025]</p>
+              </div>
+
+              <!-- 7. Results placeholder -->
+              <div>
+                <p class="paper-meta-label" style="margin-bottom: var(--space-3);">Preliminary results</p>
+                <!-- TODO: fill in actual results when experiments are run -->
+                <div class="metrics-2col">
+                  <div class="result-metric">
+                    <div class="result-metric__value placeholder">—</div>
+                    <div class="result-metric__label">Accuracy</div>
+                  </div>
+                  <div class="result-metric">
+                    <div class="result-metric__value placeholder">—</div>
+                    <div class="result-metric__label">F1 Score</div>
+                  </div>
+                  <div class="result-metric">
+                    <div class="result-metric__value placeholder">—</div>
+                    <div class="result-metric__label">AUC-ROC</div>
+                  </div>
+                  <div class="result-metric">
+                    <div class="result-metric__value placeholder">—</div>
+                    <div class="result-metric__label">Recall</div>
+                  </div>
+                </div>
+                <p class="placeholder-note" style="margin-top: var(--space-3);">
+                  TODO: update with actual experimental results once model evaluation is complete.
+                </p>
+              </div>
+
+              <!-- Tools used -->
+              <div>
+                <p class="paper-meta-label" style="margin-bottom: var(--space-3);">Tools &amp; libraries</p>
+                <div class="tag-group">
+                  <span class="tag tag--ai">Python 3</span>
+                  <span class="tag tag--ai">scikit-learn</span>
+                  <span class="tag tag--ai">XGBoost</span>
+                  <span class="tag tag--ai">Pandas</span>
+                  <span class="tag tag--ai">NumPy</span>
+                  <span class="tag tag--ai">SHAP</span>
+                  <span class="tag tag--ai">imbalanced-learn</span>
+                  <span class="tag tag--default">Jupyter</span>
+                  <!-- TODO: add bioinformatics tools if used, e.g.: -->
+                  <!-- <span class="tag tag--default">ResFinder</span> -->
+                  <!-- <span class="tag tag--default">CARD / RGI</span> -->
+                </div>
+              </div>
+
+            </aside>
+          </div><!-- end .research-paper__body -->
+
+
+          <footer class="research-paper__footer">
+            <div class="tag-group">
+              <span class="tag tag--ai">Ensemble Learning</span>
+              <span class="tag tag--research">Healthcare AI</span>
+              <span class="tag tag--default">Resistome</span>
+              <span class="tag tag--default">AMR</span>
+              <span class="tag tag--default">SHAP</span>
+            </div>
+            <div class="btn-group">
+              <!-- TODO: add GitHub link when code is published -->
+              <a href="https://github.com/safaet"
+                 class="btn btn--secondary btn--sm"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="View research code on GitHub (opens in new tab)">
+                <!-- TODO: replace # with actual repo link when code is ready -->
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                Code (in progress)
+              </a>
+              <!-- TODO: add preprint link (arXiv, bioRxiv) once available -->
+              <!-- <a href="#" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer">Preprint ↗</a> -->
+              <!-- TODO: link to a detailed blog post write-up once written -->
+              <!-- <a href="blog/posts/amr-ensemble-writeup.html" class="btn btn--ghost btn--sm">Read write-up →</a> -->
+            </div>
+          </footer>
+
+        </article>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         8. RESEARCH SKILLS
+         Honest self-assessment for academic / research audiences
+         ══════════════════════════════════════════════════════════ -->
+    <section class="section section--sm" aria-labelledby="skills-heading" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+      <div class="container">
+
+        <div class="reveal">
+          <p class="section-label" style="color: var(--accent-amber);">Capabilities</p>
+          <h2 id="skills-heading" class="section-title">Research skills</h2>
+          <p class="section-subtitle">
+            Honestly self-assessed. I am a motivated early-career researcher with
+            strong engineering foundations and growing research methodology skills.
+          </p>
+        </div>
+
+        <div class="skills-two-col reveal">
+
+          <!-- ML / technical research skills -->
+          <div>
+            <h3 class="skill-category__title">Machine learning &amp; data science</h3>
+
+            <div class="skill-row">
+              <span class="skill-row__name">Supervised learning</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:70%;"></div></div>
+              <span class="skill-row__pct">70%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__name">Ensemble methods</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:65%;"></div></div>
+              <span class="skill-row__pct">65%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__name">Feature engineering</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:60%;"></div></div>
+              <span class="skill-row__pct">60%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__name">Exploratory data analysis</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:70%;"></div></div>
+              <span class="skill-row__pct">70%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__name">Model evaluation &amp; metrics</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:65%;"></div></div>
+              <span class="skill-row__pct">65%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__name">SHAP / interpretability</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:40%;"></div></div>
+              <span class="skill-row__pct">40%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__name">Deep learning (CNN, RNN)</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:45%;"></div></div>
+              <span class="skill-row__pct">45%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__name">NLP / LLM APIs</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:25%;"></div></div>
+              <span class="skill-row__pct">25%</span>
+            </div>
+          </div>
+
+          <!-- Research process / soft skills -->
+          <div>
+            <h3 class="skill-category__title">Research process &amp; communication</h3>
+
+            <div class="skill-row">
+              <span class="skill-row__name">Literature review</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:60%;"></div></div>
+              <span class="skill-row__pct">60%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__name">Research question design</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:55%;"></div></div>
+              <span class="skill-row__pct">55%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__name">Experimental design</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:50%;"></div></div>
+              <span class="skill-row__pct">50%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__name">Reproducible notebooks</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:65%;"></div></div>
+              <span class="skill-row__pct">65%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__name">Technical writing</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:55%;"></div></div>
+              <span class="skill-row__pct">55%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__name">Data visualization</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:60%;"></div></div>
+              <span class="skill-row__pct">60%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__name">Academic paper reading</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:65%;"></div></div>
+              <span class="skill-row__pct">65%</span>
+            </div>
+            <div class="skill-row">
+              <span class="skill-row__name">Academic writing / LaTeX</span>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width:35%;"></div></div>
+              <span class="skill-row__pct">35%</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Research tools row -->
+        <div class="reveal" style="margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--border-subtle);">
+          <p class="text-sm" style="font-weight:600; color:var(--text-secondary); margin-bottom: var(--space-4);">Research tools used</p>
+          <div class="tag-group">
+            <span class="tag tag--ai">Python</span>
+            <span class="tag tag--ai">Jupyter Notebook</span>
+            <span class="tag tag--ai">scikit-learn</span>
+            <span class="tag tag--ai">XGBoost</span>
+            <span class="tag tag--ai">Pandas / NumPy</span>
+            <span class="tag tag--ai">Matplotlib / Seaborn</span>
+            <span class="tag tag--ai">SHAP</span>
+            <span class="tag tag--default">Google Scholar</span>
+            <span class="tag tag--default">Semantic Scholar</span>
+            <span class="tag tag--default">GitHub</span>
+            <span class="tag tag--default">Overleaf / LaTeX</span>
+            <!-- TODO: add bioinformatics tools if used in AMR project -->
+            <!-- <span class="tag tag--default">ResFinder</span> -->
+            <!-- <span class="tag tag--default">CARD / RGI</span> -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         9. FUTURE RESEARCH INTERESTS
+         ══════════════════════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="future-research-heading">
+      <div class="container">
+        <div class="reveal">
+          <p class="section-label" style="color: var(--accent-amber);">What's next</p>
+          <h2 id="future-research-heading" class="section-title">Future research directions</h2>
+          <p class="section-subtitle">
+            Research problems I want to pursue — either independently, through
+            collaboration, or as part of a postgraduate programme.
+          </p>
+        </div>
+
+        <div class="future-research-grid">
+
+          <div class="future-research-card reveal">
+            <div class="future-research-card__icon" aria-hidden="true">🦠</div>
+            <h3 class="future-research-card__title">Multi-drug Resistance Prediction</h3>
+            <p class="future-research-card__desc">
+              Extending the AMR work to multi-label classification — predicting
+              resistance to multiple antibiotics simultaneously from a single
+              genomic profile using multi-output ensemble models.
+            </p>
+            <div class="tag-group" style="margin-bottom: var(--space-3);">
+              <span class="tag tag--research">Healthcare</span>
+              <span class="tag tag--ai">Multi-label ML</span>
+            </div>
+            <p class="future-research-card__why">
+              Why: Patients are often treated empirically for multiple pathogens —
+              simultaneous resistance prediction better reflects clinical reality.
+            </p>
+          </div>
+
+          <div class="future-research-card reveal">
+            <div class="future-research-card__icon" aria-hidden="true">🧠</div>
+            <h3 class="future-research-card__title">RAG for Clinical Decision Support</h3>
+            <p class="future-research-card__desc">
+              Combining retrieval-augmented generation (RAG) with clinical knowledge
+              bases (e.g., drug-resistance guidelines) to build LLM-powered assistants
+              that answer evidence-grounded clinical queries.
+            </p>
+            <div class="tag-group" style="margin-bottom: var(--space-3);">
+              <span class="tag tag--ai">LLM</span>
+              <span class="tag tag--ai">RAG</span>
+              <span class="tag tag--research">Healthcare</span>
+            </div>
+            <p class="future-research-card__why">
+              Why: Bridges my software engineering background with AI research —
+              building tools that real clinicians could use.
+            </p>
+          </div>
+
+          <div class="future-research-card reveal">
+            <div class="future-research-card__icon" aria-hidden="true">🌏</div>
+            <h3 class="future-research-card__title">Bangla Sentiment Analysis &amp; NLU</h3>
+            <p class="future-research-card__desc">
+              Bengali is one of the world's most spoken languages but severely
+              underserved in NLP research. Fine-tuning multilingual models on
+              Bangla social media text for sentiment and intent classification.
+            </p>
+            <div class="tag-group" style="margin-bottom: var(--space-3);">
+              <span class="tag tag--research">Low-resource NLP</span>
+              <span class="tag tag--default">Bangla</span>
+            </div>
+            <p class="future-research-card__why">
+              Why: A direct contribution to the global NLP equity gap, with clear
+              relevance to my home country of Bangladesh.
+            </p>
+          </div>
+
+          <div class="future-research-card reveal">
+            <div class="future-research-card__icon" aria-hidden="true">🔍</div>
+            <h3 class="future-research-card__title">Explainability in Clinical ML Models</h3>
+            <p class="future-research-card__desc">
+              Investigating how SHAP explanations can be presented to non-technical
+              clinicians in a way that improves trust and adoption — combining
+              ML interpretability with human-factors research.
+            </p>
+            <div class="tag-group" style="margin-bottom: var(--space-3);">
+              <span class="tag tag--research">XAI</span>
+              <span class="tag tag--default">SHAP</span>
+              <span class="tag tag--default">Human-AI</span>
+            </div>
+            <p class="future-research-card__why">
+              Why: A model that is accurate but not trusted will not be used.
+              Explainability is essential for clinical AI adoption.
+            </p>
+          </div>
+
+          <div class="future-research-card reveal">
+            <div class="future-research-card__icon" aria-hidden="true">🤖</div>
+            <h3 class="future-research-card__title">Agentic AI Reliability &amp; Grounding</h3>
+            <p class="future-research-card__desc">
+              Understanding and measuring when multi-step LLM agents fail —
+              hallucination, tool misuse, and compounding errors — with
+              focus on grounding techniques to improve reliability.
+            </p>
+            <div class="tag-group" style="margin-bottom: var(--space-3);">
+              <span class="tag tag--ai">Agentic AI</span>
+              <span class="tag tag--default">Reliability</span>
+              <span class="tag tag--default">Grounding</span>
+            </div>
+            <p class="future-research-card__why">
+              Why: As agentic systems are deployed in real workflows, failure
+              modes become a critical safety and trust concern.
+            </p>
+          </div>
+
+          <div class="future-research-card reveal">
+            <div class="future-research-card__icon" aria-hidden="true">🏥</div>
+            <h3 class="future-research-card__title">Sepsis Risk Prediction from EHR Data</h3>
+            <p class="future-research-card__desc">
+              Applying time-series ML (e.g., LSTM, Transformer) to electronic
+              health records for early sepsis detection — with fairness
+              analysis across demographic groups.
+            </p>
+            <div class="tag-group" style="margin-bottom: var(--space-3);">
+              <span class="tag tag--research">Clinical AI</span>
+              <span class="tag tag--ai">Time-series ML</span>
+            </div>
+            <p class="future-research-card__why">
+              Why: Sepsis kills 11 million people per year — even a 1-hour earlier
+              detection can significantly improve survival rates.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         10. COLLABORATION CTA
+         ══════════════════════════════════════════════════════════ -->
+    <section class="collab-cta section" aria-labelledby="collab-heading">
+      <div class="container">
+        <div class="collab-cta__inner reveal">
+
+          <p class="section-label" style="color: var(--accent-emerald);">Let's work together</p>
+          <h2 id="collab-heading" class="collab-cta__title">
+            Open to research collaboration<br />and postgraduate opportunities
+          </h2>
+          <p class="collab-cta__desc">
+            I am an early-career researcher with strong engineering skills and a
+            genuine interest in applied AI research. I am looking for supervised
+            research collaborations, MSc/PhD opportunities, and open-source
+            research projects where I can contribute meaningfully.
+          </p>
+
+          <!-- What I offer / what I seek — two column list -->
+          <div class="collab-split">
+
+            <div>
+              <h3 class="collab-list-title">What I bring</h3>
+              <ul class="collab-list" role="list">
+                <li>Full-stack engineering skills — I can build research tools and demos</li>
+                <li>Practical ML experience — classification, regression, computer vision</li>
+                <li>Reproducible, well-documented Jupyter notebooks</li>
+                <li>Strong written and verbal English communication</li>
+                <li>Motivated self-learner — I study independently and consistently</li>
+                <li>Cross-domain perspective: software engineering + ML research</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="collab-list-title">What I am looking for</h3>
+              <ul class="collab-list" role="list">
+                <li>Supervision or mentorship on a joint research project</li>
+                <li>MSc or PhD programme in AI, ML, or Computational Biology</li>
+                <li>Co-authorship opportunity on a paper in my interest areas</li>
+                <li>Research assistantship roles (remote or in-person)</li>
+                <li>Access to annotated clinical datasets for AMR or healthcare ML</li>
+                <li>Feedback on research direction and methodology from experienced researchers</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="btn-group flex-center">
+            <a href="contact.html" class="btn btn--ai btn--lg">
+              Reach out to collaborate
+            </a>
+            <!-- TODO: add LinkedIn URL -->
+            <a href="#"
+               class="btn btn--secondary btn--lg"
+               target="_blank"
+               rel="noopener noreferrer">
+              LinkedIn ↗
+            </a>
+            <a href="https://github.com/safaet"
+               class="btn btn--ghost btn--lg"
+               target="_blank"
+               rel="noopener noreferrer">
+              GitHub ↗
+            </a>
+          </div>
+
+          <!-- TODO: add email address below -->
+          <p class="text-muted text-sm" style="margin-top: 1.5rem;">
+            Or email directly: <a href="mailto:your@email.com">your@email.com</a>
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER — identical to all other pages
+       ══════════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+
+      <div class="footer__top">
+
+        <div class="footer__brand-col">
+          <a href="index.html" class="footer__brand">SJ<span style="color: var(--accent-primary);">.</span></a>
+          <p class="text-sm" style="margin-top: 0.5rem; color: var(--text-secondary);">
+            Full Stack Engineer → AI/ML Engineer.<br />
+            Building systems that matter.
+          </p>
+          <div class="social-links" style="margin-top: 1rem;">
+            <a href="https://github.com/safaet" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </a>
+            <!-- TODO: add LinkedIn URL -->
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <!-- TODO: add email address -->
+            <a href="mailto:your@email.com" class="social-link" aria-label="Send email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <nav aria-label="Footer navigation">
+          <div class="footer__nav-cols">
+            <div>
+              <p class="footer__nav-title">Portfolio</p>
+              <ul role="list">
+                <li><a href="projects.html"     class="footer__link">Software projects</a></li>
+                <li><a href="ai-portfolio.html" class="footer__link">AI/ML portfolio</a></li>
+                <li><a href="research.html"     class="footer__link">Research</a></li>
+                <li><a href="tools.html"        class="footer__link">Tools</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__nav-title">Writing</p>
+              <ul role="list">
+                <li><a href="blog.html" class="footer__link">Blog</a></li>
+                <li><a href="blog.html" class="footer__link">ML notes</a></li>
+                <li><a href="blog.html" class="footer__link">Engineering</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer__nav-title">Connect</p>
+              <ul role="list">
+                <li><a href="contact.html"                                                   class="footer__link">Contact</a></li>
+                <li><a href="https://github.com/safaet" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub ↗</a></li>
+                <!-- TODO: add LinkedIn URL -->
+                <li><a href="#"                          target="_blank" rel="noopener noreferrer" class="footer__link">LinkedIn ↗</a></li>
+                <!-- TODO: add resume PDF path -->
+                <li><a href="resume/safaet-jaman-resume.pdf" target="_blank" rel="noopener noreferrer" class="footer__link">Resume ↗</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p>© <span id="footer-year">2025</span> Safaet Jaman. Built with HTML, CSS &amp; JavaScript. Hosted on GitHub Pages.</p>
+        <p class="text-muted">Safaet Jaman · Saddam Hossen · Chittagong, Bangladesh</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JS — same file used across all pages -->
+  <script src="js/main.js" defer></script>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

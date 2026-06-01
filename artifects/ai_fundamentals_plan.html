@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Fundamentals Micro-Plan — Safaet Jaman</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-background-primary: #0d1117;
+      --color-background-secondary: #131a26;
+      --color-background-tertiary: #07090f;
+      --color-border-tertiary: #1e2d45;
+      --color-border-secondary: #2e4070;
+      --color-text-primary: #f0f4ff;
+      --color-text-secondary: #8b9cc8;
+      --color-text-tertiary: #4a5578;
+      --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { margin: 0; background: var(--color-background-tertiary); }
+  </style>
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@18.3.1",
+      "react-dom/client": "https://esm.sh/react-dom@18.3.1/client"
+    }
+  }
+  </script>
+  <script src="https://unpkg.com/@babel/standalone@7.26.9/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel" data-type="module">
+    import { createRoot } from "react-dom/client";
+    import App from "./ai_fundamentals_plan.jsx";
+    createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>
