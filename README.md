@@ -37,10 +37,6 @@ portfolio/
 │   └── posts/                     ← Individual blog post HTML files
 │       └── post-template.html
 │
-├── artifacts/
-│   └── public-summary/            ← Public-facing learning summary JSON/HTML snippets
-│       └── progress.json          ← { currentFocus, weeklyGoal, skills: [...] }
-│
 ├── resume/
 │   └── safaet-jaman-resume.pdf
 │

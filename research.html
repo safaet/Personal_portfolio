@@ -345,6 +345,11 @@
       color: #92400e;
       border: 1px solid #fde68a;
     }
+    .paper-status--accepted {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
     .paper-status--dot {
       width: 6px;
       height: 6px;
@@ -360,6 +365,11 @@
       background: rgba(245,158,11,0.1);
       color: #fcd34d;
       border-color: rgba(245,158,11,0.3);
+    }
+    [data-theme="dark"] .paper-status--accepted {
+      background: rgba(16,185,129,0.1);
+      color: #6ee7b7;
+      border-color: rgba(16,185,129,0.3);
     }
 
     /* Results grid inside sidebar */
@@ -643,8 +653,9 @@
 
   </style>
 
-  <!-- TODO: add favicon -->
-  <!-- <link rel="icon" href="images/favicon.ico" /> -->
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="assets/images/favicon.ico" />
 </head>
 
 <body>
@@ -668,8 +679,7 @@
           <li><a href="research.html"     class="nav__link">Research</a></li>
           <li><a href="blog.html"         class="nav__link">Blog</a></li>
           <li><a href="tools.html"        class="nav__link">Tools</a></li>
-          <!-- TODO: update resume PDF path -->
-          <li><a href="resume/safaet-jaman-resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume</a></li>
+          <li><a href="resume.html" class="nav__link">Resume</a></li>
           <li><a href="contact.html"      class="nav__link">Contact</a></li>
         </ul>
 
@@ -697,8 +707,7 @@
       <a href="research.html"     class="nav__link">Research</a>
       <a href="blog.html"         class="nav__link">Blog</a>
       <a href="tools.html"        class="nav__link">Tools</a>
-      <!-- TODO: update resume PDF path -->
-      <a href="resume/safaet-jaman-resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume ↗</a>
+      <a href="resume.html" class="nav__link">Resume</a>
       <a href="contact.html" class="nav__link">Contact</a>
     </nav>
   </header>
@@ -729,10 +738,11 @@
               Applied ML for<br /><span class="text-gradient">real-world problems</span>
             </h1>
             <p class="research-hero__desc">
-              I am a Full Stack Engineer actively building research skills in machine
-              learning and AI — currently focused on antimicrobial resistance prediction
-              using ensemble methods, with broader interests in LLM engineering,
-              agentic AI, and healthcare AI.
+              I'm an AI/ML Engineer and NLP Researcher with two core research focuses:
+              <strong>low-resource Bengali NLP</strong> and <strong>medical AI</strong> for
+              South Asia. My current work spans antimicrobial resistance prediction
+              (accepted at ECCT 2026, with icddr,b), a production Bengali-language RAG
+              system, and BanglaBERT fine-tuning for Bengali text classification.
             </p>
 
             <div class="research-hero__status-row">
@@ -768,8 +778,8 @@
             <div class="research-hero__stat-card">
               <span class="stat-card__icon" aria-hidden="true">🌏</span>
               <div class="stat-card__text">
-                <div class="stat-card__value">Bangla NLP</div>
-                <div class="stat-card__label">Long-term interest area</div>
+                <div class="stat-card__value">Bengali NLP</div>
+                <div class="stat-card__label">Core specialization</div>
               </div>
             </div>
 
@@ -798,7 +808,7 @@
           <h2 id="interests-heading" class="section-title">Research interest areas</h2>
           <p class="section-subtitle">
             My research sits at the intersection of machine learning and applied
-            domains — particularly healthcare, language, and intelligent systems.
+            domains — with two core focuses: low-resource Bengali NLP and medical AI.
           </p>
         </div>
 
@@ -817,6 +827,25 @@
               <span class="tag tag--ai">Current</span>
               <span class="tag tag--research">Healthcare AI</span>
               <span class="tag tag--default">Ensemble ML</span>
+            </div>
+          </div>
+
+          <div class="interest-card interest-card--primary reveal">
+            <div class="interest-card__emoji" aria-hidden="true">🌏</div>
+            <h3 class="interest-card__title">Low-Resource Bengali NLP</h3>
+            <p class="interest-card__desc">
+              Bengali is spoken by 230M+ people but has almost no dedicated ML
+              tooling. My work here is concrete, not aspirational: fine-tuning
+              <strong>BanglaBERT</strong> for text classification, building
+              <strong>bilingual Bengali-English multimodal classifiers</strong>,
+              and leading a production <strong>Bengali-language RAG system</strong>
+              as Technical Lead, AI/ML at Neuralis AI.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag--ai">Current</span>
+              <span class="tag tag--research">Bengali NLP</span>
+              <span class="tag tag--default">BanglaBERT</span>
+              <span class="tag tag--default">RAG</span>
             </div>
           </div>
 
@@ -866,21 +895,6 @@
           </div>
 
           <div class="interest-card reveal">
-            <div class="interest-card__emoji" aria-hidden="true">🌏</div>
-            <h3 class="interest-card__title">NLP for Low-Resource Languages</h3>
-            <p class="interest-card__desc">
-              Bengali (Bangla) is spoken by ~230 million people but underrepresented
-              in NLP benchmarks. Interested in sentiment analysis, text classification,
-              and applying multilingual LLMs to Bangla-language tasks.
-            </p>
-            <div class="tag-group">
-              <span class="tag tag--research">Long-term</span>
-              <span class="tag tag--default">NLP</span>
-              <span class="tag tag--default">Bangla</span>
-            </div>
-          </div>
-
-          <div class="interest-card reveal">
             <div class="interest-card__emoji" aria-hidden="true">🔍</div>
             <h3 class="interest-card__title">Model Interpretability &amp; Fairness</h3>
             <p class="interest-card__desc">
@@ -908,11 +922,11 @@
       <div class="container">
 
         <div class="reveal" style="margin-bottom: var(--space-8);">
-          <p class="section-label" style="color: var(--accent-emerald);">Current research</p>
+          <p class="section-label" style="color: var(--accent-emerald);">Published research</p>
           <h2 id="paper-heading" class="section-title">Primary research project</h2>
           <p class="section-subtitle">
-            My current focus — building and evaluating an ensemble ML framework
-            for predicting antibiotic resistance from resistome and clinical features.
+            An ensemble ML framework for predicting antibiotic resistance from resistome
+            and clinical features — accepted at ECCT 2026 in collaboration with icddr,b.
           </p>
         </div>
 
@@ -925,19 +939,16 @@
             <!-- ── Main column ── -->
             <div class="research-paper__main">
 
-              <p class="paper-type">Research project · Machine Learning · Healthcare</p>
+              <p class="paper-type">Accepted paper · Machine Learning · Healthcare</p>
 
               <h3 id="paper-title" class="paper-title">
                 A Resistome-Driven Ensemble Framework for Antimicrobial
                 Resistance Phenotype Prediction
               </h3>
 
-              <!-- TODO: add co-authors / supervisors if applicable -->
+              <!-- TODO: add full co-author list once confirmed — master profile lists this as TODO too -->
               <p class="paper-authors">
-                <strong>Safaet Jaman (Saddam Hossen)</strong>
-                <!-- TODO: add supervisor name and affiliation, e.g.:
-                     · Supervised by [Supervisor Name], [Institution]
-                -->
+                <strong>Safaet Jaman Arman</strong> · Accepted at ECCT 2026, in collaboration with <strong>icddr,b</strong>
               </p>
 
 
@@ -1025,10 +1036,10 @@
                     <li>Resistome feature representation: presence/absence binary matrix of known resistance genes (ARGs) identified via tools such as ResFinder or CARD</li>
                     <li>Clinical covariates: species, isolation site, sample year, patient demographics (where available)</li>
                     <li>Class imbalance handling: SMOTE oversampling and class-weight adjustment</li>
-                    <li>Base classifiers: Logistic Regression, Decision Tree, Random Forest, Gradient Boosting, XGBoost</li>
-                    <li>Ensemble strategy: stacking with meta-learner + soft-vote combination</li>
-                    <li>Interpretability: SHAP feature importance analysis on top ensemble model</li>
-                    <li>Cross-validation: stratified K-fold (K=5 or 10) to prevent data leakage</li>
+                    <li>Ensemble: SVM-XGBoost ensemble combined with a novel <strong>Resistome Burden Index (RBI)</strong> composite feature</li>
+                    <li>Interpretability: SHAP feature importance analysis on the ensemble model</li>
+                    <li>Cross-validation: stratified K-fold to prevent data leakage</li>
+                    <li>Statistical testing: McNemar's test, Bootstrap CI, and Wilcoxon signed-rank for model comparison</li>
                   </ul>
                 </div>
               </div>
@@ -1038,16 +1049,14 @@
                 <h4 class="paper-section__title">
                   <span aria-hidden="true">📊</span> Dataset
                 </h4>
-                <!-- TODO: replace with actual dataset source once confirmed -->
+                <!-- TODO: isolate count, antibiotic(s), and organism(s) not yet confirmed in master profile -->
                 <div class="placeholder-note">
-                  Dataset details to be confirmed — replace with the actual source
-                  (e.g., PATRIC/BV-BRC, NCBI pathogen portal, EUCAST/ECOFF surveillance
-                  data, or a collaborating institution's clinical dataset), isolate count,
-                  antibiotic(s) tested, and organism(s) studied.
+                  Isolate count, antibiotic(s) tested, and organism(s) studied are not yet
+                  confirmed — replace once finalized.
                 </div>
                 <ul class="paper-list" style="margin-top: var(--space-4);">
                   <li>
-                    Source: [TODO — e.g. PATRIC database / BV-BRC / hospital clinical isolate collection]
+                    Source: icddr,b (International Centre for Diarrhoeal Disease Research, Bangladesh) clinical genomic dataset
                   </li>
                   <li>
                     Organisms: [TODO — e.g. <em>Escherichia coli</em>, <em>Klebsiella pneumoniae</em>,
@@ -1074,17 +1083,16 @@
               <!-- Status -->
               <div>
                 <p class="paper-meta-label">Status</p>
-                <span class="paper-status paper-status--in-progress">
+                <span class="paper-status paper-status--accepted">
                   <span class="paper-status--dot"></span>
-                  In progress
+                  Accepted — camera-ready submitted
                 </span>
-                <!-- TODO: update status to "Submitted", "Under review", or "Published" when applicable -->
               </div>
 
               <!-- Meta info -->
               <div class="paper-meta-item">
                 <p class="paper-meta-label">Type</p>
-                <p class="paper-meta-value">Research project / undergraduate / MSc preparatory</p>
+                <p class="paper-meta-value">Peer-reviewed conference paper (undergraduate research)</p>
               </div>
 
               <div class="paper-meta-item">
@@ -1093,21 +1101,19 @@
               </div>
 
               <div class="paper-meta-item">
-                <p class="paper-meta-label">Target venue</p>
-                <!-- TODO: update with actual conference / journal target if decided -->
-                <p class="paper-meta-value pending">[TODO — target journal or conference not yet decided]</p>
+                <p class="paper-meta-label">Venue</p>
+                <p class="paper-meta-value">ECCT 2026 (Engineering, Computing &amp; Communication Technologies)</p>
               </div>
 
               <div class="paper-meta-item">
-                <p class="paper-meta-label">Expected completion</p>
-                <!-- TODO: update with actual target date -->
-                <p class="paper-meta-value pending">[TODO — e.g. Q3 2025]</p>
+                <p class="paper-meta-label">Collaboration</p>
+                <p class="paper-meta-value">icddr,b (International Centre for Diarrhoeal Disease Research, Bangladesh)</p>
               </div>
 
               <!-- 7. Results placeholder -->
               <div>
-                <p class="paper-meta-label" style="margin-bottom: var(--space-3);">Preliminary results</p>
-                <!-- TODO: fill in actual results when experiments are run -->
+                <p class="paper-meta-label" style="margin-bottom: var(--space-3);">Results</p>
+                <!-- TODO: master profile lists these with bracketed/unconfirmed values (e.g. "[94%]") — leaving as placeholders until confirmed exact figures are available -->
                 <div class="metrics-2col">
                   <div class="result-metric">
                     <div class="result-metric__value placeholder">—</div>
@@ -1127,7 +1133,7 @@
                   </div>
                 </div>
                 <p class="placeholder-note" style="margin-top: var(--space-3);">
-                  TODO: update with actual experimental results once model evaluation is complete.
+                  TODO: fill in confirmed final metrics from the accepted paper.
                 </p>
               </div>
 
@@ -1137,15 +1143,13 @@
                 <div class="tag-group">
                   <span class="tag tag--ai">Python 3</span>
                   <span class="tag tag--ai">scikit-learn</span>
+                  <span class="tag tag--ai">SVM</span>
                   <span class="tag tag--ai">XGBoost</span>
                   <span class="tag tag--ai">Pandas</span>
                   <span class="tag tag--ai">NumPy</span>
                   <span class="tag tag--ai">SHAP</span>
                   <span class="tag tag--ai">imbalanced-learn</span>
                   <span class="tag tag--default">Jupyter</span>
-                  <!-- TODO: add bioinformatics tools if used, e.g.: -->
-                  <!-- <span class="tag tag--default">ResFinder</span> -->
-                  <!-- <span class="tag tag--default">CARD / RGI</span> -->
                 </div>
               </div>
 
@@ -1162,15 +1166,16 @@
               <span class="tag tag--default">SHAP</span>
             </div>
             <div class="btn-group">
-              <!-- TODO: add GitHub link when code is published -->
+              <!-- TODO: master profile gives two different repo names for this paper's code
+                   (github.com/safaet/AMR-Prediction in Section 07, github.com/safaet/amr-resistome-ensemble
+                   in Section 08) — confirm the correct one and update the href below. -->
               <a href="https://github.com/safaet"
                  class="btn btn--secondary btn--sm"
                  target="_blank"
                  rel="noopener noreferrer"
                  aria-label="View research code on GitHub (opens in new tab)">
-                <!-- TODO: replace # with actual repo link when code is ready -->
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                Code (in progress)
+                Code
               </a>
               <!-- TODO: add preprint link (arXiv, bioRxiv) once available -->
               <!-- <a href="#" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer">Preprint ↗</a> -->
@@ -1504,8 +1509,7 @@
             <a href="contact.html" class="btn btn--ai btn--lg">
               Reach out to collaborate
             </a>
-            <!-- TODO: add LinkedIn URL -->
-            <a href="#"
+            <a href="https://www.linkedin.com/in/safaet-jaman/"
                class="btn btn--secondary btn--lg"
                target="_blank"
                rel="noopener noreferrer">
@@ -1519,9 +1523,8 @@
             </a>
           </div>
 
-          <!-- TODO: add email address below -->
           <p class="text-muted text-sm" style="margin-top: 1.5rem;">
-            Or email directly: <a href="mailto:your@email.com">your@email.com</a>
+            Or email directly: <a href="mailto:esafaetjaman@gmail.com">esafaetjaman@gmail.com</a>
           </p>
 
         </div>
@@ -1549,12 +1552,10 @@
             <a href="https://github.com/safaet" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
             </a>
-            <!-- TODO: add LinkedIn URL -->
-            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+            <a href="https://www.linkedin.com/in/safaet-jaman/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
-            <!-- TODO: add email address -->
-            <a href="mailto:your@email.com" class="social-link" aria-label="Send email">
+            <a href="mailto:esafaetjaman@gmail.com" class="social-link" aria-label="Send email">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </a>
           </div>
@@ -1584,10 +1585,8 @@
               <ul role="list">
                 <li><a href="contact.html"                                                   class="footer__link">Contact</a></li>
                 <li><a href="https://github.com/safaet" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub ↗</a></li>
-                <!-- TODO: add LinkedIn URL -->
-                <li><a href="#"                          target="_blank" rel="noopener noreferrer" class="footer__link">LinkedIn ↗</a></li>
-                <!-- TODO: add resume PDF path -->
-                <li><a href="resume/safaet-jaman-resume.pdf" target="_blank" rel="noopener noreferrer" class="footer__link">Resume ↗</a></li>
+                <li><a href="https://www.linkedin.com/in/safaet-jaman/" target="_blank" rel="noopener noreferrer" class="footer__link">LinkedIn ↗</a></li>
+                <li><a href="resume.html" class="footer__link">Resume</a></li>
               </ul>
             </div>
           </div>
@@ -1597,7 +1596,7 @@
 
       <div class="footer__bottom">
         <p>© <span id="footer-year">2025</span> Safaet Jaman. Built with HTML, CSS &amp; JavaScript. Hosted on GitHub Pages.</p>
-        <p class="text-muted">Safaet Jaman · Saddam Hossen · Chittagong, Bangladesh</p>
+        <p class="text-muted">Safaet Jaman Arman · Chittagong, Bangladesh</p>
       </div>
 
     </div>
@@ -1605,6 +1604,7 @@
 
   <!-- JS — same file used across all pages -->
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/bg-network.js" defer></script>
 
   <script>
     document.getElementById('footer-year').textContent = new Date().getFullYear();

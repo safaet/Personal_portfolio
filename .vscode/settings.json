@@ -1,3 +1,10 @@
 {
-    "editor.formatOnPaste": true
+  "editor.formatOnPaste": true,
+  "github.copilot.chat.additionalReadAccessPaths": [""],
+  "github.copilot.chat.agent.autoFix": true,
+  "github.copilot.chat.claudeAgent.allowDangerouslySkipPermissions": true,
+  "github.copilot.chat.rateLimitAutoSwitchToAuto": true,
+  "github.copilot.chat.githubMcpServer.lockdown": true,
+  "github.copilot.chat.githubMcpServer.enabled": true,
+  "github.copilot.chat.githubMcpServer.readonly": true
 }

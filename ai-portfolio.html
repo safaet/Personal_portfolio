@@ -9,8 +9,8 @@
        TODO: update canonical URL to your real GitHub Pages domain
        ══════════════════════════════════════════════════════════ -->
   <title>AI/ML Portfolio — Safaet Jaman</title>
-  <meta name="description" content="AI and machine learning projects by Safaet Jaman — AMR Prediction, House Price Prediction, and Mask Detection. Built with Python, scikit-learn, TensorFlow, and Keras." />
-  <meta name="keywords" content="Safaet Jaman, AI portfolio, machine learning, AMR prediction, house price prediction, mask detection, scikit-learn, TensorFlow, Python, ML engineer" />
+  <meta name="description" content="AI and machine learning projects by Safaet Jaman — ResistomeX (live AMR prediction app), a multimodal disaster severity classifier, and Bengali NLP work. Built with Python, PyTorch, HuggingFace, scikit-learn, and Streamlit." />
+  <meta name="keywords" content="Safaet Jaman, AI portfolio, machine learning, ResistomeX, AMR prediction, multimodal deep learning, Bengali NLP, BanglaBERT, scikit-learn, PyTorch, Python, ML engineer" />
   <meta name="author" content="Safaet Jaman" />
   <link rel="canonical" href="https://safaet.github.io/ai-portfolio.html" />
 
@@ -423,70 +423,6 @@
       line-height: 1.6;
     }
 
-    /* ── Learning focus bar ── */
-    .learning-focus {
-      background: linear-gradient(135deg, #ecfdf5, #eff6ff);
-      border: 1px solid #a7f3d0;
-      border-radius: var(--radius-xl);
-      padding: var(--space-8);
-      margin-top: var(--space-12);
-    }
-    [data-theme="dark"] .learning-focus {
-      background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(59,130,246,0.08));
-      border-color: rgba(16,185,129,0.2);
-    }
-    .learning-focus__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-10);
-      align-items: start;
-    }
-    .learning-focus__week {
-      font-size: var(--text-sm);
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: var(--space-4);
-    }
-    .learning-focus__tools {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
-    }
-    .learning-focus__tool {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-3);
-    }
-    .learning-focus__tool-name {
-      font-size: var(--text-sm);
-      font-weight: 500;
-      color: var(--text-primary);
-      min-width: 140px;
-      flex-shrink: 0;
-    }
-    .skill-bar-wrap {
-      flex: 1;
-      height: 6px;
-      background: rgba(0,0,0,0.07);
-      border-radius: var(--radius-full);
-      overflow: hidden;
-    }
-    [data-theme="dark"] .skill-bar-wrap { background: rgba(255,255,255,0.1); }
-    .skill-bar-fill {
-      height: 100%;
-      border-radius: var(--radius-full);
-      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-blue));
-      transition: width 0.8s ease;
-    }
-    .learning-focus__tool-pct {
-      font-family: var(--font-code);
-      font-size: var(--text-xs);
-      color: var(--text-muted);
-      min-width: 32px;
-      text-align: right;
-      flex-shrink: 0;
-    }
 
     /* ── Future projects section ── */
     .future-projects-grid {
@@ -536,7 +472,6 @@
       .ai-project__body   { grid-template-columns: 1fr; }
       .ai-project__main   { border-right: none; border-bottom: 1px solid var(--border-subtle); }
       .ai-project__sidebar { background: var(--bg-surface); }
-      .learning-focus__inner { grid-template-columns: 1fr; gap: var(--space-6); }
     }
     @media (max-width: 600px) {
       .ai-hero__stats       { grid-template-columns: repeat(3, 1fr); gap: var(--space-2); }
@@ -554,8 +489,9 @@
 
   </style>
 
-  <!-- TODO: add favicon -->
-  <!-- <link rel="icon" href="images/favicon.ico" /> -->
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="assets/images/favicon.ico" />
 </head>
 
 <body>
@@ -579,8 +515,7 @@
           <li><a href="research.html"     class="nav__link">Research</a></li>
           <li><a href="blog.html"         class="nav__link">Blog</a></li>
           <li><a href="tools.html"        class="nav__link">Tools</a></li>
-          <!-- TODO: update resume PDF path -->
-          <li><a href="resume/safaet-jaman-resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume</a></li>
+          <li><a href="resume.html" class="nav__link">Resume</a></li>
           <li><a href="contact.html"      class="nav__link">Contact</a></li>
         </ul>
 
@@ -608,8 +543,7 @@
       <a href="research.html"     class="nav__link">Research</a>
       <a href="blog.html"         class="nav__link">Blog</a>
       <a href="tools.html"        class="nav__link">Tools</a>
-      <!-- TODO: update resume PDF path -->
-      <a href="resume/safaet-jaman-resume.pdf" class="nav__link" target="_blank" rel="noopener">Resume ↗</a>
+      <a href="resume.html" class="nav__link">Resume</a>
       <a href="contact.html"      class="nav__link">Contact</a>
     </nav>
   </header>
@@ -660,9 +594,9 @@
               AI &amp; ML<br /><span class="text-gradient">Portfolio</span>
             </h1>
             <p class="ai-hero__desc">
-              Three end-to-end machine learning projects built with real datasets —
-              covering classification, regression, and computer vision. Each project
-              reflects my growth as I work toward becoming an AI/ML Engineer.
+              Five end-to-end machine learning projects built with real datasets —
+              covering classification, multimodal deep learning, and regression. Each
+              project reflects my growth as I work toward becoming an AI/ML Engineer.
             </p>
             <div class="btn-group">
               <a href="https://github.com/safaet"
@@ -711,12 +645,12 @@
             <div class="tag-group" style="margin-top: var(--space-6);">
               <span class="tag tag--ai">Python</span>
               <span class="tag tag--ai">scikit-learn</span>
-              <span class="tag tag--ai">TensorFlow</span>
-              <span class="tag tag--ai">Keras</span>
+              <span class="tag tag--ai">PyTorch</span>
+              <span class="tag tag--ai">HuggingFace</span>
               <span class="tag tag--ai">Pandas</span>
               <span class="tag tag--ai">NumPy</span>
-              <span class="tag tag--ai">Flask</span>
-              <span class="tag tag--ai">OpenCV</span>
+              <span class="tag tag--ai">Streamlit</span>
+              <span class="tag tag--ai">XGBoost</span>
               <span class="tag tag--ai">Matplotlib</span>
               <span class="tag tag--ai">Jupyter</span>
             </div>
@@ -727,11 +661,11 @@
         <!-- Stats row -->
         <div class="ai-hero__stats" role="list" aria-label="AI/ML portfolio statistics">
           <div class="ai-hero__stat reveal" role="listitem">
-            <div class="ai-hero__stat-value">3</div>
+            <div class="ai-hero__stat-value">5</div>
             <div class="ai-hero__stat-label">ML projects</div>
           </div>
           <div class="ai-hero__stat reveal" role="listitem">
-            <div class="ai-hero__stat-value">3</div>
+            <div class="ai-hero__stat-value">4</div>
             <div class="ai-hero__stat-label">ML domains</div>
           </div>
           <div class="ai-hero__stat reveal" role="listitem">
@@ -753,8 +687,436 @@
 
 
         <!-- ────────────────────────────────────────────────────
-             PROJECT 1 — AMR PREDICTION
-             Domain: Healthcare / Classification
+             PROJECT 1 — RESISTOMEX (FEATURED — paper-to-production)
+             Domain: Healthcare / Model Deployment
+             ──────────────────────────────────────────────────── -->
+        <article
+          class="ai-project reveal"
+          id="resistomex"
+          aria-labelledby="resistomex-title"
+        >
+          <div class="ai-project__accent"></div>
+
+          <div class="ai-project__body">
+
+            <div class="ai-project__main">
+
+              <header class="ai-project__header">
+                <span class="ai-project__number">01</span>
+                <span class="ai-project__icon" aria-hidden="true">🚀</span>
+                <div class="ai-project__title-block">
+                  <p class="ai-project__type">Model Deployment · Healthcare AI</p>
+                  <h3 id="resistomex-title" class="ai-project__name">ResistomeX</h3>
+                  <p class="ai-project__subtitle">Live AMR resistance-phenotype prediction — my only paper-to-production project</p>
+                </div>
+                <div class="tag-group" style="flex-shrink:0;">
+                  <span class="tag tag--ai">🟢 Live</span>
+                  <span class="tag tag--research">Healthcare</span>
+                </div>
+              </header>
+
+              <!-- Problem statement -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">🎯</span>
+                  Problem statement
+                </h4>
+                <p>
+                  My AMR resistance-phenotype research — accepted at <strong>ECCT 2026</strong> in
+                  collaboration with <strong>icddr,b</strong> — proved the model worked, but a paper
+                  sitting in a repository doesn't help anyone. ResistomeX takes the ensemble from
+                  that research and deploys it as an interactive, publicly accessible web app.
+                </p>
+              </div>
+
+              <!-- Dataset -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">📊</span>
+                  Dataset
+                </h4>
+                <ul class="ai-list">
+                  <li>Same icddr,b clinical genomic dataset used in the ECCT 2026 paper</li>
+                  <li>Covers 12 distinct antibiotic-pathogen combinations</li>
+                </ul>
+              </div>
+
+              <!-- Methods -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">⚙️</span>
+                  Methods &amp; approach
+                </h4>
+                <ul class="ai-list">
+                  <li>R-Blend ensemble: Decision Tree + Logistic Regression + XGBoost, combined via soft voting</li>
+                  <li>Resistome Burden Index (RBI) — the novel composite feature introduced in the ECCT 2026 paper</li>
+                  <li>Refactored the original research notebook into four clean, self-contained pipeline notebooks (EDA, preprocessing, training, evaluation) suitable for a production-facing app</li>
+                  <li>Deployed as a public web app on Streamlit Community Cloud</li>
+                </ul>
+              </div>
+
+              <!-- What I learned -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">💡</span>
+                  What I learned
+                </h4>
+                <ul class="ai-list">
+                  <li>How to turn a research notebook into a maintainable, production-facing pipeline</li>
+                  <li>The gap between "the model works" and "a stranger can use this without me" — input validation and interpretable output</li>
+                  <li>Deploying and maintaining a live ML app on Streamlit Community Cloud</li>
+                </ul>
+              </div>
+
+            </div><!-- end .ai-project__main -->
+
+            <!-- Sidebar -->
+            <aside class="ai-project__sidebar" aria-label="ResistomeX metrics and tools">
+
+              <!-- Metrics -->
+              <div>
+                <p class="sidebar-title">Evaluation metrics</p>
+                <div class="metrics-grid">
+                  <div class="metric-card">
+                    <div class="metric-card__value">0.9421</div>
+                    <div class="metric-card__label">Avg F1 score</div>
+                  </div>
+                  <div class="metric-card">
+                    <div class="metric-card__value">12</div>
+                    <div class="metric-card__label">Antibiotic-pathogen datasets</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tools -->
+              <div>
+                <p class="sidebar-title">Tools &amp; libraries</p>
+                <div class="tag-group">
+                  <span class="tag tag--ai">Python</span>
+                  <span class="tag tag--ai">Streamlit</span>
+                  <span class="tag tag--ai">scikit-learn</span>
+                  <span class="tag tag--ai">XGBoost</span>
+                  <span class="tag tag--default">Pandas</span>
+                  <span class="tag tag--default">NumPy</span>
+                </div>
+              </div>
+
+              <!-- Result summary -->
+              <div>
+                <p class="sidebar-title">Result summary</p>
+                <div class="highlight-box highlight-box--ai">
+                  <p style="font-size: var(--text-sm); color: var(--text-secondary);">
+                    The R-Blend ensemble averages an F1 of 0.9421 across 12 antibiotic-pathogen
+                    datasets and is live in production — the only project I've taken from
+                    peer-reviewed paper to public deployment.
+                  </p>
+                </div>
+              </div>
+
+            </aside>
+          </div><!-- end .ai-project__body -->
+
+          <!-- Links bar -->
+          <footer class="ai-project__links">
+            <div class="tag-group">
+              <span class="tag tag--ai">R-Blend Ensemble</span>
+              <span class="tag tag--research">AMR</span>
+              <span class="tag tag--default">RBI Feature</span>
+            </div>
+            <div class="btn-group">
+              <a href="https://resistomex.streamlit.app"
+                 class="btn btn--primary btn--sm"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Open the live ResistomeX app (opens in new tab)">
+                Live Demo ↗
+              </a>
+              <a href="https://github.com/safaet/ResistomeX"
+                 class="btn btn--secondary btn--sm"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="View ResistomeX source code on GitHub (opens in new tab)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </footer>
+        </article>
+
+
+        <!-- ────────────────────────────────────────────────────
+             PROJECT 2 — MULTIMODAL DISASTER SEVERITY CLASSIFIER
+             Domain: Multimodal Deep Learning / Competition
+             ──────────────────────────────────────────────────── -->
+        <article
+          class="ai-project reveal"
+          id="disaster-classifier"
+          aria-labelledby="disaster-title"
+        >
+          <div class="ai-project__accent ai-project__accent--vision"></div>
+
+          <div class="ai-project__body">
+
+            <div class="ai-project__main">
+
+              <header class="ai-project__header">
+                <span class="ai-project__number">02</span>
+                <span class="ai-project__icon" aria-hidden="true">🌪️</span>
+                <div class="ai-project__title-block">
+                  <p class="ai-project__type" style="color: var(--accent-coral);">Multimodal Deep Learning · Competition</p>
+                  <h3 id="disaster-title" class="ai-project__name">Multimodal Disaster Severity Classifier</h3>
+                  <p class="ai-project__subtitle">Late-fusion vision + text model for bilingual disaster response</p>
+                </div>
+                <div class="tag-group" style="flex-shrink:0;">
+                  <span class="tag tag--blog">Multimodal</span>
+                  <span class="tag tag--ai">Bilingual</span>
+                </div>
+              </header>
+
+              <!-- Problem statement -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">🎯</span>
+                  Problem statement
+                </h4>
+                <p>
+                  Emergency responders need to prioritize disaster reports fast, but reports arrive
+                  as a mix of images and bilingual (Bengali/English) text. This project classifies
+                  disaster severity from image + text pairs to support triage and response
+                  prioritization.
+                </p>
+              </div>
+
+              <!-- Dataset -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">📊</span>
+                  Dataset
+                </h4>
+                <div class="placeholder-note">
+                  Dataset: datathon-iiuc-cse-fest-2026 — TODO: add exact sample size and class
+                  distribution once finalized.
+                </div>
+                <ul class="ai-list" style="margin-top: var(--space-3);">
+                  <li>Paired image + bilingual (Bengali/English) text disaster reports</li>
+                  <li>Multi-class severity labels</li>
+                </ul>
+              </div>
+
+              <!-- Methods -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">⚙️</span>
+                  Methods &amp; approach
+                </h4>
+                <ul class="ai-list">
+                  <li>Late-fusion multimodal architecture: EfficientNet-B3 (vision) + XLM-RoBERTa (text)</li>
+                  <li>Trained with PyTorch, AdamW optimizer, and automatic mixed precision (AMP)</li>
+                  <li>Evaluated with 5-fold cross-validation — F1-macro, accuracy, and AUC</li>
+                </ul>
+              </div>
+
+              <!-- What I learned -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">💡</span>
+                  What I learned
+                </h4>
+                <ul class="ai-list">
+                  <li>Aligning vision and text embeddings from two very different pretrained backbones</li>
+                  <li>Handling bilingual (Bengali/English) text within a single multimodal pipeline</li>
+                  <li>Working with class imbalance in a real disaster-response dataset</li>
+                </ul>
+              </div>
+
+            </div><!-- end .ai-project__main -->
+
+            <aside class="ai-project__sidebar" aria-label="Disaster classifier metrics and tools">
+
+              <!-- Metrics -->
+              <div>
+                <p class="sidebar-title">Evaluation metrics</p>
+                <div class="metrics-grid">
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—%</div>
+                    <div class="metric-card__label">F1-macro</div>
+                  </div>
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—%</div>
+                    <div class="metric-card__label">Accuracy</div>
+                  </div>
+                </div>
+                <p class="placeholder-note" style="margin-top: var(--space-3);">
+                  TODO: fill in final cross-validation results once the competition concludes.
+                </p>
+              </div>
+
+              <!-- Tools -->
+              <div>
+                <p class="sidebar-title">Tools &amp; libraries</p>
+                <div class="tag-group">
+                  <span class="tag tag--ai">PyTorch</span>
+                  <span class="tag tag--ai">EfficientNet-B3</span>
+                  <span class="tag tag--ai">XLM-RoBERTa</span>
+                  <span class="tag tag--default">HuggingFace</span>
+                  <span class="tag tag--default">AMP</span>
+                </div>
+              </div>
+
+              <!-- Status -->
+              <div>
+                <p class="sidebar-title">Status</p>
+                <p class="text-xs text-muted">Kaggle competition — in progress, developed in Google Colab. No public repo yet.</p>
+              </div>
+
+            </aside>
+          </div><!-- end .ai-project__body -->
+
+          <footer class="ai-project__links">
+            <div class="tag-group">
+              <span class="tag tag--ai">EfficientNet-B3</span>
+              <span class="tag tag--ai">XLM-RoBERTa</span>
+              <span class="tag tag--blog">Multimodal</span>
+            </div>
+            <!-- No link added: project is in progress in Google Colab, no public repo yet -->
+          </footer>
+        </article>
+
+
+        <!-- ────────────────────────────────────────────────────
+             PROJECT 3 — BANGLA TEXT/IMAGE CLASSIFICATION
+             Domain: NLP · Computer Vision · Multimodal
+             ──────────────────────────────────────────────────── -->
+        <article
+          class="ai-project reveal"
+          id="bangla-classification"
+          aria-labelledby="bangla-title"
+        >
+          <div class="ai-project__accent ai-project__accent--vision"></div>
+
+          <div class="ai-project__body">
+
+            <div class="ai-project__main">
+
+              <header class="ai-project__header">
+                <span class="ai-project__number">03</span>
+                <span class="ai-project__icon" aria-hidden="true">🧩</span>
+                <div class="ai-project__title-block">
+                  <p class="ai-project__type">NLP · Computer Vision · Multimodal</p>
+                  <h3 id="bangla-title" class="ai-project__name">Bangla Text/Image Classification</h3>
+                  <p class="ai-project__subtitle">BanglaBERT, mBERT, and multimodal fusion (Kaggle)</p>
+                </div>
+                <div class="tag-group" style="flex-shrink:0;">
+                  <span class="tag tag--ai">Bengali NLP</span>
+                  <span class="tag tag--blog">Multimodal</span>
+                </div>
+              </header>
+
+              <!-- Problem statement -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">🎯</span>
+                  Problem statement
+                </h4>
+                <p>
+                  Bengali NLP is severely under-resourced relative to its 230M+ speakers. This
+                  Kaggle project classifies Bengali text and image content, comparing a
+                  Bengali-specific transformer against a multilingual alternative and a multimodal
+                  fusion approach.
+                </p>
+              </div>
+
+              <!-- Dataset -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">📊</span>
+                  Dataset
+                </h4>
+                <div class="placeholder-note">
+                  TODO: add the specific Kaggle dataset name/link, sample size, and class breakdown.
+                </div>
+              </div>
+
+              <!-- Methods -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">⚙️</span>
+                  Methods &amp; approach
+                </h4>
+                <ul class="ai-list">
+                  <li>Text classification fine-tuned with BanglaBERT (Bengali-specific) and mBERT (multilingual), compared head to head</li>
+                  <li>Multimodal fusion combining text and image signals for classification</li>
+                </ul>
+              </div>
+
+              <!-- What I learned -->
+              <div class="ai-project__section">
+                <h4 class="ai-project__section-title">
+                  <span class="ai-project__section-icon" aria-hidden="true">💡</span>
+                  What I learned
+                </h4>
+                <ul class="ai-list">
+                  <li>Where a Bengali-specific model (BanglaBERT) outperforms a general multilingual model (mBERT), and where it doesn't</li>
+                  <li>Practical patterns for fusing text and image features in a single classifier</li>
+                </ul>
+              </div>
+
+            </div><!-- end .ai-project__main -->
+
+            <aside class="ai-project__sidebar" aria-label="Bangla classification metrics and tools">
+
+              <!-- Metrics -->
+              <div>
+                <p class="sidebar-title">Evaluation metrics</p>
+                <div class="metrics-grid">
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—%</div>
+                    <div class="metric-card__label">Accuracy</div>
+                  </div>
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—%</div>
+                    <div class="metric-card__label">F1 Score</div>
+                  </div>
+                </div>
+                <p class="placeholder-note" style="margin-top: var(--space-3);">
+                  TODO: fill in accuracy/F1 for BanglaBERT vs. mBERT vs. fusion once finalized.
+                </p>
+              </div>
+
+              <!-- Tools -->
+              <div>
+                <p class="sidebar-title">Tools &amp; libraries</p>
+                <div class="tag-group">
+                  <span class="tag tag--ai">BanglaBERT</span>
+                  <span class="tag tag--ai">mBERT</span>
+                  <span class="tag tag--default">HuggingFace Transformers</span>
+                  <span class="tag tag--default">PyTorch</span>
+                </div>
+              </div>
+
+              <!-- Status -->
+              <div>
+                <p class="sidebar-title">Status</p>
+                <p class="text-xs text-muted">Kaggle project. No public repo link yet.</p>
+              </div>
+
+            </aside>
+          </div><!-- end .ai-project__body -->
+
+          <footer class="ai-project__links">
+            <div class="tag-group">
+              <span class="tag tag--ai">BanglaBERT</span>
+              <span class="tag tag--ai">mBERT</span>
+              <span class="tag tag--blog">Multimodal</span>
+            </div>
+            <!-- No link added: no GitHub/Kaggle link given yet -->
+          </footer>
+        </article>
+
+
+        <!-- ────────────────────────────────────────────────────
+             PROJECT 4 — AMR RESISTOME PREDICTION (ECCT 2026 PAPER)
+             Domain: Healthcare / Classification / Research
              ──────────────────────────────────────────────────── -->
         <article
           class="ai-project reveal"
@@ -769,15 +1131,15 @@
             <div class="ai-project__main">
 
               <header class="ai-project__header">
-                <span class="ai-project__number">01</span>
+                <span class="ai-project__number">04</span>
                 <span class="ai-project__icon" aria-hidden="true">🧬</span>
                 <div class="ai-project__title-block">
-                  <p class="ai-project__type">Classification · Healthcare AI</p>
-                  <h3 id="amr-title" class="ai-project__name">AMR Prediction</h3>
-                  <p class="ai-project__subtitle">Antimicrobial Resistance Detection using Machine Learning</p>
+                  <p class="ai-project__type">Classification · Healthcare AI · Research</p>
+                  <h3 id="amr-title" class="ai-project__name">AMR Resistome Prediction</h3>
+                  <p class="ai-project__subtitle">SVM-XGBoost ensemble with a novel Resistome Burden Index — accepted at ECCT 2026</p>
                 </div>
                 <div class="tag-group" style="flex-shrink:0;">
-                  <span class="tag tag--research">Healthcare</span>
+                  <span class="tag tag--research">Published</span>
                   <span class="tag tag--ai">Classification</span>
                 </div>
               </header>
@@ -789,11 +1151,11 @@
                   Problem statement
                 </h4>
                 <p>
-                  Antimicrobial resistance (AMR) is one of the most urgent global health threats —
-                  bacteria evolving to survive antibiotics cause millions of deaths each year.
-                  Traditional lab tests to detect resistance can take 24–72 hours. This project
-                  explores whether machine learning models can predict antibiotic resistance
-                  from clinical and microbiological features, enabling faster clinical decisions.
+                  Antimicrobial resistance (AMR) is one of the most urgent global health threats,
+                  and standard lab diagnostics can take 24–72 hours. This research — accepted at
+                  <strong>ECCT 2026</strong> in collaboration with <strong>icddr,b</strong> — predicts
+                  antibiotic resistance phenotypes from genomic and clinical features using
+                  ensemble machine learning, enabling faster, data-driven treatment decisions.
                 </p>
               </div>
 
@@ -803,18 +1165,9 @@
                   <span class="ai-project__section-icon" aria-hidden="true">📊</span>
                   Dataset
                 </h4>
-                <!-- TODO: replace with your actual dataset source and description -->
-                <div class="placeholder-note">
-                  Dataset details to be updated — replace with actual source (e.g. PATRIC, UCI ML Repository,
-                  hospital clinical data), sample size, feature count, and class distribution.
-                </div>
-                <ul class="ai-list" style="margin-top: var(--space-3);">
-                  <li>Tabular clinical / microbiological data with bacterial isolate features</li>
-                  <li>Binary target: resistant vs. susceptible to a specific antibiotic</li>
-                  <!-- TODO: update with actual sample size -->
-                  <li>Sample size: [update with actual number — e.g. ~2,000 records]</li>
-                  <!-- TODO: update with actual feature count -->
-                  <li>Features: [update — e.g. MIC values, species, isolation site, year]</li>
+                <ul class="ai-list">
+                  <li>icddr,b (International Centre for Diarrhoeal Disease Research, Bangladesh) clinical genomic dataset</li>
+                  <li>Binary classification target: antibiotic-susceptible vs. antibiotic-resistant phenotype</li>
                 </ul>
               </div>
 
@@ -825,13 +1178,9 @@
                   Methods &amp; approach
                 </h4>
                 <ul class="ai-list">
-                  <li>Exploratory data analysis (EDA): class imbalance check, missing value treatment, feature distributions</li>
-                  <li>Preprocessing: label encoding, standard scaling, train/test split (80/20)</li>
-                  <li>Models compared: Logistic Regression, Decision Tree, Random Forest, Gradient Boosting</li>
-                  <li>Hyperparameter tuning with GridSearchCV / RandomizedSearchCV</li>
-                  <li>Handling class imbalance with SMOTE or class weights</li>
-                  <!-- TODO: note which model you selected as best and why -->
-                  <li>Final model selected: [update with best-performing model and reason]</li>
+                  <li>SVM-XGBoost ensemble combined with a novel <strong>Resistome Burden Index (RBI)</strong> composite feature</li>
+                  <li>Class imbalance handling via SMOTE oversampling and class-weight adjustment</li>
+                  <li>Statistical validation: McNemar's test, Bootstrap CI, and Wilcoxon signed-rank for model comparison</li>
                 </ul>
               </div>
 
@@ -842,11 +1191,9 @@
                   What I learned
                 </h4>
                 <ul class="ai-list">
-                  <li>How to handle imbalanced medical datasets without inflating accuracy scores</li>
-                  <li>Why precision and recall matter more than accuracy in healthcare classification</li>
-                  <li>Feature importance analysis and its role in clinical model explainability</li>
-                  <li>The full ML pipeline: data → preprocessing → model → evaluation → interpretation</li>
-                  <li>How to structure a Jupyter notebook for reproducibility and peer review</li>
+                  <li>Designing an interpretable composite feature (RBI) rather than relying on a black-box ensemble alone</li>
+                  <li>Handling noisy genomic labels and class imbalance in a real clinical dataset</li>
+                  <li>Running rigorous statistical significance testing for model comparison in a peer-reviewed paper</li>
                 </ul>
               </div>
 
@@ -858,7 +1205,7 @@
               <!-- Metrics -->
               <div>
                 <p class="sidebar-title">Evaluation metrics</p>
-                <!-- TODO: replace placeholders with your actual results -->
+                <!-- TODO: master profile lists these with bracketed/unconfirmed values — leaving as placeholders until confirmed exact figures are available -->
                 <div class="metrics-grid">
                   <div class="metric-card metric-card--placeholder">
                     <div class="metric-card__value">—%</div>
@@ -866,19 +1213,15 @@
                   </div>
                   <div class="metric-card metric-card--placeholder">
                     <div class="metric-card__value">—%</div>
-                    <div class="metric-card__label">Precision</div>
-                  </div>
-                  <div class="metric-card metric-card--placeholder">
-                    <div class="metric-card__value">—%</div>
-                    <div class="metric-card__label">Recall</div>
-                  </div>
-                  <div class="metric-card metric-card--placeholder">
-                    <div class="metric-card__value">—%</div>
                     <div class="metric-card__label">F1 Score</div>
+                  </div>
+                  <div class="metric-card metric-card--placeholder">
+                    <div class="metric-card__value">—%</div>
+                    <div class="metric-card__label">AUC-ROC</div>
                   </div>
                 </div>
                 <p class="placeholder-note" style="margin-top: var(--space-3);">
-                  TODO: run your notebook and fill in the actual metrics above.
+                  Exact figures not yet confirmed for public release — see the full write-up on the Research page.
                 </p>
               </div>
 
@@ -888,11 +1231,10 @@
                 <div class="tag-group">
                   <span class="tag tag--ai">Python 3</span>
                   <span class="tag tag--ai">scikit-learn</span>
+                  <span class="tag tag--ai">SVM</span>
+                  <span class="tag tag--ai">XGBoost</span>
                   <span class="tag tag--ai">Pandas</span>
                   <span class="tag tag--ai">NumPy</span>
-                  <span class="tag tag--ai">Matplotlib</span>
-                  <span class="tag tag--ai">Seaborn</span>
-                  <span class="tag tag--ai">imbalanced-learn</span>
                   <span class="tag tag--default">Jupyter Notebook</span>
                 </div>
               </div>
@@ -900,10 +1242,12 @@
               <!-- Result summary -->
               <div>
                 <p class="sidebar-title">Result summary</p>
-                <!-- TODO: replace with your actual 1–2 sentence summary of results -->
-                <div class="placeholder-note">
-                  TODO: describe your key result here — e.g. "Random Forest achieved the
-                  best F1 score of X%, outperforming Logistic Regression by Y%."
+                <div class="highlight-box highlight-box--ai">
+                  <p style="font-size: var(--text-sm); color: var(--text-secondary);">
+                    The research behind this project was later productized as
+                    <a href="#resistomex" style="color: inherit; text-decoration: underline;">ResistomeX</a> —
+                    a live app averaging 0.9421 F1 across 12 antibiotic-pathogen datasets.
+                  </p>
                 </div>
               </div>
 
@@ -913,31 +1257,26 @@
           <!-- Links bar -->
           <footer class="ai-project__links">
             <div class="tag-group">
-              <span class="tag tag--ai">scikit-learn</span>
-              <span class="tag tag--research">Healthcare</span>
-              <span class="tag tag--default">Classification</span>
+              <span class="tag tag--ai">SVM-XGBoost Ensemble</span>
+              <span class="tag tag--research">AMR</span>
+              <span class="tag tag--default">RBI Feature</span>
             </div>
             <div class="btn-group">
-              <!-- TODO: replace # with your actual GitHub notebook URL -->
               <a href="https://github.com/safaet"
-                 class="btn btn--primary btn--sm"
+                 class="btn btn--secondary btn--sm"
                  target="_blank"
                  rel="noopener noreferrer"
-                 aria-label="View AMR Prediction notebook on GitHub (opens in new tab)">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                GitHub / Notebook
+                 aria-label="View research code on GitHub (opens in new tab)">
+                GitHub ↗
               </a>
-              <!-- TODO: add Kaggle link if published there -->
-              <!-- <a href="#" class="btn btn--secondary btn--sm" target="_blank" rel="noopener noreferrer">Kaggle ↗</a> -->
-              <!-- TODO: add blog post link once written -->
-              <!-- <a href="blog/posts/amr-prediction.html" class="btn btn--ghost btn--sm">Read write-up →</a> -->
+              <a href="research.html" class="btn btn--ghost btn--sm">Full research write-up →</a>
             </div>
           </footer>
         </article>
 
 
         <!-- ────────────────────────────────────────────────────
-             PROJECT 2 — HOUSE PRICE PREDICTION
+             PROJECT 5 — HOUSE PRICE PREDICTION
              Domain: Regression / Deployment
              ──────────────────────────────────────────────────── -->
         <article
@@ -952,12 +1291,12 @@
             <div class="ai-project__main">
 
               <header class="ai-project__header">
-                <span class="ai-project__number">02</span>
+                <span class="ai-project__number">05</span>
                 <span class="ai-project__icon" aria-hidden="true">🏠</span>
                 <div class="ai-project__title-block">
                   <p class="ai-project__type">Regression · Model Deployment</p>
                   <h3 id="houseprice-title" class="ai-project__name">House Price Prediction</h3>
-                  <p class="ai-project__subtitle">End-to-end regression pipeline with Flask API deployment</p>
+                  <p class="ai-project__subtitle">End-to-end regression pipeline with live Streamlit deployment</p>
                 </div>
                 <div class="tag-group" style="flex-shrink:0;">
                   <span class="tag tag--default">Regression</span>
@@ -976,7 +1315,7 @@
                   estimates when pricing homes, leading to significant mispricing. This project
                   builds a regression model that predicts house prices from property attributes —
                   area, location, number of rooms, age, and amenities — and deploys it as a
-                  REST API that any client can query.
+                  live Streamlit app anyone can use.
                 </p>
               </div>
 
@@ -1013,7 +1352,7 @@
                   <li>Cross-validation (K-Fold, K=5) to prevent overfitting on training data</li>
                   <!-- TODO: note which model was selected as best -->
                   <li>Final model: [update with selected model — e.g. XGBoost Regressor after tuning]</li>
-                  <li>Model serialized with <code>joblib</code> and served via Flask REST API</li>
+                  <li>Model serialized with <code>joblib</code> and served via a Streamlit app</li>
                 </ul>
               </div>
 
@@ -1026,8 +1365,8 @@
                 <ul class="ai-list">
                   <li>How to engineer features and handle skewed distributions in regression problems</li>
                   <li>The difference between overfitting, underfitting, and how cross-validation catches it</li>
-                  <li>How to serialize a trained model and wrap it in a production-ready Flask API</li>
-                  <li>How to send POST requests to an ML API and return structured JSON predictions</li>
+                  <li>How to serialize a trained model and wrap it in a production-ready Streamlit app</li>
+                  <li>How to structure an interactive Streamlit UI around a trained model's inputs and outputs</li>
                   <li>Why RMSE and R² are better regression metrics than raw error alone</li>
                 </ul>
               </div>
@@ -1073,7 +1412,7 @@
                   <span class="tag tag--ai">Pandas</span>
                   <span class="tag tag--ai">NumPy</span>
                   <span class="tag tag--ai">Matplotlib</span>
-                  <span class="tag tag--ai">Flask</span>
+                  <span class="tag tag--ai">Streamlit</span>
                   <span class="tag tag--default">joblib</span>
                   <span class="tag tag--default">Jupyter Notebook</span>
                 </div>
@@ -1084,12 +1423,11 @@
                 <p class="sidebar-title">Deployment</p>
                 <div class="highlight-box highlight-box--ai">
                   <p style="font-size: var(--text-sm); margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 600;">
-                    Deployed as Flask REST API
+                    Deployed as a Streamlit app
                   </p>
                   <p style="font-size: var(--text-xs); color: var(--text-secondary);">
                     <!-- TODO: update with actual deployment URL if live, or remove this note -->
-                    Accepts POST requests with property features, returns predicted price as JSON.
-                    Hosted locally / [update with deploy URL if live].
+                    Takes property features as input and returns a predicted price live in the browser.
                   </p>
                 </div>
               </div>
@@ -1101,208 +1439,17 @@
             <div class="tag-group">
               <span class="tag tag--ai">scikit-learn</span>
               <span class="tag tag--ai">XGBoost</span>
-              <span class="tag tag--software">Flask API</span>
+              <span class="tag tag--software">Streamlit</span>
               <span class="tag tag--default">Regression</span>
             </div>
             <div class="btn-group">
-              <!-- TODO: replace # with actual GitHub repository URL -->
-              <a href="https://github.com/safaet"
-                 class="btn btn--primary btn--sm"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 aria-label="View House Price Prediction notebook on GitHub (opens in new tab)">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                GitHub / Notebook
-              </a>
-              <!-- TODO: add Kaggle link if published there -->
-              <!-- <a href="#" class="btn btn--secondary btn--sm" target="_blank" rel="noopener noreferrer">Kaggle ↗</a> -->
-              <!-- TODO: add live API demo link once deployed -->
-              <!-- <a href="#" class="btn btn--ghost btn--sm" target="_blank" rel="noopener noreferrer">Live API ↗</a> -->
+              <!-- TODO: add verified repo link — no confirmed GitHub URL for House Price Prediction yet -->
+              <!-- TODO: add live Streamlit app link once confirmed -->
+              <!-- <a href="#" class="btn btn--ghost btn--sm" target="_blank" rel="noopener noreferrer">Live App ↗</a> -->
             </div>
           </footer>
         </article>
 
-
-        <!-- ────────────────────────────────────────────────────
-             PROJECT 3 — MASK DETECTION
-             Domain: Computer Vision / Deep Learning
-             ──────────────────────────────────────────────────── -->
-        <article
-          class="ai-project reveal"
-          id="mask-detection"
-          aria-labelledby="mask-title"
-        >
-          <div class="ai-project__accent ai-project__accent--vision"></div>
-
-          <div class="ai-project__body">
-
-            <div class="ai-project__main">
-
-              <header class="ai-project__header">
-                <span class="ai-project__number">03</span>
-                <span class="ai-project__icon" aria-hidden="true">👁️</span>
-                <div class="ai-project__title-block">
-                  <p class="ai-project__type" style="color: var(--accent-coral);">Computer Vision · Deep Learning</p>
-                  <h3 id="mask-title" class="ai-project__name">Mask Detection</h3>
-                  <p class="ai-project__subtitle">Real-time face mask detection using CNN (TensorFlow / Keras)</p>
-                </div>
-                <div class="tag-group" style="flex-shrink:0;">
-                  <span class="tag tag--blog">Deep Learning</span>
-                  <span class="tag tag--ai">Real-time</span>
-                </div>
-              </header>
-
-              <!-- Problem statement -->
-              <div class="ai-project__section">
-                <h4 class="ai-project__section-title">
-                  <span class="ai-project__section-icon" aria-hidden="true">🎯</span>
-                  Problem statement
-                </h4>
-                <p>
-                  During the COVID-19 pandemic, enforcing mask-wearing in public spaces
-                  required constant manual monitoring — a labor-intensive and error-prone
-                  process. This project builds a convolutional neural network (CNN) that
-                  detects in real time whether a person in a camera frame is wearing a
-                  mask correctly, incorrectly, or not at all.
-                </p>
-              </div>
-
-              <!-- Dataset -->
-              <div class="ai-project__section">
-                <h4 class="ai-project__section-title">
-                  <span class="ai-project__section-icon" aria-hidden="true">📊</span>
-                  Dataset
-                </h4>
-                <!-- TODO: replace with your actual dataset source -->
-                <div class="placeholder-note">
-                  Dataset details to be updated — replace with source (e.g. Kaggle Face Mask Dataset,
-                  RMFD, or your own collected images), total image count, and class breakdown.
-                </div>
-                <ul class="ai-list" style="margin-top: var(--space-3);">
-                  <li>Image dataset with labeled face crops in two or three classes</li>
-                  <!-- TODO: update with actual class names and image counts -->
-                  <li>Classes: With Mask / Without Mask [/ Mask Worn Incorrectly if applicable]</li>
-                  <li>Sample size: [update — e.g. ~7,500 images per class]</li>
-                  <li>Augmented during training: horizontal flip, brightness shift, zoom</li>
-                </ul>
-              </div>
-
-              <!-- Methods -->
-              <div class="ai-project__section">
-                <h4 class="ai-project__section-title">
-                  <span class="ai-project__section-icon" aria-hidden="true">⚙️</span>
-                  Methods &amp; architecture
-                </h4>
-                <ul class="ai-list">
-                  <li>Face detection: OpenCV Haar Cascades or MTCNN to extract face regions</li>
-                  <li>CNN architecture: Conv2D → MaxPooling → Dropout → Dense layers built with Keras Sequential API</li>
-                  <!-- TODO: note if you used transfer learning, e.g. MobileNetV2 -->
-                  <li>Transfer learning: [update — e.g. MobileNetV2 base model with custom classification head]</li>
-                  <li>Training: ImageDataGenerator for augmentation, early stopping, ReduceLROnPlateau</li>
-                  <li>Real-time inference: OpenCV VideoCapture reads webcam frames, model classifies each face ROI</li>
-                  <li>Output: bounding box drawn on frame with prediction label and confidence score</li>
-                </ul>
-              </div>
-
-              <!-- What I learned -->
-              <div class="ai-project__section">
-                <h4 class="ai-project__section-title">
-                  <span class="ai-project__section-icon" aria-hidden="true">💡</span>
-                  What I learned
-                </h4>
-                <ul class="ai-list">
-                  <li>How CNNs learn spatial features from images through convolution and pooling</li>
-                  <li>The role of dropout and batch normalization in preventing overfitting on image data</li>
-                  <li>How transfer learning accelerates training and improves performance with limited data</li>
-                  <li>Connecting a trained Keras model to an OpenCV real-time video pipeline</li>
-                  <li>How to evaluate a vision model: confusion matrix, classification report, ROC curve</li>
-                  <li>Practical difference between training accuracy and real-world inference quality</li>
-                </ul>
-              </div>
-
-            </div><!-- end .ai-project__main -->
-
-            <aside class="ai-project__sidebar" aria-label="Mask detection project metrics and tools">
-
-              <!-- Metrics -->
-              <div>
-                <p class="sidebar-title">Evaluation metrics</p>
-                <!-- TODO: replace placeholders with your actual test set results -->
-                <div class="metrics-grid">
-                  <div class="metric-card metric-card--placeholder">
-                    <div class="metric-card__value">—%</div>
-                    <div class="metric-card__label">Accuracy</div>
-                  </div>
-                  <div class="metric-card metric-card--placeholder">
-                    <div class="metric-card__value">—%</div>
-                    <div class="metric-card__label">Precision</div>
-                  </div>
-                  <div class="metric-card metric-card--placeholder">
-                    <div class="metric-card__value">—%</div>
-                    <div class="metric-card__label">Recall</div>
-                  </div>
-                  <div class="metric-card metric-card--placeholder">
-                    <div class="metric-card__value">—ms</div>
-                    <div class="metric-card__label">Inference time</div>
-                  </div>
-                </div>
-                <p class="placeholder-note" style="margin-top: var(--space-3);">
-                  TODO: fill in accuracy and per-class metrics from your test set evaluation.
-                </p>
-              </div>
-
-              <!-- Tools -->
-              <div>
-                <p class="sidebar-title">Tools &amp; libraries</p>
-                <div class="tag-group">
-                  <span class="tag tag--ai">Python 3</span>
-                  <span class="tag tag--ai">TensorFlow 2</span>
-                  <span class="tag tag--ai">Keras</span>
-                  <span class="tag tag--ai">OpenCV</span>
-                  <span class="tag tag--ai">NumPy</span>
-                  <span class="tag tag--ai">Matplotlib</span>
-                  <span class="tag tag--default">MobileNetV2</span>
-                  <span class="tag tag--default">Jupyter Notebook</span>
-                </div>
-              </div>
-
-              <!-- Key challenge -->
-              <div>
-                <p class="sidebar-title">Key challenge solved</p>
-                <div class="highlight-box highlight-box--ai">
-                  <p style="font-size: var(--text-sm); color: var(--text-secondary);">
-                    Connecting a static Keras model to a live OpenCV video stream —
-                    normalizing each face ROI in real time to match training input dimensions
-                    and returning predictions fast enough for smooth video playback.
-                  </p>
-                </div>
-              </div>
-
-            </aside>
-          </div><!-- end .ai-project__body -->
-
-          <footer class="ai-project__links">
-            <div class="tag-group">
-              <span class="tag tag--ai">TensorFlow</span>
-              <span class="tag tag--ai">Keras</span>
-              <span class="tag tag--blog">Computer Vision</span>
-              <span class="tag tag--default">Real-time</span>
-            </div>
-            <div class="btn-group">
-              <!-- TODO: replace # with actual GitHub repository URL -->
-              <a href="https://github.com/safaet"
-                 class="btn btn--primary btn--sm"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 aria-label="View Mask Detection source code on GitHub (opens in new tab)">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                GitHub / Notebook
-              </a>
-              <!-- TODO: add Kaggle link if model/notebook published there -->
-              <!-- <a href="#" class="btn btn--secondary btn--sm" target="_blank" rel="noopener noreferrer">Kaggle ↗</a> -->
-            </div>
-          </footer>
-        </article>
 
       </div>
     </section>
@@ -1355,14 +1502,15 @@
 
           <div class="roadmap-card">
             <span class="roadmap-card__status roadmap-card__status--done">✓ Complete</span>
-            <h3 class="roadmap-card__title">Deep Learning Basics</h3>
+            <h3 class="roadmap-card__title">Deep Learning with PyTorch</h3>
             <p class="roadmap-card__desc">
-              Built and trained CNNs using TensorFlow and Keras — applied to
-              computer vision (mask detection project).
+              Tensors, autograd, custom datasets, and <code>nn.Module</code> —
+              applied to a late-fusion multimodal classifier (EfficientNet-B3 +
+              XLM-RoBERTa) with AMP mixed-precision training.
             </p>
             <div class="tag-group" style="margin-top: var(--space-3);">
-              <span class="tag tag--ai">TensorFlow</span>
-              <span class="tag tag--ai">Keras</span>
+              <span class="tag tag--ai">PyTorch</span>
+              <span class="tag tag--ai">AMP</span>
             </div>
           </div>
 
@@ -1370,61 +1518,51 @@
             <span class="roadmap-card__status roadmap-card__status--done">✓ Complete</span>
             <h3 class="roadmap-card__title">ML Model Deployment</h3>
             <p class="roadmap-card__desc">
-              Serializing models with joblib, wrapping in Flask REST API,
-              structuring requests and JSON responses.
+              Serializing models with joblib and shipping them as live
+              Streamlit apps — ResistomeX and House Price Prediction are both
+              in production this way.
             </p>
             <div class="tag-group" style="margin-top: var(--space-3);">
-              <span class="tag tag--ai">Flask</span>
+              <span class="tag tag--ai">Streamlit</span>
               <span class="tag tag--default">joblib</span>
             </div>
           </div>
 
-          <!-- ── Active ── -->
+          <!-- ── Demonstrated in production ── -->
           <div class="roadmap-card">
-            <span class="roadmap-card__status roadmap-card__status--active">⟳ In progress</span>
-            <h3 class="roadmap-card__title">PyTorch Fundamentals</h3>
-            <p class="roadmap-card__desc">
-              Tensors, autograd, custom datasets, DataLoader, and building
-              neural nets with <code>nn.Module</code>. Comparing to Keras workflow.
-            </p>
-            <div class="tag-group" style="margin-top: var(--space-3);">
-              <span class="tag tag--ai">PyTorch</span>
-            </div>
-          </div>
-
-          <div class="roadmap-card">
-            <span class="roadmap-card__status roadmap-card__status--active">⟳ In progress</span>
+            <span class="roadmap-card__status roadmap-card__status--done">✓ Complete</span>
             <h3 class="roadmap-card__title">FastAPI for ML APIs</h3>
             <p class="roadmap-card__desc">
-              Building async REST APIs with FastAPI — faster and more
-              production-ready than Flask for serving ML models.
+              Async REST APIs with FastAPI, Pydantic schemas, and threadpool
+              offloading for blocking model calls — shipped in production as
+              the RAG backend at Neuralis AI.
             </p>
             <div class="tag-group" style="margin-top: var(--space-3);">
               <span class="tag tag--ai">FastAPI</span>
               <span class="tag tag--default">Pydantic</span>
             </div>
           </div>
-
-          <!-- ── Next ── -->
           <div class="roadmap-card">
-            <span class="roadmap-card__status roadmap-card__status--next">→ Next</span>
+            <span class="roadmap-card__status roadmap-card__status--done">✓ Complete</span>
             <h3 class="roadmap-card__title">LLM APIs &amp; Prompt Engineering</h3>
             <p class="roadmap-card__desc">
-              OpenAI / Anthropic APIs, system prompts, few-shot prompting,
-              structured outputs, and function calling.
+              OpenAI-compatible LLM APIs, system prompts, and structured, context-only
+              prompting — shipped in production for grounded generation, query
+              rewriting, and score-gated refusal at Neuralis AI.
             </p>
             <div class="tag-group" style="margin-top: var(--space-3);">
               <span class="tag tag--ai">LLM APIs</span>
-              <span class="tag tag--ai">LangChain</span>
+              <span class="tag tag--ai">Prompt Engineering</span>
             </div>
           </div>
 
           <div class="roadmap-card">
-            <span class="roadmap-card__status roadmap-card__status--next">→ Next</span>
+            <span class="roadmap-card__status roadmap-card__status--done">✓ Complete</span>
             <h3 class="roadmap-card__title">RAG Systems</h3>
             <p class="roadmap-card__desc">
-              Retrieval-Augmented Generation — vector databases (Pinecone / ChromaDB),
-              embeddings, and building context-aware LLM applications.
+              Built and shipped production RAG pipelines — two-stage retrieval
+              (bge-m3 bi-encoder + bge-reranker-v2-m3 cross-encoder), PostgreSQL-backed
+              ingestion, and grounded generation — as Technical Lead, AI/ML at Neuralis AI.
             </p>
             <div class="tag-group" style="margin-top: var(--space-3);">
               <span class="tag tag--ai">RAG</span>
@@ -1432,26 +1570,27 @@
             </div>
           </div>
 
-          <!-- ── Future ── -->
+          <!-- ── Actively deepening ── -->
           <div class="roadmap-card">
-            <span class="roadmap-card__status roadmap-card__status--future">◌ Future</span>
+            <span class="roadmap-card__status roadmap-card__status--active">⟳ In progress</span>
             <h3 class="roadmap-card__title">Agentic AI Systems</h3>
             <p class="roadmap-card__desc">
-              Multi-agent orchestration, tool use, memory, and building autonomous
-              AI workflows with LangGraph or AutoGen.
+              Applied tool-use in production — a regex-first intent router with LLM
+              fallback dispatching a single chat endpoint across multiple services.
+              Now building toward full multi-agent orchestration with LangGraph.
             </p>
             <div class="tag-group" style="margin-top: var(--space-3);">
+              <span class="tag tag--default">Tool-Use Agents</span>
               <span class="tag tag--default">LangGraph</span>
-              <span class="tag tag--default">Agents</span>
             </div>
           </div>
 
           <div class="roadmap-card">
-            <span class="roadmap-card__status roadmap-card__status--future">◌ Future</span>
+            <span class="roadmap-card__status roadmap-card__status--active">⟳ In progress</span>
             <h3 class="roadmap-card__title">Fine-tuning LLMs</h3>
             <p class="roadmap-card__desc">
-              LoRA, QLoRA, instruction tuning on domain-specific data —
-              adapting open-source models for specialized tasks.
+              Hands-on with HuggingFace Transformers fine-tuning; currently applying
+              LoRA/PEFT to fine-tune BanglaBERT for Bengali sentiment classification.
             </p>
             <div class="tag-group" style="margin-top: var(--space-3);">
               <span class="tag tag--default">LoRA</span>
@@ -1459,87 +1598,6 @@
             </div>
           </div>
 
-        </div>
-
-        <!-- Current learning focus with skill bars — PUBLIC SUMMARY ONLY -->
-        <div class="learning-focus reveal" aria-label="Current learning focus details">
-          <div class="learning-focus__inner">
-
-            <div>
-              <p class="section-label" style="color: var(--accent-emerald);">This week's focus</p>
-              <h3 style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight:700; margin-bottom: var(--space-4); color: var(--text-primary);">
-                FastAPI + ML model integration
-              </h3>
-              <p class="learning-focus__week">
-                <!-- TODO: update this weekly to keep it current for recruiters visiting the page -->
-                Currently working through building a complete FastAPI service that loads a
-                trained scikit-learn model on startup and exposes a <code>/predict</code> endpoint.
-                Next: containerize with Docker and document the API with Swagger UI.
-              </p>
-              <div class="btn-group">
-                <!-- NOTE: Learning Lab (private full tracker) is intentionally NOT linked here -->
-                <a href="research.html" class="btn btn--ai btn--sm">Research interests →</a>
-                <a href="contact.html"  class="btn btn--secondary btn--sm">Open to collaboration</a>
-              </div>
-            </div>
-
-            <div>
-              <p class="section-label" style="color: var(--accent-emerald); margin-bottom: var(--space-4);">Skill progress (self-assessed)</p>
-              <div class="learning-focus__tools">
-
-                <!-- NOTE: levels are self-assessed for honesty, not inflated -->
-                <div class="learning-focus__tool">
-                  <span class="learning-focus__tool-name">Python (ML)</span>
-                  <div class="skill-bar-wrap">
-                    <div class="skill-bar-fill" style="width: 65%;"></div>
-                  </div>
-                  <span class="learning-focus__tool-pct">65%</span>
-                </div>
-
-                <div class="learning-focus__tool">
-                  <span class="learning-focus__tool-name">scikit-learn</span>
-                  <div class="skill-bar-wrap">
-                    <div class="skill-bar-fill" style="width: 60%;"></div>
-                  </div>
-                  <span class="learning-focus__tool-pct">60%</span>
-                </div>
-
-                <div class="learning-focus__tool">
-                  <span class="learning-focus__tool-name">TensorFlow / Keras</span>
-                  <div class="skill-bar-wrap">
-                    <div class="skill-bar-fill" style="width: 45%;"></div>
-                  </div>
-                  <span class="learning-focus__tool-pct">45%</span>
-                </div>
-
-                <div class="learning-focus__tool">
-                  <span class="learning-focus__tool-name">PyTorch</span>
-                  <div class="skill-bar-wrap">
-                    <div class="skill-bar-fill" style="width: 30%;"></div>
-                  </div>
-                  <span class="learning-focus__tool-pct">30%</span>
-                </div>
-
-                <div class="learning-focus__tool">
-                  <span class="learning-focus__tool-name">FastAPI</span>
-                  <div class="skill-bar-wrap">
-                    <div class="skill-bar-fill" style="width: 50%;"></div>
-                  </div>
-                  <span class="learning-focus__tool-pct">50%</span>
-                </div>
-
-                <div class="learning-focus__tool">
-                  <span class="learning-focus__tool-name">LLM APIs</span>
-                  <div class="skill-bar-wrap">
-                    <div class="skill-bar-fill" style="width: 25%;"></div>
-                  </div>
-                  <span class="learning-focus__tool-pct">25%</span>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
         </div>
 
       </div>
@@ -1565,17 +1623,47 @@
         <div class="future-projects-grid reveal">
 
           <div class="future-card">
-            <div class="future-card__emoji" aria-hidden="true">🔍</div>
-            <h3 class="future-card__title">RAG-based Document Q&amp;A System</h3>
+            <div class="future-card__emoji" aria-hidden="true">⚖️</div>
+            <h3 class="future-card__title">BanglaLex — Bengali Legal Document Q&amp;A</h3>
             <p class="future-card__desc">
-              Upload a PDF or text document and ask questions about it in natural language.
-              Uses embeddings, a vector database, and an LLM to retrieve and synthesize answers.
-              Goal: learn RAG pipelines end to end.
+              A RAG-based system for Bengali legal documents, extending the production
+              retrieval architecture I built at Neuralis AI into a new, harder
+              retrieval domain with citation-grounded answers.
             </p>
             <div class="tag-group">
-              <span class="tag tag--ai">LangChain</span>
               <span class="tag tag--ai">RAG</span>
-              <span class="tag tag--default">ChromaDB</span>
+              <span class="tag tag--ai">Bengali NLP</span>
+              <span class="tag tag--default">FAISS</span>
+            </div>
+          </div>
+
+          <div class="future-card">
+            <div class="future-card__emoji" aria-hidden="true">🏥</div>
+            <h3 class="future-card__title">MediFlow BD — Medical AI MLOps Platform</h3>
+            <p class="future-card__desc">
+              A medical-AI MLOps platform for Bangladesh — productionizing clinical
+              ML models like the AMR/ResistomeX work with proper deployment,
+              monitoring, and CI/CD.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag--ai">MLOps</span>
+              <span class="tag tag--default">Docker</span>
+              <span class="tag tag--default">CI/CD</span>
+            </div>
+          </div>
+
+          <div class="future-card">
+            <div class="future-card__emoji" aria-hidden="true">🧬</div>
+            <h3 class="future-card__title">Bengali Clinical NLP Benchmark</h3>
+            <p class="future-card__desc">
+              Benchmarking Bengali NLP models — BanglaBERT, mBERT, XLM-RoBERTa — on
+              clinical and medical text, addressing the lack of an annotated
+              Bengali biomedical corpus.
+            </p>
+            <div class="tag-group">
+              <span class="tag tag--ai">BanglaBERT</span>
+              <span class="tag tag--research">Clinical NLP</span>
+              <span class="tag tag--default">Benchmark</span>
             </div>
           </div>
 
@@ -1678,14 +1766,12 @@
 
           <div class="btn-group flex-center">
             <a href="contact.html"             class="btn btn--primary btn--lg">Send a message</a>
-            <!-- TODO: add LinkedIn URL -->
-            <a href="#"                         class="btn btn--secondary btn--lg" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://www.linkedin.com/in/safaet-jaman/" class="btn btn--secondary btn--lg" target="_blank" rel="noopener">LinkedIn ↗</a>
             <a href="https://github.com/safaet" class="btn btn--ghost btn--lg"    target="_blank" rel="noopener">GitHub ↗</a>
           </div>
 
-          <!-- TODO: add email address -->
           <p class="text-muted text-sm" style="margin-top: 1.5rem;">
-            Or email directly: <a href="mailto:your@email.com">your@email.com</a>
+            Or email directly: <a href="mailto:esafaetjaman@gmail.com">esafaetjaman@gmail.com</a>
           </p>
 
         </div>
@@ -1713,12 +1799,10 @@
             <a href="https://github.com/safaet" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
             </a>
-            <!-- TODO: add LinkedIn URL -->
-            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+            <a href="https://www.linkedin.com/in/safaet-jaman/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
-            <!-- TODO: add email address -->
-            <a href="mailto:your@email.com" class="social-link" aria-label="Send email">
+            <a href="mailto:esafaetjaman@gmail.com" class="social-link" aria-label="Send email">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </a>
           </div>
@@ -1748,10 +1832,8 @@
               <ul role="list">
                 <li><a href="contact.html"                                             class="footer__link">Contact</a></li>
                 <li><a href="https://github.com/safaet" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub ↗</a></li>
-                <!-- TODO: add LinkedIn URL -->
-                <li><a href="#"                          target="_blank" rel="noopener noreferrer" class="footer__link">LinkedIn ↗</a></li>
-                <!-- TODO: add resume PDF path -->
-                <li><a href="resume/safaet-jaman-resume.pdf" target="_blank" rel="noopener noreferrer" class="footer__link">Resume ↗</a></li>
+                <li><a href="https://www.linkedin.com/in/safaet-jaman/" target="_blank" rel="noopener noreferrer" class="footer__link">LinkedIn ↗</a></li>
+                <li><a href="resume.html" class="footer__link">Resume</a></li>
               </ul>
             </div>
           </div>
@@ -1761,7 +1843,7 @@
 
       <div class="footer__bottom">
         <p>© <span id="footer-year">2025</span> Safaet Jaman. Built with HTML, CSS &amp; JavaScript. Hosted on GitHub Pages.</p>
-        <p class="text-muted">Safaet Jaman · Saddam Hossen · Chittagong, Bangladesh</p>
+        <p class="text-muted">Safaet Jaman Arman · Chittagong, Bangladesh</p>
       </div>
 
     </div>
@@ -1769,6 +1851,7 @@
 
   <!-- JS — same file used across all pages -->
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/bg-network.js" defer></script>
 
   <script>
     // Auto-update copyright year
