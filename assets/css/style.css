@@ -16,11 +16,16 @@
    ────────────────────────────────────────────────────────────── */
 :root {
 
-  /* ── Backgrounds (dark by default) ── */
-  --bg-base:      #07090f;   /* deepest page bg — near-black with blue hint  */
-  --bg-surface:   #0d1117;   /* card / panel bg                              */
-  --bg-elevated:  #131a26;   /* hover state, elevated card                   */
-  --bg-overlay:   #1a2236;   /* tooltip, filter chip                         */
+  /* ── Backgrounds (dark by default) ──
+     Slightly translucent (~0.86-0.9 alpha) rather than fully opaque so the
+     fixed bg-network.js canvas (z-index:-1, sits behind all normal-flow
+     content per CSS stacking rules) can still show through section
+     backgrounds site-wide. Do not change back to opaque hex or the
+     background animation becomes invisible everywhere except bare <body>. ── */
+  --bg-base:      rgba(7,9,15,0.86);     /* deepest page bg — near-black with blue hint  */
+  --bg-surface:   rgba(13,17,23,0.88);   /* card / panel bg                              */
+  --bg-elevated:  rgba(19,26,38,0.9);    /* hover state, elevated card                   */
+  --bg-overlay:   rgba(26,34,54,0.9);    /* tooltip, filter chip                         */
   --bg-border:    #1e2d45;   /* visible inside cards                         */
 
   /* ── Primary gradient — violet → cyan (the "AI" gradient) ── */
@@ -50,16 +55,16 @@
   --grad-hero-bg:   radial-gradient(ellipse at 20% 50%, rgba(124,58,237,0.15) 0%, transparent 60%),
                     radial-gradient(ellipse at 80% 20%, rgba(6,182,212,0.1) 0%, transparent 55%),
                     radial-gradient(ellipse at 60% 80%, rgba(192,38,211,0.08) 0%, transparent 50%),
-                    #07090f;
+                    rgba(7,9,15,0.86);
   --grad-card-hover: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(6,182,212,0.06));
   --grad-cta-bg:    radial-gradient(ellipse at 30% 40%, rgba(124,58,237,0.12) 0%, transparent 60%),
                     radial-gradient(ellipse at 70% 60%, rgba(6,182,212,0.08) 0%, transparent 55%),
-                    #0d1117;
+                    rgba(13,17,23,0.88);
 
   /* ── Text ── */
   --text-primary:   #f0f4ff;   /* slightly blue-white — not harsh pure white  */
   --text-secondary: #8b9cc8;   /* muted blue-grey                             */
-  --text-muted:     #4a5578;   /* very muted                                  */
+  --text-muted:     #7681a6;   /* very muted — WCAG AA (4.5:1) on bg-base & bg-surface */
   --text-inverse:   #07090f;
 
   /* ── Borders ── */
@@ -154,10 +159,10 @@
 
 /* Light theme override */
 [data-theme="light"] {
-  --bg-base:      #f8faff;
-  --bg-surface:   #ffffff;
-  --bg-elevated:  #f0f2ff;
-  --bg-overlay:   #e8ebff;
+  --bg-base:      rgba(248,250,255,0.86);
+  --bg-surface:   rgba(255,255,255,0.88);
+  --bg-elevated:  rgba(240,242,255,0.9);
+  --bg-overlay:   rgba(232,235,255,0.9);
   --bg-border:    #dde2f5;
 
   --text-primary:   #0f1629;
@@ -178,10 +183,10 @@
 
   --grad-hero-bg: radial-gradient(ellipse at 20% 50%, rgba(124,58,237,0.07) 0%, transparent 60%),
                   radial-gradient(ellipse at 80% 20%, rgba(6,182,212,0.05) 0%, transparent 55%),
-                  #f8faff;
+                  rgba(248,250,255,0.86);
   --grad-cta-bg: radial-gradient(ellipse at 30% 40%, rgba(124,58,237,0.06) 0%, transparent 60%),
                  radial-gradient(ellipse at 70% 60%, rgba(6,182,212,0.05) 0%, transparent 55%),
-                 #f0f2ff;
+                 rgba(240,242,255,0.88);
 }
 
 
@@ -978,6 +983,44 @@ main { padding-top: var(--nav-height); }
 
 
 /* ──────────────────────────────────────────────────────────────
+   8B. EXPERIENCE
+   ────────────────────────────────────────────────────────────── */
+.experience-list { display: flex; flex-direction: column; gap: var(--space-5); }
+
+.experience-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: border-color var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease);
+}
+.experience-card:hover { border-color: rgba(124,58,237,0.3); box-shadow: var(--glow-card); }
+
+.experience-card__header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  flex-wrap: wrap; gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+.experience-card__role { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700; color: var(--text-primary); line-height: 1.3; }
+.experience-card__company { font-size: var(--text-sm); font-weight: 600; color: var(--cyan-light); margin-top: 2px; }
+.experience-card__meta { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
+.experience-card__dates { font-size: var(--text-xs); color: var(--text-muted); font-weight: 500; white-space: nowrap; }
+
+.experience-card__summary { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-3); }
+
+.experience-card__bullets { display: flex; flex-direction: column; gap: var(--space-2); }
+.experience-card__bullets li {
+  position: relative; padding-left: var(--space-5);
+  font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7;
+}
+.experience-card__bullets li::before {
+  content: ''; position: absolute; left: 2px; top: 0.65em;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--grad-primary);
+}
+
+
+/* ──────────────────────────────────────────────────────────────
    9. SKILLS PREVIEW
    ────────────────────────────────────────────────────────────── */
 .skills-preview { background: var(--bg-base); }
@@ -1409,4 +1452,37 @@ main { padding-top: var(--nav-height); }
 
 /* text-right utility */
 .text-right { text-align: right; }
+
+
+/* ──────────────────────────────────────────────────────────────
+   REDUCED MOTION
+   Neutralizes scroll-reveal, skill-bar fills, and decorative
+   looping animations for users who request reduced motion.
+   Focus/hover/interaction transitions are left intact.
+   ────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+  /* Scroll reveal: show instantly, no fade/translate */
+  .reveal,
+  .reveal.visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Skill / progress bar fills: apply instantly, no animated width */
+  .skill-bar::after,
+  .learning-preview__progress-bar {
+    transition: none !important;
+  }
+
+  /* Decorative looping animations (ambient orbs, pulsing dots, floating chips) */
+  .hero__orb,
+  .hero__pill-dot,
+  .hero__photo-glow,
+  .hero__chip,
+  .hero__status-dot {
+    animation: none !important;
+  }
+}
 

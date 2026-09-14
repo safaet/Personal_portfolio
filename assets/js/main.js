@@ -165,7 +165,8 @@ function initContactForm() {
     submitBtn.textContent = 'Sending…';
 
     try {
-      // Replace action URL with your Formspree/Netlify endpoint
+      // NOTE: form.action is a Formspree placeholder (REPLACE_WITH_YOUR_ID) in
+      // contact.html — this request will fail until that endpoint is set.
       const res = await fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
